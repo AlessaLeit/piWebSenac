@@ -1,0 +1,359 @@
+/* Reset e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #d62828;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Seções do formulário */
+.secao-formulario {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.secao-formulario:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.secao-formulario h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #d62828;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.secao-formulario h2 i {
+    font-size: 1.2em;
+}
+
+/* Opções de seleção */
+.grade-opcoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .grade-opcoes {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cartao-opcao {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cartao-opcao:hover {
+    border-color: #d62828;
+}
+
+.cartao-opcao.selecionado {
+    border-color: #d62828;
+    background-color: #fff5f5;
+}
+
+.cartao-opcao input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cartao-opcao label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cartao-opcao i {
+    font-size: 1.8rem;
+    color: #d62828;
+}
+
+.cartao-opcao .preco {
+    font-weight: 600;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Sabores */
+.grade-sabores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.cartao-sabor {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cartao-sabor:hover {
+    border-color: #f77f00;
+}
+
+.cartao-sabor.selecionado {
+    border-color: #f77f00;
+    background-color: #fff8f0;
+}
+
+.cartao-sabor input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cartao-sabor .imagem-sabor {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f77f00;
+    font-size: 1.5rem;
+}
+
+.info-sabor {
+    flex: 1;
+}
+
+.info-sabor h3 {
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.info-sabor p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Endereço */
+.campo-endereco {
+    margin-bottom: 15px;
+}
+
+.campo-endereco label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.campo-endereco input, .campo-endereco textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.campo-endereco input:focus, .campo-endereco textarea:focus {
+    border-color: #d62828;
+    outline: none;
+}
+
+.opcao-retirada {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.opcao-retirada input {
+    width: auto;
+}
+
+/* Botão */
+.botao {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botao:hover {
+    background-color: #b32020;
+    transform: translateY(-2px);
+}
+
+.botao:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Progresso */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #eee;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eee;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+    background-color: #d62828;
+    color: white;
+}
+
+.step.completed .step-number {
+    background-color: #f77f00;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.step.active .step-label {
+    color: #d62828;
+}
+
+.step.completed .step-label {
+    color: #f77f00;
+}
+
+/* Seções ocultas */
+.oculto {
+    display: none;
+}
+
+/* Resumo do pedido */
+.resumo-pedido {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+}
+
+.resumo-pedido h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.resumo-pedido p {
+    margin-bottom: 5px;
+}
+
+/* Notificações */
+.alerta {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.alerta-erro {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.alerta-sucesso {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
