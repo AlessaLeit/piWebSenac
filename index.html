@@ -13,7 +13,7 @@
         <!-- Cabeçalho -->
         <header class="header">
             <h1><i class="fas fa-pizza-slice"></i> Casa das Pizzas</h1>
-            <p>Monte sua pizza e receba em casa!</p>
+            <p>Monte seu pedido e receba em casa!</p>
         </header>
 
         <!-- Progresso -->
@@ -44,18 +44,10 @@
             <h2><i class="fas fa-ruler-combined"></i> Escolha o tamanho</h2>
             <div class="grade-opcoes">
                 <div class="cartao-opcao">
-                    <input type="radio" id="pequena" name="tamanho" value="Pequena">
-                    <label for="pequena">
-                        <i class="fas fa-pizza-slice"></i>
-                        <span>Média</span>
-                        <span class="preco">R$ 99,00</span>
-                    </label>
-                </div>
-                <div class="cartao-opcao">
-                    <input type="radio" id="media" name="tamanho" value="Média">
+                    <input type="radio" id="media" name="tamanho" value="Media">
                     <label for="media">
                         <i class="fas fa-pizza-slice"></i>
-                        <span>Grande</span>
+                        <span>Pizza Média</span>
                         <span class="preco">R$ 99,00</span>
                     </label>
                 </div>
@@ -63,7 +55,23 @@
                     <input type="radio" id="grande" name="tamanho" value="Grande">
                     <label for="grande">
                         <i class="fas fa-pizza-slice"></i>
-                        <span>Big</span>
+                        <span>Pizza Grande</span>
+                        <span class="preco">R$ 99,00</span>
+                    </label>
+                </div>
+                <div class="cartao-opcao">
+                    <input type="radio" id="big" name="tamanho" value="Big">
+                    <label for="big">
+                        <i class="fas fa-pizza-slice"></i>
+                        <span>Pizza Big</span>
+                        <span class="preco">R$ 99,00</span>
+                    </label>
+                </div>
+                <div class="cartao-opcao">
+                    <input type="radio" id="calzone" name="tamanho" value="Calzone">
+                    <label for="calzone">
+                        <i class="fas fa-pizza-slice"></i>
+                        <span>Calzone</span>
                         <span class="preco">R$ 99,00</span>
                     </label>
                 </div>
@@ -77,7 +85,7 @@
             <p>Selecione um ou mais sabores</p>
             <div class="grade-sabores">
                 <div class="cartao-sabor">
-                    <input type="radio" id="sabor1" name="sabor" value="Margherita">
+                    <input type="checkbox" id="sabor1" name="sabor" value="Margherita">
                     <label for="sabor1">
                         <div class="imagem-sabor">
                             <i class="fas fa-cheese"></i>
@@ -89,7 +97,7 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="radio" id="sabor2" name="sabor" value="Calabresa">
+                    <input type="checkbox" id="sabor2" name="sabor" value="Calabresa">
                     <label for="sabor2">
                         <div class="imagem-sabor">
                             <i class="fas fa-drumstick-bite"></i>
@@ -101,7 +109,7 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="radio" id="sabor3" name="sabor" value="Portuguesa">
+                    <input type="checkbox" id="sabor3" name="sabor" value="Portuguesa">
                     <label for="sabor3">
                         <div class="imagem-sabor">
                             <i class="fas fa-egg"></i>
@@ -113,7 +121,7 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="radio" id="sabor4" name="sabor" value="Frango Catupiry">
+                    <input type="checkbox" id="sabor4" name="sabor" value="Frango Catupiry">
                     <label for="sabor4">
                         <div class="imagem-sabor">
                             <i class="fas fa-drumstick-bite"></i>
@@ -125,7 +133,7 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="radio" id="sabor5" name="sabor" value="Quatro Queijos">
+                    <input type="checkbox" id="sabor5" name="sabor" value="Quatro Queijos">
                     <label for="sabor5">
                         <div class="imagem-sabor">
                             <i class="fas fa-cheese"></i>
@@ -137,7 +145,7 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="radio" id="sabor6" name="sabor" value="Pepperoni">
+                    <input type="checkbox" id="sabor6" name="sabor" value="Pepperoni">
                     <label for="sabor6">
                         <div class="imagem-sabor">
                             <i class="fas fa-pepper-hot"></i>
