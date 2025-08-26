@@ -157,31 +157,34 @@ body {
     background-color: #fff8f0;
 }
 
-.cartao-sabor input {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
 
 .cartao-sabor input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
+    cursor: pointer; 
 }
 
-.cartao-sabor .imagem-sabor {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #f5f5f5;
+.cartao-sabor label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #f77f00;
-    font-size: 1.5rem;
+    width: 100%;
+    min-height: 60px;
 }
+
+
+.cartao-sabor:hover label::before {
+    border-color: #f77f00;
+}
+
+.cartao-sabor input:focus ~ label::before {
+    box-shadow: 0 0 0 2px rgba(247, 127, 0, 0.2);
+}
+
 
 .info-sabor {
     flex: 1;
@@ -365,4 +368,96 @@ body {
     background-color: #e8f5e9;
     color: #2e7d32;
     border: 1px solid #a5d6a7;
+}
+
+/* Botões de edição */
+.botoes-pizza {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.botao-editar-pizza {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-editar-pizza:hover {
+    background-color: #0056b3;
+}
+
+.botao-excluir-pizza {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-excluir-pizza:hover {
+    background-color: #c82333;
+}
+
+/* Pizza items */
+.pizza-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #d62828;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pizza-item p {
+    margin-bottom: 10px;
+}
+
+/* Botões de edição na seção de edição */
+.botoes-edicao {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.botao-salvar {
+    background-color: #28a745 !important;
+}
+
+.botao-salvar:hover {
+    background-color: #218838 !important;
+}
+
+.botao-cancelar {
+    background-color: #6c757d !important;
+}
+
+.botao-cancelar:hover {
+    background-color: #5a6268 !important;
+}
+
+/* Modo de edição */
+#secaoEdicao {
+    display: none; /* Oculta inicialmente */
+}
+
+/* Resumo detalhado */
+#resumoDetalhado {
+    margin-top: 15px;
+}
+
+#resumoDetalhado p {
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 4px;
+    border-left: 4px solid #d62828;
 }

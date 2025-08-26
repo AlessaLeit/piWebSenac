@@ -46,7 +46,6 @@
                 <div class="cartao-opcao">
                     <input type="radio" id="media" name="tamanho" value="Media">
                     <label for="media">
-                        <i class="fas fa-pizza-slice"></i>
                         <span>Pizza Média</span>
                         <span class="preco">R$ 99,00</span>
                     </label>
@@ -54,7 +53,6 @@
                 <div class="cartao-opcao">
                     <input type="radio" id="grande" name="tamanho" value="Grande">
                     <label for="grande">
-                        <i class="fas fa-pizza-slice"></i>
                         <span>Pizza Grande</span>
                         <span class="preco">R$ 99,00</span>
                     </label>
@@ -62,7 +60,6 @@
                 <div class="cartao-opcao">
                     <input type="radio" id="big" name="tamanho" value="Big">
                     <label for="big">
-                        <i class="fas fa-pizza-slice"></i>
                         <span>Pizza Big</span>
                         <span class="preco">R$ 99,00</span>
                     </label>
@@ -70,7 +67,6 @@
                 <div class="cartao-opcao">
                     <input type="radio" id="calzone" name="tamanho" value="Calzone">
                     <label for="calzone">
-                        <i class="fas fa-pizza-slice"></i>
                         <span>Calzone</span>
                         <span class="preco">R$ 99,00</span>
                     </label>
@@ -83,13 +79,11 @@
         <section class="secao-formulario oculto" id="secaoSabores">
             <h2><i class="fas fa-utensils"></i> Escolha seus sabores</h2>
             <p>Selecione um ou mais sabores</p>
+            <br>
             <div class="grade-sabores">
                 <div class="cartao-sabor">
-                    <input type="checkbox" id="sabor1" name="sabor" value="Margherita">
                     <label for="sabor1">
-                        <div class="imagem-sabor">
-                            <i class="fas fa-cheese"></i>
-                        </div>
+                        <input type="checkbox" id="sabor1" name="sabor[]" value="Margherita">
                         <div class="info-sabor">
                             <h3>Margherita</h3>
                             <p>Molho, mussarela, tomate e manjericão</p>
@@ -97,11 +91,8 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="checkbox" id="sabor2" name="sabor" value="Calabresa">
                     <label for="sabor2">
-                        <div class="imagem-sabor">
-                            <i class="fas fa-drumstick-bite"></i>
-                        </div>
+                        <input type="checkbox" id="sabor2" name="sabor[]" value="Calabresa">
                         <div class="info-sabor">
                             <h3>Calabresa</h3>
                             <p>Molho, mussarela e calabresa fatiada</p>
@@ -109,11 +100,8 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="checkbox" id="sabor3" name="sabor" value="Portuguesa">
                     <label for="sabor3">
-                        <div class="imagem-sabor">
-                            <i class="fas fa-egg"></i>
-                        </div>
+                        <input type="checkbox" id="sabor3" name="sabor[]" value="Portuguesa">
                         <div class="info-sabor">
                             <h3>Portuguesa</h3>
                             <p>Molho, mussarela, presunto, ovo e azeitonas</p>
@@ -121,11 +109,8 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="checkbox" id="sabor4" name="sabor" value="Frango Catupiry">
                     <label for="sabor4">
-                        <div class="imagem-sabor">
-                            <i class="fas fa-drumstick-bite"></i>
-                        </div>
+                        <input type="checkbox" id="sabor4" name="sabor[]" value="Frango Catupiry">
                         <div class="info-sabor">
                             <h3>Frango Catupiry</h3>
                             <p>Molho, mussarela, frango desfiado e catupiry</p>
@@ -133,11 +118,8 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="checkbox" id="sabor5" name="sabor" value="Quatro Queijos">
                     <label for="sabor5">
-                        <div class="imagem-sabor">
-                            <i class="fas fa-cheese"></i>
-                        </div>
+                        <input type="checkbox" id="sabor5" name="sabor[]" value="Quatro Queijos">
                         <div class="info-sabor">
                             <h3>Quatro Queijos</h3>
                             <p>Molho, mussarela, gorgonzola, parmesão e provolone</p>
@@ -145,11 +127,8 @@
                     </label>
                 </div>
                 <div class="cartao-sabor">
-                    <input type="checkbox" id="sabor6" name="sabor" value="Pepperoni">
                     <label for="sabor6">
-                        <div class="imagem-sabor">
-                            <i class="fas fa-pepper-hot"></i>
-                        </div>
+                        <input type="checkbox" id="sabor6" name="sabor[]" value="Pepperoni">
                         <div class="info-sabor">
                             <h3>Pepperoni</h3>
                             <p>Molho, mussarela e pepperoni</p>
@@ -160,7 +139,7 @@
             <button class="botao" id="botaoProximo2">Próximo</button>
             <button class="botao" id="botaoVoltar1">Voltar</button>
         </section>
-
+        
         <!-- Seção 3: Pagamento -->
         <section class="secao-formulario oculto" id="secaoPagamento">
             <h2><i class="fas fa-money-bill-wave"></i> Forma de pagamento</h2>
@@ -170,7 +149,7 @@
                     <label for="pix">
                         <i class="fas fa-qrcode"></i>
                         <span>Pix</span>
-
+                        
                     </label>
                 </div>
                 <div class="cartao-opcao">
@@ -191,7 +170,7 @@
             <button class="botao" id="botaoProximo3">Próximo</button>
             <button class="botao" id="botaoVoltar2">Voltar</button>
         </section>
-
+        
         <!-- Seção 4: Endereço -->
         <section class="secao-formulario oculto" id="secaoEndereco">
             <h2><i class="fas fa-truck"></i> Dados de entrega</h2>
@@ -218,10 +197,34 @@
                 <p id="resumoPagamento"></p>
                 <p id="resumoEntrega"></p>
             </div>
+            <button class="botao" id="botaoAdicionar">Adicionar Mais</button>
             <button class="botao" id="botaoFinalizar">Finalizar Pedido</button>
             <button class="botao" id="botaoVoltar3">Voltar</button>
         </section>
     </div>
+    
+    <!-- Seção 5: Revisão do Pedido -->
+    <section class="secao-formulario oculto" id="secaoRevisao">
+        <h2><i class="fas fa-check-circle"></i> Revisão do Pedido</h2>
+        <div class="resumo-pedido" id="resumoCompleto">
+            <h3>Confirme seu pedido antes de enviar:</h3>
+            <div id="resumoDetalhado"></div>
+        </div>
+        <div class="botoes-revisao">
+            <button class="botao botao-confirmar" id="botaoConfirmar">Confirmar e Enviar</button>
+            <button class="botao botao-editar" id="botaoEditar">Editar Pedido</button>
+        </div>
+    </section>
+    
+    <!-- Seção 6: Modo Edição (oculta inicialmente) -->
+        <section class="secao-formulario oculto" id="secaoEdicao">
+            <h2><i class="fas fa-edit"></i> Editando Pizza</h2>
+            <div id="conteudoEdicao"></div>
+            <div class="botoes-edicao">
+                <button class="botao botao-salvar" id="botaoSalvarEdicao">Salvar Alterações</button>
+                <button class="botao botao-cancelar" id="botaoCancelarEdicao">Cancelar</button>
+            </div>
+        </section>
 
     <script src="script.js"></script>
 </body>
