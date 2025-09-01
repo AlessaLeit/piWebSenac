@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão do Pedido - Casa das Pizzas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <h1><i class="fas fa-pizza-slice"></i> Casa das Pizzas</h1>
+            <p>Revise seu pedido antes de finalizar</p>
+        </header>
+
+        <!-- Progresso -->
+        <div class="progress-steps">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1">
+                <div class="step-number">1</div>
+                <div class="step-label">Tamanho</div>
+            </div>
+            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2">
+                <div class="step-number">2</div>
+                <div class="step-label">Sabores</div>
+            </div>
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3">
+                <div class="step-number">3</div>
+                <div class="step-label">Pagamento</div>
+            </div>
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4">
+                <div class="step-number">4</div>
+                <div class="step-label">Entrega</div>
+            </div>
+        </div>
+
+        <!-- Resumo do pedido -->
+        <section class="secao-formulario">
+            <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
+            <div class="resumo-pedido">
+                <ul>
+                    <li><i class="fas fa-pizza-slice"></i> <strong>Tamanho:</strong> {{ pedido.tamanho }}</li>
+                    <li><i class="fas fa-utensils"></i> <strong>Sabores:</strong> {{ pedido.sabores|join:", " }}</li>
+                    <li><i class="fas fa-money-bill-wave"></i> <strong>Pagamento:</strong> {{ pedido.pagamento }}</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ pedido.endereco }}</li>
+                </ul>
+            </div>
+
+            <!-- Botões de editar -->
+            <div class="botoes-revisao">
+                <form method="get" action="{% url 'pedido:selecionar_tamanho' %}" style="display: inline;">
+                    <input type="hidden" name="editando" value="true">
+                    <button type="submit" class="botao botao-editar">
+                        <i class="fas fa-edit"></i> Editar Tamanho
+                    </button>
+                </form>
+                <form method="get" action="{% url 'pedido:selecionar_sabores' %}" style="display: inline;">
+                    <input type="hidden" name="editando" value="true">
+                    <button type="submit" class="botao botao-editar">
+                        <i class="fas fa-edit"></i> Editar Sabores
+                    </button>
+                </form>
+                <form method="get" action="{% url 'pedido:selecionar_pagamento' %}" style="display: inline;">
+                    <input type="hidden" name="editando" value="true">
+                    <button type="submit" class="botao botao-editar">
+                        <i class="fas fa-edit"></i> Editar Pagamento
+                    </button>
+                </form>
+                <form method="get" action="{% url 'pedido:selecionar_endereco' %}" style="display: inline;">
+                    <input type="hidden" name="editando" value="true">
+                    <button type="submit" class="botao botao-editar">
+                        <i class="fas fa-edit"></i> Editar Endereço
+                    </button>
+                </form>
+            </div>
+
+            <!-- Botão de finalizar -->
+            <div class="botoes-revisao">
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="botao botao-salvar">Confirmar e Finalizar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

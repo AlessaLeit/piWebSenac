@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzaria Delícia - Faça seu pedido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Cabeçalho -->
+      <header class="header">
+        <h1><i class="fas fa-pizza-slice"></i> Casa das Pizzas</h1>
+        <p>Monte seu pedido e receba em casa!</p>
+      </header>
+
+      <!-- Progresso -->
+      <div class="progress-steps">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1">
+                <div class="step-number">1</div>
+                <div class="step-label">Tamanho</div>
+            </div>
+            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2">
+                <div class="step-number">2</div>
+                <div class="step-label">Sabores</div>
+            </div>
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3">
+                <div class="step-number">3</div>
+                <div class="step-label">Pagamento</div>
+            </div>
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4">
+                <div class="step-number">4</div>
+                <div class="step-label">Entrega</div>
+            </div>
+      </div>
+
+      <!-- Mensagens de alerta -->
+      {% if erro %}
+      <div class="alerta alerta-erro">{{ erro }}</div>
+      {% endif %}
+
+      <!-- Seção 1: Tamanho -->
+      {% if etapa == "tamanho" %}
+      <section class="secao-formulario">
+      <h2><i class="fas fa-ruler"></i> Escolha o tamanho</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="grade-opcoes">
+          <div class="cartao-opcao">
+            <input type="radio" id="media" name="tamanho" value="Media" {% if pedido.tamanho == 'Media' %}checked{% endif %} />
+            <label for="media"><i class="fas fa-pizza-slice"></i><span>Pizza Média</span></label>
+          </div>
+          <div class="cartao-opcao">
+            <input type="radio" id="grande" name="tamanho" value="Grande" {% if pedido.tamanho == 'Grande' %}checked{% endif %} />
+            <label for="grande"><i class="fas fa-pizza-slice"></i><span>Pizza Grande</span></label>
+          </div>
+          <div class="cartao-opcao">
+            <input type="radio" id="big" name="tamanho" value="Big" {% if pedido.tamanho == 'Big' %}checked{% endif %} />
+            <label for="big"><i class="fas fa-pizza-slice"></i><span>Pizza Big</span></label>
+          </div>
+          <div class="cartao-opcao">
+            <input type="radio" id="calzone" name="tamanho" value="Calzone" {% if pedido.tamanho == 'Calzone' %}checked{% endif %} />
+            <label for="calzone"><i class="fas fa-utensils"></i><span>Calzone</span></label>
+          </div>
+        </div>
+        <button type="submit" class="botao">Próximo</button>
+      </form>
+      {% endif %}
+    </section>
+    </div>
+
+    <script>
+      document.querySelectorAll('.cartao-opcao input[type="radio"]').forEach(input => {
+        input.addEventListener('change', function() {
+          document.querySelectorAll('.cartao-opcao').forEach(card => {
+            card.classList.remove('selecionado');
+          });
+          if (this.checked) {
+            this.parentElement.classList.add('selecionado');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

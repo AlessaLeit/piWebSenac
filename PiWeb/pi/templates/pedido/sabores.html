@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzaria Delícia - Faça seu pedido</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Cabeçalho -->
+      <header class="header">
+        <h1><i class="fas fa-pizza-slice"></i> Casa das Pizzas</h1>
+        <p>Monte seu pedido e receba em casa!</p>
+      </header>
+
+      <!-- Progresso -->
+      <div class="progress-steps">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1">
+                <div class="step-number">1</div>
+                <div class="step-label">Tamanho</div>
+            </div>
+            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2">
+                <div class="step-number">2</div>
+                <div class="step-label">Sabores</div>
+            </div>
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3">
+                <div class="step-number">3</div>
+                <div class="step-label">Pagamento</div>
+            </div>
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4">
+                <div class="step-number">4</div>
+                <div class="step-label">Entrega</div>
+            </div>
+        </div>
+        
+      <!-- Mensagens de alerta -->
+      {% if erro %}
+      <div class="alerta alerta-erro">{{ erro }}</div>
+      {% endif %}
+
+      <!-- Seção 2: Sabores -->
+      {% if etapa == "sabores" %}
+      <section class="secao-formulario" id="secaoSabores">
+        <h2><i class="fas fa-utensils"></i> Escolha seus sabores</h2>
+        <form method="post">
+          {% csrf_token %}
+          <div class="grade-sabores">
+            <div class="cartao-sabor">
+              <input type="checkbox" id="margherita" name="sabores" value="Margherita" {% if 'Margherita' in pedido.sabores %}checked{% endif %} />
+              <label for="margherita">
+                <div class="info-sabor">
+                  <i class="fas fa-pizza-slice"></i>
+                  <h3>Margherita</h3>
+                  <p>Mussarela, tomate e manjericão</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="calabresa" name="sabores" value="Calabresa" {% if 'Calabresa' in pedido.sabores %}checked{% endif %} />
+              <label for="calabresa">
+                <div class="info-sabor">
+                  <i class="fas fa-pizza-slice"></i>
+                  <h3>Calabresa</h3>
+                  <p>Calabresa, cebola e mussarela</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="portuguesa" name="sabores" value="Portuguesa" {% if 'Portuguesa' in pedido.sabores %}checked{% endif %} />
+              <label for="portuguesa">
+                <div class="info-sabor">
+                  <i class="fas fa-pizza-slice"></i>
+                  <h3>Portuguesa</h3>
+                  <p>Presunto, mussarela, ovo e cebola</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="frango" name="sabores" value="Frango Catupiry" {% if 'Frango Catupiry' in pedido.sabores %}checked{% endif %} />
+              <label for="frango">
+                <div class="info-sabor">
+                  <i class="fas fa-pizza-slice"></i>
+                  <h3>Frango Catupiry</h3>
+                  <p>Frango, catupiry e milho</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="queijos" name="sabores" value="Quatro Queijos" {% if 'Quatro Queijos' in pedido.sabores %}checked{% endif %} />
+              <label for="queijos">
+                <div class="info-sabor">
+                  <i class="fas fa-pizza-slice"></i>
+                  <h3>Quatro Queijos</h3>
+                  <p>Mussarela, provolone, parmesão e gorgonzola</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="pepperoni" name="sabores" value="Pepperoni" {% if 'Pepperoni' in pedido.sabores %}checked{% endif %} />
+              <label for="pepperoni">
+                <div class="info-sabor">
+                  <i class="fas fa-pizza-slice"></i>
+                  <h3>Pepperoni</h3>
+                  <p>Pepperoni e mussarela</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="botao">Próximo</button>
+        </form>
+      </section>
+      {% endif %}
+    </div>
+
+    <script>
+      document.querySelectorAll('.cartao-sabor input[type="checkbox"]').forEach(input => {
+        input.addEventListener('change', function() {
+          if (this.checked) {
+            this.parentElement.classList.add('selecionado');
+          } else {
+            this.parentElement.classList.remove('selecionado');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
