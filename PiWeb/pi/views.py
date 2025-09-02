@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 
 def selecionar_tamanho(request):
     pedido = request.session.get('pedido', {})
-    editando = request.GET.get('editando') == 'true' or request.POST.get('editando') == 'true'
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    
+    if (editando == 'true'):
+        pedido['tamanho'] = None
+        
     tamanho_selecionado = pedido.get('tamanho')
 
     if request.method == "POST":
@@ -32,7 +36,11 @@ def selecionar_tamanho(request):
 
 def selecionar_sabores(request):
     pedido = request.session.get('pedido', {})
-    editando = request.GET.get('editando') == 'true' or request.POST.get('editando') == 'true'
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+
+    if (editando == 'true'):
+        pedido['sabores'] = None
+        
     sabores_selecionados = pedido.get('sabores', [])
 
     if request.method == "POST":
@@ -62,7 +70,11 @@ def selecionar_sabores(request):
 
 def selecionar_pagamento(request):
     pedido = request.session.get('pedido', {})
-    editando = request.GET.get('editando') == 'true' or request.POST.get('editando') == 'true'
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    
+    if (editando == 'true'):
+        pedido['pagamento'] = None
+        
     pagamento_selecionado = pedido.get('pagamento')
 
     if request.method == "POST":
@@ -92,9 +104,12 @@ def selecionar_pagamento(request):
 
 def selecionar_endereco(request):
     pedido = request.session.get('pedido', {})
-    editando = request.GET.get('editando') == 'true' or request.POST.get('editando') == 'true'
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'        
     endereco_selecionado = pedido.get('endereco')
 
+    if editando == 'true':
+        pedido['endereco'] = ''
+        
     if request.method == "POST":
         endereco = request.POST.get('endereco', '').strip()
         if not endereco:
@@ -102,7 +117,7 @@ def selecionar_endereco(request):
 
         pedido['endereco'] = endereco
         request.session['pedido'] = pedido
-
+                    
         return redirect('pedido:revisar_pedido')
 
     return render(request, 'pedido/endereco.html', {
@@ -141,31 +156,3 @@ def revisar_pedido(request):
         return render(request, 'pedido/finalizado.html', {'pedido': pedido, 'etapa': 'finalizado'})
 
     return render(request, 'pedido/revisao.html', {'pedido': pedido, 'etapa': 'revisao'})
-
-def editar_tamanho(request):
-    pedido = request.session.get('pedido', {})
-    if 'tamanho' in pedido:
-        del pedido['tamanho']
-        request.session['pedido'] = pedido
-    return redirect('pedido:selecionar_tamanho?editando=true')
-
-def editar_sabores(request):
-    pedido = request.session.get('pedido', {})
-    if 'sabores' in pedido:
-        del pedido['sabores']
-        request.session['pedido'] = pedido
-    return redirect('pedido:selecionar_sabores?editando=true')
-
-def editar_pagamento(request):
-    pedido = request.session.get('pedido', {})
-    if 'pagamento' in pedido:
-        del pedido['pagamento']
-        request.session['pedido'] = pedido
-    return redirect('pedido:selecionar_pagamento?editando=true')
-
-def editar_endereco(request):
-    pedido = request.session.get('pedido', {})
-    if 'endereco' in pedido:
-        del pedido['endereco']
-        request.session['pedido'] = pedido
-    return redirect('pedido:selecionar_endereco?editando=true')
