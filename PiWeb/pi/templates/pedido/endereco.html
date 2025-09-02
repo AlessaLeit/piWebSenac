@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzaria Delícia - Faça seu pedido</title>
+    <title>Casa das Pizzas - Faça seu pedido</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -78,15 +78,28 @@
     </div>
 
     <script>
-      document.getElementById('retirada').addEventListener('change', function() {
+      document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('retirada');
         const camposEndereco = document.getElementById('camposEndereco');
-        if (this.checked) {
-          
-          camposEndereco.style.display = 'none';
-        } else {
-          camposEndereco.style.display = 'block';
+        const enderecoTextarea = document.getElementById('endereco');
+
+        function atualizarCampoEndereco() {
+          if (checkbox.checked) {
+            camposEndereco.style.display = 'none';
+            enderecoTextarea.value = 'Retirar no balcão';
+          } else {
+            camposEndereco.style.display = 'block';
+            if (enderecoTextarea.value === 'Retirar no balcão') {
+              enderecoTextarea.value = '';
+            }
+          }
         }
+
+        checkbox.addEventListener('change', atualizarCampoEndereco);
+
+        // Atualiza o estado do campo ao carregar a página (caso já esteja checado)
+        atualizarCampoEndereco();
       });
-    </script>
+  </script>
   </body>
 </html>

@@ -3,9 +3,7 @@ from django.shortcuts import render, redirect
 def selecionar_tamanho(request):
     pedido = request.session.get('pedido', {})
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
-    
-    if (editando == 'true'):
-        pedido['tamanho'] = None
+    pedido['tamanho'] = None
         
     tamanho_selecionado = pedido.get('tamanho')
 
@@ -37,9 +35,7 @@ def selecionar_tamanho(request):
 def selecionar_sabores(request):
     pedido = request.session.get('pedido', {})
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
-
-    if (editando == 'true'):
-        pedido['sabores'] = None
+    pedido['sabores'] = None
         
     sabores_selecionados = pedido.get('sabores', [])
 
@@ -71,9 +67,7 @@ def selecionar_sabores(request):
 def selecionar_pagamento(request):
     pedido = request.session.get('pedido', {})
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
-    
-    if (editando == 'true'):
-        pedido['pagamento'] = None
+    pedido['pagamento'] = None
         
     pagamento_selecionado = pedido.get('pagamento')
 
@@ -106,9 +100,7 @@ def selecionar_endereco(request):
     pedido = request.session.get('pedido', {})
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'        
     endereco_selecionado = pedido.get('endereco')
-
-    if editando == 'true':
-        pedido['endereco'] = ''
+    pedido['endereco'] = ''
         
     if request.method == "POST":
         endereco = request.POST.get('endereco', '').strip()
