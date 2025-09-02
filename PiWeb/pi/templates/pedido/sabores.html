@@ -57,7 +57,7 @@
           {% csrf_token %}
           <div class="grade-sabores">
             <div class="cartao-sabor">
-              <input type="checkbox" id="margherita" name="sabores" value="Margherita" {% if 'Margherita' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="margherita" name="sabores" value="Margherita" {% if 'Margherita' in current_pizza.sabores %}checked{% endif %} />
               <label for="margherita">
                 <div class="info-sabor">
                   <i class="fas fa-pizza-slice"></i>
@@ -67,7 +67,7 @@
               </label>
             </div>
             <div class="cartao-sabor">
-              <input type="checkbox" id="calabresa" name="sabores" value="Calabresa" {% if 'Calabresa' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="calabresa" name="sabores" value="Calabresa" {% if 'Calabresa' in current_pizza.sabores %}checked{% endif %} />
               <label for="calabresa">
                 <div class="info-sabor">
                   <i class="fas fa-pizza-slice"></i>
@@ -77,7 +77,7 @@
               </label>
             </div>
             <div class="cartao-sabor">
-              <input type="checkbox" id="portuguesa" name="sabores" value="Portuguesa" {% if 'Portuguesa' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="portuguesa" name="sabores" value="Portuguesa" {% if 'Portuguesa' in current_pizza.sabores %}checked{% endif %} />
               <label for="portuguesa">
                 <div class="info-sabor">
                   <i class="fas fa-pizza-slice"></i>
@@ -87,7 +87,7 @@
               </label>
             </div>
             <div class="cartao-sabor">
-              <input type="checkbox" id="frango" name="sabores" value="Frango Catupiry" {% if 'Frango Catupiry' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="frango" name="sabores" value="Frango Catupiry" {% if 'Frango Catupiry' in current_pizza.sabores %}checked{% endif %} />
               <label for="frango">
                 <div class="info-sabor">
                   <i class="fas fa-pizza-slice"></i>
@@ -97,7 +97,7 @@
               </label>
             </div>
             <div class="cartao-sabor">
-              <input type="checkbox" id="queijos" name="sabores" value="Quatro Queijos" {% if 'Quatro Queijos' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="queijos" name="sabores" value="Quatro Queijos" {% if 'Quatro Queijos' in current_pizza.sabores %}checked{% endif %} />
               <label for="queijos">
                 <div class="info-sabor">
                   <i class="fas fa-pizza-slice"></i>
@@ -107,7 +107,7 @@
               </label>
             </div>
             <div class="cartao-sabor">
-              <input type="checkbox" id="pepperoni" name="sabores" value="Pepperoni" {% if 'Pepperoni' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="pepperoni" name="sabores" value="Pepperoni" {% if 'Pepperoni' in current_pizza.sabores %}checked{% endif %} />
               <label for="pepperoni">
                 <div class="info-sabor">
                   <i class="fas fa-pizza-slice"></i>

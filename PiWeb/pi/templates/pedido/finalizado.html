@@ -42,11 +42,18 @@
         <section class="secao-formulario">
             <h2><i class="fas fa-check-circle"></i> Resumo do Pedido</h2>
             <div class="resumo-pedido">
+                {% for pizza in pizzas %}
+                <div class="pizza-item">
+                    <h3>Pizza {{ forloop.counter }}</h3>
+                    <ul>
+                        <li><i class="fas fa-pizza-slice"></i> <strong>Tamanho:</strong> {{ pizza.tamanho }}</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Sabores:</strong> {{ pizza.sabores|join:", " }}</li>
+                    </ul>
+                </div>
+                {% endfor %}
                 <ul>
-                    <li><i class="fas fa-pizza-slice"></i> <strong>Tamanho:</strong> {{ pedido.tamanho }}</li>
-                    <li><i class="fas fa-utensils"></i> <strong>Sabores:</strong> {{ pedido.sabores|join:", " }}</li>
-                    <li><i class="fas fa-money-bill-wave"></i> <strong>Pagamento:</strong> {{ pedido.pagamento }}</li>
-                    <li><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ pedido.endereco }}</li>
+                    <li><i class="fas fa-money-bill-wave"></i> <strong>Pagamento:</strong> {{ pagamento }}</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ endereco }}</li>
                 </ul>
             </div>
 
@@ -57,8 +64,14 @@
                 Substitua o número pelo telefone da pizzaria no formato internacional (ex: 5511999999999)
                 {% endcomment %}
                 {% with
-                    mensagem="Olá! Gostaria de fazer um pedido:%0A- Tamanho: "|add:pedido.tamanho|add:"%0A- Sabores: "|add:pedido.sabores|join:", "|add:"%0A- Pagamento: "|add:pedido.pagamento|add:"%0A- Endereço: "|add:pedido.endereco
+                    mensagem="Olá! Gostaria de fazer um pedido:"
                 %}
+                {% for pizza in pizzas %}
+                {% with mensagem=mensagem|add:"%0A- Pizza "|add:forloop.counter|add:" - Tamanho: "|add:pizza.tamanho|add:" - Sabores: "|add:pizza.sabores|join:", " %}
+                {% endwith %}
+                {% endfor %}
+                {% with mensagem=mensagem|add:"%0A- Pagamento: "|add:pagamento|add:"%0A- Endereço: "|add:endereco %}
+                {% endwith %}
                     <a href="https://api.whatsapp.com/send?phone=5511999999999&text={{ mensagem }}" target="_blank" class="botao botao-salvar">
                         Enviar Pedido pelo WhatsApp
                     </a>

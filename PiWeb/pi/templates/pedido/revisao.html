@@ -42,40 +42,42 @@
         <section class="secao-formulario">
             <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
             <div class="resumo-pedido">
+                {% for pizza in pizzas %}
+                <div class="pizza-item">
+                    <h3>Pizza {{ forloop.counter }}</h3>
+                    <ul>
+                        <li><i class="fas fa-pizza-slice"></i> <strong>Tamanho:</strong> {{ pizza.tamanho }}</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Sabores:</strong> {{ pizza.sabores|join:", " }}</li>
+                    </ul>
+                    <div class="botoes-pizza">
+                        <a href="{% url 'pedido:revisar_pedido' %}?editar=tamanho&pizza_index={{ forloop.counter0 }}" class="botao botao-editar">
+                            <i class="fas fa-edit"></i> Editar Tamanho
+                        </a>
+                        <a href="{% url 'pedido:revisar_pedido' %}?editar=sabores&pizza_index={{ forloop.counter0 }}" class="botao botao-editar">
+                            <i class="fas fa-edit"></i> Editar Sabores
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="adicionar-pizza">
+                    <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao botao-editar">
+                        <i class="fas fa-plus"></i> Adicionar Pizza
+                    </a>
+                </div>
                 <ul>
-                    <li><i class="fas fa-pizza-slice"></i> <strong>Tamanho:</strong> {{ pedido.tamanho }}</li>
-                    <li><i class="fas fa-utensils"></i> <strong>Sabores:</strong> {{ pedido.sabores|join:", " }}</li>
-                    <li><i class="fas fa-money-bill-wave"></i> <strong>Pagamento:</strong> {{ pedido.pagamento }}</li>
-                    <li><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ pedido.endereco }}</li>
+                    <li><i class="fas fa-money-bill-wave"></i> <strong>Pagamento:</strong> {{ pagamento }}</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ endereco }}</li>
                 </ul>
             </div>
 
             <!-- Botões de editar -->
             <div class="botoes-revisao">
-                <form method="get" action="{% url 'pedido:selecionar_tamanho' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Tamanho
-                    </button>
-                </form>
-                <form method="get" action="{% url 'pedido:selecionar_sabores' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Sabores
-                    </button>
-                </form>
-                <form method="get" action="{% url 'pedido:selecionar_pagamento' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Pagamento
-                    </button>
-                </form>
-                <form method="get" action="{% url 'pedido:selecionar_endereco' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Endereço
-                    </button>
-                </form>
+                <a href="{% url 'pedido:revisar_pedido' %}?editar=pagamento" class="botao botao-editar">
+                    <i class="fas fa-edit"></i> Editar Pagamento
+                </a>
+                <a href="{% url 'pedido:revisar_pedido' %}?editar=endereco" class="botao botao-editar">
+                    <i class="fas fa-edit"></i> Editar Endereço
+                </a>
             </div>
 
             <!-- Botão de finalizar -->
