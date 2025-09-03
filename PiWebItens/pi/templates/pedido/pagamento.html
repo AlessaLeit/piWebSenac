@@ -6,8 +6,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Casa das Pizzas - Faça seu pedido</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
   </head>
   <body>
@@ -36,41 +42,37 @@
                 <div class="step-number">4</div>
                 <div class="step-label">Entrega</div>
             </div>
-      </div>
+        </div>
 
       <!-- Mensagens de alerta -->
       {% if erro %}
       <div class="alerta alerta-erro">{{ erro }}</div>
       {% endif %}
 
-      <!-- Seção 1: Tamanho -->
-      {% if etapa == "tamanho" %}
+      <!-- Seção 3: Pagamento -->
+      {% if etapa == "pagamento" %}
       <section class="secao-formulario">
-      <h2><i class="fas fa-ruler"></i> Escolha o tamanho</h2>
-      <form method="post">
-        {% csrf_token %}
-        <div class="grade-opcoes">
-          <div class="cartao-opcao">
-            <input type="radio" id="media" name="tamanho" value="Media" {% if pedido.tamanho == 'Media' %}checked{% endif %} />
-            <label for="media"><i class="fas fa-pizza-slice"></i><span>Pizza Média <br> R$50.00</span></label>
+        <h2><i class="fas fa-money-bill-wave"></i> Forma de pagamento</h2>
+        <form method="post">
+          {% csrf_token %}
+          <div class="grade-opcoes">
+            <div class="cartao-opcao">
+              <input type="radio" id="pix" name="pagamento" value="Pix" {% if pedido.pagamento == 'Pix' %}checked{% endif %} />
+              <label for="pix"><i class="fas fa-qrcode"></i><span>Pix</span></label>
+            </div>
+            <div class="cartao-opcao">
+              <input type="radio" id="cartao" name="pagamento" value="Cartão de Crédito" {% if pedido.pagamento == 'Cartão de Crédito' %}checked{% endif %} />
+              <label for="cartao"><i class="fas fa-credit-card"></i><span>Cartão</span></label>
+            </div>
+            <div class="cartao-opcao">
+              <input type="radio" id="dinheiro" name="pagamento" value="Dinheiro" {% if pedido.pagamento == 'Dinheiro' %}checked{% endif %} />
+              <label for="dinheiro"><i class="fas fa-money-bill-wave"></i><span>Dinheiro</span></label>
+            </div>
           </div>
-          <div class="cartao-opcao">
-            <input type="radio" id="grande" name="tamanho" value="Grande" {% if pedido.tamanho == 'Grande' %}checked{% endif %} />
-            <label for="grande"><i class="fas fa-pizza-slice"></i><span>Pizza Grande <br> R$60.00</span></label>
-          </div>
-          <div class="cartao-opcao">
-            <input type="radio" id="big" name="tamanho" value="Big" {% if pedido.tamanho == 'Big' %}checked{% endif %} />
-            <label for="big"><i class="fas fa-pizza-slice"></i><span>Pizza Big <br> R$70.00</span></label>
-          </div>
-          <div class="cartao-opcao">
-            <input type="radio" id="calzone" name="tamanho" value="Calzone" {% if pedido.tamanho == 'Calzone' %}checked{% endif %} />
-            <label for="calzone"><i class="fas fa-utensils"></i><span>Calzone <br> R$75.00</span></label>
-          </div>
-        </div>
-        <button type="submit" class="botao">Próximo</button>
-      </form>
+          <button type="submit" class="botao">Próximo</button>
+        </form>
+      </section>
       {% endif %}
-    </section>
     </div>
 
     <script>

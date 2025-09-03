@@ -1,16 +1,11 @@
 from django.shortcuts import render, redirect
 
 def selecionar_tamanho(request):
-    pizzas = request.session.get('pizzas', [])
-    pizza_index = request.GET.get('pizza_index')
-    if pizza_index is not None:
-        pizza_index = int(pizza_index)
-        current_pizza = pizzas[pizza_index] if pizza_index < len(pizzas) else {}
-    else:
-        current_pizza = request.session.get('current_pizza', {})
-        pizza_index = None  # New pizza
-
-    tamanho_selecionado = current_pizza.get('tamanho')
+    pedido = request.session.get('pedido', {})
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    pedido['tamanho'] = None
+        
+    tamanho_selecionado = pedido.get('tamanho')
 
     if request.method == "POST":
         tamanho = request.POST.get('tamanho')
@@ -18,37 +13,31 @@ def selecionar_tamanho(request):
             return render(request, 'pedido/tamanho.html', {
                 'etapa': 'tamanho',
                 'erro': 'Por favor, selecione um tamanho.',
-                'current_pizza': current_pizza,
-                'tamanho_selecionado': tamanho_selecionado,
-                'pizza_index': pizza_index
+                'pedido': pedido,
+                'editando': editando,
+                'tamanho_selecionado': tamanho_selecionado
             })
 
-        current_pizza['tamanho'] = tamanho
-        if pizza_index is not None:
-            pizzas[pizza_index] = current_pizza
-        else:
-            request.session['current_pizza'] = current_pizza
-        request.session['pizzas'] = pizzas
+        pedido['tamanho'] = tamanho
+        request.session['pedido'] = pedido
 
+        if editando:
+            return redirect('pedido:revisar_pedido')
         return redirect('pedido:selecionar_sabores')
 
     return render(request, 'pedido/tamanho.html', {
         'etapa': 'tamanho',
-        'current_pizza': current_pizza,
-        'tamanho_selecionado': tamanho_selecionado,
-        'pizza_index': pizza_index
+        'pedido': pedido,
+        'editando': editando,
+        'tamanho_selecionado': tamanho_selecionado
     })
 
 def selecionar_sabores(request):
-    pizzas = request.session.get('pizzas', [])
-    pizza_index = request.GET.get('pizza_index')
-    if pizza_index is not None:
-        pizza_index = int(pizza_index)
-        current_pizza = pizzas[pizza_index] if pizza_index < len(pizzas) else {}
-    else:
-        current_pizza = request.session.get('current_pizza', {})
-
-    sabores_selecionados = current_pizza.get('sabores', [])
+    pedido = request.session.get('pedido', {})
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    pedido['sabores'] = None
+        
+    sabores_selecionados = pedido.get('sabores', [])
 
     if request.method == "POST":
         sabores = request.POST.getlist('sabores')
@@ -56,41 +45,40 @@ def selecionar_sabores(request):
             return render(request, 'pedido/sabores.html', {
                 'etapa': 'sabores',
                 'erro': 'Selecione pelo menos um sabor.',
-                'current_pizza': current_pizza,
-                'sabores_selecionados': sabores_selecionados,
-                'pizza_index': pizza_index
+                'pedido': pedido,
+                'editando': editando,
+                'sabores_selecionados': sabores_selecionados
             })
 
-        current_pizza['sabores'] = sabores
-        if pizza_index is not None:
-            pizzas[pizza_index] = current_pizza
-        else:
-            pizzas.append(current_pizza)
-            request.session['current_pizza'] = {}  # Reset for next
-        request.session['pizzas'] = pizzas
+        pedido['sabores'] = sabores
+        request.session['pedido'] = pedido
 
-        return redirect('pedido:confirmar_adicionar_pizza')
+        if editando:
+            return redirect('pedido:revisar_pedido')
+        return redirect('pedido:selecionar_pagamento')
 
     return render(request, 'pedido/sabores.html', {
         'etapa': 'sabores',
-        'current_pizza': current_pizza,
-        'sabores_selecionados': sabores_selecionados,
-        'pizza_index': pizza_index
+        'pedido': pedido,
+        'editando': editando,
+        'sabores_selecionados': sabores_selecionados
     })
 
-def confirmar_adicionar_pizza(request):
-    if request.method == "POST":
-        action = request.POST.get('action')
-        if action == 'add':
-            return redirect('pedido:selecionar_tamanho')
-        elif action == 'proceed':
-            return redirect('pedido:selecionar_pagamento')
-    return render(request, 'pedido/confirmar_adicionar.html', {'etapa': 'confirmar'})
-
 def selecionar_pagamento(request):
-    pizzas = request.session.get('pizzas', [])
-    pagamento = request.session.get('pagamento')
-    endereco = request.session.get('endereco')
+    pedido = request.session.get('pedido', {})
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    pedido['pagamento'] = None
+          
+    if pedido['tamanho'] == "Media":
+        valorPedido = 50.00
+    elif pedido['tamanho'] == "Grande":
+        valorPedido = 60.00
+    elif pedido['tamanho'] == "Big":
+        valorPedido = 70.00
+    elif pedido['tamanho'] == "Calzone":
+        valorPedido = 75.00
+        
+    pagamento_selecionado = pedido.get('pagamento')
 
     if request.method == "POST":
         pagamento = request.POST.get('pagamento')
@@ -98,85 +86,76 @@ def selecionar_pagamento(request):
             return render(request, 'pedido/pagamento.html', {
                 'etapa': 'pagamento',
                 'erro': 'Selecione uma forma de pagamento.',
-                'pagamento_selecionado': pagamento
+                'pedido': pedido,
+                'editando': editando,
+                'valorPedido': valorPedido,
+                'pagamento_selecionado': pagamento_selecionado
             })
 
-        request.session['pagamento'] = pagamento
+        pedido['pagamento'] = pagamento
+        request.session['pedido'] = pedido
+
+        if editando:
+            return redirect('pedido:revisar_pedido')
         return redirect('pedido:selecionar_endereco')
 
     return render(request, 'pedido/pagamento.html', {
         'etapa': 'pagamento',
-        'pagamento_selecionado': pagamento
+        'pedido': pedido,
+        'editando': editando,
+        'valorPedido': valorPedido,
+        'pagamento_selecionado': pagamento_selecionado
     })
 
 def selecionar_endereco(request):
-    endereco = request.session.get('endereco', '')
-    if not endereco:
-        endereco = 'Retirar no balcão'
-
+    pedido = request.session.get('pedido', {})
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'        
+    endereco_selecionado = pedido.get('endereco')
+    pedido['endereco'] = ''
+        
     if request.method == "POST":
         endereco = request.POST.get('endereco', '').strip()
         if not endereco:
             endereco = 'Retirar no balcão'
 
-        request.session['endereco'] = endereco
+        pedido['endereco'] = endereco
+        request.session['pedido'] = pedido
+                    
         return redirect('pedido:revisar_pedido')
 
     return render(request, 'pedido/endereco.html', {
         'etapa': 'endereco',
-        'endereco_selecionado': endereco
+        'pedido': pedido,
+        'editando': editando,
+        'endereco_selecionado': endereco_selecionado
     })
 
 def revisar_pedido(request):
-    pizzas = request.session.get('pizzas', [])
-    pagamento = request.session.get('pagamento')
-    endereco = request.session.get('endereco')
+    pedido = request.session.get('pedido', {})
 
-    # Handle editing
-    pizza_index = request.GET.get('pizza_index')
+    # Se houver parâmetro de edição, remove o campo e redireciona
     campo_editar = request.GET.get('editar')
-    if campo_editar:
-        if campo_editar in ['pagamento', 'endereco']:
-            if campo_editar == 'pagamento':
-                del request.session['pagamento']
-            elif campo_editar == 'endereco':
-                del request.session['endereco']
-            etapas = {
-                'pagamento': 'pedido:selecionar_pagamento',
-                'endereco': 'pedido:selecionar_endereco'
-            }
-            return redirect(etapas.get(campo_editar, 'pedido:revisar_pedido'))
-        elif pizza_index is not None:
-            pizza_index = int(pizza_index)
-            if campo_editar in ['tamanho', 'sabores']:
-                if campo_editar == 'tamanho':
-                    pizzas[pizza_index].pop('tamanho', None)
-                elif campo_editar == 'sabores':
-                    pizzas[pizza_index].pop('sabores', None)
-                request.session['pizzas'] = pizzas
-                etapas = {
-                    'tamanho': 'pedido:selecionar_tamanho',
-                    'sabores': 'pedido:selecionar_sabores'
-                }
-                return redirect(etapas[campo_editar] + f'?pizza_index={pizza_index}')
+    if campo_editar in pedido:
+        del pedido[campo_editar]
+        request.session['pedido'] = pedido
 
-    # Check if all required data is present
-    if not pizzas or not all(p.get('tamanho') and p.get('sabores') for p in pizzas) or not pagamento or not endereco:
+        # Mapeia o campo para a view de seleção correspondente
+        etapas = {
+            'tamanho': 'pedido:selecionar_tamanho',
+            'sabores': 'pedido:selecionar_sabores',
+            'pagamento': 'pedido:selecionar_pagamento',
+            'endereco': 'pedido:selecionar_endereco'
+        }
+
+        return redirect(etapas.get(campo_editar, 'pedido:revisar_pedido'))
+
+    # Verifica se todas as etapas foram preenchidas
+    if not all(key in pedido for key in ('tamanho', 'sabores', 'pagamento', 'endereco')):
         return redirect('pedido:selecionar_tamanho')
 
     if request.method == "POST":
         # Finaliza o pedido e limpa a sessão
         request.session.flush()
-        return render(request, 'pedido/finalizado.html', {
-            'pizzas': pizzas,
-            'pagamento': pagamento,
-            'endereco': endereco,
-            'etapa': 'finalizado'
-        })
+        return render(request, 'pedido/finalizado.html', {'pedido': pedido, 'etapa': 'finalizado'})
 
-    return render(request, 'pedido/revisao.html', {
-        'pizzas': pizzas,
-        'pagamento': pagamento,
-        'endereco': endereco,
-        'etapa': 'revisao'
-    })
+    return render(request, 'pedido/revisao.html', {'pedido': pedido, 'etapa': 'revisao'})

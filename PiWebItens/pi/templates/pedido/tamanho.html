@@ -51,20 +51,20 @@
         {% csrf_token %}
         <div class="grade-opcoes">
           <div class="cartao-opcao">
-            <input type="radio" id="media" name="tamanho" value="Media" {% if pedido.tamanho == 'Media' %}checked{% endif %} />
-            <label for="media"><i class="fas fa-pizza-slice"></i><span>Pizza Média <br> R$50.00</span></label>
+            <input type="radio" id="media" name="tamanho" value="Media" {% if current_pizza.tamanho == 'Media' %}checked{% endif %} />
+            <label for="media"><i class="fas fa-pizza-slice"></i><span>Pizza Média</span></label>
           </div>
           <div class="cartao-opcao">
-            <input type="radio" id="grande" name="tamanho" value="Grande" {% if pedido.tamanho == 'Grande' %}checked{% endif %} />
-            <label for="grande"><i class="fas fa-pizza-slice"></i><span>Pizza Grande <br> R$60.00</span></label>
+            <input type="radio" id="grande" name="tamanho" value="Grande" {% if current_pizza.tamanho == 'Grande' %}checked{% endif %} />
+            <label for="grande"><i class="fas fa-pizza-slice"></i><span>Pizza Grande</span></label>
           </div>
           <div class="cartao-opcao">
-            <input type="radio" id="big" name="tamanho" value="Big" {% if pedido.tamanho == 'Big' %}checked{% endif %} />
-            <label for="big"><i class="fas fa-pizza-slice"></i><span>Pizza Big <br> R$70.00</span></label>
+            <input type="radio" id="big" name="tamanho" value="Big" {% if current_pizza.tamanho == 'Big' %}checked{% endif %} />
+            <label for="big"><i class="fas fa-pizza-slice"></i><span>Pizza Big</span></label>
           </div>
           <div class="cartao-opcao">
-            <input type="radio" id="calzone" name="tamanho" value="Calzone" {% if pedido.tamanho == 'Calzone' %}checked{% endif %} />
-            <label for="calzone"><i class="fas fa-utensils"></i><span>Calzone <br> R$75.00</span></label>
+            <input type="radio" id="calzone" name="tamanho" value="Calzone" {% if current_pizza.tamanho == 'Calzone' %}checked{% endif %} />
+            <label for="calzone"><i class="fas fa-utensils"></i><span>Calzone</span></label>
           </div>
         </div>
         <button type="submit" class="botao">Próximo</button>
