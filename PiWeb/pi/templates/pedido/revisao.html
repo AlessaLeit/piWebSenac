@@ -20,19 +20,19 @@
 
         <!-- Progresso -->
         <div class="progress-steps">
-            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1">
+            <div class="step active" id="step1">
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
-            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2">
+            <div class="step active" id="step2">
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3">
+            <div class="step active" id="step3">
                 <div class="step-number">3</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4">
+            <div class="step active" id="step4">
                 <div class="step-number">4</div>
                 <div class="step-label">Entrega</div>
             </div>
@@ -82,7 +82,7 @@
             <div class="botoes-revisao">
                 <form method="post">
                     {% csrf_token %}
-                    <button type="submit" class="botao botao-salvar">Confirmar e Finalizar</button>
+                    <button type="submit" class="botao botao-salvar">Continuar para o WhatsApp</button>
                 </form>
             </div>
         </section>
