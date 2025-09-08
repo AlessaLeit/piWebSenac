@@ -20,69 +20,47 @@
 
         <!-- Progresso -->
         <div class="progress-steps">
-            <div class="step active" id="step1">
-                <div class="step-number">1</div>
-                <div class="step-label">Tamanho</div>
-            </div>
-            <div class="step active" id="step2">
-                <div class="step-number">2</div>
-                <div class="step-label">Sabores</div>
-            </div>
-            <div class="step active" id="step3">
-                <div class="step-number">3</div>
-                <div class="step-label">Pagamento</div>
-            </div>
-            <div class="step active" id="step4">
-                <div class="step-number">4</div>
-                <div class="step-label">Entrega</div>
-            </div>
+            <div class="step active"><div class="step-number">1</div><div class="step-label">Tamanho</div></div>
+            <div class="step active"><div class="step-number">2</div><div class="step-label">Sabores</div></div>
+            <div class="step active"><div class="step-number">3</div><div class="step-label">Pagamento</div></div>
+            <div class="step active"><div class="step-number">4</div><div class="step-label">Entrega</div></div>
         </div>
 
         <!-- Resumo do pedido -->
         <section class="secao-formulario">
             <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
+
             <div class="resumo-pedido">
                 <ul>
-                    <li><i class="fas fa-pizza-slice"></i> <strong>Tamanho:</strong> {{ pedido.tamanho }}</li>
-                    <li><i class="fas fa-utensils"></i> <strong>Sabores:</strong> {{ pedido.sabores|join:", " }}</li>
-                    <li><i class="fas fa-money-bill-wave"></i> <strong>Pagamento:</strong> {{ pedido.pagamento }}</li>
-                    <li><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ pedido.endereco }}</li>
+                    {% for p in pedidos %}
+                        <li>
+                            <i class="fas fa-pizza-slice"></i>
+                            <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                            <br>
+                            <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
+                            <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
+                        </li>
+                        <br>
+                    {% endfor %}
                 </ul>
             </div>
-
-            <!-- Botões de editar -->
-            <div class="botoes-revisao">
-                <form method="get" action="{% url 'pedido:selecionar_tamanho' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Tamanho
-                    </button>
-                </form>
-                <form method="get" action="{% url 'pedido:selecionar_sabores' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Sabores
-                    </button>
-                </form>
-                <form method="get" action="{% url 'pedido:selecionar_pagamento' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Pagamento
-                    </button>
-                </form>
-                <form method="get" action="{% url 'pedido:selecionar_endereco' %}" style="display: inline;">
-                    <input type="hidden" name="editando" value="true">
-                    <button type="submit" class="botao botao-editar">
-                        <i class="fas fa-edit"></i> Editar Endereço
-                    </button>
-                </form>
+             <div class="resumo-pedido">
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Total:</strong> R$ {{ total }}</p>
+                <p><i class="fas fa-credit-card"></i> <strong>Pagamento:</strong> {{ pagamento }} <a href="{% url 'pedido:selecionar_pagamento' %}?editando=true" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a></p>
+            </div>
+            <div class="resumo-pedido">
+                <p><i class="fas fa-user"></i> <strong>Nome:</strong> {{ pedido.nome }}</p>
+                <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> {{ pedido.telefone }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> {{ pedido.endereco }} <a href="{% url 'pedido:selecionar_endereco' %}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a></p>
             </div>
 
             <!-- Botão de finalizar -->
             <div class="botoes-revisao">
                 <form method="post">
                     {% csrf_token %}
-                    <button type="submit" class="botao botao-salvar">Continuar para o WhatsApp</button>
+                    <button type="submit" class="botao botao-salvar">
+                        <i class="fab fa-whatsapp"></i> Continuar para o WhatsApp
+                    </button>
                 </form>
             </div>
         </section>

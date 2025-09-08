@@ -1,161 +1,297 @@
+import json
 from django.shortcuts import render, redirect
+from .models import Pedido, Pizza
 
 def selecionar_tamanho(request):
-    pedido = request.session.get('pedido', {})
+    pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
+    pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))  # sempre trabalhar no temporário
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
-    pedido['tamanho'] = None
-        
-    tamanho_selecionado = pedido.get('tamanho')
+
+    tamanho_selecionado = pedido_atual.get('tamanho')
 
     if request.method == "POST":
         tamanho = request.POST.get('tamanho')
         if not tamanho:
-            return render(request, 'pedido/tamanho.html', {
+            response = render(request, 'pedido/tamanho.html', {
                 'etapa': 'tamanho',
                 'erro': 'Por favor, selecione um tamanho.',
-                'pedido': pedido,
+                'pedido': pedido_atual,
                 'editando': editando,
                 'tamanho_selecionado': tamanho_selecionado
             })
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
 
-        pedido['tamanho'] = tamanho
-        request.session['pedido'] = pedido
+        # salva no pedido atual, mas não joga em pedidos ainda
+        pedido_atual['tamanho'] = tamanho
 
-        if editando:
-            return redirect('pedido:revisar_pedido')
-        return redirect('pedido:selecionar_sabores')
+        response = redirect('pedido:selecionar_sabores' if not editando else 'pedido:revisar_pedido')
+        response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+        response.set_cookie('pedidos', json.dumps(pedidos))
+        return response
 
-    return render(request, 'pedido/tamanho.html', {
+    response = render(request, 'pedido/tamanho.html', {
         'etapa': 'tamanho',
-        'pedido': pedido,
+        'pedido': pedido_atual,
         'editando': editando,
         'tamanho_selecionado': tamanho_selecionado
     })
+    response.set_cookie('pedidos', json.dumps(pedidos))
+    response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+    return response
 
 def selecionar_sabores(request):
-    pedido = request.session.get('pedido', {})
+    pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
+    index = request.GET.get('index')  # para edição
+    pedido_atual = pedidos[int(index)] if index is not None else json.loads(request.COOKIES.get('pedido_atual', '{}'))
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
-    pedido['sabores'] = None
-        
-    sabores_selecionados = pedido.get('sabores', [])
+
+    sabores_selecionados = pedido_atual.get('sabores', [])
 
     if request.method == "POST":
         sabores = request.POST.getlist('sabores')
         if not sabores:
-            return render(request, 'pedido/sabores.html', {
+            response = render(request, 'pedido/sabores.html', {
                 'etapa': 'sabores',
                 'erro': 'Selecione pelo menos um sabor.',
-                'pedido': pedido,
+                'pedido': pedido_atual,
                 'editando': editando,
                 'sabores_selecionados': sabores_selecionados
             })
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
 
-        pedido['sabores'] = sabores
-        request.session['pedido'] = pedido
+        pedido_atual['sabores'] = sabores
 
-        if editando:
-            return redirect('pedido:revisar_pedido')
-        return redirect('pedido:selecionar_pagamento')
+        response = redirect('pedido:confirmar_adicionar' if not editando else 'pedido:revisar_pedido')
+        response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+        response.set_cookie('pedidos', json.dumps(pedidos))
+        return response
 
-    return render(request, 'pedido/sabores.html', {
+    response = render(request, 'pedido/sabores.html', {
         'etapa': 'sabores',
-        'pedido': pedido,
+        'pedido': pedido_atual,
         'editando': editando,
         'sabores_selecionados': sabores_selecionados
     })
+    response.set_cookie('pedidos', json.dumps(pedidos))
+    response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+    return response
+
+def confirmar_adicionar(request):
+    pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
+    pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))
+
+    # Calcula total incluindo pedido_atual se existir
+    all_pizzas = pedidos + ([pedido_atual] if pedido_atual.get('tamanho') else [])
+    total = 0
+    for p in all_pizzas:
+        tamanho = p.get('tamanho')
+        if tamanho == "Media":
+            total += 50
+        elif tamanho == "Grande":
+            total += 60
+        elif tamanho == "Big":
+            total += 70
+        elif tamanho == "Calzone":
+            total += 75
+
+    if request.method == "POST":
+        action = request.POST.get('action')
+        if action == "add":
+            if pedido_atual.get('tamanho'):
+                pedidos.append(pedido_atual)
+            pedido_atual = {}
+            response = redirect('pedido:selecionar_tamanho')  # inicia nova pizza
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
+        elif action == "proceed":
+            if pedido_atual.get('tamanho'):
+                pedidos.append(pedido_atual)
+            pedido_atual = {}
+            response = redirect('pedido:selecionar_pagamento')  # vai pagar todas
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
+
+    response = render(request, 'pedido/confirmar_adicionar.html', {
+        'pedidos': pedidos,
+        'pedido_atual': pedido_atual,
+        'total': total
+    })
+    response.set_cookie('pedidos', json.dumps(pedidos))
+    response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+    return response
 
 def selecionar_pagamento(request):
-    pedido = request.session.get('pedido', {})
-    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
-    pedido['pagamento'] = None
-          
-    if pedido['tamanho'] == "Media":
-        valorPedido = 50.00
-    elif pedido['tamanho'] == "Grande":
-        valorPedido = 60.00
-    elif pedido['tamanho'] == "Big":
-        valorPedido = 70.00
-    elif pedido['tamanho'] == "Calzone":
-        valorPedido = 75.00
-        
-    pagamento_selecionado = pedido.get('pagamento')
+    pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
+    order = json.loads(request.COOKIES.get('order', '{}'))
+    editando = request.GET.get('editando') == 'true'
+
+    # calcula total do pedido somando todos
+    total = 0
+    for p in pedidos:
+        tamanho = p.get('tamanho')
+        if tamanho == "Media":
+            total += 50
+        elif tamanho == "Grande":
+            total += 60
+        elif tamanho == "Big":
+            total += 70
+        elif tamanho == "Calzone":
+            total += 75
+
+    pagamento_selecionado = order.get('pagamento')
 
     if request.method == "POST":
         pagamento = request.POST.get('pagamento')
         if not pagamento:
-            return render(request, 'pedido/pagamento.html', {
+            response = render(request, 'pedido/pagamento.html', {
                 'etapa': 'pagamento',
                 'erro': 'Selecione uma forma de pagamento.',
-                'pedido': pedido,
-                'editando': editando,
-                'valorPedido': valorPedido,
-                'pagamento_selecionado': pagamento_selecionado
+                'pedidos': pedidos,
+                'total': total,
+                'pagamento_selecionado': pagamento_selecionado,
+                'editando': editando
             })
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('order', json.dumps(order))
+            return response
 
-        pedido['pagamento'] = pagamento
-        request.session['pedido'] = pedido
+        order['pagamento'] = pagamento
 
         if editando:
-            return redirect('pedido:revisar_pedido')
-        return redirect('pedido:selecionar_endereco')
+            response = redirect('pedido:revisar_pedido')
+        else:
+            response = redirect('pedido:selecionar_endereco')
+        response.set_cookie('order', json.dumps(order))
+        response.set_cookie('pedidos', json.dumps(pedidos))
+        return response
 
-    return render(request, 'pedido/pagamento.html', {
+    response = render(request, 'pedido/pagamento.html', {
         'etapa': 'pagamento',
-        'pedido': pedido,
-        'editando': editando,
-        'valorPedido': valorPedido,
-        'pagamento_selecionado': pagamento_selecionado
+        'pedidos': pedidos,
+        'total': total,
+        'pagamento_selecionado': pagamento_selecionado,
+        'editando': editando
     })
+    response.set_cookie('pedidos', json.dumps(pedidos))
+    response.set_cookie('order', json.dumps(order))
+    return response
 
 def selecionar_endereco(request):
-    pedido = request.session.get('pedido', {})
-    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'        
-    endereco_selecionado = pedido.get('endereco')
-    pedido['endereco'] = ''
-        
+    order = json.loads(request.COOKIES.get('order', '{}'))
+
     if request.method == "POST":
+        nome = request.POST.get('nome')
+        telefone = request.POST.get('telefone')
         endereco = request.POST.get('endereco', '').strip()
-        if not endereco:
+        retirada = request.POST.get('retirada') == 'on'
+
+        if retirada:
             endereco = 'Retirar no balcão'
 
-        pedido['endereco'] = endereco
-        request.session['pedido'] = pedido
-                    
-        return redirect('pedido:revisar_pedido')
+        order['nome'] = nome
+        order['telefone'] = telefone
+        order['endereco'] = endereco
+        order['retirada'] = retirada
 
-    return render(request, 'pedido/endereco.html', {
+        response = redirect('pedido:revisar_pedido')
+        response.set_cookie('order', json.dumps(order))
+        return response
+
+    response = render(request, 'pedido/endereco.html', {
         'etapa': 'endereco',
-        'pedido': pedido,
-        'editando': editando,
-        'endereco_selecionado': endereco_selecionado
+        'pedido': order
     })
+    response.set_cookie('order', json.dumps(order))
+    return response
 
 def revisar_pedido(request):
-    pedido = request.session.get('pedido', {})
+    pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
+    order = json.loads(request.COOKIES.get('order', '{}'))
+    pagamento = order.get('pagamento')
 
-    # Se houver parâmetro de edição, remove o campo e redireciona
-    campo_editar = request.GET.get('editar')
-    if campo_editar in pedido:
-        del pedido[campo_editar]
-        request.session['pedido'] = pedido
+    # Excluir pizza pelo índice
+    excluir_index = request.GET.get('excluir')
+    if excluir_index is not None:
+        try:
+            excluir_index = int(excluir_index)
+            if 0 <= excluir_index < len(pedidos):
+                del pedidos[excluir_index]
+        except (ValueError, IndexError):
+            pass
+        response = redirect('pedido:revisar_pedido')
+        response.set_cookie('pedidos', json.dumps(pedidos))
+        response.set_cookie('order', json.dumps(order))
+        return response
 
-        # Mapeia o campo para a view de seleção correspondente
-        etapas = {
-            'tamanho': 'pedido:selecionar_tamanho',
-            'sabores': 'pedido:selecionar_sabores',
-            'pagamento': 'pedido:selecionar_pagamento',
-            'endereco': 'pedido:selecionar_endereco'
-        }
+    # Editar pizza pelo índice
+    editar_index = request.GET.get('editar')
+    if editar_index is not None:
+        try:
+            editar_index = int(editar_index)
+            if 0 <= editar_index < len(pedidos):
+                # carrega pizza no pedido_atual e remove da lista
+                pedido_atual = pedidos.pop(editar_index)
+                response = redirect('pedido:selecionar_tamanho')
+                response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+                response.set_cookie('pedidos', json.dumps(pedidos))
+                response.set_cookie('order', json.dumps(order))
+                return response
+        except (ValueError, IndexError):
+            pass
 
-        return redirect(etapas.get(campo_editar, 'pedido:revisar_pedido'))
-
-    # Verifica se todas as etapas foram preenchidas
-    if not all(key in pedido for key in ('tamanho', 'sabores', 'pagamento', 'endereco')):
-        return redirect('pedido:selecionar_tamanho')
+    # calcula total
+    total = 0
+    for p in pedidos:
+        if p['tamanho'] == "Media":
+            total += 50.00
+        elif p['tamanho'] == "Grande":
+            total += 60.00
+        elif p['tamanho'] == "Big":
+            total += 70.00
+        elif p['tamanho'] == "Calzone":
+            total += 75.00
 
     if request.method == "POST":
-        # Finaliza o pedido e limpa a sessão
-        request.session.flush()
-        return render(request, 'pedido/finalizado.html', {'pedido': pedido, 'etapa': 'finalizado'})
+        # Salva no banco de dados
+        pedido = Pedido.objects.create(
+            nome=order.get('nome'),
+            telefone=order.get('telefone'),
+            endereco=order.get('endereco'),
+            retirada=order.get('retirada', False),
+            pagamento=order.get('pagamento')
+        )
+        for p in pedidos:
+            Pizza.objects.create(
+                pedido=pedido,
+                tamanho=p['tamanho'],
+                sabores=','.join(p['sabores'])
+            )
+        # Limpa cookies
+        response = render(request, 'pedido/finalizado.html', {
+            'pedido': pedido,
+            'pizzas': pedido.pizzas.all(),
+            'total': total,
+            'pagamento': pagamento,
+            'etapa': 'finalizado'
+        })
+        response.delete_cookie('pedidos')
+        response.delete_cookie('pedido_atual')
+        response.delete_cookie('order')
+        return response
 
-    return render(request, 'pedido/revisao.html', {'pedido': pedido, 'etapa': 'revisao'})
+    response = render(request, 'pedido/revisao.html', {
+        'pedidos': pedidos,
+        'total': total,
+        'pagamento': pagamento,
+        'pedido': order,
+        'etapa': 'revisao'
+    })
+    response.set_cookie('pedidos', json.dumps(pedidos))
+    response.set_cookie('order', json.dumps(order))
+    return response
