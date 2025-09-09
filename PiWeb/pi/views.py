@@ -1,5 +1,7 @@
 import json
 from django.shortcuts import render, redirect
+from django.conf import settings
+from twilio.rest import Client
 from .models import Pedido, Pizza
 
 def selecionar_tamanho(request):
@@ -272,26 +274,37 @@ def revisar_pedido(request):
                 tamanho=p['tamanho'],
                 sabores=','.join(p['sabores'])
             )
-        # Limpa cookies
-        response = render(request, 'pedido/finalizado.html', {
-            'pedido': pedido,
-            'pizzas': pedido.pizzas.all(),
-            'total': total,
-            'pagamento': pagamento,
-            'etapa': 'finalizado'
-        })
-        response.delete_cookie('pedidos')
-        response.delete_cookie('pedido_atual')
-        response.delete_cookie('order')
-        return response
 
+        # Formatar mensagem para WhatsApp
+        pizzas_str = '\n'.join([f"🍕 *{p['tamanho']}* com _{', '.join(p['sabores'])}_" for p in pedidos])
+
+        message = (
+            f"👋 *Olá {order.get('nome')}!*\n\n"
+            f"*Detalhes do pedido:*\n{pizzas_str}\n\n"
+            f"💵 *Total:* R$ {total:.2f}\n"
+            f"💳 *Pagamento:* {pagamento}\n"
+            f"📍 *Endereço:* {order.get('endereco')}\n\n"
+            "Obrigado por pedir com a gente! 🚀"
+        )
+
+        import urllib.parse
+        msg_encoded = urllib.parse.quote(message)
+
+        # Redirecionar para link do WhatsApp
+        url_whatsapp = f"https://wa.me/5547989036464?text={msg_encoded}"
+        return redirect(url_whatsapp)
+
+    success = request.GET.get('success') == 'true'
     response = render(request, 'pedido/revisao.html', {
         'pedidos': pedidos,
         'total': total,
         'pagamento': pagamento,
         'pedido': order,
-        'etapa': 'revisao'
+        'etapa': 'revisao',
+        'success': success
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
     response.set_cookie('order', json.dumps(order))
     return response
+
+
