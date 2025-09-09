@@ -37,6 +37,13 @@ body {
     margin-bottom: 10px;
 }
 
+.logo {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
 .header p {
     font-size: 1rem;
     opacity: 0.9;
@@ -460,4 +467,148 @@ body {
     background-color: white;
     border-radius: 4px;
     border-left: 4px solid #d62828;
+}
+
+/* High Contrast Accessibility Mode */
+.high-contrast {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .header {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .secao-formulario {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .cartao-opcao {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .cartao-opcao:hover {
+    border-color: #ffff00 !important; /* Bright yellow for accent */
+}
+
+.high-contrast .cartao-opcao.selecionado {
+    border-color: #ffff00 !important;
+    background-color: #333333 !important;
+}
+
+.high-contrast .cartao-sabor {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .cartao-sabor:hover {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .cartao-sabor.selecionado {
+    border-color: #ffff00 !important;
+    background-color: #333333 !important;
+}
+
+.high-contrast .campo-endereco input,
+.high-contrast .campo-endereco textarea {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .campo-endereco input:focus,
+.high-contrast .campo-endereco textarea:focus {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .botao {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .botao:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .progress-steps::before {
+    background-color: #ffffff !important;
+}
+
+.high-contrast .step-number {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.high-contrast .step.active .step-number {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .step.completed .step-number {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .resumo-pedido {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .alerta-erro {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .alerta-sucesso {
+    background-color: #00ff00 !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .pizza-item {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-left: 4px solid #ffff00 !important;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+}
+
+.high-contrast .botao-editar-pizza {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.botao-excluir-pizza {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+}
+
+/* Toggle button styles */
+#toggle-contrast {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    font-weight: bold !important;
+}
+
+#toggle-contrast:hover {
+    background-color: #e6e600 !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
 }

@@ -14,8 +14,9 @@
     <div class="container">
         <!-- Cabeçalho -->
         <header class="header">
-            <h1><i class="fas fa-pizza-slice"></i> Casa das Pizzas</h1>
+            <h1><img src="{% static 'logo.jpg' %}" alt="Logo" class="logo"> Casa das Pizzas</h1>
             <p>Deseja adicionar outra pizza ao pedido?</p>
+            <button id="toggle-contrast" class="botao" style="width: auto; margin-top: 10px;">Alto Contraste</button>
         </header>
 
         <!-- Progresso -->
@@ -76,5 +77,37 @@
             </div>
         </section>
     </div>
+    <script>
+      // Toggle high contrast mode and save preference in localStorage
+      const toggleButton = document.getElementById('toggle-contrast');
+      const body = document.body;
+
+      function setContrastMode(enabled) {
+        if (enabled) {
+          body.classList.add('high-contrast');
+          localStorage.setItem('highContrast', 'true');
+          toggleButton.textContent = 'Desativar Alto Contraste';
+        } else {
+          body.classList.remove('high-contrast');
+          localStorage.setItem('highContrast', 'false');
+          toggleButton.textContent = 'Ativar Alto Contraste';
+        }
+      }
+
+      toggleButton.addEventListener('click', () => {
+        const isEnabled = body.classList.contains('high-contrast');
+        setContrastMode(!isEnabled);
+      });
+
+      // On page load, check saved preference
+      document.addEventListener('DOMContentLoaded', () => {
+        const saved = localStorage.getItem('highContrast');
+        if (saved === 'true') {
+          setContrastMode(true);
+        } else {
+          setContrastMode(false);
+        }
+      });
+    </script>
 </body>
 </html>
