@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Casa das Pizzas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="container">
+      <!-- Cabeçalho -->
+      <header class="header">
+        <h1><img src="{% static 'logo.jpg' %}" alt="Logo" class="logo"> Casa das Pizzas</h1>
+        <p>Entre na sua conta</p>
+        <button id="toggle-contrast" class="botao" style="width: auto; margin-top: 10px;">Alto Contraste</button>
+      </header>
+
+        <section class="secao-formulario">
+            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="campo-endereco">
+                    <label for="username">Nome ou Telefone:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="campo-endereco">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="botao">Entrar</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

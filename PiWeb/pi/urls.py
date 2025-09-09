@@ -12,4 +12,5 @@ urlpatterns = [
     path('endereco/', views.selecionar_endereco, name='selecionar_endereco'),
     path('revisao/', views.revisar_pedido, name='revisar_pedido'),
     path('confirmar_adicionar/', views.confirmar_adicionar, name='confirmar_adicionar'),
+    path('login/', views.login, name='login'),
 ]

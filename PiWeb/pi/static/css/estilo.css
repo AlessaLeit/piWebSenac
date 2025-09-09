@@ -636,14 +636,15 @@ body {
     outline-offset: 2px;
 }
 
+/* Remove red outline on label when input is focused, keep border on div */
 .cartao-opcao input:focus + label {
-    outline: 2px solid #d62828;
-    outline-offset: 2px;
+    outline: none;
+    outline-offset: 0;
 }
 
 .cartao-sabor input:focus ~ label {
-    outline: 2px solid #d62828;
-    outline-offset: 2px;
+    outline: none;
+    outline-offset: 0;
 }
 
 .campo-endereco input:focus,

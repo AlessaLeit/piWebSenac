@@ -1,9 +1,32 @@
 import json
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.conf import settings
 from twilio.rest import Client
 from .models import Pedido, Pizza
 
+def login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        # user = authenticate(request, username=username, password=password)
+
+        #if user is not None:
+           # login(request, user)
+            #return redirect("selecionar_tamanho")  
+        #else:
+            #messages.error(request, "Usuário ou senha inválidos.")
+        
+        if username and password:
+            request.session["usuario"] = username  # salva na sessão
+            return redirect('pedido:selecionar_tamanho')
+        else:
+            return render(request, "login.html", {"erro": "Preencha usuário e senha!"})
+   
+    return render(request, "login.html")
+    
 def selecionar_tamanho(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))  # sempre trabalhar no temporário
