@@ -612,3 +612,42 @@ body {
     background-color: #e6e600 !important;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
 }
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    font-size: 14px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Focus styles for keyboard navigation */
+.botao:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
+.cartao-opcao input:focus + label {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
+.cartao-sabor input:focus ~ label {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
+.campo-endereco input:focus,
+.campo-endereco textarea:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}

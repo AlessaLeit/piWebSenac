@@ -276,7 +276,7 @@ def revisar_pedido(request):
             )
 
         # Formatar mensagem para WhatsApp
-        pizzas_str = '\n'.join([f"🍕 *{p['tamanho']}* com _{', '.join(p['sabores'])}_" for p in pedidos])
+        pizzas_str = '\n'.join([f"🍕 *{p['tamanho']}* com  {', '.join(p['sabores'])} " for p in pedidos])
 
         message = (
             f"👋 *Olá {order.get('nome')}!*\n\n"

@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
-<body>
+  <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <div class="container">
-        <!-- Cabeçalho -->
-        <header class="header">
+      <!-- Cabeçalho -->
+      <header class="header">
             <h1><img src="{% static 'logo.jpg' %}" alt="Logo" class="logo"> Casa das Pizzas</h1>
             <p>Revise seu pedido antes de finalizar</p>
             <button id="toggle-contrast" class="botao" style="width: auto; margin-top: 10px;">Alto Contraste</button>
@@ -28,7 +29,7 @@
         </div>
 
         <!-- Resumo do pedido -->
-        <section class="secao-formulario">
+        <section class="secao-formulario" id="main-content">
             <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
 
             <div class="resumo-pedido">

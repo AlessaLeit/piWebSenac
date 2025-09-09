@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <div class="container">
       <!-- Cabeçalho -->
       <header class="header">
@@ -52,7 +53,7 @@
 
       <!-- Seção 2: Sabores -->
       {% if etapa == "sabores" %}
-      <section class="secao-formulario" id="secaoSabores">
+      <section class="secao-formulario" id="main-content">
         <h2><i class="fas fa-utensils"></i> Escolha seus sabores</h2>
         <form method="post">
           {% csrf_token %}
