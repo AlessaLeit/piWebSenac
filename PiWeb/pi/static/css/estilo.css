@@ -22,6 +22,10 @@ body {
 /* Cabeçalho */
 .header {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
@@ -47,6 +51,23 @@ body {
 .header p {
     font-size: 1rem;
     opacity: 0.9;
+}
+
+.botoes-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+}
+
+.header .botao {
+    width: auto;
+    margin: 0;
+    text-decoration: none;
+}
+
+#toggle-contrast {
+    margin-left: auto;
 }
 
 /* Seções do formulário */
@@ -335,10 +356,7 @@ body {
     color: #f77f00;
 }
 
-/* Seções ocultas */
-.oculto {
-    display: none;
-}
+
 
 /* Resumo do pedido */
 .resumo-pedido {
@@ -377,97 +395,15 @@ body {
     border: 1px solid #a5d6a7;
 }
 
-/* Botões de edição */
-.botoes-pizza {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-}
 
-.botao-editar-pizza {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.botao-editar-pizza:hover {
-    background-color: #0056b3;
-}
 
-.botao-excluir-pizza {
-    background-color: #dc3545;
-    color: white;
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.botao-excluir-pizza:hover {
-    background-color: #c82333;
-}
 
-/* Pizza items */
-.pizza-item {
-    background-color: white;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-left: 4px solid #d62828;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.pizza-item p {
-    margin-bottom: 10px;
-}
 
-/* Botões de edição na seção de edição */
-.botoes-edicao {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
 
-.botao-salvar {
-    background-color: #28a745 !important;
-}
 
-.botao-salvar:hover {
-    background-color: #218838 !important;
-}
-
-.botao-cancelar {
-    background-color: #6c757d !important;
-}
-
-.botao-cancelar:hover {
-    background-color: #5a6268 !important;
-}
-
-/* Modo de edição */
-#secaoEdicao {
-    display: none; /* Oculta inicialmente */
-}
-
-/* Resumo detalhado */
-#resumoDetalhado {
-    margin-top: 15px;
-}
-
-#resumoDetalhado p {
-    margin-bottom: 8px;
-    padding: 8px;
-    background-color: white;
-    border-radius: 4px;
-    border-left: 4px solid #d62828;
-}
 
 /* High Contrast Accessibility Mode */
 .high-contrast {
@@ -606,12 +542,18 @@ body {
     border: 2px solid #000000 !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     font-weight: bold !important;
+    padding: 8px 12px !important;
+    font-size: 0.9rem !important;
+    width: auto !important;
+    min-width: 40px !important;
 }
 
 #toggle-contrast:hover {
     background-color: #e6e600 !important;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
 }
+
+
 
 /* Skip link for accessibility */
 .skip-link {

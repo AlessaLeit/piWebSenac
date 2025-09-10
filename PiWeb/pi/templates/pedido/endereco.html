@@ -21,9 +21,17 @@
     <div class="container">
       <!-- Cabeçalho -->
       <header class="header">
-        <h1><img src="{% static 'logo.jpg' %}" alt="Logo" class="logo"> Casa das Pizzas</h1>
+        <h1>
+          <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
+          Casa das Pizzas
+        </h1>
         <p>Monte seu pedido e receba em casa!</p>
-        <button id="toggle-contrast" class="botao" style="width: auto; margin-top: 10px;">Alto Contraste</button>
+
+        <div class="botoes-container">
+          <button id="btn-back" class="botao">Voltar</button>
+          <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+          <a href="/login.html" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+        </div>
       </header>
 
       <!-- Progresso -->
