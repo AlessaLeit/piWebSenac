@@ -8,10 +8,10 @@ from .models import Pedido, Pizza
 
 def login(request):
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+        id = request.POST.get("id")
+        senha = request.POST.get("senha")
 
-        # user = authenticate(request, username=username, password=password)
+        # user = authenticate(request, id=id, senha=senha)
 
         #if user is not None:
            # login(request, user)
@@ -19,14 +19,26 @@ def login(request):
         #else:
             #messages.error(request, "Usuário ou senha inválidos.")
         
-        if username and password:
-            request.session["usuario"] = username  # salva na sessão
+        if id and senha:
+            request.session["usuario"] = id  # salva na sessão
             return redirect('pedido:selecionar_tamanho')
         else:
             return render(request, "login.html", {"erro": "Preencha usuário e senha!"})
    
     return render(request, "login.html")
-    
+
+def cadastrar(request): 
+    if request.method == "POST":
+        nome = request.POST.get("nome")
+        cpf = request.POST.get("cpf")
+        telefone = request.POST.get("telefone")
+        endereco = request.POST.get("endereco")
+        senha = request.POST.get("senha")
+        confirmarsenha = request.POST.get("confirmarsenha")
+        
+        
+    return render(request, "cadastro.html")
+            
 def selecionar_tamanho(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))  # sempre trabalhar no temporário
