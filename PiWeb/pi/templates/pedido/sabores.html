@@ -28,9 +28,9 @@
         <p>Monte seu pedido e receba em casa!</p>
 
         <div class="botoes-container">
-          <button id="btn-back" class="botao"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
+          <button id="btn-back" class="botao" onclick="window.history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login" class="botao" id="btn-entrar"><i class="fas fa-user"></i>  Entrar</a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
         </div>
       </header>
 
@@ -70,7 +70,7 @@
               <input type="checkbox" id="margherita" name="sabores" value="Margherita" {% if 'Margherita' in pedido.sabores %}checked{% endif %} />
               <label for="margherita">
                 <div class="info-sabor">
-                  <i class="fas fa-pizza-slice"></i>
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza" width="100" height="100">
                   <h3>Margherita</h3>
                   <p>Mussarela, tomate e manjericão</p>
                 </div>
@@ -80,7 +80,7 @@
               <input type="checkbox" id="calabresa" name="sabores" value="Calabresa" {% if 'Calabresa' in pedido.sabores %}checked{% endif %} />
               <label for="calabresa">
                 <div class="info-sabor">
-                  <i class="fas fa-pizza-slice"></i>
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza" width="100" height="100">
                   <h3>Calabresa</h3>
                   <p>Calabresa, cebola e mussarela</p>
                 </div>
@@ -90,7 +90,7 @@
               <input type="checkbox" id="portuguesa" name="sabores" value="Portuguesa" {% if 'Portuguesa' in pedido.sabores %}checked{% endif %} />
               <label for="portuguesa">
                 <div class="info-sabor">
-                  <i class="fas fa-pizza-slice"></i>
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza" width="100" height="100">
                   <h3>Portuguesa</h3>
                   <p>Presunto, mussarela, ovo e cebola</p>
                 </div>
@@ -100,7 +100,7 @@
               <input type="checkbox" id="frango" name="sabores" value="Frango Catupiry" {% if 'Frango Catupiry' in pedido.sabores %}checked{% endif %} />
               <label for="frango">
                 <div class="info-sabor">
-                  <i class="fas fa-pizza-slice"></i>
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza" width="100" height="100">
                   <h3>Frango Catupiry</h3>
                   <p>Frango, catupiry e milho</p>
                 </div>
@@ -110,7 +110,7 @@
               <input type="checkbox" id="queijos" name="sabores" value="Quatro Queijos" {% if 'Quatro Queijos' in pedido.sabores %}checked{% endif %} />
               <label for="queijos">
                 <div class="info-sabor">
-                  <i class="fas fa-pizza-slice"></i>
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza" width="100" height="100">
                   <h3>Quatro Queijos</h3>
                   <p>Mussarela, provolone, parmesão e gorgonzola</p>
                 </div>
@@ -120,7 +120,7 @@
               <input type="checkbox" id="pepperoni" name="sabores" value="Pepperoni" {% if 'Pepperoni' in pedido.sabores %}checked{% endif %} />
               <label for="pepperoni">
                 <div class="info-sabor">
-                  <i class="fas fa-pizza-slice"></i>
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza" width="100" height="100">
                   <h3>Pepperoni</h3>
                   <p>Pepperoni e mussarela</p>
                 </div>

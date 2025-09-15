@@ -287,6 +287,48 @@ body {
     transform: translateY(-2px);
 }
 
+.botao-editar, .botao-adicionar {
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+}
+
+.botao-editar:hover, .botao-adicionar:hover {
+    background-color: #b32020;
+    transform: translateY(-2px);
+}
+
+.botao-salvar {
+    background-color: #28a745;
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botao-salvar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
 .botao:disabled {
     background-color: #ccc;
     cursor: not-allowed;

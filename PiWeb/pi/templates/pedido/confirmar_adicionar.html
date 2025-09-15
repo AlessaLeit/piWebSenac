@@ -21,9 +21,9 @@
         <p>Monte seu pedido e receba em casa!</p>
 
         <div class="botoes-container">
-          <button id="btn-back" class="botao">Voltar</button>
+          <button id="btn-back" class="botao" onclick="window.history.back()">Voltar</button>
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login.html" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
         </div>
       </header>
 
@@ -53,12 +53,12 @@
             <ul>
                 {% for p in pedidos %}
                 <li>
-                    {{ p.tamanho }} - Sabores: {{ p.sabores|join:", " }}
+                     {{ p.tamanho }} - Sabores: {{ p.sabores|join:", " }}
                 </li>
                  {% endfor %}
                 {% if pedido_atual.tamanho %}
                 <li>
-                    {{ pedido_atual.tamanho }} - Sabores: {{ pedido_atual.sabores|join:", " }}
+                     {{ pedido_atual.tamanho }} - Sabores: {{ pedido_atual.sabores|join:", " }}
                 </li>
                 {% endif %}
             </ul>

@@ -22,9 +22,9 @@
         <p>Monte seu pedido e receba em casa!</p>
 
         <div class="botoes-container">
-          <button id="btn-back" class="botao">Voltar</button>
+          <button id="btn-back" class="botao" onclick="window.history.back()">Voltar</button>
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login.html" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
         </div>
       </header>
 
@@ -66,6 +66,7 @@
 
             <!-- Botão de finalizar -->
             <div class="botoes-revisao">
+                <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao botao-adicionar"><i class="fas fa-plus"></i> Adicionar mais itens</a>
                 <form method="post">
                     {% csrf_token %}
                     <button type="submit" class="botao botao-salvar">
