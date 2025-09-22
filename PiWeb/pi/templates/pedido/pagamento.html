@@ -28,23 +28,27 @@
         </div>
       </header>
 
-      <!-- Progresso -->
-      <div class="progress-steps">
-            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1">
+        <!-- Progresso -->
+        <div class="progress-steps">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1" onclick="navegarParaEtapa('tamanho')">
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
-            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2">
+            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2" onclick="navegarParaEtapa('sabores')">
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3">
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('pagamento')">
                 <div class="step-number">3</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4">
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('endereco')">
                 <div class="step-number">4</div>
                 <div class="step-label">Entrega</div>
+            </div>
+            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('revisao')">
+                <div class="step-number">5</div>
+                <div class="step-label">Revisão</div>
             </div>
         </div>
 
@@ -134,6 +138,28 @@
           setContrastMode(false);
         }
       });
+
+      // Função para navegar entre etapas
+      function navegarParaEtapa(etapa) {
+        const urls = {
+          'tamanho': '/tamanho/',
+          'sabores': '/sabores/',
+          'pagamento': '/pagamento/',
+          'endereco': '/endereco/',
+          'revisao': '/revisao/'
+        };
+
+        if (urls[etapa]) {
+          window.location.href = urls[etapa];
+        }
+      }
     </script>
   </body>
+      <footer class="rodape">
+      <div class="redes-sociais">
+        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
+      </div>
+      <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+    </footer>
 </html>

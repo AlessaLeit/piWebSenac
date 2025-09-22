@@ -10,37 +10,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
-<body>
-    <div class="container">
-      <!-- Cabeçalho -->
-      <header class="header">
-        <h1>
-          <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
-          Casa das Pizzas
-        </h1>
-        <p>Entre na sua conta</p>
+  <body>
+      <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+          <h1>
+            <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
+            Casa das Pizzas
+          </h1>
+          <p>Entre na sua conta</p>
 
-        <div class="botoes-container">  
-          <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/tamanho" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
-        </div>
-      </header>
+          <div class="botoes-container">  
+            <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+            <a href="/tamanho" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
+          </div>
+        </header>
 
-        <section class="secao-formulario">
-            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
-            <form method="post">
-                {% csrf_token %}
-                <div class="campo-endereco">
-                    <label for="id">CPF ou Telefone:</label>
-                    <input type="text" id="id" name="id" required>
-                </div>
-                <div class="campo-endereco">
-                    <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" required>
-                </div>
-                <button type="submit" class="botao">Entrar</button>
-            </form>
-        </section>
-    </div>
-</body>
+          <section class="secao-formulario">
+              <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+              <form method="post">
+                  {% csrf_token %}
+                  <div class="campo-endereco">
+                      <label for="id">CPF ou Telefone:</label>
+                      <input type="text" id="id" name="id" required>
+                  </div>
+                  <div class="campo-endereco">
+                      <label for="senha">Senha:</label>
+                      <input type="password" id="senha" name="senha" required>
+                  </div>
+                  <button type="submit" class="botao">Entrar</button>
+                   <a href="/cadastro" class="botao" id="btn-cadastro">Cadastrar</a>
+              </form>
+          </section>
+      </div>
+  </body>
+    <footer class="rodape">
+      <div class="redes-sociais">
+        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
+      </div>
+      <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+    </footer>
 </html>

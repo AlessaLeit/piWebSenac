@@ -34,23 +34,27 @@
         </div>
       </header>
 
-      <!-- Progresso -->
-      <div class="progress-steps">
-            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1">
+        <!-- Progresso -->
+        <div class="progress-steps">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1" onclick="navegarParaEtapa('tamanho')">
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
-            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2">
+            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2" onclick="navegarParaEtapa('sabores')">
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3">
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('pagamento')">
                 <div class="step-number">3</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4">
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('endereco')">
                 <div class="step-number">4</div>
                 <div class="step-label">Entrega</div>
+            </div>
+            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('revisao')">
+                <div class="step-number">5</div>
+                <div class="step-label">Revisão</div>
             </div>
         </div>
         
@@ -63,7 +67,28 @@
       {% if etapa == "sabores" %}
       <section class="secao-formulario" id="main-content">
         <h2><i class="fas fa-utensils"></i> Escolha seus sabores</h2>
-        <form method="post">
+
+        <!-- Informações sobre limites de sabores -->
+        <div class="info-limites">
+          <div class="limite-badge">
+            <i class="fas fa-info-circle"></i>
+            <span id="limite-info">
+              {% if pedido.tamanho == 'Calzone' %}
+                Calzone: máximo 1 sabor
+              {% else %}
+                Pizza: máximo 3 sabores
+              {% endif %}
+            </span>
+          </div>
+          <div class="contador-sabores">
+            <span id="contador">0</span> de
+            <span id="max-sabores">
+              {% if pedido.tamanho == 'Calzone' %}1{% else %}3{% endif %}
+            </span> sabores selecionados
+          </div>
+        </div>
+
+        <form method="post" id="form-sabores">
           {% csrf_token %}
           <div class="grade-sabores">
             <div class="cartao-sabor">
@@ -134,14 +159,73 @@
     </div>
 
     <script>
-      document.querySelectorAll('.cartao-sabor input[type="checkbox"]').forEach(input => {
+      // Variáveis para controle de sabores
+      const maxSabores = {% if pedido.tamanho == 'Calzone' %}1{% else %}3{% endif %};
+      const checkboxes = document.querySelectorAll('.cartao-sabor input[type="checkbox"]');
+      const contador = document.getElementById('contador');
+      const form = document.getElementById('form-sabores');
+
+      // Função para atualizar contador e estado dos checkboxes
+      function atualizarContador() {
+        const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
+        const quantidade = selecionados.length;
+
+        contador.textContent = quantidade;
+
+        // Atualizar estado dos checkboxes não selecionados
+        checkboxes.forEach(checkbox => {
+          if (!checkbox.checked && quantidade >= maxSabores) {
+            checkbox.disabled = true;
+            checkbox.parentElement.classList.add('desabilitado');
+          } else {
+            checkbox.disabled = false;
+            checkbox.parentElement.classList.remove('desabilitado');
+          }
+        });
+
+        // Atualizar classe do contador baseado na quantidade
+        contador.className = '';
+        if (quantidade === 0) {
+          contador.classList.add('zero');
+        } else if (quantidade === maxSabores) {
+          contador.classList.add('maximo');
+        } else {
+          contador.classList.add('parcial');
+        }
+      }
+
+      // Adicionar event listeners
+      checkboxes.forEach(input => {
         input.addEventListener('change', function() {
           if (this.checked) {
             this.parentElement.classList.add('selecionado');
           } else {
             this.parentElement.classList.remove('selecionado');
           }
+          atualizarContador();
         });
+      });
+
+      // Inicializar contador
+      document.addEventListener('DOMContentLoaded', function() {
+        atualizarContador();
+      });
+
+      // Validação no submit do formulário
+      form.addEventListener('submit', function(e) {
+        const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
+        if (selecionados.length === 0) {
+          e.preventDefault();
+          alert('Por favor, selecione pelo menos um sabor.');
+          return false;
+        }
+
+        if (selecionados.length > maxSabores) {
+          e.preventDefault();
+          const tipoProduto = {% if pedido.tamanho == 'Calzone' %}'Calzone'{% else %}'Pizza'{% endif %};
+          alert(`Erro: ${tipoProduto} permite no máximo ${maxSabores} sabor${maxSabores > 1 ? 'es' : ''}.`);
+          return false;
+        }
       });
     </script>
     <script>
@@ -175,6 +259,28 @@
           setContrastMode(false);
         }
       });
+
+      // Função para navegar entre etapas
+      function navegarParaEtapa(etapa) {
+        const urls = {
+          'tamanho': '/tamanho/',
+          'sabores': '/sabores/',
+          'pagamento': '/pagamento/',
+          'endereco': '/endereco/',
+          'revisao': '/revisao/'
+        };
+
+        if (urls[etapa]) {
+          window.location.href = urls[etapa];
+        }
+      }
     </script>
   </body>
+      <footer class="rodape">
+      <div class="redes-sociais">
+        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
+      </div>
+      <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+    </footer>
 </html>

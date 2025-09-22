@@ -3,28 +3,30 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.conf import settings
+from django.urls import reverse
 from twilio.rest import Client
-from .models import Pedido, Pizza
+from .models import Pedido, Pizza, Usuario
 
 def login(request):
     if request.method == "POST":
         id = request.POST.get("id")
         senha = request.POST.get("senha")
 
-        # user = authenticate(request, id=id, senha=senha)
+        try:
+            user = Usuario.objects.get(cpf=id)
+        except Usuario.DoesNotExist:
+            try:
+                user = Usuario.objects.get(telefone=id)
+            except Usuario.DoesNotExist:
+                user = None
 
-        #if user is not None:
-           # login(request, user)
-            #return redirect("selecionar_tamanho")  
-        #else:
-            #messages.error(request, "Usuário ou senha inválidos.")
-        
-        if id and senha:
-            request.session["usuario"] = id  # salva na sessão
-            return redirect('pedido:selecionar_tamanho')
+        if user and user.check_password(senha):
+            login(request, user)
+            return redirect("pedido:selecionar_tamanho")
         else:
-            return render(request, "login.html", {"erro": "Preencha usuário e senha!"})
-   
+            messages.error(request, "Usuário ou senha inválidos.")
+            return render(request, "login.html", {"erro": "Usuário ou senha inválidos."})
+
     return render(request, "login.html")
 
 def cadastrar(request): 
@@ -35,14 +37,44 @@ def cadastrar(request):
         endereco = request.POST.get("endereco")
         senha = request.POST.get("senha")
         confirmarsenha = request.POST.get("confirmarsenha")
-        
-        
+
+        if senha != confirmarsenha:
+            messages.error(request, "As senhas não coincidem.")
+            return render(request, "cadastro.html")
+
+        if not cpf or not telefone or not senha:
+            messages.error(request, "CPF, telefone e senha são obrigatórios.")
+            return render(request, "cadastro.html")
+
+        from .models import Usuario
+        if Usuario.objects.filter(cpf=cpf).exists():
+            messages.error(request, "CPF já cadastrado.")
+            return render(request, "cadastro.html")
+
+        if Usuario.objects.filter(telefone=telefone).exists():
+            messages.error(request, "Telefone já cadastrado.")
+            return render(request, "cadastro.html")
+
+        usuario = Usuario.objects.create_user(
+            username=cpf,
+            cpf=cpf,
+            telefone=telefone,
+            endereco=endereco,
+            password=senha,
+            first_name=nome
+        )
+        usuario.save()
+
+        messages.success(request, "Cadastro realizado com sucesso. Faça login.")
+        return redirect('pedido:login')
+   
     return render(request, "cadastro.html")
             
 def selecionar_tamanho(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
-    pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))  # sempre trabalhar no temporário
+    pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}')) 
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    adicionando = request.GET.get('adicionando') or request.POST.get('adicionando') == 'true'
 
     tamanho_selecionado = pedido_atual.get('tamanho')
 
@@ -54,6 +86,7 @@ def selecionar_tamanho(request):
                 'erro': 'Por favor, selecione um tamanho.',
                 'pedido': pedido_atual,
                 'editando': editando,
+                'adicionando': adicionando,
                 'tamanho_selecionado': tamanho_selecionado
             })
             response.set_cookie('pedidos', json.dumps(pedidos))
@@ -63,7 +96,8 @@ def selecionar_tamanho(request):
         # salva no pedido atual, mas não joga em pedidos ainda
         pedido_atual['tamanho'] = tamanho
 
-        response = redirect('pedido:selecionar_sabores' if not editando else 'pedido:revisar_pedido')
+        flag = 'editando=true' if editando else ('adicionando=true' if adicionando else '')
+        response = redirect(reverse('pedido:selecionar_sabores') + ('?' + flag if flag else ''))
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
         response.set_cookie('pedidos', json.dumps(pedidos))
         return response
@@ -72,6 +106,7 @@ def selecionar_tamanho(request):
         'etapa': 'tamanho',
         'pedido': pedido_atual,
         'editando': editando,
+        'adicionando': adicionando,
         'tamanho_selecionado': tamanho_selecionado
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
@@ -83,6 +118,7 @@ def selecionar_sabores(request):
     index = request.GET.get('index')  # para edição
     pedido_atual = pedidos[int(index)] if index is not None else json.loads(request.COOKIES.get('pedido_atual', '{}'))
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    adicionando = request.GET.get('adicionando') or request.POST.get('adicionando') == 'true'
 
     sabores_selecionados = pedido_atual.get('sabores', [])
 
@@ -94,6 +130,37 @@ def selecionar_sabores(request):
                 'erro': 'Selecione pelo menos um sabor.',
                 'pedido': pedido_atual,
                 'editando': editando,
+                'adicionando': adicionando,
+                'sabores_selecionados': sabores_selecionados
+            })
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
+
+        # Validação de quantidade de sabores por tamanho
+        tamanho = pedido_atual.get('tamanho', '')
+        max_sabores = 3  # padrão para pizzas
+
+        if tamanho == 'Calzone':
+            max_sabores = 1
+        elif tamanho in ['Media', 'Grande', 'Big']:
+            max_sabores = 3
+        else:
+            max_sabores = 3  # fallback
+
+        if len(sabores) > max_sabores:
+            erro_msg = f"Erro: {tamanho} "
+            if tamanho == 'Calzone':
+                erro_msg += "permite apenas 1 sabor."
+            else:
+                erro_msg += f"permite no máximo {max_sabores} sabores."
+
+            response = render(request, 'pedido/sabores.html', {
+                'etapa': 'sabores',
+                'erro': erro_msg,
+                'pedido': pedido_atual,
+                'editando': editando,
+                'adicionando': adicionando,
                 'sabores_selecionados': sabores_selecionados
             })
             response.set_cookie('pedidos', json.dumps(pedidos))
@@ -102,7 +169,12 @@ def selecionar_sabores(request):
 
         pedido_atual['sabores'] = sabores
 
-        response = redirect('pedido:confirmar_adicionar' if not editando else 'pedido:revisar_pedido')
+        if not editando:
+            response = redirect('pedido:confirmar_adicionar')
+        else:
+            pedidos.append(pedido_atual)
+            pedido_atual = {}
+            response = redirect('pedido:revisar_pedido')
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
         response.set_cookie('pedidos', json.dumps(pedidos))
         return response
@@ -111,6 +183,7 @@ def selecionar_sabores(request):
         'etapa': 'sabores',
         'pedido': pedido_atual,
         'editando': editando,
+        'adicionando': adicionando,
         'sabores_selecionados': sabores_selecionados
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
@@ -135,13 +208,48 @@ def confirmar_adicionar(request):
         elif tamanho == "Calzone":
             total += 75
 
+    # Excluir pizza pelo índice
+    excluir_index = request.GET.get('excluir')
+    if excluir_index is not None:
+        try:
+            excluir_index = int(excluir_index)
+            if excluir_index < len(pedidos):
+                del pedidos[excluir_index]
+            elif excluir_index == len(pedidos) and pedido_atual.get('tamanho'):
+                pedido_atual = {}
+        except (ValueError, IndexError):
+            pass
+        response = redirect('pedido:confirmar_adicionar')
+        response.set_cookie('pedidos', json.dumps(pedidos))
+        response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+        return response
+
+
+    # Editar pizza pelo índice
+    editar_index = request.GET.get('editar')
+    if editar_index is not None:
+        try:
+            editar_index = int(editar_index)
+            if editar_index < len(pedidos):
+                # carrega pizza no pedido_atual, limpa sabores e remove da lista
+                pedido_atual = pedidos.pop(editar_index)
+                pedido_atual['sabores'] = []  # limpa sabores
+            elif editar_index == len(pedidos) and pedido_atual.get('tamanho'):
+                pedido_atual['sabores'] = []  # limpa sabores
+            response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true')
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            return response
+        except (ValueError, IndexError):
+            pass
+
     if request.method == "POST":
         action = request.POST.get('action')
         if action == "add":
             if pedido_atual.get('tamanho'):
                 pedidos.append(pedido_atual)
             pedido_atual = {}
-            response = redirect('pedido:selecionar_tamanho')  # inicia nova pizza
+            response = redirect(reverse('pedido:selecionar_tamanho') + '?adicionando=true')  # inicia nova pizza
             response.set_cookie('pedidos', json.dumps(pedidos))
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
             return response
@@ -155,8 +263,7 @@ def confirmar_adicionar(request):
             return response
 
     response = render(request, 'pedido/confirmar_adicionar.html', {
-        'pedidos': pedidos,
-        'pedido_atual': pedido_atual,
+        'all_pizzas': all_pizzas,
         'total': total
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
@@ -167,6 +274,7 @@ def selecionar_pagamento(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     order = json.loads(request.COOKIES.get('order', '{}'))
     editando = request.GET.get('editando') == 'true'
+    adicionando = request.GET.get('adicionando') == 'true'
 
     # calcula total do pedido somando todos
     total = 0
@@ -192,7 +300,8 @@ def selecionar_pagamento(request):
                 'pedidos': pedidos,
                 'total': total,
                 'pagamento_selecionado': pagamento_selecionado,
-                'editando': editando
+                'editando': editando,
+                'adicionando': adicionando
             })
             response.set_cookie('pedidos', json.dumps(pedidos))
             response.set_cookie('order', json.dumps(order))
@@ -213,7 +322,8 @@ def selecionar_pagamento(request):
         'pedidos': pedidos,
         'total': total,
         'pagamento_selecionado': pagamento_selecionado,
-        'editando': editando
+        'editando': editando,
+        'adicionando': adicionando
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
     response.set_cookie('order', json.dumps(order))
@@ -272,9 +382,10 @@ def revisar_pedido(request):
         try:
             editar_index = int(editar_index)
             if 0 <= editar_index < len(pedidos):
-                # carrega pizza no pedido_atual e remove da lista
+                # carrega pizza no pedido_atual, limpa sabores e remove da lista
                 pedido_atual = pedidos.pop(editar_index)
-                response = redirect('pedido:selecionar_tamanho')
+                pedido_atual['sabores'] = []  # limpa sabores
+                response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true')
                 response.set_cookie('pedido_atual', json.dumps(pedido_atual))
                 response.set_cookie('pedidos', json.dumps(pedidos))
                 response.set_cookie('order', json.dumps(order))
@@ -319,7 +430,6 @@ def revisar_pedido(request):
             f"💵 *Total:* R$ {total:.2f}\n"
             f"💳 *Pagamento:* {pagamento}\n"
             f"📍 *Endereço:* {order.get('endereco')}\n\n"
-            "Obrigado por pedir com a gente! 🚀"
         )
 
         import urllib.parse

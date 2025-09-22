@@ -29,64 +29,76 @@
 
         <!-- Progresso -->
         <div class="progress-steps">
-            <div class="step active" id="step1">
+            <div class="step active" id="step1" onclick="navegarParaEtapa('tamanho')">
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
-            <div class="step active" id="step2">
+            <div class="step active" id="step2" onclick="navegarParaEtapa('sabores')">
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step" id="step3">
+            <div class="step" id="step3" onclick="navegarParaEtapa('pagamento')">
                 <div class="step-number">3</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step" id="step4">
+            <div class="step" id="step4" onclick="navegarParaEtapa('endereco')">
                 <div class="step-number">4</div>
                 <div class="step-label">Entrega</div>
+            </div>
+            <div class="step" id="step5" onclick="navegarParaEtapa('revisao')">
+                <div class="step-number">5</div>
+                <div class="step-label">Revisão</div>
             </div>
         </div>
 
         <!-- Seção de confirmação -->
         <section class="secao-formulario">
-            <h2><i class="fas fa-pizza-slice"></i> Resumo do Pedido</h2>
-            <ul>
-                {% for p in pedidos %}
-                <li>
-                     {{ p.tamanho }} - Sabores: {{ p.sabores|join:", " }}
-                </li>
-                 {% endfor %}
-                {% if pedido_atual.tamanho %}
-                <li>
-                     {{ pedido_atual.tamanho }} - Sabores: {{ pedido_atual.sabores|join:", " }}
-                </li>
-                {% endif %}
-            </ul>
-            <p><strong>Total:</strong> R$ {{ total }}</p>
-        </section>
+            <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
 
-        <section class="secao-formulario">
-            <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Pizzas</h2>
-            <p>Você pode adicionar mais pizzas ao seu pedido ou prosseguir para o pagamento.</p>
-
-            <div class="botoes-revisao">
-                <form method="post" style="display: inline;">
-                    {% csrf_token %}
-                    <button type="submit" name="action" value="add" class="botao botao-editar">
-                        <i class="fas fa-plus"></i> Adicionar Outra Pizza
-                    </button>
-                </form>
-                <form method="post" style="display: inline;">
-                    {% csrf_token %}
-                    <button type="submit" name="action" value="proceed" class="botao botao-salvar">
-                        <i class="fas fa-arrow-right"></i> Prosseguir para Pagamento
-                    </button>
-                </form>
+            <div class="resumo-pedido">
+                <ul>
+                    {% for p in all_pizzas %}
+                        <li>
+                            <i class="fas fa-pizza-slice"></i>
+                            <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                            <br>
+                            <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
+                            <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
+                        </li>
+                        <br>
+                    {% endfor %}
+                </ul>
             </div>
+            <p><strong>Total:</strong> R$ {{ total }}</p>
+          </section>
+          
+        <section class="secao-formulario">
+            <h2><i class="fas fa-warning"></i>Observações</h2>
+            <p>Para adicionar observações ao pedido, poderá ser feito diretamente após enviar a mensagem por WhatsApp</p>
         </section>
-    </div>
-    <script>
-      // Toggle high contrast mode and save preference in localStorage
+        <section class="secao-formulario">
+          <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Pizzas</h2>
+          <p>Você pode adicionar mais pizzas ao seu pedido ou prosseguir para o pagamento.</p>
+          
+          <div class="botoes-revisao">
+            <form method="post" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit" name="action" value="add" class="botao botao-editar">
+                <i class="fas fa-plus"></i> Adicionar Outra Pizza
+              </button>
+            </form>
+            <form method="post" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit" name="action" value="proceed" class="botao botao-salvar">
+                <i class="fas fa-arrow-right"></i> Prosseguir para Pagamento
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+      
+      <script>
+        // Toggle high contrast mode and save preference in localStorage
       const toggleButton = document.getElementById('toggle-contrast');
       const body = document.body;
 
@@ -116,6 +128,22 @@
           setContrastMode(false);
         }
       });
+
+      // Função para navegar entre etapas
+      function navegarParaEtapa(etapa) {
+        const urls = {
+          'tamanho': '/tamanho/',
+          'sabores': '/sabores/',
+          'pagamento': '/pagamento/',
+          'endereco': '/endereco/',
+          'revisao': '/revisao/'
+        };
+
+        if (urls[etapa]) {
+          window.location.href = urls[etapa];
+        }
+      }
     </script>
 </body>
+
 </html>
