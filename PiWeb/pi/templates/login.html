@@ -43,6 +43,39 @@
               </form>
           </section>
       </div>
+
+      <script>
+        // Toggle high contrast mode and save preference in localStorage
+        const toggleButton = document.getElementById('toggle-contrast');
+        const body = document.body;
+
+        function setContrastMode(enabled) {
+          if (enabled) {
+            body.classList.add('high-contrast');
+            localStorage.setItem('highContrast', 'true');
+            toggleButton.textContent = 'Desativar Alto Contraste';
+          } else {
+            body.classList.remove('high-contrast');
+            localStorage.setItem('highContrast', 'false');
+            toggleButton.textContent = 'Ativar Alto Contraste';
+          }
+        }
+
+        toggleButton.addEventListener('click', () => {
+          const isEnabled = body.classList.contains('high-contrast');
+          setContrastMode(!isEnabled);
+        });
+
+        // On page load, check saved preference
+        document.addEventListener('DOMContentLoaded', () => {
+          const saved = localStorage.getItem('highContrast');
+          if (saved === 'true') {
+            setContrastMode(true);
+          } else {
+            setContrastMode(false);
+          }
+        });
+      </script>
   </body>
     <footer class="rodape">
       <div class="redes-sociais">
