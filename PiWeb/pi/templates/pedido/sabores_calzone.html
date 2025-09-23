@@ -1,0 +1,291 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa das Pizzas - Faça seu pedido</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <div class="container">
+      <!-- Cabeçalho -->
+      <header class="header">
+        <h1>
+          <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
+          Casa das Pizzas
+        </h1>
+        <p>Monte seu pedido e receba em casa!</p>
+
+        <div class="botoes-container">
+          <button id="btn-back" class="botao" onclick="window.history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
+          <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+        </div>
+      </header>
+
+        <!-- Progresso -->
+        <div class="progress-steps">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1" onclick="navegarParaEtapa('tamanho')">
+                <div class="step-number">1</div>
+                <div class="step-label">Tamanho</div>
+            </div>
+            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2" onclick="navegarParaEtapa('sabores')">
+                <div class="step-number">2</div>
+                <div class="step-label">Sabores</div>
+            </div>
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('pagamento')">
+                <div class="step-number">3</div>
+                <div class="step-label">Pagamento</div>
+            </div>
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('endereco')">
+                <div class="step-number">4</div>
+                <div class="step-label">Entrega</div>
+            </div>
+            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('revisao')">
+                <div class="step-number">5</div>
+                <div class="step-label">Revisão</div>
+            </div>
+        </div>
+        
+      <!-- Mensagens de alerta -->
+      {% if erro %}
+      <div class="alerta alerta-erro">{{ erro }}</div>
+      {% endif %}
+
+      <!-- Seção 2: Sabores para Calzone -->
+      {% if etapa == "sabores" %}
+      <section class="secao-formulario" id="main-content">
+        <h2><i class="fas fa-utensils"></i> Escolha o sabor do Calzone</h2>
+
+        <!-- Informações sobre limites de sabores -->
+        <div class="info-limites">
+          <div class="limite-badge">
+            <i class="fas fa-info-circle"></i>
+            <span id="limite-info">
+              Calzone: máximo 1 sabor
+            </span>
+          </div>
+          <div class="contador-sabores">
+            <span id="contador">0</span> de 1 sabor selecionado
+          </div>
+        </div>
+
+        <form method="post" id="form-sabores">
+          {% csrf_token %}
+          <div class="grade-sabores">
+            <!-- Sabores específicos para calzone -->
+            <div class="cartao-sabor">
+              <input type="checkbox" id="calabresa" name="sabores" value="Calabresa" {% if 'Calabresa' in pedido.sabores %}checked{% endif %} />
+              <label for="calabresa">
+                <div class="info-sabor">
+                  <h3>Calabresa</h3>
+                  <p>Molho, calabresa, mussarela, presunto, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="frango_catupiry" name="sabores" value="Frango com Catupiry" {% if 'Frango com Catupiry' in pedido.sabores %}checked{% endif %} />
+              <label for="frango_catupiry">
+                <div class="info-sabor">
+                  <h3>Frango com Catupiry</h3>
+                  <p>Frango desfiado com molho, mussarela, orégano, catupiry.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="4_queijos" name="sabores" value="Quatro Queijos" {% if 'Quatro Queijos' in pedido.sabores %}checked{% endif %} />
+              <label for="4_queijos">
+                <div class="info-sabor">
+                  <h3>Quatro Queijos</h3>
+                  <p>Molho, mussarela, provolone, parmesão, cheddar, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="portugues" name="sabores" value="Portuguesa" {% if 'Portuguesa' in pedido.sabores %}checked{% endif %} />
+              <label for="portuguesa">
+                <div class="info-sabor">
+                  <h3>Portuguesa</h3>
+                  <p>Molho, mussarela, presunto, ovos cozidos, cebola, azeitonas verdes fatiadas, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="marguerita" name="sabores" value="Marguerita" {% if 'Marguerita' in pedido.sabores %}checked{% endif %} />
+              <label for="marguerita">
+                <div class="info-sabor">
+                  <h3>Marguerita</h3>
+                  <p>Molho, mussarela, tomate em rodelas, manjericão, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="bolonhesa" name="sabores" value="Bolonhesa" {% if 'Bolonhesa' in pedido.sabores %}checked{% endif %} />
+              <label for="bolonhesa">
+                <div class="info-sabor">
+                  <h3>Bolonhesa</h3>
+                  <p>Molho, mussarela, presunto, carne moída refogada, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="atum_acebolado" name="sabores" value="Atum Acebolado" {% if 'Atum Acebolado' in pedido.sabores %}checked{% endif %} />
+              <label for="atum_acebolado">
+                <div class="info-sabor">
+                  <h3>Atum Acebolado</h3>
+                  <p>Molho, mussarela, atum ralado, cebola temperada, azeitonas verdes, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="vegetariana" name="sabores" value="Vegetariana" {% if 'Vegetariana' in pedido.sabores %}checked{% endif %} />
+              <label for="vegetariana">
+                <div class="info-sabor">
+                  <h3>Vegetariana</h3>
+                  <p>Molho, mussarela, brócolis refogada, palmito, tomate, alho poró, azeitonas verdes, orégano.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="botao">Próximo</button>
+        </form>
+      </section>
+      {% endif %}
+    </div>
+
+    <script>
+      // Variáveis para controle de sabores
+      const maxSabores = 1; // Calzone permite apenas 1 sabor
+      const checkboxes = document.querySelectorAll('.cartao-sabor input[type="checkbox"]');
+      const contador = document.getElementById('contador');
+      const form = document.getElementById('form-sabores');
+
+      // Função para atualizar contador e estado dos checkboxes
+      function atualizarContador() {
+        const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
+        const quantidade = selecionados.length;
+
+        contador.textContent = quantidade;
+
+        // Atualizar estado dos checkboxes não selecionados
+        checkboxes.forEach(checkbox => {
+          if (!checkbox.checked && quantidade >= maxSabores) {
+            checkbox.disabled = true;
+            checkbox.parentElement.classList.add('desabilitado');
+          } else {
+            checkbox.disabled = false;
+            checkbox.parentElement.classList.remove('desabilitado');
+          }
+        });
+
+        // Atualizar classe do contador baseado na quantidade
+        contador.className = '';
+        if (quantidade === 0) {
+          contador.classList.add('zero');
+        } else if (quantidade === maxSabores) {
+          contador.classList.add('maximo');
+        } else {
+          contador.classList.add('parcial');
+        }
+      }
+
+      // Adicionar event listeners
+      checkboxes.forEach(input => {
+        input.addEventListener('change', function() {
+          if (this.checked) {
+            this.parentElement.classList.add('selecionado');
+          } else {
+            this.parentElement.classList.remove('selecionado');
+          }
+          atualizarContador();
+        });
+      });
+
+      // Inicializar contador
+      document.addEventListener('DOMContentLoaded', function() {
+        atualizarContador();
+      });
+
+      // Validação no submit do formulário
+      form.addEventListener('submit', function(e) {
+        const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
+        if (selecionados.length === 0) {
+          e.preventDefault();
+          alert('Por favor, selecione um sabor.');
+          return false;
+        }
+
+        if (selecionados.length > maxSabores) {
+          e.preventDefault();
+          alert('Erro: Calzone permite no máximo 1 sabor.');
+          return false;
+        }
+      });
+    </script>
+    <script>
+      // Toggle high contrast mode and save preference in localStorage
+      const toggleButton = document.getElementById('toggle-contrast');
+      const body = document.body;
+
+      function setContrastMode(enabled) {
+        if (enabled) {
+          body.classList.add('high-contrast');
+          localStorage.setItem('highContrast', 'true');
+          toggleButton.textContent = 'Desativar Alto Contraste';
+        } else {
+          body.classList.remove('high-contrast');
+          localStorage.setItem('highContrast', 'false');
+          toggleButton.textContent = 'Ativar Alto Contraste';
+        }
+      }
+
+      toggleButton.addEventListener('click', () => {
+        const isEnabled = body.classList.contains('high-contrast');
+        setContrastMode(!isEnabled);
+      });
+
+      // On page load, check saved preference
+      document.addEventListener('DOMContentLoaded', () => {
+        const saved = localStorage.getItem('highContrast');
+        if (saved === 'true') {
+          setContrastMode(true);
+        } else {
+          setContrastMode(false);
+        }
+      });
+
+      // Função para navegar entre etapas
+      function navegarParaEtapa(etapa) {
+        const urls = {
+          'tamanho': '/tamanho/',
+          'sabores': '/sabores_calzone/',
+          'pagamento': '/pagamento/',
+          'endereco': '/endereco/',
+          'revisao': '/revisao/'
+        };
+
+        if (urls[etapa]) {
+          window.location.href = urls[etapa];
+        }
+      }
+    </script>
+  </body>
+      <footer class="rodape">
+      <div class="redes-sociais">
+        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
+      </div>
+      <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+    </footer>
+</html>

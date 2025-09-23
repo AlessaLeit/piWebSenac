@@ -77,18 +77,18 @@
             <p>Para adicionar observações ao pedido, poderá ser feito diretamente após enviar a mensagem por WhatsApp</p>
         </section>
         <section class="secao-formulario">
-          <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Pizzas</h2>
-          <p>Você pode adicionar mais pizzas ao seu pedido ou prosseguir para o pagamento.</p>
+          <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Itens</h2>
+          <p>Você pode adicionar mais pizzas ou calzone ao seu pedido ou prosseguir para o pagamento.</p>
           
           <div class="botoes-revisao">
             <form method="post" style="display: inline;">
               {% csrf_token %}
               <button type="submit" name="action" value="add" class="botao botao-editar">
-                <i class="fas fa-plus"></i> Adicionar Outra Pizza
+                <i class="fas fa-plus"></i> Adicionar Outro Item
               </button>
             </form>
             <form method="post" style="display: inline;">
-              {% csrf_token %}
+              {% csrf_token %} 
               <button type="submit" name="action" value="proceed" class="botao botao-salvar">
                 <i class="fas fa-arrow-right"></i> Prosseguir para Pagamento
               </button>
@@ -98,7 +98,6 @@
       </div>
       
       <script>
-        // Toggle high contrast mode and save preference in localStorage
       const toggleButton = document.getElementById('toggle-contrast');
       const body = document.body;
 

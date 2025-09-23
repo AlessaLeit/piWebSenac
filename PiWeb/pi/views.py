@@ -96,8 +96,14 @@ def selecionar_tamanho(request):
         # salva no pedido atual, mas não joga em pedidos ainda
         pedido_atual['tamanho'] = tamanho
 
+        # Redireciona para a página apropriada com base no tamanho
+        if tamanho == 'Calzone':
+            redirect_view = 'pedido:selecionar_sabores_calzone'
+        else:
+            redirect_view = 'pedido:selecionar_sabores'
+
         flag = 'editando=true' if editando else ('adicionando=true' if adicionando else '')
-        response = redirect(reverse('pedido:selecionar_sabores') + ('?' + flag if flag else ''))
+        response = redirect(reverse(redirect_view) + ('?' + flag if flag else ''))
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
         response.set_cookie('pedidos', json.dumps(pedidos))
         return response
@@ -141,19 +147,13 @@ def selecionar_sabores(request):
         tamanho = pedido_atual.get('tamanho', '')
         max_sabores = 3  # padrão para pizzas
 
-        if tamanho == 'Calzone':
-            max_sabores = 1
-        elif tamanho in ['Media', 'Grande', 'Big']:
+        if tamanho in ['Media', 'Grande', 'Big']:
             max_sabores = 3
         else:
             max_sabores = 3  # fallback
 
         if len(sabores) > max_sabores:
-            erro_msg = f"Erro: {tamanho} "
-            if tamanho == 'Calzone':
-                erro_msg += "permite apenas 1 sabor."
-            else:
-                erro_msg += f"permite no máximo {max_sabores} sabores."
+            erro_msg = f"Erro: {tamanho} permite no máximo {max_sabores} sabores."
 
             response = render(request, 'pedido/sabores.html', {
                 'etapa': 'sabores',
@@ -180,6 +180,67 @@ def selecionar_sabores(request):
         return response
 
     response = render(request, 'pedido/sabores.html', {
+        'etapa': 'sabores',
+        'pedido': pedido_atual,
+        'editando': editando,
+        'adicionando': adicionando,
+        'sabores_selecionados': sabores_selecionados
+    })
+    response.set_cookie('pedidos', json.dumps(pedidos))
+    response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+    return response
+
+def selecionar_sabores_calzone(request):
+    pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
+    index = request.GET.get('index')  # para edição
+    pedido_atual = pedidos[int(index)] if index is not None else json.loads(request.COOKIES.get('pedido_atual', '{}'))
+    editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
+    adicionando = request.GET.get('adicionando') or request.POST.get('adicionando') == 'true'
+
+    sabores_selecionados = pedido_atual.get('sabores', [])
+
+    if request.method == "POST":
+        sabores = request.POST.getlist('sabores')
+        if not sabores:
+            response = render(request, 'pedido/sabores_calzone.html', {
+                'etapa': 'sabores',
+                'erro': 'Selecione um sabor.',
+                'pedido': pedido_atual,
+                'editando': editando,
+                'adicionando': adicionando,
+                'sabores_selecionados': sabores_selecionados
+            })
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
+
+        # Calzone permite apenas 1 sabor
+        if len(sabores) > 1:
+            response = render(request, 'pedido/sabores_calzone.html', {
+                'etapa': 'sabores',
+                'erro': 'Erro: Calzone permite apenas 1 sabor.',
+                'pedido': pedido_atual,
+                'editando': editando,
+                'adicionando': adicionando,
+                'sabores_selecionados': sabores_selecionados
+            })
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            return response
+
+        pedido_atual['sabores'] = sabores
+
+        if not editando:
+            response = redirect('pedido:confirmar_adicionar')
+        else:
+            pedidos.append(pedido_atual)
+            pedido_atual = {}
+            response = redirect('pedido:revisar_pedido')
+        response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+        response.set_cookie('pedidos', json.dumps(pedidos))
+        return response
+
+    response = render(request, 'pedido/sabores_calzone.html', {
         'etapa': 'sabores',
         'pedido': pedido_atual,
         'editando': editando,
@@ -422,21 +483,21 @@ def revisar_pedido(request):
             )
 
         # Formatar mensagem para WhatsApp
-        pizzas_str = '\n'.join([f"🍕 *{p['tamanho']}* com  {', '.join(p['sabores'])} " for p in pedidos])
+        pizzas_str = '\n'.join([f"*{p['tamanho']}* com  {', '.join(p['sabores'])} " for p in pedidos])
 
         message = (
-            f"👋 *Olá {order.get('nome')}!*\n\n"
+            f"*Olá, me chamo {order.get('nome')}!*\n\n"
             f"*Detalhes do pedido:*\n{pizzas_str}\n\n"
-            f"💵 *Total:* R$ {total:.2f}\n"
-            f"💳 *Pagamento:* {pagamento}\n"
-            f"📍 *Endereço:* {order.get('endereco')}\n\n"
+            f"*Total:* R$ {total:.2f}\n"
+            f"*Pagamento:* {pagamento}\n"
+            f"*Endereço:* {order.get('endereco')}\n\n"
         )
 
         import urllib.parse
         msg_encoded = urllib.parse.quote(message)
 
         # Redirecionar para link do WhatsApp
-        url_whatsapp = f"https://wa.me/5547989036464?text={msg_encoded}"
+        url_whatsapp = f"https://wa.me/5547997582686?text={msg_encoded}"
         return redirect(url_whatsapp)
 
     success = request.GET.get('success') == 'true'
