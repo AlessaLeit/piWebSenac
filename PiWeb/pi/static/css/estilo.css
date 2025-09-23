@@ -320,6 +320,31 @@ body {
     outline: none;
 }
 
+/* Campo de observação */
+.campo-observacao {
+    margin-bottom: 15px;
+}
+
+.campo-observacao label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.campo-observacao input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.campo-observacao input:focus {
+    border-color: #d62828;
+    outline: none;
+}
+
 .opcao-retirada {
     display: flex;
     align-items: center;
@@ -620,6 +645,16 @@ body {
 
 .high-contrast .campo-endereco input:focus,
 .high-contrast .campo-endereco textarea:focus {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .campo-observacao input {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .campo-observacao input:focus {
     border-color: #ffff00 !important;
 }
 

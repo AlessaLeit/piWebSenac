@@ -254,6 +254,7 @@ def selecionar_sabores_calzone(request):
 def confirmar_adicionar(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))
+    observacoes = json.loads(request.COOKIES.get('observacoes', '{}'))
 
     # Calcula total incluindo pedido_atual se existir
     all_pizzas = pedidos + ([pedido_atual] if pedido_atual.get('tamanho') else [])
@@ -276,15 +277,21 @@ def confirmar_adicionar(request):
             excluir_index = int(excluir_index)
             if excluir_index < len(pedidos):
                 del pedidos[excluir_index]
+                # Remove a observação correspondente
+                if str(excluir_index) in observacoes:
+                    del observacoes[str(excluir_index)]
             elif excluir_index == len(pedidos) and pedido_atual.get('tamanho'):
                 pedido_atual = {}
+                # Remove a observação do pedido_atual
+                if str(excluir_index) in observacoes:
+                    del observacoes[str(excluir_index)]
         except (ValueError, IndexError):
             pass
         response = redirect('pedido:confirmar_adicionar')
         response.set_cookie('pedidos', json.dumps(pedidos))
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+        response.set_cookie('observacoes', json.dumps(observacoes))
         return response
-
 
     # Editar pizza pelo índice
     editar_index = request.GET.get('editar')
@@ -295,17 +302,31 @@ def confirmar_adicionar(request):
                 # carrega pizza no pedido_atual, limpa sabores e remove da lista
                 pedido_atual = pedidos.pop(editar_index)
                 pedido_atual['sabores'] = []  # limpa sabores
+                # Remove a observação correspondente
+                if str(editar_index) in observacoes:
+                    del observacoes[str(editar_index)]
             elif editar_index == len(pedidos) and pedido_atual.get('tamanho'):
                 pedido_atual['sabores'] = []  # limpa sabores
+                # Remove a observação do pedido_atual
+                if str(editar_index) in observacoes:
+                    del observacoes[str(editar_index)]
             response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true')
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
             response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('observacoes', json.dumps(observacoes))
             return response
         except (ValueError, IndexError):
             pass
 
     if request.method == "POST":
         action = request.POST.get('action')
+
+        # Processa as observações do formulário
+        for i in range(len(all_pizzas)):
+            obs_key = f'observacao_{i}'
+            if obs_key in request.POST:
+                observacoes[str(i)] = request.POST[obs_key].strip()
+
         if action == "add":
             if pedido_atual.get('tamanho'):
                 pedidos.append(pedido_atual)
@@ -313,6 +334,7 @@ def confirmar_adicionar(request):
             response = redirect(reverse('pedido:selecionar_tamanho') + '?adicionando=true')  # inicia nova pizza
             response.set_cookie('pedidos', json.dumps(pedidos))
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            response.set_cookie('observacoes', json.dumps(observacoes))
             return response
         elif action == "proceed":
             if pedido_atual.get('tamanho'):
@@ -321,14 +343,17 @@ def confirmar_adicionar(request):
             response = redirect('pedido:selecionar_pagamento')  # vai pagar todas
             response.set_cookie('pedidos', json.dumps(pedidos))
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            response.set_cookie('observacoes', json.dumps(observacoes))
             return response
 
     response = render(request, 'pedido/confirmar_adicionar.html', {
         'all_pizzas': all_pizzas,
-        'total': total
+        'total': total,
+        'observacoes': observacoes
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
     response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+    response.set_cookie('observacoes', json.dumps(observacoes))
     return response
 
 def selecionar_pagamento(request):
@@ -421,6 +446,7 @@ def selecionar_endereco(request):
 def revisar_pedido(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     order = json.loads(request.COOKIES.get('order', '{}'))
+    observacoes = json.loads(request.COOKIES.get('observacoes', '{}'))
     pagamento = order.get('pagamento')
 
     # Excluir pizza pelo índice
@@ -430,11 +456,15 @@ def revisar_pedido(request):
             excluir_index = int(excluir_index)
             if 0 <= excluir_index < len(pedidos):
                 del pedidos[excluir_index]
+                # Remove a observação correspondente
+                if str(excluir_index) in observacoes:
+                    del observacoes[str(excluir_index)]
         except (ValueError, IndexError):
             pass
         response = redirect('pedido:revisar_pedido')
         response.set_cookie('pedidos', json.dumps(pedidos))
         response.set_cookie('order', json.dumps(order))
+        response.set_cookie('observacoes', json.dumps(observacoes))
         return response
 
     # Editar pizza pelo índice
@@ -446,10 +476,14 @@ def revisar_pedido(request):
                 # carrega pizza no pedido_atual, limpa sabores e remove da lista
                 pedido_atual = pedidos.pop(editar_index)
                 pedido_atual['sabores'] = []  # limpa sabores
+                # Remove a observação correspondente
+                if str(editar_index) in observacoes:
+                    del observacoes[str(editar_index)]
                 response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true')
                 response.set_cookie('pedido_atual', json.dumps(pedido_atual))
                 response.set_cookie('pedidos', json.dumps(pedidos))
                 response.set_cookie('order', json.dumps(order))
+                response.set_cookie('observacoes', json.dumps(observacoes))
                 return response
         except (ValueError, IndexError):
             pass
@@ -475,19 +509,31 @@ def revisar_pedido(request):
             retirada=order.get('retirada', False),
             pagamento=order.get('pagamento')
         )
-        for p in pedidos:
+        for i, p in enumerate(pedidos):
+            obs_key = str(i)
+            observacao = observacoes.get(obs_key, '').strip()
             Pizza.objects.create(
                 pedido=pedido,
                 tamanho=p['tamanho'],
-                sabores=','.join(p['sabores'])
+                sabores=','.join(p['sabores']),
+                observacao=observacao
             )
 
         # Formatar mensagem para WhatsApp
-        pizzas_str = '\n'.join([f"*{p['tamanho']}* com  {', '.join(p['sabores'])} " for p in pedidos])
+        pizzas_str = []
+        for i, p in enumerate(pedidos):
+            obs_key = str(i)
+            observacao = observacoes.get(obs_key, '').strip()
+            pizza_line = f"*{p['tamanho']}* com {', '.join(p['sabores'])}"
+            if observacao:
+                pizza_line += f" (Obs: {observacao})"
+            pizzas_str.append(pizza_line)
+
+        pizzas_text = '\n'.join(pizzas_str)
 
         message = (
             f"*Olá, me chamo {order.get('nome')}!*\n\n"
-            f"*Detalhes do pedido:*\n{pizzas_str}\n\n"
+            f"*Detalhes do pedido:*\n{pizzas_text}\n\n"
             f"*Total:* R$ {total:.2f}\n"
             f"*Pagamento:* {pagamento}\n"
             f"*Endereço:* {order.get('endereco')}\n\n"
@@ -507,10 +553,12 @@ def revisar_pedido(request):
         'pagamento': pagamento,
         'pedido': order,
         'etapa': 'revisao',
-        'success': success
+        'success': success,
+        'observacoes': observacoes
     })
     response.set_cookie('pedidos', json.dumps(pedidos))
     response.set_cookie('order', json.dumps(order))
+    response.set_cookie('observacoes', json.dumps(observacoes))
     return response
 
 

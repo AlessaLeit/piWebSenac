@@ -31,6 +31,7 @@ class Pizza(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name="pizzas")
     tamanho = models.CharField(max_length=20, choices=TAMANHOS)
     sabores = models.TextField(help_text="Lista de sabores separados por vírgula")
+    observacao = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return f"{self.tamanho} - {self.sabores}"

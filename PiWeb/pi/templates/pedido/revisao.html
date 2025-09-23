@@ -34,21 +34,25 @@
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
-            <div class="step {% if etapa == 'sabores' %}active{% endif %}" id="step2" onclick="navegarParaEtapa('sabores')">
+            <div class="step disabled" id="step2">
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('pagamento')">
+            <div class="step disabled" id="step3">
                 <div class="step-number">3</div>
+                <div class="step-label">Confirmar</div>
+            </div>
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('pagamento')">
+                <div class="step-number">4</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('endereco')">
-                <div class="step-number">4</div>
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('endereco')">
+                <div class="step-number">5</div>
                 <div class="step-label">Entrega</div>
             </div>
-            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('revisao')">
-                <div class="step-number">5</div>
-                <div class="step-label">Revisão</div>
+            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step6" onclick="navegarParaEtapa('revisao')">
+                <div class="step-number">6</div>
+                <div class="step-label">Finalização</div>
             </div>
         </div>
 
@@ -62,6 +66,13 @@
                         <li>
                             <i class="fas fa-pizza-slice"></i>
                             <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                            {% if observacoes %}
+                                {% with obs_key=forloop.counter0|stringformat:"s" %}
+                                    {% if observacoes|get_item:obs_key %}
+                                        <br><em>Observação: {{ observacoes|get_item:obs_key }}</em>
+                                    {% endif %}
+                                {% endwith %}
+                            {% endif %}
                             <br>
                             <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
                             <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
@@ -71,7 +82,7 @@
                 </ul>
             </div>
              <div class="resumo-pedido">
-                <p><i class="fas fa-money-bill-wave"></i> <strong>Total:</strong> R$ {{ total }}</p>
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Total das pizzas:</strong> R$ {{ total }}</p>
                 <p><i class="fas fa-credit-card"></i> <strong>Pagamento:</strong> {{ pagamento }} <a href="{% url 'pedido:selecionar_pagamento' %}?editando=true" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a></p>
             </div>
             <div class="resumo-pedido">
@@ -131,7 +142,7 @@
       function navegarParaEtapa(etapa) {
         const urls = {
           'tamanho': '/tamanho/',
-          'sabores': '/sabores/',
+          'confirmar_adicionar': '/confirmar_adicionar/',
           'pagamento': '/pagamento/',
           'endereco': '/endereco/',
           'revisao': '/revisao/'

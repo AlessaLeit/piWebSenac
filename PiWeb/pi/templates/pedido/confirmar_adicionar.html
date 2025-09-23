@@ -33,49 +33,57 @@
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
-            <div class="step active" id="step2" onclick="navegarParaEtapa('sabores')">
+            <div class="step disabled" id="step2">
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step" id="step3" onclick="navegarParaEtapa('pagamento')">
+            <div class="step active" id="step3" onclick="navegarParaEtapa('confirmar_adicionar')">
                 <div class="step-number">3</div>
+                <div class="step-label">Confirmar</div>
+            </div>
+            <div class="step" id="step4" onclick="navegarParaEtapa('pagamento')">
+                <div class="step-number">4</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step" id="step4" onclick="navegarParaEtapa('endereco')">
-                <div class="step-number">4</div>
+            <div class="step" id="step5" onclick="navegarParaEtapa('endereco')">
+                <div class="step-number">5</div>
                 <div class="step-label">Entrega</div>
             </div>
-            <div class="step" id="step5" onclick="navegarParaEtapa('revisao')">
-                <div class="step-number">5</div>
-                <div class="step-label">Revisão</div>
+            <div class="step" id="step6" onclick="navegarParaEtapa('revisao')">
+                <div class="step-number">6</div>
+                <div class="step-label">Finalização</div>
             </div>
         </div>
 
         <!-- Seção de confirmação -->
-        <section class="secao-formulario">
-            <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
+        <form method="post">
+            {% csrf_token %}
+            <section class="secao-formulario">
+                <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
 
-            <div class="resumo-pedido">
-                <ul>
-                    {% for p in all_pizzas %}
-                        <li>
-                            <i class="fas fa-pizza-slice"></i>
-                            <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                <div class="resumo-pedido">
+                    <ul>
+                        {% for p in all_pizzas %}
+                            <li class="item-pedido">
+                                <div class="item-header">
+                                    <i class="fas fa-pizza-slice"></i>
+                                    <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                                    <div class="item-actions">
+                                        <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
+                                        <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
+                                    </div>
+                                </div>
+                                <div class="campo-observacao">
+                                    <label for="observacao_{{ forloop.counter0 }}">Observações para este item:</label>
+                                    <textarea id="observacao_{{ forloop.counter0 }}" name="observacao_{{ forloop.counter0 }}" rows="3" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200"></textarea>
+                                </div>
+                            </li>
                             <br>
-                            <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
-                            <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
-                        </li>
-                        <br>
-                    {% endfor %}
-                </ul>
-            </div>
-            <p><strong>Total:</strong> R$ {{ total }}</p>
-          </section>
-          
-        <section class="secao-formulario">
-            <h2><i class="fas fa-warning"></i>Observações</h2>
-            <p>Para adicionar observações ao pedido, poderá ser feito diretamente após enviar a mensagem por WhatsApp</p>
-        </section>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <p><strong>Total:</strong> R$ {{ total }}</p>
+            </section>
         <section class="secao-formulario">
           <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Itens</h2>
           <p>Você pode adicionar mais pizzas ou calzone ao seu pedido ou prosseguir para o pagamento.</p>
@@ -132,7 +140,7 @@
       function navegarParaEtapa(etapa) {
         const urls = {
           'tamanho': '/tamanho/',
-          'sabores': '/sabores/',
+          'confirmar_adicionar': '/confirmar_adicionar/',
           'pagamento': '/pagamento/',
           'endereco': '/endereco/',
           'revisao': '/revisao/'
