@@ -73,16 +73,16 @@
                                         <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
                                     </div>
                                 </div>
-                                <div class="campo-observacao">
-                                    <label for="observacao_{{ forloop.counter0 }}">Observações para este item:</label>
-                                    <textarea id="observacao_{{ forloop.counter0 }}" name="observacao_{{ forloop.counter0 }}" rows="3" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200"></textarea>
+                                <div class="campo-endereco">
+                                    <br><label for="observacao_{{ forloop.counter0 }}">Observações para este item:</label>
+                                    <textarea id="observacao_{{ forloop.counter0 }}" name="observacao_{{ forloop.counter0 }}" rows="5" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200"></textarea>
                                 </div>
                             </li>
                             <br>
                         {% endfor %}
                     </ul>
                 </div>
-                <p><strong>Total:</strong> R$ {{ total }}</p>
+                <br><p><strong>Total:</strong> R$ {{ total }}</p>
             </section>
         <section class="secao-formulario">
           <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Itens</h2>

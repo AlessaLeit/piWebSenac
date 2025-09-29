@@ -323,7 +323,7 @@ def confirmar_adicionar(request):
 
         # Processa as observações do formulário
         for i in range(len(all_pizzas)):
-            obs_key = f'observacao_{i}'
+            obs_key = f'observacoes_{i}'
             if obs_key in request.POST:
                 observacoes[str(i)] = request.POST[obs_key].strip()
 
@@ -446,7 +446,10 @@ def selecionar_endereco(request):
 def revisar_pedido(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     order = json.loads(request.COOKIES.get('order', '{}'))
-    observacoes = json.loads(request.COOKIES.get('observacoes', '{}'))
+    try:
+        observacoes = json.loads(request.COOKIES.get('observacoes', '{}'))
+    except (json.JSONDecodeError, TypeError):
+        observacoes = {}
     pagamento = order.get('pagamento')
 
     # Excluir pizza pelo índice
@@ -500,31 +503,31 @@ def revisar_pedido(request):
         elif p['tamanho'] == "Calzone":
             total += 75.00
 
-    if request.method == "POST":
-        # Salva no banco de dados
-        pedido = Pedido.objects.create(
-            nome=order.get('nome'),
-            telefone=order.get('telefone'),
-            endereco=order.get('endereco'),
-            retirada=order.get('retirada', False),
-            pagamento=order.get('pagamento')
-        )
-        for i, p in enumerate(pedidos):
-            obs_key = str(i)
-            observacao = observacoes.get(obs_key, '').strip()
-            Pizza.objects.create(
-                pedido=pedido,
-                tamanho=p['tamanho'],
-                sabores=','.join(p['sabores']),
-                observacao=observacao
+        if request.method == "POST":
+            # Salva no banco de dados
+            pedido = Pedido.objects.create(
+                nome=order.get('nome'),
+                telefone=order.get('telefone'),
+                endereco=order.get('endereco'),
+                retirada=order.get('retirada', False),
+                pagamento=order.get('pagamento')
             )
+            for i, p in enumerate(pedidos):
+                obs_key = str(i)
+                observacao = observacoes.get(obs_key, '').strip()
+                Pizza.objects.create(
+                    pedido=pedido,
+                    tamanho=p['tamanho'],
+                    sabores=','.join(p['sabores']),
+                    observacao=observacao
+                )
 
         # Formatar mensagem para WhatsApp
         pizzas_str = []
         for i, p in enumerate(pedidos):
             obs_key = str(i)
             observacao = observacoes.get(obs_key, '').strip()
-            pizza_line = f"*{p['tamanho']}* com {', '.join(p['sabores'])}"
+            pizza_line = f"*{p['tamanho']}* - Sabores:{', '.join(p['sabores'])}"
             if observacao:
                 pizza_line += f" (Obs: {observacao})"
             pizzas_str.append(pizza_line)
