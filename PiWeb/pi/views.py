@@ -258,6 +258,9 @@ def confirmar_adicionar(request):
 
     # Calcula total incluindo pedido_atual se existir
     all_pizzas = pedidos + ([pedido_atual] if pedido_atual.get('tamanho') else [])
+    # Adiciona observacao a cada pizza
+    for i, p in enumerate(all_pizzas):
+        p['observacao'] = observacoes.get(str(i), '')
     total = 0
     for p in all_pizzas:
         tamanho = p.get('tamanho')
@@ -345,6 +348,12 @@ def confirmar_adicionar(request):
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
             response.set_cookie('observacoes', json.dumps(observacoes))
             return response
+        elif action == "back":
+            response = redirect('pedido:selecionar_sabores')
+            response.set_cookie('pedidos', json.dumps(pedidos))
+            response.set_cookie('pedido_atual', json.dumps(pedido_atual))
+            response.set_cookie('observacoes', json.dumps(observacoes))
+            return response
 
     response = render(request, 'pedido/confirmar_adicionar.html', {
         'all_pizzas': all_pizzas,
@@ -359,8 +368,13 @@ def confirmar_adicionar(request):
 def selecionar_pagamento(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     order = json.loads(request.COOKIES.get('order', '{}'))
+    observacoes = json.loads(request.COOKIES.get('observacoes', '{}'))
     editando = request.GET.get('editando') == 'true'
     adicionando = request.GET.get('adicionando') == 'true'
+
+    # Adiciona observacao a cada pizza
+    for i, p in enumerate(pedidos):
+        p['observacao'] = observacoes.get(str(i), '')
 
     # calcula total do pedido somando todos
     total = 0
