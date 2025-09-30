@@ -71,7 +71,7 @@
         {% csrf_token %}
         <div class="grade-opcoes">
           <div class="cartao-opcao">
-            <input type="radio" id="media" name="tamanho" value="Media" {% if pedido.tamanho == 'Media' %}checked{% endif %} />
+            <input type="radio" id="media" name="tamanho" value="Média" {% if pedido.tamanho == 'Média' %}checked{% endif %} />
             <label for="media"><i class="fas fa-pizza-slice"></i><span>Pizza Média <br> R$50.00</span></label>
           </div>
           <div class="cartao-opcao">

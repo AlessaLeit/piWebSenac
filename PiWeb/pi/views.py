@@ -147,7 +147,7 @@ def selecionar_sabores(request):
         tamanho = pedido_atual.get('tamanho', '')
         max_sabores = 3  # padrão para pizzas
 
-        if tamanho in ['Media', 'Grande', 'Big']:
+        if tamanho in ['Média', 'Grande', 'Big']:
             max_sabores = 3
         else:
             max_sabores = 3  # fallback
@@ -264,7 +264,7 @@ def confirmar_adicionar(request):
     total = 0
     for p in all_pizzas:
         tamanho = p.get('tamanho')
-        if tamanho == "Media":
+        if tamanho == "Média":
             total += 50
         elif tamanho == "Grande":
             total += 60
@@ -380,7 +380,7 @@ def selecionar_pagamento(request):
     total = 0
     for p in pedidos:
         tamanho = p.get('tamanho')
-        if tamanho == "Media":
+        if tamanho == "Média":
             total += 50
         elif tamanho == "Grande":
             total += 60
@@ -508,7 +508,7 @@ def revisar_pedido(request):
     # calcula total
     total = 0
     for p in pedidos:
-        if p['tamanho'] == "Media":
+        if p['tamanho'] == "Média":
             total += 50.00
         elif p['tamanho'] == "Grande":
             total += 60.00
@@ -517,43 +517,54 @@ def revisar_pedido(request):
         elif p['tamanho'] == "Calzone":
             total += 75.00
 
-        if request.method == "POST":
-            # Salva no banco de dados
-            pedido = Pedido.objects.create(
-                nome=order.get('nome'),
-                telefone=order.get('telefone'),
-                endereco=order.get('endereco'),
-                retirada=order.get('retirada', False),
-                pagamento=order.get('pagamento')
-            )
-            for i, p in enumerate(pedidos):
-                obs_key = str(i)
-                observacao = observacoes.get(obs_key, '').strip()
-                Pizza.objects.create(
-                    pedido=pedido,
-                    tamanho=p['tamanho'],
-                    sabores=','.join(p['sabores']),
-                    observacao=observacao
-                )
-
-        # Formatar mensagem para WhatsApp
-        pizzas_str = []
+    if request.method == "POST":
+        # Salva no banco de dados
+        pedido = Pedido.objects.create(
+            nome=order.get('nome'),
+            telefone=order.get('telefone'),
+            endereco=order.get('endereco'),
+            retirada=order.get('retirada', False),
+            pagamento=order.get('pagamento')
+        )
         for i, p in enumerate(pedidos):
             obs_key = str(i)
             observacao = observacoes.get(obs_key, '').strip()
-            pizza_line = f"*{p['tamanho']}* - Sabores:{', '.join(p['sabores'])}"
-            if observacao:
-                pizza_line += f" (Obs: {observacao})"
+            Pizza.objects.create(
+                pedido=pedido,
+                tamanho=p['tamanho'],
+                sabores=','.join(p['sabores']),
+                observacao=observacao
+            )
+
+        # Formatar mensagem para WhatsApp
+        pizzas_str = []
+        for i, p in enumerate(pedidos, 1):
+            obs_key = str(i - 1)
+            observacao = observacoes.get(obs_key, '').strip()
+
+            tamanho = p['tamanho']
+            if tamanho in ['Média', 'Grande', 'Big']:
+                tipo_item = f"Pizza {tamanho}"
+            else:
+                tipo_item = tamanho.capitalize()
+
+            pizza_line = (
+                f"*Detalhes do Pedido {i}*\n"
+                f"- {tipo_item}\n"
+                f"- Sabores: {', '.join(p['sabores'])}\n"
+                f"- Observações: {observacao if observacao else 'Nenhuma'}\n"
+            )
             pizzas_str.append(pizza_line)
 
         pizzas_text = '\n'.join(pizzas_str)
 
         message = (
-            f"*Olá, me chamo {order.get('nome')}!*\n\n"
-            f"*Detalhes do pedido:*\n{pizzas_text}\n\n"
-            f"*Total:* R$ {total:.2f}\n"
-            f"*Pagamento:* {pagamento}\n"
-            f"*Endereço:* {order.get('endereco')}\n\n"
+            f"Olá, me chamo *{order.get('nome')}*!\n\n"
+            f"{pizzas_text}\n"
+            f"*Detalhes Gerais*\n"
+            f"- Valor: R$ {total:.2f}\n"
+            f"- Pagamento: {pagamento}\n"
+            f"- Endereço: {order.get('endereco')}"
         )
 
         import urllib.parse
@@ -562,6 +573,10 @@ def revisar_pedido(request):
         # Redirecionar para link do WhatsApp
         url_whatsapp = f"https://wa.me/5547997582686?text={msg_encoded}"
         return redirect(url_whatsapp)
+
+    # Adiciona observacao a cada pizza
+    for i, p in enumerate(pedidos):
+        p['observacao'] = observacoes.get(str(i), '')
 
     success = request.GET.get('success') == 'true'
     response = render(request, 'pedido/revisao.html', {

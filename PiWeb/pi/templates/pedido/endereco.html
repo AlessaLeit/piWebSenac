@@ -83,7 +83,7 @@
           </div>
           <div class="campo-endereco" id="camposEndereco">
             <label for="endereco"><i class="fas fa-map-marker-alt"></i> Endereço completo</label>
-            <textarea name="endereco" id="endereco" rows="3">{{ pedido.endereco }}</textarea>
+            <textarea name="endereco" id="endereco" rows="3" placeholder="Bairro, rua, número e ponto de referência">{{ pedido.endereco }}</textarea>
           </div>
           <div class="opcao-retirada">
             <input type="checkbox" name="retirada" id="retirada" {% if pedido.retirada %}checked{% endif %} />
