@@ -518,6 +518,12 @@ def revisar_pedido(request):
             total += 75.00
 
     if request.method == "POST":
+        # Update observacoes from POST data
+        for i in range(len(pedidos)):
+            obs_key = f'observacoes_{i}'
+            if obs_key in request.POST:
+                observacoes[str(i)] = request.POST[obs_key].strip()
+
         # Salva no banco de dados
         pedido = Pedido.objects.create(
             nome=order.get('nome'),
@@ -592,5 +598,6 @@ def revisar_pedido(request):
     response.set_cookie('order', json.dumps(order))
     response.set_cookie('observacoes', json.dumps(observacoes))
     return response
+
 
 
