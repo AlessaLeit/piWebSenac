@@ -29,7 +29,7 @@
 
         <!-- Progresso -->
         <div class="progress-steps">
-            <div class="step active" id="step1" onclick="navegarParaEtapa('tamanho')">
+            <div class="step disabled" id="step1" onclick="navegarParaEtapa('tamanho')">
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
@@ -113,11 +113,9 @@
         if (enabled) {
           body.classList.add('high-contrast');
           localStorage.setItem('highContrast', 'true');
-          toggleButton.textContent = 'Desativar Alto Contraste';
         } else {
           body.classList.remove('high-contrast');
           localStorage.setItem('highContrast', 'false');
-          toggleButton.textContent = 'Ativar Alto Contraste';
         }
       }
 

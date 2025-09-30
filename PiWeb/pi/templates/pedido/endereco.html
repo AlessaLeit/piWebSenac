@@ -44,7 +44,7 @@
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step disabled" id="step3">
+                <div class="step {% if etapa == 'confirmar_adicionar' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('confirmar_adicionar')">
                 <div class="step-number">3</div>
                 <div class="step-label">Confirmar</div>
             </div>
@@ -132,11 +132,9 @@
         if (enabled) {
           body.classList.add('high-contrast');
           localStorage.setItem('highContrast', 'true');
-          toggleButton.textContent = 'Desativar Alto Contraste';
         } else {
           body.classList.remove('high-contrast');
           localStorage.setItem('highContrast', 'false');
-          toggleButton.textContent = 'Ativar Alto Contraste';
         }
       }
 

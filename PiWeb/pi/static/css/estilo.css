@@ -426,6 +426,42 @@ body {
     transform: none;
 }
 
+/* Botão flutuante */
+.botao-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botao-flutuante:hover {
+    background-color: #b32020;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.botao-flutuante i {
+    font-size: 1.2rem;
+}
+
+.botao-flutuante:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
 /* Progresso */
 .progress-steps {
     display: flex;
@@ -721,6 +757,17 @@ body {
 .botao-excluir-pizza {
     background-color: #ff0000 !important;
     color: #ffffff !important;
+}
+
+.high-contrast .botao-flutuante {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .botao-flutuante:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
 }
 
 /* Toggle button styles */

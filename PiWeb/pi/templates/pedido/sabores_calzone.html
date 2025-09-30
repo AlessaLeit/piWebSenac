@@ -44,7 +44,7 @@
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-            <div class="step disabled" id="step3">
+                <div class="step {% if etapa == 'confirmar_adicionar' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('confirmar_adicionar')">
                 <div class="step-number">3</div>
                 <div class="step-label">Confirmar</div>
             </div>
@@ -166,6 +166,11 @@
         </form>
       </section>
       {% endif %}
+
+      <!-- Botão flutuante para próximo passo -->
+      <button id="botao-flutuante" class="botao-flutuante" onclick="document.getElementById('form-sabores').submit()">
+        <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
 
     <script>
@@ -201,6 +206,14 @@
           contador.classList.add('maximo');
         } else {
           contador.classList.add('parcial');
+        }
+
+        // Mostrar ou ocultar botão flutuante
+        const botaoFlutuante = document.getElementById('botao-flutuante');
+        if (quantidade > 0) {
+          botaoFlutuante.style.display = 'flex';
+        } else {
+          botaoFlutuante.style.display = 'none';
         }
       }
 
@@ -246,11 +259,9 @@
         if (enabled) {
           body.classList.add('high-contrast');
           localStorage.setItem('highContrast', 'true');
-          toggleButton.textContent = 'Desativar Alto Contraste';
         } else {
           body.classList.remove('high-contrast');
           localStorage.setItem('highContrast', 'false');
-          toggleButton.textContent = 'Ativar Alto Contraste';
         }
       }
 
