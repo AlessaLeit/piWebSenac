@@ -77,6 +77,7 @@
           <button class="botao-filtro active" data-filter="todos">Todos</button>
           <button class="botao-filtro" data-filter="salgado">Salgados</button>
           <button class="botao-filtro" data-filter="doce">Doces</button>
+          <input type="text" id="search-flavors" placeholder="Buscar sabores..." class="search-input">
         </div>
 
         <!-- Informações sobre limites de sabores -->
@@ -872,6 +873,23 @@
       // Filtros de sabores
       const botoesFiltro = document.querySelectorAll('.botao-filtro');
       const cartoesSabor = document.querySelectorAll('.cartao-sabor');
+      const searchInput = document.getElementById('search-flavors');
+
+      function applyFilters() {
+        const currentFilter = document.querySelector('.botao-filtro.active').getAttribute('data-filter');
+        const searchTerm = searchInput.value.toLowerCase();
+        cartoesSabor.forEach(cartao => {
+          const category = cartao.getAttribute('data-category');
+          const name = cartao.querySelector('h3').textContent.toLowerCase();
+          const matchesCategory = currentFilter === 'todos' || category === currentFilter;
+          const matchesSearch = name.includes(searchTerm);
+          if (matchesCategory && matchesSearch) {
+            cartao.style.display = 'flex';
+          } else {
+            cartao.style.display = 'none';
+          }
+        });
+      }
 
       botoesFiltro.forEach(botao => {
         botao.addEventListener('click', () => {
@@ -879,21 +897,11 @@
           botoesFiltro.forEach(b => b.classList.remove('active'));
           // Add active to clicked
           botao.classList.add('active');
-          const filtro = botao.getAttribute('data-filter');
-          cartoesSabor.forEach(cartao => {
-            if (filtro === 'todos') {
-              cartao.style.display = 'flex';
-            } else {
-              const category = cartao.getAttribute('data-category');
-              if (category === filtro) {
-                cartao.style.display = 'flex';
-              } else {
-                cartao.style.display = 'none';
-              }
-            }
-          });
+          applyFilters();
         });
       });
+
+      searchInput.addEventListener('input', applyFilters);
     </script>
   </body>
       <footer class="rodape">
