@@ -79,3 +79,4 @@ Este projeto é uma aplicação web para pedidos de pizza, permitindo aos usuár
 - Integração do banco de dados (login e cadastro)
 - Puxar endereço do cadastro 
 - Adicionar automaticamente taxa de entrega conforme bairro 
+- Pagamento via site

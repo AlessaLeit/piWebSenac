@@ -447,6 +447,15 @@ def selecionar_endereco(request):
         endereco = request.POST.get('endereco', '').strip()
         retirada = request.POST.get('retirada') == 'on'
 
+        if not retirada and not endereco:
+            response = render(request, 'pedido/endereco.html', {
+                'etapa': 'endereco',
+                'pedido': order,
+                'erro': 'O endereço é obrigatório quando não for retirada no balcão.'
+            })
+            response.set_cookie('order', json.dumps(order))
+            return response
+
         if retirada:
             endereco = 'Retirar no balcão'
 

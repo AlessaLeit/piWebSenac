@@ -121,6 +121,17 @@
 
         // Atualiza o estado do campo ao carregar a página (caso já esteja checado)
         atualizarCampoEndereco();
+
+        // Validação client-side no submit
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            const retirada = document.getElementById('retirada').checked;
+            const endereco = document.getElementById('endereco').value.trim();
+            if (!retirada && endereco === '') {
+                e.preventDefault();
+                alert('O endereço é obrigatório quando não for retirada no balcão.');
+            }
+        });
       });
     </script>
     <script>
