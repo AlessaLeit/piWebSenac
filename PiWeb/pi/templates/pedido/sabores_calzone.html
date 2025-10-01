@@ -72,6 +72,11 @@
       <section class="secao-formulario" id="main-content">
         <h2><i class="fas fa-utensils"></i> Escolha o sabor do Calzone</h2>
 
+        <!-- Filtros de sabores -->
+        <div class="filtro-sabores">
+          <input type="text" id="search-flavors" placeholder="Buscar sabores..." class="search-input">
+        </div>
+
         <!-- Informações sobre limites de sabores -->
         <div class="info-limites">
           <div class="limite-badge">
@@ -174,7 +179,7 @@
               <input type="checkbox" id="pernil_barbecue" name="sabores" value="Pernil com Barbecue" {% if 'Pernil com Barbecue' in pedido.sabores %}checked{% endif %} />
               <label for="pernil_barbecue">
                 <div class="info-sabor">
-                  <h3>Atum </h3>
+                  <h3>Pernil com Barbecue </h3>
                   <p>Molho, mussarela, pernil desfiado, barbecue, cheddar, orégano.</p>
                 </div>
               </label>
@@ -325,6 +330,25 @@
           window.location.href = urls[etapa];
         }
       }
+
+      // Filtros de sabores
+      const cartoesSabor = document.querySelectorAll('.cartao-sabor');
+      const searchInput = document.getElementById('search-flavors');
+
+      function applyFilters() {
+        const searchTerm = searchInput.value.toLowerCase();
+        cartoesSabor.forEach(cartao => {
+          const name = cartao.querySelector('h3').textContent.toLowerCase();
+          const matchesSearch = name.includes(searchTerm);
+          if (matchesSearch) {
+            cartao.style.display = 'flex';
+          } else {
+            cartao.style.display = 'none';
+          }
+        });
+      }
+
+      searchInput.addEventListener('input', applyFilters);
     </script>
   </body>
       <footer class="rodape">

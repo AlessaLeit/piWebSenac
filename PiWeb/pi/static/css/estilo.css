@@ -240,9 +240,18 @@ body {
 /* Filtros de sabores */
 .filtro-sabores {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 10px;
     margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 200px;
+    margin-right: 20px;
 }
 
 .botao-filtro {
@@ -844,6 +853,16 @@ body {
 .high-contrast .botao-filtro:hover {
     background-color: #ffff00 !important;
     color: #000000 !important;
+}
+
+.high-contrast .search-input {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .search-input:focus {
+    border-color: #ffff00 !important;
 }
 
 /* Toggle button styles */
