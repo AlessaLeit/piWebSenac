@@ -94,6 +94,7 @@
 
         <form method="post" id="form-sabores">
           {% csrf_token %}
+        <!-- Salgados -->
           <div class="grade-sabores">
             <div class="cartao-sabor">
               <input type="checkbox" id="calabresa" name="sabores" value="Calabresa" {% if 'Calabresa' in pedido.sabores %}checked{% endif %} />
@@ -401,6 +402,318 @@
                 </div>
               </label>
             </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="peperoni" name="sabores" value="Peperoni" {% if 'Peperoni' in pedido.sabores %}checked{% endif %} />
+              <label for="peperoni">
+                <div class="info-sabor">
+                  <h3>Peperoni</h3>
+                  <p>Molho, peperoni, mussarela, pimentão, manjericão, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="calabresa_catupiry" name="sabores" value="Calabresa com Catupiry" {% if 'Calabresa com Catupiry' in pedido.sabores %}checked{% endif %} />
+              <label for="calabresa_catupiry">
+                <div class="info-sabor">
+                  <h3>Calabresa com Catupiry</h3>
+                  <p>Molho, presunto, mussarela, calabresa, calabresa ralada, catupiry, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="casa_das_pizzas" name="sabores" value="Casa das Pizzas" {% if 'Casa das Pizzas' in pedido.sabores %}checked{% endif %} />
+              <label for="casa_das_pizzas">
+                <div class="info-sabor">
+                  <h3>Casa das Pizzas</h3>
+                  <p>Molho, prsunto, mussarela, calabresa, bacon, palmito, tomate em cubos, azeitona, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="bacon_champignon" name="sabores" value="Bacon com Champignon" {% if 'Bacon com Champignon' in pedido.sabores %}checked{% endif %} />
+              <label for="bacon_champignon">
+                <div class="info-sabor">
+                  <h3>Bacon com Champignon</h3>
+                  <p>Molho, presunto, mussarela, bacon, champignon, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="bacon" name="sabores" value="Bacon" {% if 'Bacon' in pedido.sabores %}checked{% endif %} />
+              <label for="bacon">
+                <div class="info-sabor">
+                  <h3>Bacon</h3>
+                  <p>Molho, presunto, mussarela, bacon, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="milho" name="sabores" value="Milho" {% if 'Milho' in pedido.sabores %}checked{% endif %} />
+              <label for="milho">
+                <div class="info-sabor">
+                  <h3>Milho</h3>
+                  <p>Molho, presunto, mussarela, milho, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="peito_peru_alho_poro" name="sabores" value="Peito de Peru com Alho Poró" {% if 'Peito de Peru com Alho Poró' in pedido.sabores %}checked{% endif %} />
+              <label for="peito_peru_alho_poro">
+                <div class="info-sabor">
+                  <h3>Peito de Peru com Alho Poró</h3>
+                  <p>Molho, mussarela, fatias de peito de peru, alho poró refogado, catupiry, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="mignon_cheddar" name="sabores" value="Mignon com Cheddar" {% if 'Mignon com Cheddar' in pedido.sabores %}checked{% endif %} />
+              <label for="mignon_cheddar">
+                <div class="info-sabor">
+                  <h3>Mignon com Cheddar</h3>
+                  <p>Molho, mussarela, fatias de mignon, cheddar, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="brocolis_catupiry" name="sabores" value="Brocólis com Catupiry" {% if 'Brocólis com Catupiry' in pedido.sabores %}checked{% endif %} />
+              <label for="brocolis_catupiry">
+                <div class="info-sabor">
+                  <h3>Brocólis com Catupiry</h3>
+                  <p>Molho, presunto, mussarela, brocólis, catupiry, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="champignon" name="sabores" value="Champignon" {% if 'Champignon' in pedido.sabores %}checked{% endif %} />
+              <label for="champignon">
+                <div class="info-sabor">
+                  <h3>Champignon</h3>
+                  <p>Molho, mussarela, champignon, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="rucula_tomate_seco" name="sabores" value="Rúcula com Tomate Seco" {% if 'Rúcula com Tomate Seco' in pedido.sabores %}checked{% endif %} />
+              <label for="rucula">
+                <div class="info-sabor">
+                  <h3>Rúcola com Tomate Seco</h3>
+                  <p>Molho, mussarela, rúcula, tomate seco, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="palmito_tomate_seco" name="sabores" value="Palmito com Tomate Seco" {% if 'Palmito com Tomate Seco' in pedido.sabores %}checked{% endif %} />
+              <label for="palmito_tomate_seco">
+                <div class="info-sabor">
+                  <h3>Palmito com Tomate Seco</h3>
+                  <p>Molho, presunto, mussarela, palmito picado, tomate seco, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="paulista" name="sabores" value="Paulista" {% if 'Paulista' in pedido.sabores %}checked{% endif %} />
+              <label for="paulista">
+                <div class="info-sabor">
+                  <h3>Paulista</h3>
+                  <p>Molho, presunto, mussarela, tomate picado, ervilha, palmito picado, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="napolitana" name="sabores" value="Napolitana" {% if 'Napolitana' in pedido.sabores %}checked{% endif %} />
+              <label for="napolitana">
+                <div class="info-sabor">
+                  <h3>napolitana</h3>
+                  <p>Molho, presunto, tomate picado, parmesão, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="mussarela" name="sabores" value="Mussarela" {% if 'Mussarela' in pedido.sabores %}checked{% endif %} />
+              <label for="mussarela">
+                <div class="info-sabor">
+                  <h3>Mussarela</h3>
+                  <p>Molho, mussarela, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="parmegiana" name="sabores" value="Parmegiana" {% if 'Parmegiana' in pedido.sabores %}checked{% endif %} />
+              <label for="parmegiana">
+                <div class="info-sabor">
+                  <h3>Parmegiana</h3>
+                  <p>Molho, presunto, mussarela, parmesão, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="romana" name="sabores" value="Romana" {% if 'Romana' in pedido.sabores %}checked{% endif %} />
+              <label for="romana">
+                <div class="info-sabor">
+                  <h3>Romana</h3>
+                  <p>Molho, presunto, mussarela, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="5_queijos_alho" name="sabores" value="Cinco Queijos com Alho" {% if 'Cinco Queijos com Alho' in pedido.sabores %}checked{% endif %} />
+              <label for="5_queijos_alho">
+                <div class="info-sabor">
+                  <h3>Cinco Queijos com Alho</h3>
+                  <p>Molho, mussarela, provolone, cheddar, parmesão, catupiry, alho, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="5_queijos_bacon" name="sabores" value="Cinco Queijos com Bacon" {% if 'Cinco Queijos com Bacon' in pedido.sabores %}checked{% endif %} />
+              <label for="5_queijos_bacon">
+                <div class="info-sabor">
+                  <h3>Cinco Queijos com Bacon</h3>
+                  <p>Molho, mussarela, provolone, cheddar, parmesão, catupiry, bacon em cubo, orégano.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="jp" name="sabores" value="Pizza JP" {% if 'Pizza JP' in pedido.sabores %}checked{% endif %} />
+              <label for="jp">
+                <div class="info-sabor">
+                  <h3>Pizza JP</h3>
+                  <p>Molho, presunto, mussarela, calabresa, ovo, peito de peru, azeitona.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="pernil_barbecue" name="sabores" value="Pernil com Barbecue" {% if 'Pernil com Barbecue' in pedido.sabores %}checked{% endif %} />
+              <label for="pernil_barbecue">
+                <div class="info-sabor">
+                  <h3>Pernil com Barbecue</h3>
+                  <p>Molho, mussarela, pernil de porco desfiada com barbecue, cheddar, orégano.</p>
+                </div>
+              </label>
+            </div>
+
+            <!-- Doces -->
+            <div class="cartao-sabor">
+              <input type="checkbox" id="morango_chocolate" name="sabores" value="Morango com Chocolate" {% if 'Morango com Chocolate' in pedido.sabores %}checked{% endif %} />
+              <label for="morango_chocolate">
+                <div class="info-sabor">
+                  <h3>Morango com Chocolate</h3>
+                  <p>Mussarela, chocolate ao leite, morangos, creme.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="banana_caramelizada" name="sabores" value="Banana Caramelizada" {% if 'Banana Caramelizada' in pedido.sabores %}checked{% endif %} />
+              <label for="banana_caramelizada">
+                <div class="info-sabor">
+                  <h3>Banana Caramelizada</h3>
+                  <p>Mussarela, banana em fatias caramelizadas, leite condensado.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="uva_chocolate" name="sabores" value="Uva com Chocolate" {% if 'Uva com Chocolate' in pedido.sabores %}checked{% endif %} />
+              <label for="uva_chocolate">
+                <div class="info-sabor">
+                  <h3>Uva com Chocolate</h3>
+                  <p>Mussarela, chocolate ao leite, uva itália, creme.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="dois_amores" name="sabores" value="Dois Amores" {% if 'Dois Amores' in pedido.sabores %}checked{% endif %} />
+              <label for="dois_amores">
+                <div class="info-sabor">
+                  <h3>Dois Amores</h3>
+                  <p>Chocolate preto ao leite, chocolate branco ao leite.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="nutella" name="sabores" value="Nutella" {% if 'Nutella' in pedido.sabores %}checked{% endif %} />
+              <label for="nutella">
+                <div class="info-sabor">
+                  <h3>Nutella</h3>
+                  <p>Mussarela, nutella.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="prestigio" name="sabores" value="Prestígio" {% if 'Prestígio' in pedido.sabores %}checked{% endif %} />
+              <label for="prestigio">
+                <div class="info-sabor">
+                  <h3>Prestigio</h3>
+                  <p>Chocolate preto ao leite, coco ralado.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="ouro_branco" name="sabores" value="Ouro Branco" {% if 'Ouro Branco' in pedido.sabores %}checked{% endif %} />
+              <label for="ouro_branco">
+                <div class="info-sabor">
+                  <h3>Ouro Branco</h3>
+                  <p>Mussarela, chocolate branco, pedaços de ouro branco.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="conffeti" name="sabores" value="Conffeti" {% if 'Conffeti' in pedido.sabores %}checked{% endif %} />
+              <label for="conffeti">
+                <div class="info-sabor">
+                  <h3>Conffeti</h3>
+                  <p>Mussarela, chocolate preto, conffeti.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="sensacao_branca" name="sabores" value="Sensação Branca" {% if 'Sensação Branca' in pedido.sabores %}checked{% endif %} />
+              <label for="sensacao_branca">
+                <div class="info-sabor">
+                  <h3>Sensação Branca</h3>
+                  <p>Mussarela, chocolate branco, morango, creme.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="sonho_valsa" name="sabores" value="Sonho de Valsa" {% if 'Sonho de Valsa' in pedido.sabores %}checked{% endif %} />
+              <label for="sonho_valsa">
+                <div class="info-sabor">
+                  <h3>Sonho de Valsa</h3>
+                  <p>Mussarela, chocolate preto, sonho de valsa.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="doce_leite_amendoim" name="sabores" value="Doce de Leite com Amendoim" {% if 'Doce de Leite com Amendoim' in pedido.sabores %}checked{% endif %} />
+              <label for="doce_leite_amendoim">
+                <div class="info-sabor">
+                  <h3>Doce de Leite com Amendoim</h3>
+                  <p>Mussarela, doce de leite, amendoim picado.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="abacaxi_coco" name="sabores" value="Abacaxi com Coco" {% if 'Abacaxi com Coco' in pedido.sabores %}checked{% endif %} />
+              <label for="abacaxi_coco">
+                <div class="info-sabor">
+                  <h3>Abacaxi com Coco</h3>
+                  <p>Mussarela, doce de leite, fatias de abacaxi, coco ralado.</p>
+                </div>
+              </label>
+            </div>
+            <div class="cartao-sabor">
+              <input type="checkbox" id="bis" name="sabores" value="Bis" {% if 'Bis' in pedido.sabores %}checked{% endif %} />
+              <label for="bis">
+                <div class="info-sabor">
+                  <h3>Bis</h3>
+                  <p>Mussarela, chocolate preto, pedaços de bis.</p>
+                </div>
+              </label>
+            </div>
+
+
+
+
           </div>
           <button type="submit" class="botao">Próximo</button>
         </form>

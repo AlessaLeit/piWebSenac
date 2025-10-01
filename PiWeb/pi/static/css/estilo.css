@@ -549,6 +549,33 @@ body {
     background-color: #e67300;
 }
 
+/* Responsive adjustments for progress steps */
+@media (max-width: 600px) {
+    .progress-steps {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .step {
+        flex: 1 1 40px;
+        min-width: 40px;
+        margin-bottom: 10px;
+    }
+
+    .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+
+    .step-label {
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+}
+
 
 
 /* Resumo do pedido */
