@@ -94,16 +94,23 @@
     </div>
 
     <script>
-      document.querySelectorAll('.cartao-opcao input[type="radio"]').forEach(input => {
-        input.addEventListener('change', function() {
-          document.querySelectorAll('.cartao-opcao').forEach(card => {
-            card.classList.remove('selecionado');
-          });
-          if (this.checked) {
-            this.parentElement.classList.add('selecionado');
-          }
+      // Função para atualizar seleção visual
+      function atualizarSelecaoTamanho() {
+        document.querySelectorAll('.cartao-opcao').forEach(card => {
+          card.classList.remove('selecionado');
         });
+        const checkedInput = document.querySelector('.cartao-opcao input[type="radio"]:checked');
+        if (checkedInput) {
+          checkedInput.parentElement.classList.add('selecionado');
+        }
+      }
+
+      document.querySelectorAll('.cartao-opcao input[type="radio"]').forEach(input => {
+        input.addEventListener('change', atualizarSelecaoTamanho);
       });
+
+      // Inicializar seleção visual ao carregar a página
+      document.addEventListener('DOMContentLoaded', atualizarSelecaoTamanho);
     </script>
     <script>
       // Toggle high contrast mode and save preference in localStorage

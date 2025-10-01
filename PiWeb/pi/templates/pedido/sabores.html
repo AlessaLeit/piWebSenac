@@ -458,6 +458,17 @@
         
       }
 
+      // Função para atualizar seleção visual
+      function atualizarSelecaoSabores() {
+        checkboxes.forEach(input => {
+          if (input.checked) {
+            input.parentElement.classList.add('selecionado');
+          } else {
+            input.parentElement.classList.remove('selecionado');
+          }
+        });
+      }
+
       // Adicionar event listeners
       checkboxes.forEach(input => {
         input.addEventListener('change', function() {
@@ -470,8 +481,9 @@
         });
       });
 
-      // Inicializar contador
+      // Inicializar contador e seleção visual
       document.addEventListener('DOMContentLoaded', function() {
+        atualizarSelecaoSabores();
         atualizarContador();
       });
 

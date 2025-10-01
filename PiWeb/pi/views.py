@@ -72,9 +72,10 @@ def cadastrar(request):
             
 def selecionar_tamanho(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
-    pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}')) 
+    pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
     adicionando = request.GET.get('adicionando') or request.POST.get('adicionando') == 'true'
+    from_page = request.GET.get('from')
 
     tamanho_selecionado = pedido_atual.get('tamanho')
 
@@ -103,6 +104,8 @@ def selecionar_tamanho(request):
             redirect_view = 'pedido:selecionar_sabores'
 
         flag = 'editando=true' if editando else ('adicionando=true' if adicionando else '')
+        if editando and from_page:
+            flag += f'&from={from_page}'
         response = redirect(reverse(redirect_view) + ('?' + flag if flag else ''))
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
         response.set_cookie('pedidos', json.dumps(pedidos))
@@ -125,6 +128,7 @@ def selecionar_sabores(request):
     pedido_atual = pedidos[int(index)] if index is not None else json.loads(request.COOKIES.get('pedido_atual', '{}'))
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
     adicionando = request.GET.get('adicionando') or request.POST.get('adicionando') == 'true'
+    from_page = request.GET.get('from')
 
     sabores_selecionados = pedido_atual.get('sabores', [])
 
@@ -174,7 +178,10 @@ def selecionar_sabores(request):
         else:
             pedidos.append(pedido_atual)
             pedido_atual = {}
-            response = redirect('pedido:revisar_pedido')
+            if from_page == 'confirmar_adicionar':
+                response = redirect('pedido:confirmar_adicionar')
+            else:
+                response = redirect('pedido:revisar_pedido')
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
         response.set_cookie('pedidos', json.dumps(pedidos))
         return response
@@ -196,6 +203,7 @@ def selecionar_sabores_calzone(request):
     pedido_atual = pedidos[int(index)] if index is not None else json.loads(request.COOKIES.get('pedido_atual', '{}'))
     editando = request.GET.get('editando') or request.POST.get('editando') == 'true'
     adicionando = request.GET.get('adicionando') or request.POST.get('adicionando') == 'true'
+    from_page = request.GET.get('from')
 
     sabores_selecionados = pedido_atual.get('sabores', [])
 
@@ -235,7 +243,10 @@ def selecionar_sabores_calzone(request):
         else:
             pedidos.append(pedido_atual)
             pedido_atual = {}
-            response = redirect('pedido:revisar_pedido')
+            if from_page == 'confirmar_adicionar':
+                response = redirect('pedido:confirmar_adicionar')
+            else:
+                response = redirect('pedido:revisar_pedido')
         response.set_cookie('pedido_atual', json.dumps(pedido_atual))
         response.set_cookie('pedidos', json.dumps(pedidos))
         return response
@@ -302,18 +313,16 @@ def confirmar_adicionar(request):
         try:
             editar_index = int(editar_index)
             if editar_index < len(pedidos):
-                # carrega pizza no pedido_atual, limpa sabores e remove da lista
+                # carrega pizza no pedido_atual e remove da lista
                 pedido_atual = pedidos.pop(editar_index)
-                pedido_atual['sabores'] = []  # limpa sabores
                 # Remove a observação correspondente
                 if str(editar_index) in observacoes:
                     del observacoes[str(editar_index)]
             elif editar_index == len(pedidos) and pedido_atual.get('tamanho'):
-                pedido_atual['sabores'] = []  # limpa sabores
                 # Remove a observação do pedido_atual
                 if str(editar_index) in observacoes:
                     del observacoes[str(editar_index)]
-            response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true')
+            response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true&from=confirmar_adicionar')
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
             response.set_cookie('pedidos', json.dumps(pedidos))
             response.set_cookie('observacoes', json.dumps(observacoes))
@@ -490,13 +499,12 @@ def revisar_pedido(request):
         try:
             editar_index = int(editar_index)
             if 0 <= editar_index < len(pedidos):
-                # carrega pizza no pedido_atual, limpa sabores e remove da lista
+                # carrega pizza no pedido_atual e remove da lista
                 pedido_atual = pedidos.pop(editar_index)
-                pedido_atual['sabores'] = []  # limpa sabores
                 # Remove a observação correspondente
                 if str(editar_index) in observacoes:
                     del observacoes[str(editar_index)]
-                response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true')
+                response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true&from=revisao')
                 response.set_cookie('pedido_atual', json.dumps(pedido_atual))
                 response.set_cookie('pedidos', json.dumps(pedidos))
                 response.set_cookie('order', json.dumps(order))
