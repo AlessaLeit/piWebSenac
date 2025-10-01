@@ -237,6 +237,39 @@ body {
     color: #666;
 }
 
+/* Filtros de sabores */
+.filtro-sabores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.botao-filtro {
+    padding: 10px 20px;
+    background-color: #eee;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.botao-filtro.active {
+    background-color: #d62828;
+    color: white;
+}
+
+.botao-filtro:hover {
+    background-color: #f77f00;
+    color: white;
+}
+
+.botao-filtro.active:hover {
+    background-color: #b32020;
+}
+
 /* Informações sobre limites de sabores */
 .info-limites {
     display: flex;
@@ -793,6 +826,22 @@ body {
 }
 
 .high-contrast .botao-flutuante:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .botao-filtro {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .botao-filtro.active {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .botao-filtro:hover {
     background-color: #ffff00 !important;
     color: #000000 !important;
 }
