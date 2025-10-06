@@ -1,11 +1,11 @@
 import json
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
 from twilio.rest import Client
-from .models import Pedido, Pizza, Usuario
+from .models import Usuario
 
 def login(request):
     if request.method == "POST":
@@ -21,7 +21,7 @@ def login(request):
                 user = None
 
         if user and user.check_password(senha):
-            login(request, user)
+            auth_login(request, user)
             return redirect("pedido:selecionar_tamanho")
         else:
             messages.error(request, "Usuário ou senha inválidos.")
@@ -40,20 +40,20 @@ def cadastrar(request):
 
         if senha != confirmarsenha:
             messages.error(request, "As senhas não coincidem.")
-            return render(request, "cadastro.html")
+            return render(request, "cadastro.html", {"form_data": request.POST})
 
         if not cpf or not telefone or not senha:
             messages.error(request, "CPF, telefone e senha são obrigatórios.")
-            return render(request, "cadastro.html")
+            return render(request, "cadastro.html", {"form_data": request.POST})
 
         from .models import Usuario
         if Usuario.objects.filter(cpf=cpf).exists():
             messages.error(request, "CPF já cadastrado.")
-            return render(request, "cadastro.html")
+            return render(request, "cadastro.html", {"form_data": request.POST})
 
         if Usuario.objects.filter(telefone=telefone).exists():
             messages.error(request, "Telefone já cadastrado.")
-            return render(request, "cadastro.html")
+            return render(request, "cadastro.html", {"form_data": request.POST})
 
         usuario = Usuario.objects.create_user(
             username=cpf,
@@ -61,7 +61,7 @@ def cadastrar(request):
             telefone=telefone,
             endereco=endereco,
             password=senha,
-            first_name=nome
+            nome=nome
         )
         usuario.save()
 
@@ -441,6 +441,15 @@ def selecionar_pagamento(request):
 def selecionar_endereco(request):
     order = json.loads(request.COOKIES.get('order', '{}'))
 
+    # Pre-fill with user data if logged in
+    if request.user.is_authenticated:
+        if not order.get('nome'):
+            order['nome'] = request.user.nome
+        if not order.get('telefone'):
+            order['telefone'] = request.user.telefone
+        if not order.get('endereco') and request.user.endereco:
+            order['endereco'] = request.user.endereco
+
     if request.method == "POST":
         nome = request.POST.get('nome')
         telefone = request.POST.get('telefone')
@@ -540,24 +549,6 @@ def revisar_pedido(request):
             obs_key = f'observacoes_{i}'
             if obs_key in request.POST:
                 observacoes[str(i)] = request.POST[obs_key].strip()
-
-        # Salva no banco de dados
-        pedido = Pedido.objects.create(
-            nome=order.get('nome'),
-            telefone=order.get('telefone'),
-            endereco=order.get('endereco'),
-            retirada=order.get('retirada', False),
-            pagamento=order.get('pagamento')
-        )
-        for i, p in enumerate(pedidos):
-            obs_key = str(i)
-            observacao = observacoes.get(obs_key, '').strip()
-            Pizza.objects.create(
-                pedido=pedido,
-                tamanho=p['tamanho'],
-                sabores=','.join(p['sabores']),
-                observacao=observacao
-            )
 
         # Formatar mensagem para WhatsApp
         pizzas_str = []
