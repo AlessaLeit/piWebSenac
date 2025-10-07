@@ -28,7 +28,7 @@ Este projeto é uma aplicação web para pedidos de pizza, permitindo aos usuár
 
 1. Clone o repositório:
    ```
-   git clone <url-do-repositorio>
+   git clone https://github.com/AlessaLeit/piWebSenac.git
    cd PiWeb
    ```
 
