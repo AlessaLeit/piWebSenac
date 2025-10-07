@@ -69,6 +69,10 @@
                         <li>
                             <i class="fas fa-pizza-slice"></i>
                             <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                            {% if p.tamanho != 'Calzone' %}
+                            (Borda: {{ p.borda|default:"Sem borda" }})
+                            {% if p.borda and p.borda != 'Sem Borda' %}<strong>+R$9.00</strong>{% endif %}
+                            {% endif %}
                             <br>
                             <div class="campo-endereco">
                                     <br><label for="observacoes_{{ forloop.counter0 }}">Observações para este item:</label>

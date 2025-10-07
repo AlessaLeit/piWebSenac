@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
-from twilio.rest import Client
 from .models import Usuario
 
 def login(request):
@@ -284,6 +283,12 @@ def confirmar_adicionar(request):
         elif tamanho == "Calzone":
             total += 75
 
+        # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
+        if tamanho in ['Média', 'Grande', 'Big']:
+            borda = p.get('borda', 'Sem Borda')
+            if borda and borda != 'Sem Borda':
+                total += 9
+
     # Excluir pizza pelo índice
     excluir_index = request.GET.get('excluir')
     if excluir_index is not None:
@@ -338,6 +343,10 @@ def confirmar_adicionar(request):
             obs_key = f'observacoes_{i}'
             if obs_key in request.POST:
                 observacoes[str(i)] = request.POST[obs_key].strip()
+            # Processa as bordas do formulário
+            borda_key = f'borda_{i}'
+            if borda_key in request.POST:
+                all_pizzas[i]['borda'] = request.POST[borda_key]
 
         if action == "add":
             if pedido_atual.get('tamanho'):
@@ -398,6 +407,12 @@ def selecionar_pagamento(request):
         elif tamanho == "Calzone":
             total += 75
 
+        # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
+        if tamanho in ['Média', 'Grande', 'Big']:
+            borda = p.get('borda', 'Sem Borda')
+            if borda and borda != 'Sem Borda':
+                total += 9
+
     pagamento_selecionado = order.get('pagamento')
 
     if request.method == "POST":
@@ -441,7 +456,6 @@ def selecionar_pagamento(request):
 def selecionar_endereco(request):
     order = json.loads(request.COOKIES.get('order', '{}'))
 
-    # Pre-fill with user data if logged in
     if request.user.is_authenticated:
         if not order.get('nome'):
             order['nome'] = request.user.nome
@@ -543,12 +557,23 @@ def revisar_pedido(request):
         elif p['tamanho'] == "Calzone":
             total += 75.00
 
+        # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
+        if p['tamanho'] in ['Média', 'Grande', 'Big']:
+            borda = p.get('borda', 'Sem Borda')
+            if borda and borda != 'Sem Borda':
+                total += 9
+
     if request.method == "POST":
         # Update observacoes from POST data
         for i in range(len(pedidos)):
             obs_key = f'observacoes_{i}'
             if obs_key in request.POST:
                 observacoes[str(i)] = request.POST[obs_key].strip()
+            
+            # Update bordas from POST data
+            borda_key = f'borda_{i}'
+            if borda_key in request.POST:
+                pedidos[i]['borda'] = request.POST[borda_key]
 
         # Formatar mensagem para WhatsApp
         pizzas_str = []
@@ -562,11 +587,17 @@ def revisar_pedido(request):
             else:
                 tipo_item = tamanho.capitalize()
 
+            borda_str = ""
+            if tamanho in ['Média', 'Grande', 'Big']:
+                borda = p.get('borda', 'Sem borda')
+                borda_str = f"- Borda: {borda}\n"
+
             pizza_line = (
                 f"*Detalhes do Pedido {i}*\n"
                 f"- {tipo_item}\n"
                 f"- Sabores: {', '.join(p['sabores'])}\n"
-                f"- Observações: {observacao if observacao else 'Nenhuma'}\n"
+                f"{borda_str}"
+                f"- Observações: {observacao if observacao else 'Nenhuma'}"
             )
             pizzas_str.append(pizza_line)
 
@@ -606,6 +637,3 @@ def revisar_pedido(request):
     response.set_cookie('order', json.dumps(order))
     response.set_cookie('observacoes', json.dumps(observacoes))
     return response
-
-
-

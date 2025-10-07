@@ -61,39 +61,69 @@
             <input type="hidden" name="action" id="action-input" value="">
             <section class="secao-formulario">
                 <h2><i class="fas fa-check-circle"></i> Seu Pedido</h2>
-
-                <div class="resumo-pedido">
-                    <ul>
-                        {% for p in all_pizzas %}
-                            <li class="item-pedido">
-                                <div class="item-header">
-                                    <i class="fas fa-pizza-slice"></i>
-                                    <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
-                                    <div class="item-actions">
-                                        <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
-                                        <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
-                                    </div>
-                                </div>
-                                <div class="campo-endereco">
-                                    <br><label for="observacoes_{{ forloop.counter0 }}">Observações para este item:</label>
-                                    <textarea id="observacoes_{{ forloop.counter0 }}" name="observacoes_{{ forloop.counter0 }}" rows="5" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200">{{ p.observacao }}</textarea>
-                                </div>
-                            </li>
-                            <br>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <br><p><strong>Total:</strong> R$ {{ total }}</p>
+                  {% for p in all_pizzas %}
+                  <div class="resumo-pedido">
+                    <li class="item-pedido">
+                    <div class="item-header">
+                      <i class="fas fa-pizza-slice"></i>
+                      <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
+                      <div class="item-actions">
+                        <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
+                        <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>
+                      </div>
+                    </div>
+                    <div class="campo-endereco">
+                      <br><label for="observacoes_{{ forloop.counter0 }}">Observações para este item:</label>
+                      <textarea id="observacoes_{{ forloop.counter0 }}" name="observacoes_{{ forloop.counter0 }}" rows="4" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200">{{ p.observacao }}</textarea>
+                    </div>
+                    {% if p.tamanho == 'Média' or p.tamanho == 'Grande' or p.tamanho == 'Big' %}
+                    <div class="campo-borda">
+                        <label>Opções de Borda - <strong>Adicional de R$9.00</strong><label><br><br>
+                        <div class="grade-opcoes" style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));">
+                            <div class="cartao-opcao {% if not p.borda or p.borda == 'Sem Borda' %}selecionado{% endif %}">
+                                <input type="radio" id="borda_sem_borda_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Sem Borda" {% if not p.borda or p.borda == 'Sem Borda' %}checked{% endif %}>
+                                <label for="borda_sem_borda_{{ forloop.counter0 }}"><span>Sem Borda</span></label>
+                            </div>
+                            <div class="cartao-opcao {% if p.borda == 'Catupiry' %}selecionado{% endif %}">
+                                <input type="radio" id="borda_catupiry_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Catupiry" {% if p.borda == 'Catupiry' %}checked{% endif %}>
+                                <label for="borda_catupiry_{{ forloop.counter0 }}"><span>Catupiry</span></label>
+                            </div>
+                            <div class="cartao-opcao {% if p.borda == 'Cheddar' %}selecionado{% endif %}">
+                                <input type="radio" id="borda_cheddar_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Cheddar" {% if p.borda == 'Cheddar' %}checked{% endif %}>
+                                <label for="borda_cheddar_{{ forloop.counter0 }}"><span>Cheddar</span></label>
+                            </div>
+                            <div class="cartao-opcao {% if p.borda == 'Nutella' %}selecionado{% endif %}">
+                                <input type="radio" id="borda_nutella_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Nutella" {% if p.borda == 'Nutella' %}checked{% endif %}>
+                                <label for="borda_nutella_{{ forloop.counter0 }}"><span>Nutella</span></label>
+                            </div>
+                            <div class="cartao-opcao {% if p.borda == 'Chocolate' %}selecionado{% endif %}">
+                              <input type="radio" id="borda_chocolate_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Chocolate" {% if p.borda == 'Chocolate' %}checked{% endif %}>
+                              <label for="borda_chocolate_{{ forloop.counter0 }}"><span>Chocolate</span></label>
+                            </div>
+                            <div class="cartao-opcao {% if p.borda == 'Chocolate Branco' %}selecionado{% endif %}">
+                                <input type="radio" id="borda_chocolate_branco_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Chocolate Branco" {% if p.borda == 'Chocolate Branco' %}checked{% endif %}>
+                                <label for="borda_chocolate_branco_{{ forloop.counter0 }}"><span>Chocolate Branco</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                  </li>
+                  <br>
+                  </div>
+                  {% endfor %}
+                <br><p><strong>Total</strong>: R$ {{ total }} (Sem o adicional da borda)</p>
             </section>
+        </form>
+
         <section class="secao-formulario">
           <h2><i class="fas fa-plus-circle"></i> Adicionar Mais Itens</h2>
           <p>Você pode adicionar mais pizzas ou calzone ao seu pedido ou prosseguir para o pagamento.</p>
           
-          <div class="botoes-revisao">
-            <button type="submit" name="action" value="add" class="botao botao-editar">
+          <div class="botoes-revisao" style="display: flex; gap: 10px;">
+            <button type="button" onclick="submitForm('add')" class="botao botao-editar">
               <i class="fas fa-plus"></i> Adicionar Outro Item
             </button>
-            <button type="submit" name="action" value="proceed" class="botao botao-salvar">
+            <button type="button" onclick="submitForm('proceed')" class="botao botao-salvar">
               <i class="fas fa-arrow-right"></i> Prosseguir para Pagamento
             </button>
           </div>
@@ -143,6 +173,24 @@
           window.location.href = urls[etapa];
         }
       }
+
+      function submitForm(action) {
+          document.getElementById('action-input').value = action;
+          document.getElementById('main-form').submit();
+      }
+
+      document.querySelectorAll('.cartao-opcao input[type="radio"]').forEach(input => {
+        input.addEventListener('change', function() {
+          // Get the name of the radio group to find sibling cards
+          const radioName = this.name;
+          document.querySelectorAll(`input[name="${radioName}"]`).forEach(radio => {
+            radio.parentElement.classList.remove('selecionado');
+          });
+          if (this.checked) {
+            this.parentElement.classList.add('selecionado');
+          }
+        });
+      });
     </script>
 </body>
 
