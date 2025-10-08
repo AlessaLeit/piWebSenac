@@ -71,12 +71,12 @@
                             <strong> {{ p.tamanho }}</strong> - Sabores: {{ p.sabores|join:", " }}
                             {% if p.tamanho != 'Calzone' %}
                             (Borda: {{ p.borda|default:"Sem borda" }})
-                            {% if p.borda and p.borda != 'Sem Borda' %}<strong>+R$9.00</strong>{% endif %}
+                            {% if p.borda and p.borda != 'Sem Borda' %}{% endif %}
                             {% endif %}
                             <br>
                             <div class="campo-endereco">
-                                    <br><label for="observacoes_{{ forloop.counter0 }}">Observações para este item:</label>
-                                    <textarea id="observacoes_{{ forloop.counter0 }}" name="observacoes_{{ forloop.counter0 }}" rows="3" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200">{{ p.observacao }}</textarea>
+                                    <label for="observacoes_{{ forloop.counter0 }}">Observações para este item:</label>
+                                    <textarea id="observacoes_{{ forloop.counter0 }}" name="observacoes_{{ forloop.counter0 }}" rows="2" placeholder=" Ex: Sem cebola e alho, etc." maxlength="200">{{ p.observacao }}</textarea>
                             </div>
                             <a href="?editar={{ forloop.counter0 }}" class="botao botao-editar"><i class="fas fa-edit"></i> Editar</a>
                             <a href="?excluir={{ forloop.counter0 }}" class="botao botao-excluir"><i class="fas fa-trash"></i> Excluir</a>

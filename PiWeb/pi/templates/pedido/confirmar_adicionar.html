@@ -78,7 +78,7 @@
                     </div>
                     {% if p.tamanho == 'Média' or p.tamanho == 'Grande' or p.tamanho == 'Big' %}
                     <div class="campo-borda">
-                        <label>Opções de Borda - <strong>Adicional de R$9.00</strong><label><br><br>
+                        <label>Opções de Borda - Adicional de R$9.00<label><br><br>
                         <div class="grade-opcoes" style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));">
                             <div class="cartao-opcao {% if not p.borda or p.borda == 'Sem Borda' %}selecionado{% endif %}">
                                 <input type="radio" id="borda_sem_borda_{{ forloop.counter0 }}" name="borda_{{ forloop.counter0 }}" value="Sem Borda" {% if not p.borda or p.borda == 'Sem Borda' %}checked{% endif %}>
@@ -111,7 +111,6 @@
                   <br>
                   </div>
                   {% endfor %}
-                <br><p><strong>Total</strong>: R$ {{ total }} (Sem o adicional da borda)</p>
             </section>
         </form>
 

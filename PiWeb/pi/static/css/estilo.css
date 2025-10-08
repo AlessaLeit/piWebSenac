@@ -12,6 +12,10 @@ body {
     line-height: 1.6;
 }
 
+ul {
+    padding-left: 20px;
+}
+
 /* Container principal */
 .container {
     max-width: 800px;

@@ -74,12 +74,8 @@ WSGI_APPLICATION = 'PiWeb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pi_casapizzas',
-        'USER': 'root', # seu usuário do MySQL
-        'PASSWORD': 'root', # sua senha do MySQL
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

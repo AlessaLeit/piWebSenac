@@ -37,6 +37,23 @@ def cadastrar(request):
         senha = request.POST.get("senha")
         confirmarsenha = request.POST.get("confirmarsenha")
 
+        # Validação adicional
+        import re
+        cpf_pattern = r'^\d{3}\.\d{3}\.\d{3}\-\d{2}$'  # Formato 000.000.000-00
+        telefone_pattern = r'^\(?\d{2}\)?\s?\d{4,5}\-?\d{4}$'  # Formato (00) 00000-0000 ou 0000-0000
+
+        if not nome or len(nome) < 3:
+            messages.error(request, "Nome deve ter pelo menos 3 caracteres.")
+            return render(request, "cadastro.html", {"form_data": request.POST})
+
+        if not re.match(cpf_pattern, cpf):
+            messages.error(request, "CPF inválido. Use o formato 000.000.000-00.")
+            return render(request, "cadastro.html", {"form_data": request.POST})
+
+        if not re.match(telefone_pattern, telefone):
+            messages.error(request, "Telefone inválido. Use o formato (00) 00000-0000.")
+            return render(request, "cadastro.html", {"form_data": request.POST})
+
         if senha != confirmarsenha:
             messages.error(request, "As senhas não coincidem.")
             return render(request, "cadastro.html", {"form_data": request.POST})
@@ -56,11 +73,11 @@ def cadastrar(request):
 
         usuario = Usuario.objects.create_user(
             username=cpf,
+            first_name=nome,
             cpf=cpf,
             telefone=telefone,
             endereco=endereco,
-            password=senha,
-            nome=nome
+            password=senha
         )
         usuario.save()
 
@@ -283,11 +300,7 @@ def confirmar_adicionar(request):
         elif tamanho == "Calzone":
             total += 75
 
-        # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
-        if tamanho in ['Média', 'Grande', 'Big']:
-            borda = p.get('borda', 'Sem Borda')
-            if borda and borda != 'Sem Borda':
-                total += 9
+        # Não adicionar custo da borda aqui, apenas baseado no tamanho
 
     # Excluir pizza pelo índice
     excluir_index = request.GET.get('excluir')
@@ -458,7 +471,7 @@ def selecionar_endereco(request):
 
     if request.user.is_authenticated:
         if not order.get('nome'):
-            order['nome'] = request.user.nome
+            order['nome'] = request.user.first_name
         if not order.get('telefone'):
             order['telefone'] = request.user.telefone
         if not order.get('endereco') and request.user.endereco:
