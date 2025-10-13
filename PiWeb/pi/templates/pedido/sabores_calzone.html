@@ -31,6 +31,9 @@
           <button id="btn-back" class="botao" onclick="window.history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
           <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+          {% if user.is_authenticated %}
+            <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
+          {% endif %}
         </div>
       </header>
 
@@ -131,11 +134,11 @@
               </label>
             </div>
             <div class="cartao-sabor">
-              <input type="checkbox" id="brocolis_bacon_catupiry" name="sabores" value="Brocólis com Bacon e Catupiry" {% if 'Brocólis com Bacon e Catupiry' in pedido.sabores %}checked{% endif %} />
+              <input type="checkbox" id="brocolis_bacon_catupiry" name="sabores" value="Brócolis com Bacon e Catupiry" {% if 'Brócolis com Bacon e Catupiry' in pedido.sabores %}checked{% endif %} />
               <label for="brocolis_bacon_catupiry">
                 <div class="info-sabor">
-                  <h3>Brocólis com Bacon e Catupiry</h3>
-                  <p>Molho, mussarela, presunto, brocólis, bacon, catupiry.</p>
+                  <h3>Brócolis com Bacon e Catupiry</h3>
+                  <p>Molho, mussarela, presunto, Brócolis, bacon, catupiry.</p>
                 </div>
               </label>
             </div>
@@ -162,7 +165,7 @@
               <label for="vegetariana">
                 <div class="info-sabor">
                   <h3>Vegetariana</h3>
-                  <p>Molho, mussarela, palmito, tomate, alho poró refogado, brocólis, azeitonas, orégano.</p>
+                  <p>Molho, mussarela, palmito, tomate, alho poró refogado, Brócolis, azeitonas, orégano.</p>
                 </div>
               </label>
             </div>

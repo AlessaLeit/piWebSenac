@@ -1,11 +1,8 @@
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Casa das Pizzas</title>
+    <title>Esqueci minha senha - Casa das Pizzas</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
@@ -18,35 +15,42 @@
             <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
             Casa das Pizzas
           </h1>
-          <p>Entre na sua conta</p>
+          <p>Recupere sua senha</p>
 
           <div class="botoes-container">
             <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-            <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
-            {% if user.is_authenticated %}
-              <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
-            {% endif %}
+            <a href="/login" class="botao" id="btn-login"><i class="fas fa-arrow-left"></i> Voltar ao Login</a>
           </div>
         </header>
 
           <section class="secao-formulario">
-              <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+              <h2><i class="fas fa-key"></i> Esqueci minha senha</h2>
               <form method="post">
                   {% csrf_token %}
-                  {% if erro %}
-                      <div class="erro">{{ erro }}</div>
+                  {% if messages %}
+                      <div class="messages">
+                          {% for message in messages %}
+                              <div class="message {{ message.tags }}">{{ message }}</div>
+                          {% endfor %}
+                      </div>
                   {% endif %}
-                  <div class="campo-endereco">
-                      <label for="id">CPF, Telefone ou Email:</label>
-                      <input type="text" id="id" name="id" required oninput="formatCPF(this)">
-                  </div>
-                  <div class="campo-endereco">
-                      <label for="senha">Senha:</label>
-                      <input type="password" id="senha" name="senha" required>
-                  </div>
-                  <button type="submit" class="botao">Entrar</button>
-                   <a href="/cadastro" class="botao" id="btn-cadastro">Cadastrar</a>
-                   <a href="{% url 'pedido:resetar_senha' %}" class="botao" id="btn-reset">Esqueci minha senha</a>
+                  {% if validlink %}
+                      <div class="campo-endereco">
+                          <label for="nova_senha1">Nova Senha:</label>
+                          <input type="password" id="nova_senha1" name="nova_senha1" required>
+                      </div>
+                      <div class="campo-endereco">
+                          <label for="nova_senha2">Confirmar Nova Senha:</label>
+                          <input type="password" id="nova_senha2" name="nova_senha2" required>
+                      </div>
+                      <button type="submit" class="botao">Redefinir Senha</button>
+                  {% else %}
+                      <div class="campo-endereco">
+                          <label for="email">Email:</label>
+                          <input type="email" id="email" name="email" required>
+                      </div>
+                      <button type="submit" class="botao">Enviar link de recuperação</button>
+                  {% endif %}
               </form>
           </section>
       </div>

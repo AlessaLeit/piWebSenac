@@ -417,6 +417,7 @@ ul {
     transition: all 0.3s ease;
     text-align: center;
     margin-top: 20px;
+    text-decoration: none;
 }
 
 .botao:hover {
@@ -771,6 +772,7 @@ ul {
     background-color: #ffffff !important;
     color: #000000 !important;
     border: 2px solid #ffffff !important;
+    text-decoration: none !important;
 }
 
 .high-contrast .botao:hover {

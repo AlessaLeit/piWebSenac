@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
@@ -17,9 +17,21 @@ def login(request):
             try:
                 user = Usuario.objects.get(telefone=id)
             except Usuario.DoesNotExist:
-                user = None
+                try:
+                    user = Usuario.objects.get(email=id)
+                except Usuario.DoesNotExist:
+                    user = None
 
         if user and user.check_password(senha):
+            # Se já há um usuário logado, fazer logout e limpar cookies
+            if request.user.is_authenticated:
+                auth_logout(request)
+                response = redirect('pedido:login')
+                response.delete_cookie('pedidos')
+                response.delete_cookie('pedido_atual')
+                response.delete_cookie('observacoes')
+                response.delete_cookie('order')
+                return response
             auth_login(request, user)
             return redirect("pedido:selecionar_tamanho")
         else:
@@ -28,38 +40,44 @@ def login(request):
 
     return render(request, "login.html")
 
-def cadastrar(request): 
+def cadastrar(request):
     if request.method == "POST":
         nome = request.POST.get("nome")
         cpf = request.POST.get("cpf")
         telefone = request.POST.get("telefone")
         endereco = request.POST.get("endereco")
+        email = request.POST.get("email")
         senha = request.POST.get("senha")
         confirmarsenha = request.POST.get("confirmarsenha")
 
         # Validação adicional
         import re
-        cpf_pattern = r'^\d{3}\.\d{3}\.\d{3}\-\d{2}$'  # Formato 000.000.000-00
-        telefone_pattern = r'^\(?\d{2}\)?\s?\d{4,5}\-?\d{4}$'  # Formato (00) 00000-0000 ou 0000-0000
+        cpf_pattern = r'^\d{11}$'  # Apenas 11 dígitos
+        telefone_pattern = r'^\d{10,11}$'  # 10 ou 11 dígitos
+        email_pattern = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
 
         if not nome or len(nome) < 3:
             messages.error(request, "Nome deve ter pelo menos 3 caracteres.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
         if not re.match(cpf_pattern, cpf):
-            messages.error(request, "CPF inválido. Use o formato 000.000.000-00.")
+            messages.error(request, "CPF inválido. Deve conter exatamente 11 dígitos.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
         if not re.match(telefone_pattern, telefone):
-            messages.error(request, "Telefone inválido. Use o formato (00) 00000-0000.")
+            messages.error(request, "Telefone inválido. Deve conter 10 ou 11 dígitos.")
+            return render(request, "cadastro.html", {"form_data": request.POST})
+
+        if not re.match(email_pattern, email):
+            messages.error(request, "Email inválido.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
         if senha != confirmarsenha:
             messages.error(request, "As senhas não coincidem.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
-        if not cpf or not telefone or not senha:
-            messages.error(request, "CPF, telefone e senha são obrigatórios.")
+        if not cpf or not telefone or not senha or not email:
+            messages.error(request, "CPF, telefone, email e senha são obrigatórios.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
         from .models import Usuario
@@ -71,19 +89,24 @@ def cadastrar(request):
             messages.error(request, "Telefone já cadastrado.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
+        if Usuario.objects.filter(email=email).exists():
+            messages.error(request, "Email já cadastrado.")
+            return render(request, "cadastro.html", {"form_data": request.POST})
+
         usuario = Usuario.objects.create_user(
             username=cpf,
             first_name=nome,
             cpf=cpf,
             telefone=telefone,
             endereco=endereco,
+            email=email,
             password=senha
         )
         usuario.save()
 
         messages.success(request, "Cadastro realizado com sucesso. Faça login.")
         return redirect('pedido:login')
-   
+
     return render(request, "cadastro.html")
             
 def selecionar_tamanho(request):
@@ -650,3 +673,91 @@ def revisar_pedido(request):
     response.set_cookie('order', json.dumps(order))
     response.set_cookie('observacoes', json.dumps(observacoes))
     return response
+
+def resetar_senha(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        import re
+        email_pattern = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+        if not email or not re.match(email_pattern, email):
+            messages.error(request, "Email inválido.")
+            return render(request, "nova_senha.html", {"erro": "Email inválido."})
+
+        from .models import Usuario
+        try:
+            user = Usuario.objects.get(email=email)
+        except Usuario.DoesNotExist:
+            messages.error(request, "Email não encontrado.")
+            return render(request, "nova_senha.html", {"erro": "Email não encontrado."})
+
+        # Generate a simple token (in production, use Django's PasswordResetTokenGenerator)
+        import uuid
+        token = str(uuid.uuid4())
+        # Store token in session (simple, not secure; use database in production)
+        request.session['reset_token'] = token
+        request.session['reset_user_id'] = user.id
+
+        # Send email
+        from django.core.mail import send_mail
+        subject = "Reset de Senha - Casa das Pizzas"
+        reset_url = request.build_absolute_uri(reverse('pedido:confirmar_reset_senha', kwargs={'token': token}))
+        message = f"Clique no link para resetar sua senha: {reset_url}"
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+
+        messages.success(request, "Email enviado com instruções para resetar a senha.")
+        return redirect('pedido:login')
+
+    return render(request, "nova_senha.html")
+
+def logout(request):
+    auth_logout(request)
+    response = redirect('pedido:login')
+    response.delete_cookie('pedidos')
+    response.delete_cookie('pedido_atual')
+    response.delete_cookie('observacoes')
+    response.delete_cookie('order')
+    return response
+
+def confirmar_reset_senha(request, token):
+    if request.method == "POST":
+        nova_senha1 = request.POST.get("nova_senha1")
+        nova_senha2 = request.POST.get("nova_senha2")
+
+        if not nova_senha1 or not nova_senha2:
+            messages.error(request, "Ambas as senhas são obrigatórias.")
+            return render(request, "nova_senha.html", {"erro": "Ambas as senhas são obrigatórias.", "validlink": True})
+
+        if nova_senha1 != nova_senha2:
+            messages.error(request, "As senhas não coincidem.")
+            return render(request, "nova_senha.html", {"erro": "As senhas não coincidem.", "validlink": True})
+
+        # Check token
+        if request.session.get('reset_token') != token:
+            messages.error(request, "Token inválido.")
+            return render(request, "nova_senha.html", {"erro": "Token inválido.", "validlink": False})
+
+        user_id = request.session.get('reset_user_id')
+        if not user_id:
+            messages.error(request, "Sessão expirada.")
+            return render(request, "nova_senha.html", {"erro": "Sessão expirada.", "validlink": False})
+
+        from .models import Usuario
+        try:
+            user = Usuario.objects.get(id=user_id)
+        except Usuario.DoesNotExist:
+            messages.error(request, "Usuário não encontrado.")
+            return render(request, "nova_senha.html", {"erro": "Usuário não encontrado.", "validlink": False})
+
+        user.set_password(nova_senha1)
+        user.save()
+
+        # Clear session
+        del request.session['reset_token']
+        del request.session['reset_user_id']
+
+        messages.success(request, "Senha alterada com sucesso. Faça login.")
+        return redirect('pedido:login')
+
+    # Check if token is valid for GET request
+    validlink = request.session.get('reset_token') == token and request.session.get('reset_user_id')
+    return render(request, "nova_senha.html", {"validlink": validlink})
