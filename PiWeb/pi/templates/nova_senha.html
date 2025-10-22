@@ -11,17 +11,24 @@
       <div class="container">
         <!-- Cabeçalho -->
         <header class="header">
+          <p>Canoinhas - SC</p>
           <h1>
             <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
             Casa das Pizzas
           </h1>
           <p>Recupere sua senha</p>
-
           <div class="botoes-container">
             <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-            <a href="/login" class="botao" id="btn-login"><i class="fas fa-arrow-left"></i> Voltar ao Login</a>
+                        <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
+            <a href="/login" class="botao" id="btn-login"><i class="fas fa-user"></i></a>
           </div>
         </header>
+
+        
+          <section class="secao-formulario">
+            <h2><i class="fas fa-warning"></i>Em manutenção</h2>
+            <p>A funcionalidade de recuperação de senha está temporariamente em manutenção. No entanto, é possível montar seu pedido sem a necessidade de login.</p>
+          </section>
 
           <section class="secao-formulario">
               <h2><i class="fas fa-key"></i> Esqueci minha senha</h2>

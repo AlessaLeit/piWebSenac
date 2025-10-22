@@ -1,5 +1,4 @@
 Django==5.2.5
 gunicorn
-python-dotenv
-psycopg2-binary
-dj-database-url
+python-decouple
+mysqlclient

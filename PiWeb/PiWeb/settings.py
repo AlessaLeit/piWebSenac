@@ -12,16 +12,19 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sl7wh_lsq%c(!1aq3^0#!b%jor^rv2wes5)_i23!+qae8rcb0%'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# O cast=bool converte 'True'/'False' para o tipo booleano correto.
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+# O cast=Csv transforma 'host1,host2' em uma lista ['host1', 'host2']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -75,7 +78,7 @@ WSGI_APPLICATION = 'PiWeb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'piweb',
+        'NAME': 'pi_casapizzas',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -122,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "pi", "assets"),
+    BASE_DIR / "pi" / "assets",
 ]
 
 # Email settings for password reset
@@ -140,4 +143,3 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For developm
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
