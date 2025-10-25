@@ -1,26 +1,87 @@
 import json
+import re
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
+from django.core.validators import EmailValidator, ValidationError
 from .models import Usuario
+
+def validar_cpf(cpf):
+    """Valida CPF brasileiro com algoritmo de checksum."""
+    cpf = ''.join(filter(str.isdigit, cpf))
+    if len(cpf) != 11 or cpf == cpf[0] * 11:
+        return False
+    def calcular_digito(cpf, peso):
+        soma = sum(int(d) * p for d, p in zip(cpf, peso))
+        resto = soma % 11
+        return 0 if resto < 2 else 11 - resto
+    primeiro_digito = calcular_digito(cpf[:9], range(10, 1, -1))
+    if primeiro_digito != int(cpf[9]):
+        return False
+    segundo_digito = calcular_digito(cpf[:10], range(11, 1, -1))
+    return segundo_digito == int(cpf[10])
+
+def validar_telefone(telefone):
+    """Valida formato brasileiro de telefone: (XX) XXXXX-XXXX."""
+    pattern = r'^\(\d{2}\)\s\d{4,5}-\d{4}$'
+    return bool(re.match(pattern, telefone))
+
+def validar_email(email):
+    """Valida email usando Django EmailValidator."""
+    try:
+        EmailValidator()(email)
+        return True
+    except ValidationError:
+        return False
+
+def validar_senha(senha):
+    """Valida força da senha: min 8 chars, maiúscula, minúscula, número."""
+    if len(senha) < 8:
+        return False
+    if not re.search(r'[a-z]', senha):
+        return False
+    if not re.search(r'[A-Z]', senha):
+        return False
+    if not re.search(r'\d', senha):
+        return False
+    return True
 
 def login(request):
     if request.method == "POST":
         id = request.POST.get("id")
         senha = request.POST.get("senha")
 
-        try:
-            user = Usuario.objects.get(cpf=id)
-        except Usuario.DoesNotExist:
-            try:
-                user = Usuario.objects.get(telefone=id)
-            except Usuario.DoesNotExist:
+        # Limpa o input removendo caracteres não numéricos para verificar se é 11 dígitos
+        id_limpo = ''.join(filter(str.isdigit, id))
+
+        if len(id_limpo) == 11:
+            # Tenta validar como CPF primeiro
+            if validar_cpf(id_limpo):
                 try:
-                    user = Usuario.objects.get(email=id)
+                    user = Usuario.objects.get(cpf=id_limpo)
                 except Usuario.DoesNotExist:
                     user = None
+            else:
+                # Se não for CPF válido, formata como telefone e busca
+                telefone_formatado = f"({id_limpo[:2]}) {id_limpo[2:7]}-{id_limpo[7:]}"
+                try:
+                    user = Usuario.objects.get(telefone=telefone_formatado)
+                except Usuario.DoesNotExist:
+                    user = None
+        else:
+            # Comportamento original para inputs que não são 11 dígitos
+            try:
+                user = Usuario.objects.get(cpf=id)
+            except Usuario.DoesNotExist:
+                try:
+                    user = Usuario.objects.get(telefone=id)
+                except Usuario.DoesNotExist:
+                    try:
+                        user = Usuario.objects.get(email=id)
+                    except Usuario.DoesNotExist:
+                        user = None
 
         if user and user.check_password(senha):
             # Se já há um usuário logado, fazer logout e limpar cookies
@@ -50,26 +111,25 @@ def cadastrar(request):
         senha = request.POST.get("senha")
         confirmarsenha = request.POST.get("confirmarsenha")
 
-        # Validação adicional
-        import re
-        cpf_pattern = r'^\d{11}$'  # Apenas 11 dígitos
-        telefone_pattern = r'^\d{10,11}$'  # 10 ou 11 dígitos
-        email_pattern = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
-
+        # Validações
         if not nome or len(nome) < 3:
             messages.error(request, "Nome deve ter pelo menos 3 caracteres.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
-        if not re.match(cpf_pattern, cpf):
-            messages.error(request, "CPF inválido. Deve conter exatamente 11 dígitos.")
+        if not validar_cpf(cpf):
+            messages.error(request, "CPF inválido.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
-        if not re.match(telefone_pattern, telefone):
-            messages.error(request, "Telefone inválido. Deve conter 10 ou 11 dígitos.")
+        if not validar_telefone(telefone):
+            messages.error(request, "Telefone inválido. Use o formato (XX) XXXXX-XXXX.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
-        if not re.match(email_pattern, email):
+        if not validar_email(email):
             messages.error(request, "Email inválido.")
+            return render(request, "cadastro.html", {"form_data": request.POST})
+
+        if not validar_senha(senha):
+            messages.error(request, "Senha deve ter pelo menos 8 caracteres, incluindo maiúscula, minúscula e número.")
             return render(request, "cadastro.html", {"form_data": request.POST})
 
         if senha != confirmarsenha:
@@ -108,7 +168,7 @@ def cadastrar(request):
         return redirect('pedido:login')
 
     return render(request, "cadastro.html")
-            
+
 def selecionar_tamanho(request):
     pedidos = json.loads(request.COOKIES.get('pedidos', '[]'))
     pedido_atual = json.loads(request.COOKIES.get('pedido_atual', '{}'))
@@ -362,7 +422,7 @@ def confirmar_adicionar(request):
             elif editar_index == len(pedidos) and pedido_atual.get('tamanho'):
                 # Remove a observação do pedido_atual
                 if str(editar_index) in observacoes:
-                    del observacoes[str(editar_index)]
+                    del observacoes[str(excluir_index)]
             response = redirect(reverse('pedido:selecionar_tamanho') + '?editando=true&from=confirmar_adicionar')
             response.set_cookie('pedido_atual', json.dumps(pedido_atual))
             response.set_cookie('pedidos', json.dumps(pedidos))
@@ -605,7 +665,7 @@ def revisar_pedido(request):
             obs_key = f'observacoes_{i}'
             if obs_key in request.POST:
                 observacoes[str(i)] = request.POST[obs_key].strip()
-            
+
             # Update bordas from POST data
             borda_key = f'borda_{i}'
             if borda_key in request.POST:
@@ -652,7 +712,7 @@ def revisar_pedido(request):
         msg_encoded = urllib.parse.quote(message)
 
         # Redirecionar para link do WhatsApp
-        url_whatsapp = f"https://wa.me/5547997582686?text={msg_encoded}"
+        url_whatsapp = f"https://wa.me/5547996312284?text={msg_encoded}"
         return redirect(url_whatsapp)
 
     # Adiciona observacao a cada pizza
@@ -677,9 +737,7 @@ def revisar_pedido(request):
 def resetar_senha(request):
     if request.method == "POST":
         email = request.POST.get("email")
-        import re
-        email_pattern = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
-        if not email or not re.match(email_pattern, email):
+        if not email or not validar_email(email):
             messages.error(request, "Email inválido.")
             return render(request, "nova_senha.html", {"erro": "Email inválido."})
 

@@ -44,10 +44,10 @@
                   <div class="campo-endereco">
                       <label for="senha">Senha:</label>
                       <input type="password" id="senha" name="senha" required>
+                      <a href="{% url 'pedido:resetar_senha' %}" class="link-reset">Esqueci minha senha</a>
                   </div>
                   <button type="submit" class="botao">Entrar</button>
                    <a href="/cadastro" class="botao" id="btn-cadastro">Cadastrar</a>
-                   <a href="{% url 'pedido:resetar_senha' %}" class="botao" id="btn-reset">Esqueci minha senha</a>
               </form>
           </section>
       </div>

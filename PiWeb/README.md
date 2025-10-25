@@ -24,37 +24,6 @@ Este projeto é uma aplicação web para pedidos de pizza, permitindo aos usuár
 - **HTML/CSS**: Templates e estilos.
 - **Twilio**: Para integração com WhatsApp (importado, mas não usado diretamente no código fornecido).
 
-## Instalação
-
-1. Clone o repositório:
-   ```
-   git clone <url-do-repositorio>
-   cd PiWeb
-   ```
-
-2. Crie um ambiente virtual:
-   ```
-   python -m venv venv
-   source venv/bin/activate  # No Windows: venv\Scripts\activate
-   ```
-
-3. Instale as dependências:
-   ```
-   pip install -r requirements.txt
-   ```
-
-4. Execute as migrações:
-   ```
-   python manage.py migrate
-   ```
-
-5. Execute o servidor:
-   ```
-   python manage.py runserver
-   ```
-
-6. Acesse no navegador: `http://localhost:8000`
-
 ## Uso
 
 - Acesse a página inicial e será redirecionado para seleção de tamanho.

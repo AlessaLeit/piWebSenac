@@ -1,0 +1,932 @@
+/* Reset e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+/* Container principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #d62828;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.logo {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.botoes-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+}
+
+.header .botao {
+    width: auto;
+    margin: 0;
+    text-decoration: none;
+}
+
+#toggle-contrast {
+    margin-left: auto;
+}
+
+/* Seções do formulário */
+.secao-formulario {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.secao-formulario:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.secao-formulario h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #d62828;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.secao-formulario h2 i {
+    font-size: 1.2em;
+}
+
+/* Opções de seleção */
+.grade-opcoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+
+}
+
+@media (max-width: 600px) {
+    .grade-opcoes {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cartao-opcao {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cartao-opcao:hover {
+    border-color: #d62828;
+}
+
+.cartao-opcao.selecionado {
+    border-color: #d62828;
+    background-color: #fff5f5;
+}
+
+.cartao-opcao input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cartao-opcao label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+.cartao-opcao i {
+    font-size: 1.8rem;
+    color: #d62828;
+}
+
+.cartao-opcao .preco {
+    font-weight: 600;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Sabores */
+.grade-sabores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+
+}
+
+.cartao-sabor {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cartao-sabor:hover {
+    border-color: #f77f00;
+}
+
+.cartao-sabor.selecionado {
+    border-color: #f77f00;
+    background-color: #fff8f0;
+}
+
+.cartao-sabor.desabilitado {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f5f5f5;
+}
+
+.cartao-sabor.desabilitado:hover {
+    border-color: #eee;
+    background-color: #f5f5f5;
+}
+
+.cartao-sabor input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+}
+
+.cartao-sabor label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+}
+
+.cartao-sabor:hover label::before {
+    border-color: #f77f00;
+}
+
+.cartao-sabor input:focus ~ label::before {
+    box-shadow: 0 0 0 2px rgba(247, 127, 0, 0.2);
+}
+
+.info-sabor {
+    flex: 1;
+}
+
+.info-sabor h3 {
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.info-sabor p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Filtros de sabores */
+.filtro-sabores {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.botao-filtro {
+    padding: 10px 20px;
+    background-color: #eee;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.botao-filtro.active {
+    background-color: #d62828;
+    color: white;
+}
+
+.botao-filtro:hover {
+    background-color: #f77f00;
+    color: white;
+}
+
+.botao-filtro.active:hover {
+    background-color: #b32020;
+}
+
+/* Informações sobre limites de sabores */
+.info-limites {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.limite-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.limite-badge i {
+    color: #d62828;
+}
+
+.contador-sabores {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#contador {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    min-width: 20px;
+    text-align: center;
+}
+
+#contador.zero {
+    color: #6c757d;
+    background-color: #f8f9fa;
+}
+
+#contador.parcial {
+    color: #d62828;
+    background-color: #fff5f5;
+}
+
+#contador.maximo {
+    color: #28a745;
+    background-color: #e8f5e9;
+}
+
+/* Endereço */
+.campo-endereco {
+    margin-bottom: 15px;
+}
+
+.campo-endereco label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.campo-endereco input, .campo-endereco textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.campo-endereco input:focus, .campo-endereco textarea:focus {
+    border-color: #d62828;
+    outline: none;
+}
+
+/* Campo de observação */
+.campo-observacao {
+    margin-bottom: 15px;
+}
+
+.campo-observacao label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.campo-observacao input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.campo-observacao input:focus {
+    border-color: #d62828;
+    outline: none;
+}
+
+.opcao-retirada {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.opcao-retirada input {
+    width: auto;
+}
+
+/* Botão */
+.botao {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.botao:hover {
+    background-color: #b32020;
+    transform: translateY(-2px);
+}
+
+.botao-editar, .botao-adicionar {
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+}
+
+.botao-editar:hover, .botao-adicionar:hover {
+    background-color: #b32020;
+    transform: translateY(-2px);
+}
+
+.botao-salvar {
+    background-color: #28a745;
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botao-salvar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.botao:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Botão flutuante */
+.botao-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botao-flutuante:hover {
+    background-color: #b32020;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.botao-flutuante i {
+    font-size: 1.2rem;
+}
+
+.botao-flutuante:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
+/* Progresso */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #eee;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eee;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+    background-color: #d62828;
+    color: white;
+}
+
+.step.completed .step-number {
+    background-color: #f77f00;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.step.active .step-label {
+    color: #d62828;
+}
+
+.step.completed .step-label {
+    color: #f77f00;
+}
+
+/* Estilos para steps clicáveis */
+.step {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step:hover .step-number {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.step:hover .step-label {
+    color: #d62828;
+    font-weight: 600;
+}
+
+.step.active:hover .step-number {
+    background-color: #b32020;
+}
+
+.step.completed:hover .step-number {
+    background-color: #e67300;
+}
+
+/* Responsive adjustments for progress steps */
+@media (max-width: 600px) {
+    .progress-steps {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .step {
+        flex: 1 1 40px;
+        min-width: 40px;
+        margin-bottom: 10px;
+    }
+
+    .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+
+    .step-label {
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+}
+
+
+
+/* Resumo do pedido */
+.resumo-pedido {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+}
+
+.resumo-pedido h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.resumo-pedido p {
+    margin-bottom: 5px;
+}
+
+/* Notificações */
+.alerta {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alerta-erro {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.alerta-sucesso {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.rodape {
+  background-color: #d72828; /* Mantendo o vermelho original */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.redes-sociais {
+  margin-bottom: 10px;
+}
+
+.redes-sociais a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.redes-sociais img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Para manter ícones brancos */
+}
+
+.direitos {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+
+/* High Contrast Accessibility Mode */
+.high-contrast {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .header {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .secao-formulario {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .cartao-opcao {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .cartao-opcao:hover {
+    border-color: #ffff00 !important; /* Bright yellow for accent */
+}
+
+.high-contrast .cartao-opcao.selecionado {
+    border-color: #ffff00 !important;
+    background-color: #333333 !important;
+}
+
+.high-contrast .cartao-sabor {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .cartao-sabor:hover {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .cartao-sabor.selecionado {
+    border-color: #ffff00 !important;
+    background-color: #333333 !important;
+}
+
+.high-contrast .campo-endereco input,
+.high-contrast .campo-endereco textarea {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .campo-endereco input:focus,
+.high-contrast .campo-endereco textarea:focus {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .campo-observacao input {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .campo-observacao input:focus {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .botao {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+    text-decoration: none !important;
+}
+
+.high-contrast .botao:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .progress-steps::before {
+    background-color: #ffffff !important;
+}
+
+.high-contrast .step-number {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.high-contrast .step.active .step-number {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .step.completed .step-number {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .resumo-pedido {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .alerta-erro {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .alerta-sucesso {
+    background-color: #00ff00 !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .pizza-item {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-left: 4px solid #ffff00 !important;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+}
+
+.high-contrast .botao-editar-pizza {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.botao-excluir-pizza {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .botao-flutuante {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.high-contrast .botao-flutuante:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .botao-filtro {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .botao-filtro.active {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .botao-filtro:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+.high-contrast .search-input {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .search-input:focus {
+    border-color: #ffff00 !important;
+}
+
+/* Toggle button styles */
+#toggle-contrast {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    font-weight: bold !important;
+    padding: 8px 12px !important;
+    font-size: 0.9rem !important;
+    width: auto !important;
+    min-width: 40px !important;
+}
+
+#toggle-contrast:hover {
+    background-color: #e6e600 !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+    font-size: 14px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Focus styles for keyboard navigation */
+.botao:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
+/* Remove red outline on label when input is focused, keep border on div */
+.cartao-opcao input:focus + label {
+    outline: none;
+    outline-offset: 0;
+}
+
+.cartao-sabor input:focus ~ label {
+    outline: none;
+    outline-offset: 0;
+}
+
+.campo-endereco input:focus,
+.campo-endereco textarea:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
