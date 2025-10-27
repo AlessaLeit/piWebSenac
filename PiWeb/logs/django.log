@@ -57,3 +57,17 @@ INFO 2025-10-25 10:43:39,010 basehttp 14064 18364 "GET /login/ HTTP/1.1" 200 362
 INFO 2025-10-25 10:43:39,058 basehttp 14064 18364 "GET /static/css/estilo.css HTTP/1.1" 304 0
 INFO 2025-10-25 10:43:40,279 basehttp 14064 18364 "GET /resetar_senha/ HTTP/1.1" 200 3672
 INFO 2025-10-25 10:43:52,926 basehttp 14064 21084 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-27 14:27:02,062 autoreload 15852 6768 Watching for file changes with StatReloader
+INFO 2025-10-27 14:29:06,769 autoreload 7996 12668 Watching for file changes with StatReloader
+INFO 2025-10-27 14:29:09,002 basehttp 7996 19788 "GET / HTTP/1.1" 302 0
+INFO 2025-10-27 14:29:09,174 basehttp 7996 19788 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-27 14:29:09,288 basehttp 7996 4560 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-10-27 14:29:09,289 basehttp 7996 10716 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-10-27 14:29:09,290 basehttp 7996 19788 "GET /static/css/estilo.css HTTP/1.1" 200 18807
+INFO 2025-10-27 14:29:09,291 basehttp 7996 2372 "GET /static/logo.jpg HTTP/1.1" 200 97426
+WARNING 2025-10-27 14:29:09,373 log 7996 2372 Not Found: /favicon.ico
+WARNING 2025-10-27 14:29:09,373 basehttp 7996 2372 "GET /favicon.ico HTTP/1.1" 404 5598
+INFO 2025-10-27 14:29:12,002 basehttp 7996 2372 "GET /revisao/ HTTP/1.1" 200 5939
+INFO 2025-10-27 14:29:13,897 basehttp 7996 2372 "POST /revisao/ HTTP/1.1" 302 0
+INFO 2025-10-27 14:29:39,166 autoreload 7996 12668 C:\Users\alessandra.leite\Downloads\web\piteste\piWebSenac\PiWeb\pi\views.py changed, reloading.
+INFO 2025-10-27 14:29:39,676 autoreload 19548 21736 Watching for file changes with StatReloader
