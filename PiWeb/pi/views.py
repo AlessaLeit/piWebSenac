@@ -703,7 +703,7 @@ def revisar_pedido(request):
             f"Olá, me chamo *{order.get('nome')}*!\n\n"
             f"{pizzas_text}\n"
             f"*Detalhes Gerais*\n"
-            f"- Valor das Pizzas: R$ {total:.2f}\n"
+            f"- Valor da(s) Pizza(s): R$ {total:.2f}\n"
             f"- Pagamento: {pagamento}\n"
             f"- Endereço: {order.get('endereco')}"
         )

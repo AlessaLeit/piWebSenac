@@ -69,6 +69,6 @@ Este projeto é uma aplicação web para pedidos de pizza, permitindo aos usuár
 
 ## Futuras Implementações
 
-- Adicionar automaticamente taxa de entrega conforme bairro 
+- Adicionar automaticamente taxa de entrega conforme bairro (base 10 reais)
 - Pagamento diretamente pelo site 
 

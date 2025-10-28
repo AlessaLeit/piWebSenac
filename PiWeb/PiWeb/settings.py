@@ -21,7 +21,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # O cast=bool converte 'True'/'False' para o tipo booleano correto.
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = False
 
 # O cast=Csv transforma 'host1,host2' em uma lista ['host1', 'host2']
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
