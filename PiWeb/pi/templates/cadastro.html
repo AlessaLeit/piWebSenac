@@ -135,7 +135,11 @@
           togglePasswordSenhaButton.addEventListener('click', () => {
             const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
             senhaInput.setAttribute('type', type);
-            togglePasswordSenhaButton.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            if (type === 'text') {
+              togglePasswordSenhaButton.classList.add('visible');
+            } else {
+              togglePasswordSenhaButton.classList.remove('visible');
+            }
           });
 
           // Toggle password visibility for confirmar senha
@@ -145,7 +149,11 @@
           togglePasswordConfirmarButton.addEventListener('click', () => {
             const type = confirmarSenhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
             confirmarSenhaInput.setAttribute('type', type);
-            togglePasswordConfirmarButton.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            if (type === 'text') {
+              togglePasswordConfirmarButton.classList.add('visible');
+            } else {
+              togglePasswordConfirmarButton.classList.remove('visible');
+            }
           });
         </script>
     </body>

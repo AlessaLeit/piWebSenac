@@ -199,3 +199,172 @@ INFO 2025-10-28 16:26:23,643 basehttp 22452 700 "POST /revisao/ HTTP/1.1" 302 0
 INFO 2025-10-28 16:26:30,677 basehttp 22452 700 "GET /login/ HTTP/1.1" 200 4490
 INFO 2025-10-28 16:26:30,686 basehttp 22452 700 "GET /static/css/estilo.css HTTP/1.1" 304 0
 INFO 2025-10-28 16:26:34,551 basehttp 22452 700 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-28 18:50:11,757 autoreload 11520 24224 Watching for file changes with StatReloader
+INFO 2025-10-28 18:50:15,728 basehttp 11520 12952 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 18:50:15,771 basehttp 11520 12952 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:50:18,337 log 11520 6684 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:50:18,338 log 11520 17668 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:50:18,338 log 11520 27452 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:50:18,338 log 11520 17868 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:50:18,340 basehttp 11520 6684 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:18,341 basehttp 11520 17668 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:18,351 basehttp 11520 27452 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:18,371 basehttp 11520 17868 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:20,421 log 11520 20620 Not Found: /favicon.ico
+WARNING 2025-10-28 18:50:20,422 basehttp 11520 20620 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-10-28 18:50:25,791 basehttp 11520 28128 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:50:25,859 log 11520 28128 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:50:25,861 log 11520 7864 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:50:25,863 basehttp 11520 7864 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:25,866 log 11520 30168 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:50:25,866 basehttp 11520 28128 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:25,866 basehttp 11520 30168 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:25,872 log 11520 29492 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:50:25,876 basehttp 11520 29492 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:50:40,249 basehttp 11520 21200 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:50:40,305 log 11520 21200 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:50:40,306 log 11520 28584 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:50:40,307 log 11520 17720 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:50:40,308 log 11520 20284 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:50:40,309 basehttp 11520 21200 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:40,310 basehttp 11520 17720 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:40,310 basehttp 11520 28584 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:40,314 basehttp 11520 20284 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:50:52,308 basehttp 11520 29456 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 18:50:52,321 basehttp 11520 29456 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:50:54,337 log 11520 29376 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:50:54,338 log 11520 22780 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:50:54,338 log 11520 3952 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:50:54,339 log 11520 24516 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:50:54,340 basehttp 11520 22780 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:54,340 basehttp 11520 29376 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:54,340 basehttp 11520 3952 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:50:54,340 basehttp 11520 24516 "GET /static/instagram.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:52:01,637 basehttp 11520 29552 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:52:01,687 log 11520 29552 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:52:01,688 log 11520 22196 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:52:01,688 log 11520 14596 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:52:01,690 log 11520 25108 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:52:01,690 basehttp 11520 22196 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:01,691 basehttp 11520 29552 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:01,691 basehttp 11520 14596 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:01,691 basehttp 11520 25108 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:52:07,962 autoreload 30160 5284 Watching for file changes with StatReloader
+INFO 2025-10-28 18:52:09,648 basehttp 30160 13668 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 18:52:09,673 basehttp 30160 13668 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:52:09,760 log 30160 13668 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:52:09,762 log 30160 3964 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:52:09,764 log 30160 11920 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:52:09,764 basehttp 30160 13668 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:09,764 basehttp 30160 3964 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:09,765 basehttp 30160 11920 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:09,777 log 30160 11920 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:52:09,782 basehttp 30160 11920 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:52:12,695 basehttp 30160 11920 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:52:12,758 log 30160 11920 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:52:12,759 log 30160 3964 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:52:12,760 log 30160 13668 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:52:12,762 log 30160 20952 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:52:12,763 basehttp 30160 11920 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:12,763 basehttp 30160 3964 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:12,763 basehttp 30160 13668 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:12,764 basehttp 30160 20952 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:52:42,096 basehttp 30160 11776 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:52:42,145 log 30160 11776 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:52:42,146 log 30160 14064 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:52:42,147 log 30160 27112 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:52:42,148 basehttp 30160 11776 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:42,149 log 30160 19000 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:52:42,149 basehttp 30160 14064 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:42,150 basehttp 30160 27112 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:52:42,150 basehttp 30160 19000 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:53:14,719 basehttp 30160 20812 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:53:14,788 log 30160 20812 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:53:14,790 log 30160 25148 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:53:14,793 basehttp 30160 20812 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:53:14,794 basehttp 30160 25148 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:53:14,796 log 30160 19308 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:53:14,798 log 30160 24024 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:53:14,798 basehttp 30160 19308 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:53:14,798 basehttp 30160 24024 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:54:08,193 autoreload 30556 5428 Watching for file changes with StatReloader
+INFO 2025-10-28 18:54:13,270 basehttp 30556 26348 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 18:54:13,322 basehttp 30556 26348 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:54:13,457 log 30556 26348 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:54:13,457 log 30556 5780 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:54:13,457 log 30556 30344 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:54:13,457 log 30556 3192 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:54:13,458 basehttp 30556 26348 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:13,458 basehttp 30556 5780 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:13,459 basehttp 30556 30344 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:13,459 basehttp 30556 3192 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:54:16,006 basehttp 30556 3192 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:54:16,067 log 30556 3192 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:54:16,068 log 30556 30344 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:54:16,069 log 30556 26348 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:54:16,069 log 30556 5780 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:54:16,070 basehttp 30556 3192 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:16,070 basehttp 30556 30344 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:16,071 basehttp 30556 26348 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:16,071 basehttp 30556 5780 "GET /static/instagram.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:54:35,761 autoreload 30556 5428 C:\Users\Aless\OneDrive\Documentos\Programação\SENAC\piWebSenac\PiWeb\PiWeb\settings.py changed, reloading.
+INFO 2025-10-28 18:54:36,724 autoreload 29096 30524 Watching for file changes with StatReloader
+INFO 2025-10-28 18:54:56,675 basehttp 29096 16300 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-28 18:54:56,730 log 29096 16300 Not Found: /static/css/estilo.css
+WARNING 2025-10-28 18:54:56,732 basehttp 29096 16300 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:56,742 log 29096 16300 Not Found: /static/logo.jpg
+WARNING 2025-10-28 18:54:56,744 log 29096 25896 Not Found: /static/instagram.png
+WARNING 2025-10-28 18:54:56,744 basehttp 29096 16300 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:56,746 basehttp 29096 25896 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-28 18:54:56,754 log 29096 28796 Not Found: /static/facebook.png
+WARNING 2025-10-28 18:54:56,755 basehttp 29096 28796 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-28 18:55:09,030 autoreload 29096 30524 C:\Users\Aless\OneDrive\Documentos\Programação\SENAC\piWebSenac\PiWeb\PiWeb\settings.py changed, reloading.
+INFO 2025-10-28 18:55:09,851 autoreload 28992 15604 Watching for file changes with StatReloader
+INFO 2025-10-28 18:56:03,658 basehttp 28992 3148 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 18:56:03,854 basehttp 28992 3148 "GET /static/css/estilo.css HTTP/1.1" 200 18231
+INFO 2025-10-28 18:56:03,855 basehttp 28992 6628 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-10-28 18:56:03,855 basehttp 28992 25440 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-10-28 18:56:03,862 basehttp 28992 28640 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-10-28 18:56:19,622 basehttp 28992 2728 "GET /login/ HTTP/1.1" 200 4374
+INFO 2025-10-28 18:56:36,481 basehttp 28992 30348 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-10-28 18:56:36,495 basehttp 28992 30348 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-28 18:56:36,546 basehttp 28992 30348 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-28 18:56:39,009 basehttp 28992 30348 "GET /endereco/ HTTP/1.1" 200 7607
+INFO 2025-10-28 18:56:40,768 basehttp 28992 30348 "GET /login/ HTTP/1.1" 200 4490
+INFO 2025-10-28 18:56:41,829 basehttp 28992 30348 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-10-28 18:56:41,837 basehttp 28992 30348 "GET /login/ HTTP/1.1" 200 4374
+INFO 2025-10-28 19:02:12,888 autoreload 23256 14872 Watching for file changes with StatReloader
+INFO 2025-10-28 19:02:16,291 basehttp 23256 30036 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 19:02:16,313 basehttp 23256 30036 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:02:16,527 basehttp 23256 3952 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-10-28 19:02:16,528 basehttp 23256 22564 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-10-28 19:02:16,529 basehttp 23256 18812 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-10-28 19:02:16,551 basehttp 23256 30036 "GET /static/css/estilo.css HTTP/1.1" 200 1385
+INFO 2025-10-28 19:02:29,261 basehttp 23256 23532 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:02:29,311 basehttp 23256 23532 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-28 19:02:59,566 basehttp 23256 30604 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:02:59,620 basehttp 23256 30604 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-28 19:03:04,214 basehttp 23256 13276 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 19:03:04,220 basehttp 23256 13276 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:04:53,788 autoreload 13348 3068 Watching for file changes with StatReloader
+INFO 2025-10-28 19:06:14,582 basehttp 23256 22040 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:06:14,637 basehttp 23256 22040 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-28 19:06:14,638 basehttp 23256 9744 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-10-28 19:06:14,639 basehttp 23256 29304 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-10-28 19:06:14,640 basehttp 23256 25152 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-10-28 19:06:16,693 basehttp 23256 14856 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:06:24,733 basehttp 23256 24160 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:06:24,792 basehttp 23256 24160 "GET /static/css/estilo.css HTTP/1.1" 200 1385
+INFO 2025-10-28 19:06:24,794 basehttp 23256 14292 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-10-28 19:06:24,794 basehttp 23256 24264 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-10-28 19:06:24,795 basehttp 23256 27336 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-10-28 19:06:29,324 basehttp 23256 27336 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 19:06:29,350 basehttp 23256 27336 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:09:17,671 basehttp 23256 5372 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:09:17,751 basehttp 23256 5372 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-10-28 19:09:17,751 basehttp 23256 3548 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-10-28 19:09:17,753 basehttp 23256 29280 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-10-28 19:09:17,754 basehttp 23256 7172 "GET /static/css/estilo.css HTTP/1.1" 200 19708
+INFO 2025-10-28 19:09:20,040 basehttp 23256 9744 "GET /endereco/ HTTP/1.1" 200 7415
+INFO 2025-10-28 19:09:22,167 basehttp 23256 29916 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:09:38,616 autoreload 14852 14776 Watching for file changes with StatReloader

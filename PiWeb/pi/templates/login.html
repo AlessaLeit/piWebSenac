@@ -92,7 +92,11 @@
         togglePasswordButton.addEventListener('click', () => {
           const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
           passwordInput.setAttribute('type', type);
-          togglePasswordButton.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+          if (type === 'text') {
+            togglePasswordButton.classList.add('visible');
+          } else {
+            togglePasswordButton.classList.remove('visible');
+          }
         });
 
       </script>

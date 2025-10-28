@@ -20,8 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# O cast=bool converte 'True'/'False' para o tipo booleano correto.
-DEBUG = False
+DEBUG = True
 
 # O cast=Csv transforma 'host1,host2' em uma lista ['host1', 'host2']
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
@@ -121,6 +120,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
+    BASE_DIR / "pi" / "static",
     BASE_DIR / "pi" / "assets",
 ]
 

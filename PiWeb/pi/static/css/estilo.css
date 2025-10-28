@@ -391,6 +391,55 @@ ul {
     outline: none;
 }
 
+/* Password container */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px 40px 12px 12px; /* Espaço para o ícone à direita */
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.password-container input:focus {
+    border-color: #d62828;
+    outline: none;
+}
+
+.eye-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.eye-button:hover {
+    color: #d62828;
+    background-color: rgba(214, 40, 40, 0.1);
+}
+
+.eye-button.visible {
+    color: #d62828;
+}
+
+.eye-button:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
 .opcao-retirada {
     display: flex;
     align-items: center;
@@ -768,6 +817,29 @@ ul {
     border-color: #ffff00 !important;
 }
 
+.high-contrast .password-container input {
+    border: 2px solid #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.high-contrast .password-container input:focus {
+    border-color: #ffff00 !important;
+}
+
+.high-contrast .eye-button {
+    color: #ffffff !important;
+}
+
+.high-contrast .eye-button:hover {
+    color: #ffff00 !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.high-contrast .eye-button.visible {
+    color: #ffff00 !important;
+}
+
 .high-contrast .botao {
     background-color: #ffffff !important;
     color: #000000 !important;
@@ -927,60 +999,6 @@ ul {
 
 .campo-endereco input:focus,
 .campo-endereco textarea:focus {
-    outline: 2px solid #d62828;
-    outline-offset: 2px;
-}
-
-/* Link de reset de senha */
-.link-reset {
-    display: block;
-    text-align: right;
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #d62828;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.link-reset:hover {
-    color: #b32020;
-    text-decoration: underline;
-}
-
-/* Container de senha com botão de olho */
-.password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.password-container input {
-    flex: 1;
-    padding-right: 40px; /* Espaço para o botão */
-}
-
-.eye-button {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #666;
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 5px;
-    transition: all 0.3s ease;
-}
-
-.eye-button:hover {
-    background: #d62828;
-    color: white;
-    border-color: #d62828;
-}
-
-.eye-button:focus {
     outline: 2px solid #d62828;
     outline-offset: 2px;
 }
