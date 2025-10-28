@@ -1,4 +1,4 @@
-[# PiWeb
+## PiWeb
 
 Sistema de pedidos de pizza online desenvolvido em Django.
 
