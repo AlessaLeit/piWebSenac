@@ -71,3 +71,57 @@ INFO 2025-10-27 14:29:12,002 basehttp 7996 2372 "GET /revisao/ HTTP/1.1" 200 593
 INFO 2025-10-27 14:29:13,897 basehttp 7996 2372 "POST /revisao/ HTTP/1.1" 302 0
 INFO 2025-10-27 14:29:39,166 autoreload 7996 12668 C:\Users\alessandra.leite\Downloads\web\piteste\piWebSenac\PiWeb\pi\views.py changed, reloading.
 INFO 2025-10-27 14:29:39,676 autoreload 19548 21736 Watching for file changes with StatReloader
+INFO 2025-10-28 15:54:46,753 autoreload 14564 18600 Watching for file changes with StatReloader
+INFO 2025-10-28 15:54:48,677 basehttp 14564 19600 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 15:54:48,735 basehttp 14564 19600 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 15:54:48,795 basehttp 14564 21804 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-10-28 15:54:48,796 basehttp 14564 19600 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-28 15:54:48,796 basehttp 14564 8452 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-10-28 15:54:48,798 basehttp 14564 9632 "GET /static/facebook.png HTTP/1.1" 304 0
+WARNING 2025-10-28 15:54:48,881 log 14564 9632 Not Found: /favicon.ico
+WARNING 2025-10-28 15:54:48,882 basehttp 14564 9632 "GET /favicon.ico HTTP/1.1" 404 5598
+INFO 2025-10-28 15:54:51,163 basehttp 14564 9632 "GET /login/ HTTP/1.1" 200 3622
+INFO 2025-10-28 15:54:52,388 basehttp 14564 9632 "GET /cadastro/ HTTP/1.1" 200 5494
+INFO 2025-10-28 15:55:10,440 basehttp 14564 9632 "POST /cadastro/ HTTP/1.1" 200 5860
+INFO 2025-10-28 15:55:12,625 basehttp 14564 9632 "GET /tamanho HTTP/1.1" 301 0
+INFO 2025-10-28 15:55:12,629 basehttp 14564 8452 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 15:55:14,072 basehttp 14564 8452 "GET /login/ HTTP/1.1" 200 3622
+INFO 2025-10-28 15:55:32,617 basehttp 14564 8452 "POST /login/ HTTP/1.1" 200 3717
+INFO 2025-10-28 15:55:37,466 basehttp 14564 8452 "POST /login/ HTTP/1.1" 200 3717
+INFO 2025-10-28 15:58:45,370 autoreload 14564 18600 C:\Users\alessandra.leite\Downloads\web\piteste\piWebSenac\PiWeb\pi\views.py changed, reloading.
+INFO 2025-10-28 15:58:45,873 autoreload 14508 16876 Watching for file changes with StatReloader
+INFO 2025-10-28 16:00:06,129 autoreload 10476 2888 Watching for file changes with StatReloader
+INFO 2025-10-28 16:00:07,448 basehttp 10476 23012 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 16:00:07,489 basehttp 10476 23012 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 16:00:09,901 basehttp 10476 23012 "GET /login/ HTTP/1.1" 200 3622
+INFO 2025-10-28 16:00:14,003 basehttp 10476 23012 "GET /resetar_senha/ HTTP/1.1" 200 4616
+INFO 2025-10-28 16:00:22,127 basehttp 10476 23012 "POST /resetar_senha/ HTTP/1.1" 200 4492
+INFO 2025-10-28 16:02:06,033 basehttp 10476 23012 "POST /resetar_senha/ HTTP/1.1" 200 4186
+INFO 2025-10-28 16:02:13,624 basehttp 10476 23012 "POST /resetar_senha/ HTTP/1.1" 200 4186
+INFO 2025-10-28 16:02:18,370 basehttp 10476 23012 "GET /login/ HTTP/1.1" 200 3622
+INFO 2025-10-28 16:02:27,045 basehttp 10476 23012 "POST /login/ HTTP/1.1" 200 3717
+INFO 2025-10-28 16:02:32,553 basehttp 10476 23012 "POST /login/ HTTP/1.1" 200 3717
+INFO 2025-10-28 16:02:34,681 basehttp 10476 23012 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-10-28 16:02:34,692 basehttp 10476 23012 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-28 16:02:38,171 basehttp 10476 23012 "GET /login/ HTTP/1.1" 200 3738
+INFO 2025-10-28 16:02:42,598 basehttp 10476 23012 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-10-28 16:02:42,602 basehttp 10476 23012 "GET /login/ HTTP/1.1" 200 3622
+INFO 2025-10-28 16:02:44,411 basehttp 10476 23012 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-10-28 16:02:44,428 basehttp 10476 23012 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-28 16:03:28,492 basehttp 10476 23012 "GET /login/ HTTP/1.1" 200 4490
+INFO 2025-10-28 16:03:39,588 basehttp 10476 23012 "POST /login/ HTTP/1.1" 200 4585
+INFO 2025-10-28 16:03:56,927 basehttp 10476 23012 "POST /login/ HTTP/1.1" 200 4585
+INFO 2025-10-28 16:04:03,771 basehttp 10476 23012 "POST /login/ HTTP/1.1" 200 4585
+INFO 2025-10-28 16:04:21,594 basehttp 10476 23012 "GET /admin HTTP/1.1" 301 0
+INFO 2025-10-28 16:04:21,604 basehttp 10476 15720 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-10-28 16:04:21,739 basehttp 10476 15720 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4194
+INFO 2025-10-28 16:04:21,751 basehttp 10476 18816 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-10-28 16:04:21,751 basehttp 10476 23460 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-10-28 16:04:21,751 basehttp 10476 14628 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-10-28 16:04:21,751 basehttp 10476 2784 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-10-28 16:04:21,752 basehttp 10476 16200 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-10-28 16:04:21,756 basehttp 10476 16200 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-10-28 16:04:21,802 basehttp 10476 15720 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-10-28 16:04:21,814 basehttp 10476 15720 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-10-28 16:04:28,935 basehttp 10476 15720 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 3940
+INFO 2025-10-28 16:06:46,915 autoreload 22452 7296 Watching for file changes with StatReloader

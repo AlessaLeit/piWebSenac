@@ -736,17 +736,17 @@ def revisar_pedido(request):
 
 def resetar_senha(request):
     if request.method == "POST":
-        email = request.POST.get("email")
-        if not email or not validar_email(email):
-            messages.error(request, "Email inválido.")
-            return render(request, "nova_senha.html", {"erro": "Email inválido."})
+        telefone = request.POST.get("telefone")
+        if not telefone or not validar_telefone(telefone):
+            messages.error(request, "Telefone inválido. Use o formato (XX) XXXXX-XXXX.")
+            return render(request, "nova_senha.html", {"erro": "Telefone inválido. Use o formato (XX) XXXXX-XXXX."})
 
         from .models import Usuario
         try:
-            user = Usuario.objects.get(email=email)
+            user = Usuario.objects.get(telefone=telefone)
         except Usuario.DoesNotExist:
-            messages.error(request, "Email não encontrado.")
-            return render(request, "nova_senha.html", {"erro": "Email não encontrado."})
+            messages.error(request, "Telefone não encontrado.")
+            return render(request, "nova_senha.html", {"erro": "Telefone não encontrado."})
 
         # Generate a simple token (in production, use Django's PasswordResetTokenGenerator)
         import uuid
@@ -755,15 +755,16 @@ def resetar_senha(request):
         request.session['reset_token'] = token
         request.session['reset_user_id'] = user.id
 
-        # Send email
-        from django.core.mail import send_mail
-        subject = "Reset de Senha - Casa das Pizzas"
+        # Send WhatsApp message
         reset_url = request.build_absolute_uri(reverse('pedido:confirmar_reset_senha', kwargs={'token': token}))
-        message = f"Clique no link para resetar sua senha: {reset_url}"
-        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+        message = f"Olá {user.first_name}! Clique no link para resetar sua senha: {reset_url}"
+        import urllib.parse
+        msg_encoded = urllib.parse.quote(message)
+        whatsapp_number = telefone.replace('(', '').replace(')', '').replace(' ', '').replace('-', '')
+        whatsapp_url = f"https://wa.me/55{whatsapp_number}?text={msg_encoded}"
 
-        messages.success(request, "Email enviado com instruções para resetar a senha.")
-        return redirect('pedido:login')
+        messages.success(request, f"Mensagem enviada para o WhatsApp {telefone}. Verifique seu WhatsApp para o link de redefinição.")
+        return redirect(whatsapp_url)
 
     return render(request, "nova_senha.html")
 

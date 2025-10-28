@@ -63,11 +63,17 @@
                     </div>
                     <div class="campo-endereco">
                         <label for="senha">Senha:</label>
-                        <input type="password" id="senha" name="senha" required>
+                        <div class="password-container">
+                            <input type="password" id="senha" name="senha" required>
+                            <button type="button" id="toggle-password-senha" class="eye-button"><i class="fas fa-eye"></i></button>
+                        </div>
                     </div>
                     <div class="campo-endereco">
                         <label for="confirmarsenha">Confirmar Senha:</label>
-                        <input type="password" id="confirmarsenha" name="confirmarsenha" required>
+                        <div class="password-container">
+                            <input type="password" id="confirmarsenha" name="confirmarsenha" required>
+                            <button type="button" id="toggle-password-confirmar" class="eye-button"><i class="fas fa-eye"></i></button>
+                        </div>
                     </div>
                     <button type="submit" class="botao">Cadastrar</button>
                 </form>
@@ -120,6 +126,26 @@
               }
             }
             e.target.value = value;
+          });
+
+          // Toggle password visibility for senha
+          const togglePasswordSenhaButton = document.getElementById('toggle-password-senha');
+          const senhaInput = document.getElementById('senha');
+
+          togglePasswordSenhaButton.addEventListener('click', () => {
+            const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            senhaInput.setAttribute('type', type);
+            togglePasswordSenhaButton.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+          });
+
+          // Toggle password visibility for confirmar senha
+          const togglePasswordConfirmarButton = document.getElementById('toggle-password-confirmar');
+          const confirmarSenhaInput = document.getElementById('confirmarsenha');
+
+          togglePasswordConfirmarButton.addEventListener('click', () => {
+            const type = confirmarSenhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmarSenhaInput.setAttribute('type', type);
+            togglePasswordConfirmarButton.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
           });
         </script>
     </body>

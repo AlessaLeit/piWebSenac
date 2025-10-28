@@ -930,19 +930,57 @@ ul {
     outline: 2px solid #d62828;
     outline-offset: 2px;
 }
-/ *   L i n k   d e   r e s e t   d e   s e n h a   * / 
- . l i n k - r e s e t   { 
-         d i s p l a y :   b l o c k ; 
-         t e x t - a l i g n :   r i g h t ; 
-         m a r g i n - t o p :   5 p x ; 
-         f o n t - s i z e :   0 . 9 r e m ; 
-         c o l o r :   # d 6 2 8 2 8 ; 
-         t e x t - d e c o r a t i o n :   n o n e ; 
-         t r a n s i t i o n :   c o l o r   0 . 3 s   e a s e ; 
- } 
- 
- . l i n k - r e s e t : h o v e r   { 
-         c o l o r :   # b 3 2 0 2 0 ; 
-         t e x t - d e c o r a t i o n :   u n d e r l i n e ; 
- }  
- 
+
+/* Link de reset de senha */
+.link-reset {
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #d62828;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-reset:hover {
+    color: #b32020;
+    text-decoration: underline;
+}
+
+/* Container de senha com botão de olho */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+    padding-right: 40px; /* Espaço para o botão */
+}
+
+.eye-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #666;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.eye-button:hover {
+    background: #d62828;
+    color: white;
+    border-color: #d62828;
+}
+
+.eye-button:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}

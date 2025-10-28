@@ -1,0 +1,2 @@
+- [x] Alterar view resetar_senha para enviar link via WhatsApp
+- [x] Atualizar template nova_senha.html para refletir mudança
