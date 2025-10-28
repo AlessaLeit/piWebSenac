@@ -53,37 +53,11 @@ def login(request):
         id = request.POST.get("id")
         senha = request.POST.get("senha")
 
-        # Limpa o input removendo caracteres não numéricos para verificar se é 11 dígitos
-        id_limpo = ''.join(filter(str.isdigit, id))
+        # A função authenticate agora usará nosso backend customizado.
+        # O primeiro argumento para authenticate é sempre 'username', por isso passamos 'id' como 'username'.
+        user = authenticate(request, username=id, password=senha)
 
-        if len(id_limpo) == 11:
-            # Tenta validar como CPF primeiro
-            if validar_cpf(id_limpo):
-                try:
-                    user = Usuario.objects.get(cpf=id_limpo)
-                except Usuario.DoesNotExist:
-                    user = None
-            else:
-                # Se não for CPF válido, formata como telefone e busca
-                telefone_formatado = f"({id_limpo[:2]}) {id_limpo[2:7]}-{id_limpo[7:]}"
-                try:
-                    user = Usuario.objects.get(telefone=telefone_formatado)
-                except Usuario.DoesNotExist:
-                    user = None
-        else:
-            # Comportamento original para inputs que não são 11 dígitos
-            try:
-                user = Usuario.objects.get(cpf=id)
-            except Usuario.DoesNotExist:
-                try:
-                    user = Usuario.objects.get(telefone=id)
-                except Usuario.DoesNotExist:
-                    try:
-                        user = Usuario.objects.get(email=id)
-                    except Usuario.DoesNotExist:
-                        user = None
-
-        if user and user.check_password(senha):
+        if user is not None:
             # Se já há um usuário logado, fazer logout e limpar cookies
             if request.user.is_authenticated:
                 auth_logout(request)
@@ -154,7 +128,7 @@ def cadastrar(request):
             return render(request, "cadastro.html", {"form_data": request.POST})
 
         usuario = Usuario.objects.create_user(
-            username=cpf,
+            # O username não é mais necessário, pois o USERNAME_FIELD é 'cpf'
             first_name=nome,
             cpf=cpf,
             telefone=telefone,

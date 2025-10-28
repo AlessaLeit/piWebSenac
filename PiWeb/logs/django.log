@@ -368,3 +368,7 @@ INFO 2025-10-28 19:09:17,754 basehttp 23256 7172 "GET /static/css/estilo.css HTT
 INFO 2025-10-28 19:09:20,040 basehttp 23256 9744 "GET /endereco/ HTTP/1.1" 200 7415
 INFO 2025-10-28 19:09:22,167 basehttp 23256 29916 "GET /tamanho/ HTTP/1.1" 200 6714
 INFO 2025-10-28 19:09:38,616 autoreload 14852 14776 Watching for file changes with StatReloader
+INFO 2025-10-28 19:09:40,464 basehttp 23256 30064 "GET / HTTP/1.1" 302 0
+INFO 2025-10-28 19:09:40,496 basehttp 23256 30064 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-28 19:09:40,581 basehttp 23256 30064 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-28 19:37:25,855 autoreload 23336 556 Watching for file changes with StatReloader

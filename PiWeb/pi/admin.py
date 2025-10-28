@@ -2,23 +2,30 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Usuario
 
-# Para ter uma melhor experiência de administração com um modelo de usuário customizado,
-# criamos uma classe de admin que herda de UserAdmin.
-class CustomUserAdmin(UserAdmin):
-    # Adiciona os campos customizados aos formulários de criação e edição no admin.
-    # Mantemos os fieldsets padrão e adicionamos uma nova seção.
-    fieldsets = UserAdmin.fieldsets + (
-        ('Informações Adicionais', {'fields': ('cpf', 'telefone', 'endereco')}),
+# Configuração do admin para o modelo Usuario
+@admin.register(Usuario)
+class UsuarioAdmin(UserAdmin):
+    # Campos a serem exibidos na lista de usuários
+    list_display = ('cpf', 'first_name', 'last_name', 'email', 'telefone', 'is_active', 'is_staff', 'date_joined')
+    # Campos de filtro lateral
+    list_filter = ('is_active', 'is_staff', 'is_superuser', 'date_joined')
+    # Campos de busca
+    search_fields = ('cpf', 'first_name', 'last_name', 'email', 'telefone')
+    # Ordenação padrão
+    ordering = ('cpf',)
+    # Campos organizados em seções no formulário de edição
+    fieldsets = (
+        (None, {'fields': ('cpf', 'password')}),
+        ('Informações Pessoais', {'fields': ('first_name', 'last_name', 'email', 'telefone', 'endereco')}),
+        ('Permissões', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Datas Importantes', {'fields': ('last_login', 'date_joined')}),
     )
-    add_fieldsets = UserAdmin.add_fieldsets + (
-        # O campo 'email' já está no add_fieldsets padrão, mas garantimos que os outros estejam aqui.
-        ('Informações Adicionais', {'fields': ('cpf', 'telefone', 'endereco')}),
+    # Campos para adicionar novo usuário
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('cpf', 'first_name', 'last_name', 'email', 'telefone', 'endereco', 'password1', 'password2'),
+        }),
     )
-
-    # Define quais colunas aparecerão na lista de usuários.
-    list_display = ('username', 'email', 'first_name', 'cpf', 'is_staff')
-    # Adiciona campos para busca.
-    search_fields = ('username', 'first_name', 'last_name', 'email', 'cpf')
-
-# Registra o modelo 'Usuario' com a classe de admin customizada.
-admin.site.register(Usuario, CustomUserAdmin)
+    # Campos somente leitura
+    readonly_fields = ('date_joined', 'last_login')
