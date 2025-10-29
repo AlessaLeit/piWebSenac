@@ -36,6 +36,15 @@
                           {% endfor %}
                       </div>
                   {% endif %}
+                  {% if email_enviado %}
+                      <div class="email-enviado">
+                          <i class="fas fa-check-circle"></i>
+                          <h3>Email enviado com sucesso!</h3>
+                          <p>Verifique sua caixa de entrada e clique no link para redefinir sua senha.</p>
+                          <p>Se não encontrar o email, verifique a pasta de spam.</p>
+                          <a href="{% url 'pedido:login' %}" class="botao">Voltar ao Login</a>
+                      </div>
+                  {% endif %}
                   {% if validlink %}
                       <div class="campo-endereco">
                           <label for="nova_senha1">Nova Senha:</label>
@@ -48,10 +57,10 @@
                       <button type="submit" class="botao">Redefinir Senha</button>
                   {% else %}
                       <div class="campo-endereco">
-                          <label for="telefone">Telefone:</label>
-                          <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required oninput="formatTelefone(this)">
+                          <label for="email">Email:</label>
+                          <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
                       </div>
-                      <button type="submit" class="botao">Enviar link via WhatsApp</button>
+                      <button type="submit" class="botao">Enviar link via Email</button>
                   {% endif %}
               </form>
           </section>

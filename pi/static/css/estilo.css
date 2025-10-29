@@ -730,6 +730,34 @@ ul {
     border: 1px solid #a5d6a7;
 }
 
+/* Email enviado */
+.email-enviado {
+    text-align: center;
+    padding: 30px;
+    background-color: #e8f5e9;
+    border: 2px solid #a5d6a7;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.email-enviado i {
+    font-size: 3rem;
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.email-enviado h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.email-enviado p {
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
 .rodape {
   background-color: #d72828; /* Mantendo o vermelho original */
   color: white;

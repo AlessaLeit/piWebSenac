@@ -710,35 +710,40 @@ def revisar_pedido(request):
 
 def resetar_senha(request):
     if request.method == "POST":
-        telefone = request.POST.get("telefone")
-        if not telefone or not validar_telefone(telefone):
-            messages.error(request, "Telefone inválido. Use o formato (XX) XXXXX-XXXX.")
-            return render(request, "nova_senha.html", {"erro": "Telefone inválido. Use o formato (XX) XXXXX-XXXX."})
+        email = request.POST.get("email")
+        if not email or not validar_email(email):
+            messages.error(request, "Email inválido.")
+            return render(request, "nova_senha.html", {"erro": "Email inválido."})
 
         from .models import Usuario
         try:
-            user = Usuario.objects.get(telefone=telefone)
+            user = Usuario.objects.get(email=email)
         except Usuario.DoesNotExist:
-            messages.error(request, "Telefone não encontrado.")
-            return render(request, "nova_senha.html", {"erro": "Telefone não encontrado."})
+            messages.error(request, "Email não encontrado.")
+            return render(request, "nova_senha.html", {"erro": "Email não encontrado."})
 
-        # Generate a simple token (in production, use Django's PasswordResetTokenGenerator)
-        import uuid
-        token = str(uuid.uuid4())
-        # Store token in session (simple, not secure; use database in production)
+        # Use Django's PasswordResetTokenGenerator for secure tokens
+        from django.contrib.auth.tokens import PasswordResetTokenGenerator
+        from django.utils.http import urlsafe_base64_encode
+        from django.utils.encoding import force_bytes
+
+        token_generator = PasswordResetTokenGenerator()
+        token = token_generator.make_token(user)
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+        # Store uid and token in session for verification
+        request.session['reset_uid'] = uid
         request.session['reset_token'] = token
-        request.session['reset_user_id'] = user.id
 
-        # Send WhatsApp message
-        reset_url = request.build_absolute_uri(reverse('pedido:confirmar_reset_senha', kwargs={'token': token}))
-        message = f"Olá {user.first_name}! Clique no link para resetar sua senha: {reset_url}"
-        import urllib.parse
-        msg_encoded = urllib.parse.quote(message)
-        whatsapp_number = telefone.replace('(', '').replace(')', '').replace(' ', '').replace('-', '')
-        whatsapp_url = f"https://wa.me/55{whatsapp_number}?text={msg_encoded}"
+        # Send email
+        from django.core.mail import send_mail
+        reset_url = request.build_absolute_uri(reverse('pedido:confirmar_reset_senha', kwargs={'uidb64': uid, 'token': token}))
+        subject = "Redefinição de Senha - Casa das Pizzas"
+        message = f"Olá {user.first_name}!\n\nClique no link abaixo para redefinir sua senha:\n{reset_url}\n\nSe você não solicitou esta redefinição, ignore este email.\n\nAtenciosamente,\nEquipe Casa das Pizzas"
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
 
-        messages.success(request, f"Mensagem enviada para o WhatsApp {telefone}. Verifique seu WhatsApp para o link de redefinição.")
-        return redirect(whatsapp_url)
+        messages.success(request, f"Email enviado para {email}. Verifique sua caixa de entrada para o link de redefinição.")
+        return render(request, "nova_senha.html", {"email_enviado": True})
 
     return render(request, "nova_senha.html")
 
@@ -751,7 +756,13 @@ def logout(request):
     response.delete_cookie('order')
     return response
 
-def confirmar_reset_senha(request, token):
+def confirmar_reset_senha(request, uidb64, token):
+    from django.contrib.auth.tokens import PasswordResetTokenGenerator
+    from django.utils.http import urlsafe_base64_decode
+    from django.utils.encoding import force_str
+
+    token_generator = PasswordResetTokenGenerator()
+
     if request.method == "POST":
         nova_senha1 = request.POST.get("nova_senha1")
         nova_senha2 = request.POST.get("nova_senha2")
@@ -764,33 +775,30 @@ def confirmar_reset_senha(request, token):
             messages.error(request, "As senhas não coincidem.")
             return render(request, "nova_senha.html", {"erro": "As senhas não coincidem.", "validlink": True})
 
-        # Check token
-        if request.session.get('reset_token') != token:
-            messages.error(request, "Token inválido.")
-            return render(request, "nova_senha.html", {"erro": "Token inválido.", "validlink": False})
-
-        user_id = request.session.get('reset_user_id')
-        if not user_id:
-            messages.error(request, "Sessão expirada.")
-            return render(request, "nova_senha.html", {"erro": "Sessão expirada.", "validlink": False})
-
-        from .models import Usuario
+        # Validate token and uid
         try:
-            user = Usuario.objects.get(id=user_id)
-        except Usuario.DoesNotExist:
-            messages.error(request, "Usuário não encontrado.")
-            return render(request, "nova_senha.html", {"erro": "Usuário não encontrado.", "validlink": False})
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = Usuario.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, Usuario.DoesNotExist):
+            messages.error(request, "Link inválido.")
+            return render(request, "nova_senha.html", {"erro": "Link inválido.", "validlink": False})
+
+        if not token_generator.check_token(user, token):
+            messages.error(request, "Token inválido ou expirado.")
+            return render(request, "nova_senha.html", {"erro": "Token inválido ou expirado.", "validlink": False})
 
         user.set_password(nova_senha1)
         user.save()
-
-        # Clear session
-        del request.session['reset_token']
-        del request.session['reset_user_id']
 
         messages.success(request, "Senha alterada com sucesso. Faça login.")
         return redirect('pedido:login')
 
     # Check if token is valid for GET request
-    validlink = request.session.get('reset_token') == token and request.session.get('reset_user_id')
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = Usuario.objects.get(pk=uid)
+        validlink = token_generator.check_token(user, token)
+    except (TypeError, ValueError, OverflowError, Usuario.DoesNotExist):
+        validlink = False
+
     return render(request, "nova_senha.html", {"validlink": validlink})

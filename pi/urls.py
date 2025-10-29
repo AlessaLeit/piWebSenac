@@ -16,6 +16,6 @@ urlpatterns = [
     path('login/', views.login , name='login'),
     path('cadastro/', views.cadastrar, name='cadastrar'),
     path('resetar_senha/', views.resetar_senha, name='resetar_senha'),
-    path('confirmar_reset_senha/<uuid:token>/', views.confirmar_reset_senha, name='confirmar_reset_senha'),
+    path('confirmar_reset_senha/<uidb64>/<token>/', views.confirmar_reset_senha, name='confirmar_reset_senha'),
     path('logout/', views.logout, name='logout'),
 ]

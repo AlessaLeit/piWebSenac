@@ -579,3 +579,529 @@ INFO 2025-10-29 14:09:22,339 autoreload 6196 22944 C:\Users\alessandra.leite\Dow
 INFO 2025-10-29 14:09:22,957 autoreload 11100 5476 Watching for file changes with StatReloader
 INFO 2025-10-29 14:09:44,748 autoreload 11100 5476 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
 INFO 2025-10-29 14:09:45,246 autoreload 5068 2916 Watching for file changes with StatReloader
+INFO 2025-10-29 14:52:56,076 autoreload 6876 17088 Watching for file changes with StatReloader
+ERROR 2025-10-29 14:52:58,014 log 6876 16008 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 14:52:58,087 basehttp 6876 16008 "GET / HTTP/1.1" 400 143
+ERROR 2025-10-29 14:52:58,124 log 6876 8096 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 14:52:58,126 basehttp 6876 8096 "GET /favicon.ico HTTP/1.1" 400 143
+INFO 2025-10-29 14:53:13,852 autoreload 6876 17088 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:53:14,390 autoreload 14804 15672 Watching for file changes with StatReloader
+INFO 2025-10-29 14:53:16,735 autoreload 14804 15672 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:53:17,215 autoreload 16076 17108 Watching for file changes with StatReloader
+INFO 2025-10-29 14:53:19,523 autoreload 16076 17108 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:53:20,037 autoreload 9036 10676 Watching for file changes with StatReloader
+INFO 2025-10-29 14:53:21,356 autoreload 9036 10676 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:53:45,191 autoreload 9092 14480 Watching for file changes with StatReloader
+INFO 2025-10-29 14:53:46,272 basehttp 9092 12980 "GET / HTTP/1.1" 302 0
+INFO 2025-10-29 14:53:46,381 basehttp 9092 12980 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-10-29 14:53:46,403 log 9092 5636 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:53:46,403 log 9092 12980 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:53:46,403 log 9092 12716 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:53:46,404 basehttp 9092 5636 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:46,404 basehttp 9092 12980 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:46,404 basehttp 9092 12716 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:46,422 log 9092 12716 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:53:46,423 basehttp 9092 12716 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:46,427 log 9092 12716 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:53:46,427 basehttp 9092 12716 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:46,468 log 9092 12716 Not Found: /favicon.ico
+WARNING 2025-10-29 14:53:46,470 basehttp 9092 12716 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-10-29 14:53:48,444 basehttp 9092 12716 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-10-29 14:53:48,456 log 9092 12716 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:53:48,457 log 9092 12980 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:53:48,457 log 9092 5636 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:53:48,460 log 9092 12796 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:53:48,460 basehttp 9092 12980 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:48,460 basehttp 9092 12716 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:48,460 basehttp 9092 5636 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:48,461 basehttp 9092 12796 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:53:58,928 basehttp 9092 12796 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-10-29 14:53:58,935 log 9092 12796 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:53:58,936 log 9092 5636 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:53:58,936 log 9092 12980 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:53:58,938 log 9092 9120 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:53:58,938 basehttp 9092 12796 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:58,939 basehttp 9092 5636 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:58,939 basehttp 9092 12980 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:58,940 basehttp 9092 9120 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:53:59,195 basehttp 9092 9120 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-10-29 14:53:59,203 log 9092 9120 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:53:59,204 log 9092 12980 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:53:59,204 log 9092 5636 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:53:59,206 log 9092 9860 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:53:59,207 basehttp 9092 9120 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:59,207 basehttp 9092 12980 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:59,207 basehttp 9092 5636 "GET /static/instagram.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:53:59,208 basehttp 9092 9120 - Broken pipe from ('127.0.0.1', 60869)
+WARNING 2025-10-29 14:53:59,208 basehttp 9092 9860 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:53:59,331 basehttp 9092 9860 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-10-29 14:53:59,338 log 9092 9860 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:53:59,338 log 9092 5636 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:53:59,340 log 9092 12980 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:53:59,342 log 9092 672 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:53:59,342 basehttp 9092 9860 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:59,342 basehttp 9092 5636 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:59,342 basehttp 9092 12980 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:53:59,342 basehttp 9092 672 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:54:48,048 autoreload 9092 14480 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:56:23,378 autoreload 17696 14040 Watching for file changes with StatReloader
+INFO 2025-10-29 14:56:26,093 basehttp 17696 21048 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-10-29 14:56:26,106 log 17696 19720 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:56:26,106 log 17696 21048 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:56:26,106 log 17696 22248 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:56:26,106 log 17696 20968 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:56:26,106 basehttp 17696 19720 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:26,106 basehttp 17696 21048 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:26,107 basehttp 17696 22248 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:26,107 basehttp 17696 20968 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:56:34,395 basehttp 17696 20968 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:56:34,414 log 17696 20968 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:56:34,415 log 17696 22248 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:56:34,416 log 17696 21048 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:56:34,416 log 17696 19720 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:56:34,417 basehttp 17696 22248 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:34,417 basehttp 17696 20968 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:34,417 basehttp 17696 21048 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:34,417 basehttp 17696 19720 "GET /static/instagram.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:56:41,891 basehttp 17696 19720 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:56:41,906 log 17696 19720 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:56:41,907 log 17696 21048 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:56:41,908 log 17696 22248 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:56:41,908 log 17696 20968 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:56:41,909 basehttp 17696 19720 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:41,909 basehttp 17696 21048 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:41,909 basehttp 17696 20968 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:56:41,909 basehttp 17696 22248 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:16,935 autoreload 18264 8944 Watching for file changes with StatReloader
+INFO 2025-10-29 14:58:28,646 basehttp 17696 20968 "GET / HTTP/1.1" 302 0
+INFO 2025-10-29 14:58:28,671 basehttp 17696 20968 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:58:28,720 log 17696 20968 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:28,721 log 17696 22248 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:28,722 log 17696 21048 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:58:28,723 basehttp 17696 20968 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:28,723 basehttp 17696 22248 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:28,723 basehttp 17696 21048 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:28,728 log 17696 21048 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:58:28,729 basehttp 17696 21048 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:29,894 basehttp 17696 21048 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:58:29,906 log 17696 21048 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:29,907 log 17696 20968 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:58:29,908 log 17696 22248 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:29,908 log 17696 19720 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:58:29,908 basehttp 17696 21048 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:29,908 basehttp 17696 20968 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:29,908 basehttp 17696 22248 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:29,908 basehttp 17696 19720 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:30,212 basehttp 17696 19720 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:58:30,232 log 17696 19720 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:30,233 log 17696 22248 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:30,233 log 17696 21048 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:58:30,234 log 17696 20968 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:58:30,234 basehttp 17696 19720 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,235 basehttp 17696 22248 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,235 basehttp 17696 21048 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,235 basehttp 17696 20968 "GET /static/instagram.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:30,362 basehttp 17696 20968 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:58:30,383 log 17696 20968 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:30,385 log 17696 21048 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:30,385 log 17696 22248 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:58:30,385 log 17696 19720 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:58:30,386 basehttp 17696 20968 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,386 basehttp 17696 21048 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,386 basehttp 17696 19720 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,386 basehttp 17696 22248 "GET /static/instagram.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:30,533 basehttp 17696 22248 "GET /tamanho/ HTTP/1.1" 200 6714
+WARNING 2025-10-29 14:58:30,541 log 17696 22248 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:30,541 log 17696 21048 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:30,541 log 17696 19720 Not Found: /static/instagram.png
+WARNING 2025-10-29 14:58:30,541 log 17696 20968 Not Found: /static/facebook.png
+WARNING 2025-10-29 14:58:30,541 basehttp 17696 22248 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,541 basehttp 17696 21048 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,541 basehttp 17696 19720 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:30,545 basehttp 17696 20968 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:32,015 basehttp 17696 20968 "GET /confirmar_adicionar/ HTTP/1.1" 200 5614
+WARNING 2025-10-29 14:58:32,025 log 17696 20968 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:32,026 log 17696 19720 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:32,026 basehttp 17696 19720 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:32,026 basehttp 17696 20968 "GET /static/css/estilo.css HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:33,626 basehttp 17696 20968 "GET /confirmar_adicionar/ HTTP/1.1" 200 5614
+WARNING 2025-10-29 14:58:33,637 log 17696 20968 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:33,638 log 17696 19720 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:33,638 basehttp 17696 20968 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:33,638 basehttp 17696 19720 "GET /static/logo.jpg HTTP/1.1" 404 179
+INFO 2025-10-29 14:58:38,308 basehttp 17696 19720 "GET /confirmar_adicionar/ HTTP/1.1" 200 5614
+WARNING 2025-10-29 14:58:38,320 log 17696 19720 Not Found: /static/css/estilo.css
+WARNING 2025-10-29 14:58:38,322 log 17696 20968 Not Found: /static/logo.jpg
+WARNING 2025-10-29 14:58:38,322 basehttp 17696 19720 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-10-29 14:58:38,322 basehttp 17696 20968 "GET /static/logo.jpg HTTP/1.1" 404 179
+INFO 2025-10-29 14:59:27,687 autoreload 21044 13588 Watching for file changes with StatReloader
+INFO 2025-10-29 14:59:45,395 autoreload 17696 14040 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:59:45,407 autoreload 18264 8944 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:59:45,408 autoreload 21044 13588 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:59:46,060 autoreload 2040 14188 Watching for file changes with StatReloader
+
+INFO 2025-10-29 14:59:46,060 autoreload 17080 12324 Watching for file changes with StatReloader
+INFO 2025-10-29 15:00:07,980 autoreload 5904 19712 Watching for file changes with StatReloader
+INFO 2025-10-29 15:04:24,460 basehttp 18508 15708 "GET /confirmar_adicionar/ HTTP/1.1" 200 5614
+INFO 2025-10-29 15:04:24,546 basehttp 18508 14296 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-10-29 15:04:24,551 basehttp 18508 15708 "GET /static/css/estilo.css HTTP/1.1" 200 20045
+INFO 2025-10-29 15:04:27,492 basehttp 18508 15708 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-29 15:04:27,501 basehttp 18508 15708 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-10-29 15:04:27,501 basehttp 18508 14296 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-10-29 15:04:30,244 basehttp 18508 14296 "GET /revisao/ HTTP/1.1" 200 5827
+INFO 2025-10-29 15:04:30,746 basehttp 18508 14296 "GET /endereco/ HTTP/1.1" 200 7415
+INFO 2025-10-29 15:04:32,257 basehttp 18508 14296 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-29 15:04:56,787 basehttp 18508 14296 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-10-29 15:04:59,733 basehttp 18508 14296 "GET /resetar_senha/ HTTP/1.1" 200 3910
+ERROR 2025-10-29 15:05:31,139 log 18508 14296 Internal Server Error: /resetar_senha/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 743, in resetar_senha
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\__init__.py", line 92, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 850, in create_connection
+    raise exceptions[0]
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 835, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+INFO 2025-10-29 15:05:31,145 basehttp 18508 14296 - Broken pipe from ('127.0.0.1', 55083)
+ERROR 2025-10-29 15:05:34,053 log 18508 15708 Internal Server Error: /resetar_senha/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 743, in resetar_senha
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\__init__.py", line 92, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 850, in create_connection
+    raise exceptions[0]
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 835, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+ERROR 2025-10-29 15:05:34,054 basehttp 18508 15708 "POST /resetar_senha/ HTTP/1.1" 500 118175
+INFO 2025-10-29 15:05:56,209 autoreload 18508 16552 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:05:56,682 autoreload 5904 19712 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:05:56,691 autoreload 17080 12324 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:05:56,694 autoreload 2040 14188 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:05:56,800 autoreload 15656 14924 Watching for file changes with StatReloader
+INFO 2025-10-29 15:05:57,310 autoreload 21376 6912 Watching for file changes with StatReloader
+INFO 2025-10-29 15:05:57,311 autoreload 23152 1664 Watching for file changes with StatReloader
+INFO 2025-10-29 15:05:57,312 autoreload 20768 15884 Watching for file changes with StatReloader
+ERROR 2025-10-29 15:07:58,136 log 15656 4304 Internal Server Error: /resetar_senha/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 743, in resetar_senha
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\__init__.py", line 92, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 850, in create_connection
+    raise exceptions[0]
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 835, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+INFO 2025-10-29 15:07:58,139 basehttp 15656 4304 - Broken pipe from ('127.0.0.1', 54757)
+INFO 2025-10-29 15:09:43,312 autoreload 15656 14924 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:09:43,845 autoreload 23152 1664 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:09:43,847 autoreload 20768 15884 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:09:43,857 autoreload 21376 6912 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:09:44,168 autoreload 20968 13816 Watching for file changes with StatReloader
+INFO 2025-10-29 15:09:44,568 autoreload 21484 15936 Watching for file changes with StatReloader
+INFO 2025-10-29 15:09:44,568 autoreload 3972 10620 Watching for file changes with StatReloader
+INFO 2025-10-29 15:09:44,568 autoreload 23336 18656 Watching for file changes with StatReloader
+INFO 2025-10-29 15:10:21,621 autoreload 3104 18088 Watching for file changes with StatReloader
+INFO 2025-10-29 15:11:00,608 basehttp 3104 10976 "GET /resetar_senha/ HTTP/1.1" 200 3910
+INFO 2025-10-29 15:11:03,321 basehttp 3104 10976 "POST /resetar_senha/ HTTP/1.1" 302 0
+INFO 2025-10-29 15:11:03,331 basehttp 3104 10976 "GET /login/ HTTP/1.1" 200 4427
+WARNING 2025-10-29 15:11:12,231 log 3104 10976 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-10-29 15:11:12,231 basehttp 3104 10976 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5719
+INFO 2025-10-29 15:11:21,559 basehttp 3104 10976 "GET /resetar_senha/ HTTP/1.1" 200 4235
+WARNING 2025-10-29 15:11:21,612 log 3104 10976 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-10-29 15:11:21,612 basehttp 3104 10976 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5719
+INFO 2025-10-29 15:11:55,068 basehttp 3104 10976 "POST /resetar_senha/ HTTP/1.1" 302 0
+INFO 2025-10-29 15:11:55,078 basehttp 3104 10976 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-10-29 15:11:55,096 basehttp 3104 10976 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-10-29 15:11:55,114 log 3104 10976 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-10-29 15:11:55,115 basehttp 3104 10976 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5719
+INFO 2025-10-29 15:12:02,983 basehttp 3104 10976 "GET /resetar_senha/ HTTP/1.1" 200 4235
+WARNING 2025-10-29 15:12:03,019 log 3104 10976 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-10-29 15:12:03,020 basehttp 3104 10976 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5719
+INFO 2025-10-29 15:13:24,337 autoreload 3104 18088 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:13:24,904 autoreload 10272 22148 Watching for file changes with StatReloader
+INFO 2025-10-29 15:13:48,938 autoreload 15924 15408 Watching for file changes with StatReloader
+INFO 2025-10-29 15:13:51,026 basehttp 15924 5116 "GET / HTTP/1.1" 302 0
+INFO 2025-10-29 15:13:51,062 basehttp 15924 5116 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-29 15:13:51,106 basehttp 15924 5116 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-10-29 15:13:51,106 basehttp 15924 3764 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-10-29 15:13:51,109 basehttp 15924 3764 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-10-29 15:13:57,622 basehttp 15924 3764 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-10-29 15:13:58,858 basehttp 15924 3764 "GET /resetar_senha/ HTTP/1.1" 200 3910
+ERROR 2025-10-29 15:14:22,136 log 15924 3764 Internal Server Error: /resetar_senha/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 743, in resetar_senha
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\__init__.py", line 92, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 1050, in __init__
+    SMTP.__init__(self, host, port, local_hostname, timeout,
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 1056, in _get_socket
+    new_socket = super()._get_socket(host, port, timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 850, in create_connection
+    raise exceptions[0]
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 835, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+ERROR 2025-10-29 15:14:22,140 basehttp 15924 3764 "POST /resetar_senha/ HTTP/1.1" 500 128003
+INFO 2025-10-29 15:15:23,708 autoreload 15924 15408 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:15:24,224 autoreload 15680 2376 Watching for file changes with StatReloader
+INFO 2025-10-29 15:15:46,769 basehttp 15680 10308 "POST /resetar_senha/ HTTP/1.1" 302 0
+INFO 2025-10-29 15:15:46,782 basehttp 15680 10308 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-10-29 15:16:53,612 autoreload 15680 2376 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:17:21,101 autoreload 15884 2044 Watching for file changes with StatReloader
+INFO 2025-10-29 15:17:22,721 basehttp 15884 19920 "GET / HTTP/1.1" 302 0
+INFO 2025-10-29 15:17:22,758 basehttp 15884 19920 "GET /tamanho/ HTTP/1.1" 200 6714
+INFO 2025-10-29 15:17:24,397 basehttp 15884 19920 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-10-29 15:17:26,225 basehttp 15884 19920 "GET /resetar_senha/ HTTP/1.1" 200 4235
+ERROR 2025-10-29 15:17:53,967 log 15884 19920 Internal Server Error: /resetar_senha/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 743, in resetar_senha
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\__init__.py", line 92, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 1050, in __init__
+    SMTP.__init__(self, host, port, local_hostname, timeout,
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 1056, in _get_socket
+    new_socket = super()._get_socket(host, port, timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 850, in create_connection
+    raise exceptions[0]
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 835, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+ERROR 2025-10-29 15:17:53,970 basehttp 15884 19920 "POST /resetar_senha/ HTTP/1.1" 500 128003
+INFO 2025-10-29 15:19:29,633 autoreload 15884 2044 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-10-29 15:19:30,133 autoreload 3156 17664 Watching for file changes with StatReloader
+INFO 2025-10-29 15:19:47,400 basehttp 3156 10008 "GET /resetar_senha/ HTTP/1.1" 200 3929
+INFO 2025-10-29 15:20:36,240 basehttp 3156 10008 "GET /resetar_senha/ HTTP/1.1" 200 3929
+INFO 2025-10-29 15:20:36,311 basehttp 3156 10008 "GET /static/css/estilo.css HTTP/1.1" 200 20533
+ERROR 2025-10-29 15:20:59,749 log 3156 10008 Internal Server Error: /resetar_senha/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 743, in resetar_senha
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email])
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\__init__.py", line 92, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 1050, in __init__
+    SMTP.__init__(self, host, port, local_hostname, timeout,
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 1056, in _get_socket
+    new_socket = super()._get_socket(host, port, timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 850, in create_connection
+    raise exceptions[0]
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 835, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+ERROR 2025-10-29 15:20:59,753 basehttp 3156 10008 "POST /resetar_senha/ HTTP/1.1" 500 128048
+INFO 2025-10-29 15:21:52,113 autoreload 3156 17664 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:21:52,606 autoreload 10716 5720 Watching for file changes with StatReloader
+INFO 2025-10-29 15:21:54,121 basehttp 10716 23144 "GET /resetar_senha/ HTTP/1.1" 200 3929
+INFO 2025-10-29 15:21:54,128 basehttp 10716 23144 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-29 15:21:56,398 basehttp 10716 23144 "POST /resetar_senha/ HTTP/1.1" 200 4748
+INFO 2025-10-29 15:22:09,356 basehttp 10716 23144 "GET /confirmar_reset_senha/MQ/cyfxck-6fb23606b89db95a860da8c6a1e71a50/ HTTP/1.1" 200 4170
+INFO 2025-10-29 15:22:09,424 basehttp 10716 23144 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-29 15:22:18,824 basehttp 10716 23144 "POST /confirmar_reset_senha/MQ/cyfxck-6fb23606b89db95a860da8c6a1e71a50/ HTTP/1.1" 302 0
+INFO 2025-10-29 15:22:18,831 basehttp 10716 23144 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-10-29 15:22:23,496 basehttp 10716 23144 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-10-29 15:22:23,506 basehttp 10716 23144 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-29 15:22:26,165 basehttp 10716 23144 "GET /login/ HTTP/1.1" 200 4543
+INFO 2025-10-29 15:22:26,177 basehttp 10716 23144 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-29 15:25:22,929 autoreload 10716 5720 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:25:23,432 autoreload 8356 13056 Watching for file changes with StatReloader
+INFO 2025-10-29 15:25:32,899 autoreload 8356 13056 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:25:33,380 autoreload 14084 19720 Watching for file changes with StatReloader
+INFO 2025-10-29 15:25:45,920 autoreload 14084 19720 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 15:25:46,423 autoreload 1800 18260 Watching for file changes with StatReloader
