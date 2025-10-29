@@ -575,3 +575,7 @@ INFO 2025-10-29 13:52:21,752 basehttp 6196 15324 "GET /endereco/ HTTP/1.1" 200 7
 INFO 2025-10-29 13:52:21,762 basehttp 6196 15324 "GET /static/css/estilo.css HTTP/1.1" 304 0
 INFO 2025-10-29 13:52:24,611 basehttp 6196 15324 "GET /tamanho/ HTTP/1.1" 200 6833
 INFO 2025-10-29 13:52:24,626 basehttp 6196 15324 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-29 14:09:22,339 autoreload 6196 22944 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:09:22,957 autoreload 11100 5476 Watching for file changes with StatReloader
+INFO 2025-10-29 14:09:44,748 autoreload 11100 5476 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 14:09:45,246 autoreload 5068 2916 Watching for file changes with StatReloader
