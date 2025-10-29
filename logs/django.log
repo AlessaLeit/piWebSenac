@@ -552,3 +552,26 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000
 WARNING 2025-10-29 13:47:55,647 basehttp 21280 8532 "GET /favicon.ico HTTP/1.1" 400 72632
 INFO 2025-10-29 13:48:04,771 autoreload 21280 22188 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
 INFO 2025-10-29 13:48:05,261 autoreload 6196 22944 Watching for file changes with StatReloader
+INFO 2025-10-29 13:48:07,094 basehttp 6196 13876 "GET / HTTP/1.1" 302 0
+INFO 2025-10-29 13:48:07,109 basehttp 6196 13876 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-10-29 13:48:07,194 basehttp 6196 3896 "GET /static/css/estilo.css HTTP/1.1" 200 19708
+INFO 2025-10-29 13:48:07,201 basehttp 6196 13876 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-10-29 13:48:07,202 basehttp 6196 15324 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-10-29 13:48:07,202 basehttp 6196 10256 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-10-29 13:48:07,236 log 6196 15324 Not Found: /favicon.ico
+WARNING 2025-10-29 13:48:07,236 basehttp 6196 15324 "GET /favicon.ico HTTP/1.1" 404 5598
+INFO 2025-10-29 13:48:09,724 basehttp 6196 15324 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-10-29 13:48:09,738 basehttp 6196 15324 "GET /sabores/ HTTP/1.1" 200 40733
+WARNING 2025-10-29 13:48:12,301 log 6196 15324 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-10-29 13:48:12,303 basehttp 6196 15324 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5709
+INFO 2025-10-29 13:52:01,283 basehttp 6196 15324 "GET /sabores/ HTTP/1.1" 200 40733
+INFO 2025-10-29 13:52:01,300 basehttp 6196 10256 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-10-29 13:52:01,300 basehttp 6196 13876 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-10-29 13:52:01,301 basehttp 6196 3896 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-10-29 13:52:01,317 basehttp 6196 15324 "GET /static/css/estilo.css HTTP/1.1" 200 20045
+WARNING 2025-10-29 13:52:01,331 log 6196 15324 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-10-29 13:52:01,331 basehttp 6196 15324 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5709
+INFO 2025-10-29 13:52:21,752 basehttp 6196 15324 "GET /endereco/ HTTP/1.1" 200 7607
+INFO 2025-10-29 13:52:21,762 basehttp 6196 15324 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-10-29 13:52:24,611 basehttp 6196 15324 "GET /tamanho/ HTTP/1.1" 200 6833
+INFO 2025-10-29 13:52:24,626 basehttp 6196 15324 "GET /static/css/estilo.css HTTP/1.1" 304 0
