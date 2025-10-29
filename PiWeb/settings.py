@@ -22,7 +22,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['casadaspizzas.com.br', '212.85.1.84', 'localhost']
+ALLOWED_HOSTS = ['casadaspizzas.com.br', '212.85.1.84', 'localhost', '127.0.0.1']
 
 
 # Application definition

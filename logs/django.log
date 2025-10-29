@@ -456,3 +456,99 @@ INFO 2025-10-28 19:42:29,359 basehttp 23336 12440 "GET /admin/pi/usuario/2/delet
 INFO 2025-10-28 19:42:31,505 basehttp 23336 27028 "POST /admin/pi/usuario/2/delete/ HTTP/1.1" 302 0
 INFO 2025-10-28 19:42:31,522 basehttp 23336 27028 "GET /admin/pi/usuario/ HTTP/1.1" 200 13626
 INFO 2025-10-28 19:42:31,568 basehttp 23336 27028 "GET /admin/jsi18n/ HTTP/1.1" 200 8158
+INFO 2025-10-29 13:42:49,056 autoreload 14808 23244 Watching for file changes with StatReloader
+ERROR 2025-10-29 13:45:48,007 log 14808 5956 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 13:45:48,010 basehttp 14808 5956 "GET / HTTP/1.1" 400 72767
+ERROR 2025-10-29 13:45:48,143 log 14808 18068 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 13:45:48,144 basehttp 14808 18068 "GET /favicon.ico HTTP/1.1" 400 72576
+INFO 2025-10-29 13:47:16,138 autoreload 6752 3136 Watching for file changes with StatReloader
+ERROR 2025-10-29 13:47:17,951 log 6752 7480 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 13:47:17,951 basehttp 6752 7480 "GET / HTTP/1.1" 400 72767
+ERROR 2025-10-29 13:47:18,157 log 6752 7596 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 13:47:18,158 basehttp 6752 7596 "GET /favicon.ico HTTP/1.1" 400 72576
+INFO 2025-10-29 13:47:39,126 autoreload 6752 3136 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 13:47:55,277 autoreload 21280 22188 Watching for file changes with StatReloader
+ERROR 2025-10-29 13:47:55,544 log 21280 22164 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 13:47:55,544 basehttp 21280 22164 "GET / HTTP/1.1" 400 72960
+ERROR 2025-10-29 13:47:55,646 log 21280 8532 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-10-29 13:47:55,647 basehttp 21280 8532 "GET /favicon.ico HTTP/1.1" 400 72632
+INFO 2025-10-29 13:48:04,771 autoreload 21280 22188 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-10-29 13:48:05,261 autoreload 6196 22944 Watching for file changes with StatReloader
