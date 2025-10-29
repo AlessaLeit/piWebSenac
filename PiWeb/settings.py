@@ -22,8 +22,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# O cast=Csv transforma 'host1,host2' em uma lista ['host1', 'host2']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['casadaspizzas.com.br', '212.85.1.84', 'localhost']
 
 
 # Application definition
