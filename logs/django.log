@@ -1105,3 +1105,352 @@ INFO 2025-10-29 15:25:32,899 autoreload 8356 13056 C:\Users\alessandra.leite\Dow
 INFO 2025-10-29 15:25:33,380 autoreload 14084 19720 Watching for file changes with StatReloader
 INFO 2025-10-29 15:25:45,920 autoreload 14084 19720 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
 INFO 2025-10-29 15:25:46,423 autoreload 1800 18260 Watching for file changes with StatReloader
+INFO 2025-10-29 16:13:35,059 autoreload 1800 18260 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-11-03 13:48:06,811 autoreload 14668 12876 Watching for file changes with StatReloader
+INFO 2025-11-03 13:48:10,582 basehttp 14668 13340 "GET / HTTP/1.1" 302 0
+INFO 2025-11-03 13:48:10,944 basehttp 14668 13340 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-11-03 13:48:11,013 log 14668 13340 Not Found: /static/css/estilo.css
+WARNING 2025-11-03 13:48:11,013 log 14668 18728 Not Found: /static/instagram.png
+WARNING 2025-11-03 13:48:11,031 log 14668 7388 Not Found: /static/logo.jpg
+WARNING 2025-11-03 13:48:11,032 basehttp 14668 13340 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:11,033 basehttp 14668 18728 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:11,039 log 14668 11900 Not Found: /static/facebook.png
+WARNING 2025-11-03 13:48:11,043 basehttp 14668 7388 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:11,046 basehttp 14668 11900 "GET /static/facebook.png HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:11,216 log 14668 11900 Not Found: /favicon.ico
+WARNING 2025-11-03 13:48:11,217 basehttp 14668 11900 "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-11-03 13:48:12,552 basehttp 14668 11900 "GET /tamanho/ HTTP/1.1" 200 6826
+WARNING 2025-11-03 13:48:12,589 log 14668 11900 Not Found: /static/css/estilo.css
+WARNING 2025-11-03 13:48:12,592 log 14668 7388 Not Found: /static/logo.jpg
+WARNING 2025-11-03 13:48:12,594 log 14668 18728 Not Found: /static/instagram.png
+WARNING 2025-11-03 13:48:12,597 log 14668 13340 Not Found: /static/facebook.png
+WARNING 2025-11-03 13:48:12,598 basehttp 14668 11900 "GET /static/css/estilo.css HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:12,599 basehttp 14668 7388 "GET /static/logo.jpg HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:12,600 basehttp 14668 18728 "GET /static/instagram.png HTTP/1.1" 404 179
+WARNING 2025-11-03 13:48:12,601 basehttp 14668 13340 "GET /static/facebook.png HTTP/1.1" 404 179
+INFO 2025-11-03 13:48:27,736 autoreload 14668 12876 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-11-03 13:48:29,661 autoreload 21148 21748 Watching for file changes with StatReloader
+INFO 2025-11-03 13:48:33,734 basehttp 21148 16204 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-11-03 13:48:34,033 basehttp 21148 2644 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-03 13:48:34,040 basehttp 21148 2080 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-03 13:48:34,041 basehttp 21148 20760 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-03 13:48:34,043 basehttp 21148 16204 "GET /static/css/estilo.css HTTP/1.1" 200 20533
+INFO 2025-11-03 13:55:13,612 basehttp 21148 10212 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-11-03 13:55:16,288 basehttp 21148 10212 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-11-03 13:55:20,455 basehttp 21148 10212 "POST /tamanho/ HTTP/1.1" 200 6910
+INFO 2025-11-03 13:55:21,635 basehttp 21148 10212 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-03 13:55:21,685 basehttp 21148 10212 "GET /sabores/ HTTP/1.1" 200 40733
+INFO 2025-11-05 13:48:42,264 autoreload 9340 9800 Watching for file changes with StatReloader
+INFO 2025-11-05 13:48:43,970 basehttp 9340 11164 "GET / HTTP/1.1" 302 0
+INFO 2025-11-05 13:48:44,023 basehttp 9340 11164 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-11-05 13:48:44,058 basehttp 9340 17056 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-11-05 13:48:44,058 basehttp 9340 25692 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-11-05 13:48:44,062 basehttp 9340 17056 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-11-05 13:48:44,103 basehttp 9340 11164 "GET /static/css/estilo.css HTTP/1.1" 200 20548
+WARNING 2025-11-05 13:48:44,189 log 9340 11164 Not Found: /favicon.ico
+WARNING 2025-11-05 13:48:44,190 basehttp 9340 11164 "GET /favicon.ico HTTP/1.1" 404 5608
+INFO 2025-11-05 13:48:46,832 basehttp 9340 11164 "GET /tamanho/ HTTP/1.1" 200 6826
+INFO 2025-11-05 13:48:49,740 basehttp 9340 11164 "GET /confirmar_adicionar/ HTTP/1.1" 200 5704
+INFO 2025-11-05 13:50:36,134 basehttp 9340 11164 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:50:49,781 basehttp 9340 11164 "GET /login/ HTTP/1.1" 200 4822
+INFO 2025-11-05 13:50:51,444 basehttp 9340 11164 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:50:57,838 basehttp 9340 11164 "GET /confirmar_adicionar/ HTTP/1.1" 200 5704
+INFO 2025-11-05 13:50:59,117 basehttp 9340 11164 "GET /pagamento/ HTTP/1.1" 200 6339
+INFO 2025-11-05 13:51:01,149 basehttp 9340 11164 "GET /endereco/ HTTP/1.1" 200 7585
+INFO 2025-11-05 13:51:02,728 basehttp 9340 11164 "GET /login/ HTTP/1.1" 200 4822
+INFO 2025-11-05 13:51:04,271 basehttp 9340 11164 "GET /cadastro HTTP/1.1" 301 0
+INFO 2025-11-05 13:51:04,279 basehttp 9340 17056 "GET /cadastro/ HTTP/1.1" 200 7416
+INFO 2025-11-05 13:51:06,345 basehttp 9340 17056 "GET /tamanho HTTP/1.1" 301 0
+INFO 2025-11-05 13:51:06,354 basehttp 9340 25692 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:51:06,987 basehttp 9340 25692 "GET /login/ HTTP/1.1" 200 4822
+INFO 2025-11-05 13:51:07,723 basehttp 9340 25692 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:51:57,564 basehttp 9340 25692 "GET /endereco/ HTTP/1.1" 200 7585
+INFO 2025-11-05 13:52:30,830 basehttp 9340 25692 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:52:32,195 basehttp 9340 25692 "GET /revisao/ HTTP/1.1" 200 5997
+INFO 2025-11-05 13:56:49,075 autoreload 9340 9800 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-05 13:56:49,692 autoreload 9052 15240 Watching for file changes with StatReloader
+INFO 2025-11-05 13:56:54,107 autoreload 9052 15240 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-05 13:56:54,830 autoreload 15520 23704 Watching for file changes with StatReloader
+INFO 2025-11-05 13:57:19,383 basehttp 15520 3500 "GET / HTTP/1.1" 302 0
+INFO 2025-11-05 13:57:19,419 basehttp 15520 3500 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:57:23,173 basehttp 15520 3500 "GET /revisao/ HTTP/1.1" 200 6303
+INFO 2025-11-05 13:57:28,053 basehttp 15520 3500 "GET /confirmar_adicionar/ HTTP/1.1" 200 5704
+INFO 2025-11-05 13:57:30,489 basehttp 15520 3500 "GET /tamanho/ HTTP/1.1" 200 6804
+INFO 2025-11-05 13:57:31,881 basehttp 15520 3500 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 13:57:31,952 basehttp 15520 3500 "GET /sabores/ HTTP/1.1" 200 40711
+INFO 2025-11-05 13:57:33,563 basehttp 15520 3500 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-05 13:57:33,572 basehttp 15520 3500 "GET /confirmar_adicionar/ HTTP/1.1" 200 8902
+INFO 2025-11-05 13:57:38,186 basehttp 15520 3500 "GET /revisao/ HTTP/1.1" 200 6303
+INFO 2025-11-05 13:58:28,368 basehttp 15520 3500 "GET /revisao/ HTTP/1.1" 200 6379
+INFO 2025-11-05 13:58:50,710 basehttp 15520 3500 "GET /revisao/ HTTP/1.1" 200 6397
+INFO 2025-11-05 13:59:20,759 basehttp 15520 3500 "GET /confirmar_adicionar/ HTTP/1.1" 200 8902
+INFO 2025-11-05 13:59:22,247 basehttp 15520 3500 "GET /pagamento/ HTTP/1.1" 200 6339
+INFO 2025-11-05 14:00:39,777 autoreload 17540 4028 Watching for file changes with StatReloader
+INFO 2025-11-05 14:09:36,174 basehttp 15520 12112 "GET /pagamento/ HTTP/1.1" 200 6989
+INFO 2025-11-05 14:09:37,025 basehttp 15520 12112 "GET /tamanho/ HTTP/1.1" 200 7461
+INFO 2025-11-05 14:09:59,636 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:09:59,706 basehttp 15520 12112 "GET /sabores/ HTTP/1.1" 200 41370
+INFO 2025-11-05 14:11:48,208 basehttp 15520 12112 "GET /sabores/ HTTP/1.1" 200 41396
+INFO 2025-11-05 14:12:00,610 basehttp 15520 12112 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:12:00,650 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 9509
+INFO 2025-11-05 14:12:13,266 basehttp 15520 12112 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:12:13,284 basehttp 15520 12112 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7454
+INFO 2025-11-05 14:12:20,368 basehttp 15520 12112 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:12:20,377 basehttp 15520 12112 "GET /sabores/?adicionando=true HTTP/1.1" 200 41389
+INFO 2025-11-05 14:13:28,689 basehttp 15520 12112 "GET /pagamento/ HTTP/1.1" 200 7073
+INFO 2025-11-05 14:13:32,129 basehttp 15520 12112 "GET /tamanho/ HTTP/1.1" 200 7461
+INFO 2025-11-05 14:16:12,812 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:16:12,875 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 200 14787
+INFO 2025-11-05 14:16:13,767 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 200 14787
+INFO 2025-11-05 14:16:14,768 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 10221
+INFO 2025-11-05 14:16:16,471 basehttp 15520 12112 "GET /tamanho/ HTTP/1.1" 200 7461
+INFO 2025-11-05 14:16:17,663 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:16:17,671 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 200 14787
+ERROR 2025-11-05 14:17:49,272 log 15520 12112 Internal Server Error: /sabores_calzone/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'pedido.sabores[0]'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 327, in selecionar_sabores_calzone
+    response = render(request, 'pedido/sabores_calzone.html', {
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[0]' from 'pedido.sabores[0]'
+ERROR 2025-11-05 14:17:49,276 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 500 235179
+INFO 2025-11-05 14:17:55,177 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+ERROR 2025-11-05 14:17:55,213 log 15520 12112 Internal Server Error: /sabores_calzone/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'pedido.sabores[0]'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 327, in selecionar_sabores_calzone
+    response = render(request, 'pedido/sabores_calzone.html', {
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[0]' from 'pedido.sabores[0]'
+ERROR 2025-11-05 14:17:55,215 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 500 235179
+INFO 2025-11-05 14:18:30,407 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:18:30,424 basehttp 15520 12112 "GET /sabores/ HTTP/1.1" 200 41389
+INFO 2025-11-05 14:19:22,605 basehttp 15520 12112 "GET /tamanho/ HTTP/1.1" 200 7461
+INFO 2025-11-05 14:19:23,838 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:19:23,877 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 200 14518
+INFO 2025-11-05 14:22:00,098 basehttp 15520 12112 "GET /sabores_calzone/ HTTP/1.1" 200 15517
+INFO 2025-11-05 14:22:29,101 basehttp 15520 12112 "POST /sabores_calzone/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:22:29,111 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 10240
+INFO 2025-11-05 14:22:39,015 basehttp 15520 12112 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-05 14:22:39,024 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 7045
+INFO 2025-11-05 14:22:40,607 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 7045
+INFO 2025-11-05 14:22:44,410 basehttp 15520 12112 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:22:44,422 basehttp 15520 12112 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7454
+INFO 2025-11-05 14:22:45,928 basehttp 15520 12112 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:22:45,942 basehttp 15520 12112 "GET /sabores/?adicionando=true HTTP/1.1" 200 41389
+INFO 2025-11-05 14:22:47,691 basehttp 15520 12112 "POST /sabores/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:22:47,705 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 10243
+INFO 2025-11-05 14:22:52,187 basehttp 15520 12112 "GET /confirmar_adicionar/?excluir=1 HTTP/1.1" 302 0
+INFO 2025-11-05 14:22:52,196 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 7045
+INFO 2025-11-05 14:22:59,142 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 6202
+INFO 2025-11-05 14:22:59,215 basehttp 15520 6964 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-05 14:22:59,217 basehttp 15520 12112 "GET /static/css/estilo.css HTTP/1.1" 200 20548
+INFO 2025-11-05 14:23:01,092 basehttp 15520 12112 "GET /tamanho/ HTTP/1.1" 200 7342
+INFO 2025-11-05 14:23:01,100 basehttp 15520 6964 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-05 14:23:01,100 basehttp 15520 12112 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-05 14:23:04,308 basehttp 15520 12112 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:23:04,318 basehttp 15520 12112 "GET /sabores/ HTTP/1.1" 200 41277
+INFO 2025-11-05 14:23:07,061 basehttp 15520 12112 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:23:07,069 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 9412
+INFO 2025-11-05 14:23:09,190 basehttp 15520 12112 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:23:09,196 basehttp 15520 12112 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7342
+INFO 2025-11-05 14:23:10,309 basehttp 15520 12112 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:23:10,317 basehttp 15520 12112 "GET /sabores_calzone/?adicionando=true HTTP/1.1" 200 15405
+INFO 2025-11-05 14:23:21,010 basehttp 15520 12112 "POST /sabores_calzone/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:23:21,018 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 10154
+INFO 2025-11-05 14:23:45,064 basehttp 15520 12112 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-05 14:23:45,071 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 6944
+INFO 2025-11-05 14:23:50,347 basehttp 15520 12112 "GET /confirmar_adicionar/ HTTP/1.1" 200 6202
+INFO 2025-11-05 14:23:50,362 basehttp 15520 12112 "GET /static/css/estilo.css HTTP/1.1" 200 20548
+INFO 2025-11-05 14:23:50,362 basehttp 15520 6964 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-05 14:24:33,028 basehttp 15520 6964 "GET /tamanho/ HTTP/1.1" 200 7342
+INFO 2025-11-05 14:24:33,039 basehttp 15520 12112 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-05 14:24:33,039 basehttp 15520 6964 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-05 14:24:34,239 basehttp 15520 6964 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:24:34,288 basehttp 15520 6964 "GET /sabores_calzone/ HTTP/1.1" 200 15275
+INFO 2025-11-05 14:25:02,280 basehttp 15520 6964 "POST /sabores_calzone/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:25:02,298 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 6944
+INFO 2025-11-05 14:26:13,094 basehttp 15520 6964 "GET /tamanho/ HTTP/1.1" 200 7349
+INFO 2025-11-05 14:26:14,640 basehttp 15520 6964 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:14,655 basehttp 15520 6964 "GET /sabores/ HTTP/1.1" 200 41277
+INFO 2025-11-05 14:26:38,886 basehttp 15520 6964 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:38,898 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 9435
+INFO 2025-11-05 14:26:40,603 basehttp 15520 6964 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:40,611 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 6202
+INFO 2025-11-05 14:26:41,303 basehttp 15520 6964 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:41,312 basehttp 15520 6964 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7342
+INFO 2025-11-05 14:26:43,888 basehttp 15520 6964 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:43,908 basehttp 15520 6964 "GET /sabores/?adicionando=true HTTP/1.1" 200 41277
+INFO 2025-11-05 14:26:45,474 basehttp 15520 6964 "POST /sabores/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:45,485 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 9400
+INFO 2025-11-05 14:26:50,352 basehttp 15520 6964 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:50,358 basehttp 15520 6964 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7342
+INFO 2025-11-05 14:26:51,521 basehttp 15520 6964 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:51,579 basehttp 15520 6964 "GET /sabores_calzone/?adicionando=true HTTP/1.1" 200 15405
+INFO 2025-11-05 14:26:53,737 basehttp 15520 6964 "POST /sabores_calzone/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:26:53,743 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 10118
+INFO 2025-11-05 14:27:00,144 basehttp 15520 6964 "GET /sabores_calzone/?adicionando=true HTTP/1.1" 200 15412
+INFO 2025-11-05 14:27:01,237 basehttp 15520 6964 "POST /sabores_calzone/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:27:01,243 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 10118
+INFO 2025-11-05 14:27:07,453 basehttp 15520 6964 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:27:07,460 basehttp 15520 6964 "GET /sabores_calzone/?adicionando=true HTTP/1.1" 200 15412
+INFO 2025-11-05 14:27:11,318 basehttp 15520 6964 "POST /sabores_calzone/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-05 14:27:11,324 basehttp 15520 6964 "GET /confirmar_adicionar/ HTTP/1.1" 200 10142
+INFO 2025-11-05 14:27:14,474 basehttp 15520 6964 "GET /tamanho/ HTTP/1.1" 200 7349
+INFO 2025-11-05 14:27:15,536 basehttp 15520 6964 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-05 14:27:15,546 basehttp 15520 6964 "GET /sabores_calzone/ HTTP/1.1" 200 15412
+INFO 2025-11-05 14:28:54,117 autoreload 17540 4028 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-11-05 14:28:54,692 autoreload 10184 4024 Watching for file changes with StatReloader
+INFO 2025-11-05 14:29:01,107 autoreload 10184 4024 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-05 14:29:01,562 autoreload 1760 22260 Watching for file changes with StatReloader
+INFO 2025-11-05 14:29:10,120 autoreload 18280 19500 Watching for file changes with StatReloader
