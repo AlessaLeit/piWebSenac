@@ -31,7 +31,7 @@
         <div class="botoes-container">
           <button id="btn-back" class="botao" onclick="window.history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i> Login</a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i> Entrar</a>
           {% if user.is_authenticated %}
             <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
           {% endif %}

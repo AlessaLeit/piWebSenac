@@ -36,7 +36,7 @@
 
         <div class="botoes-container">
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i> Login</a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i> Entrar</a>
           {% if user.is_authenticated %}
             <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
           {% endif %}
@@ -954,8 +954,9 @@
       document.addEventListener('keydown', function(e) {
         if (e.key.startsWith('Arrow')) {
           e.preventDefault();
-          const cards = Array.from(document.querySelectorAll('.cartao-sabor'));
-          if (!currentFocus) {
+          const cards = Array.from(document.querySelectorAll('.cartao-sabor')).filter(card => card.style.display !== 'none');
+          if (cards.length === 0) return;
+          if (!currentFocus || !cards.includes(currentFocus)) {
             currentFocus = cards[0];
           } else {
             const index = cards.indexOf(currentFocus);
