@@ -24,7 +24,7 @@
 
         <div class="botoes-container">
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i> Login</a>
           {% if user.is_authenticated %}
             <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
           {% endif %}
@@ -34,7 +34,7 @@
 
       <!-- Progresso -->
       <div class="progress-steps">
-            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1" onclick="navegarParaEtapa('tamanho')">
+            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1" onclick="navegarParaEtapa('tamanho')" tabindex="0">
                 <div class="step-number">1</div>
                 <div class="step-label">Tamanho</div>
             </div>
@@ -42,19 +42,19 @@
                 <div class="step-number">2</div>
                 <div class="step-label">Sabores</div>
             </div>
-                <div class="step {% if etapa == 'confirmar_adicionar' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('confirmar_adicionar')">
+                <div class="step {% if etapa == 'confirmar_adicionar' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('confirmar_adicionar')" tabindex="0">
                 <div class="step-number">3</div>
                 <div class="step-label">Confirmar</div>
             </div>
-            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('pagamento')">
+            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('pagamento')" tabindex="0">
                 <div class="step-number">4</div>
                 <div class="step-label">Pagamento</div>
             </div>
-            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('endereco')">
+            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('endereco')" tabindex="0">
                 <div class="step-number">5</div>
                 <div class="step-label">Entrega</div>
             </div>
-            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step6" onclick="navegarParaEtapa('revisao')">
+            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step6" onclick="navegarParaEtapa('revisao')" tabindex="0">
                 <div class="step-number">6</div>
                 <div class="step-label">Finalização</div>
             </div>
@@ -162,6 +162,24 @@
           window.location.href = urls[etapa];
         }
       }
+
+      // Navegação por teclado nos steps
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && document.activeElement.classList.contains('step')) {
+          const stepId = document.activeElement.id;
+          const stepMap = {
+            'step1': 'tamanho',
+            'step2': 'sabores',
+            'step3': 'confirmar_adicionar',
+            'step4': 'pagamento',
+            'step5': 'endereco',
+            'step6': 'revisao'
+          };
+          if (stepMap[stepId]) {
+            navegarParaEtapa(stepMap[stepId]);
+          }
+        }
+      });
     </script>
   </body>
   <footer class="rodape">

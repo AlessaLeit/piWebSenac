@@ -201,6 +201,11 @@ ul {
     background-color: #f5f5f5;
 }
 
+.cartao-sabor:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
 .cartao-sabor input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -662,6 +667,49 @@ ul {
 
 .step.completed:hover .step-number {
     background-color: #e67300;
+}
+
+.step:focus {
+    outline: 2px solid #d62828;
+    outline-offset: 2px;
+}
+
+/* Remover animação para steps não clicáveis (disabled ou sem onclick) */
+.step.disabled {
+    cursor: default;
+}
+
+.step.disabled:hover .step-number {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.step.disabled:hover .step-label {
+    color: inherit !important;
+    font-weight: normal !important;
+}
+
+.step.disabled.active:hover .step-number {
+    background-color: #d62828 !important; /* Manter cor ativa sem mudança no hover */
+}
+
+/* Especificamente para step2 se necessário */
+#step2 {
+    cursor: default;
+}
+
+#step2:hover .step-number {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+#step2:hover .step-label {
+    color: inherit !important;
+    font-weight: normal !important;
+}
+
+#step2.active:hover .step-number {
+    background-color: #d62828 !important; /* Manter cor ativa sem mudança no hover */
 }
 
 /* Responsive adjustments for progress steps */

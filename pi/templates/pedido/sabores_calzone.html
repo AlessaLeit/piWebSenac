@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Casa das Pizzas - Canoinhas </title>
+    <title>Casa das Pizzas - Canoinhas (SC)</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -31,7 +31,7 @@
         <div class="botoes-container">
           <button id="btn-back" class="botao" onclick="window.history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
           <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
-          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i></a>
+          <a href="/login/" class="botao" id="btn-entrar"><i class="fas fa-user"></i> Login</a>
           {% if user.is_authenticated %}
             <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
           {% endif %}
@@ -40,31 +40,54 @@
 
         <!-- Progresso -->
         <div class="progress-steps">
-            <div class="step {% if etapa == 'tamanho' %}active{% endif %}" id="step1" onclick="navegarParaEtapa('tamanho')">
-                <div class="step-number">1</div>
-                <div class="step-label">Tamanho</div>
-            </div>
-            <div class="step disabled" id="step2">
-                <div class="step-number">2</div>
-                <div class="step-label">Sabores</div>
-            </div>
-                <div class="step {% if etapa == 'confirmar_adicionar' %}active{% endif %}" id="step3" onclick="navegarParaEtapa('confirmar_adicionar')">
-                <div class="step-number">3</div>
-                <div class="step-label">Confirmar</div>
-            </div>
-            <div class="step {% if etapa == 'pagamento' %}active{% endif %}" id="step4" onclick="navegarParaEtapa('pagamento')">
-                <div class="step-number">4</div>
-                <div class="step-label">Pagamento</div>
-            </div>
-            <div class="step {% if etapa == 'endereco' %}active{% endif %}" id="step5" onclick="navegarParaEtapa('endereco')">
-                <div class="step-number">5</div>
-                <div class="step-label">Entrega</div>
-            </div>
-            <div class="step {% if etapa == 'revisao' %}active{% endif %}" id="step6" onclick="navegarParaEtapa('revisao')">
-                <div class="step-number">6</div>
-                <div class="step-label">Finalização</div>
-            </div>
+          <div class="step {% if etapa == 'tamanho' %}active{% endif %}" 
+              id="step1" 
+              onclick="navegarParaEtapa('tamanho')" 
+              tabindex="0">
+            <div class="step-number">1</div>
+            <div class="step-label">Tamanho</div>
+          </div>
+
+          <div class="step {% if etapa == 'sabores' %}active{% endif %}" 
+              id="step2" 
+              tabindex="0">
+            <div class="step-number">2</div>
+            <div class="step-label">Sabores</div>
+          </div>
+
+          <div class="step {% if etapa == 'confirmar_adicionar' %}active{% endif %}" 
+              id="step3" 
+              onclick="navegarParaEtapa('confirmar_adicionar')" 
+              tabindex="0">
+            <div class="step-number">3</div>
+            <div class="step-label">Confirmar</div>
+          </div>
+
+          <div class="step {% if etapa == 'pagamento' %}active{% endif %}" 
+              id="step4" 
+              onclick="navegarParaEtapa('pagamento')" 
+              tabindex="0">
+            <div class="step-number">4</div>
+            <div class="step-label">Pagamento</div>
+          </div>
+
+          <div class="step {% if etapa == 'endereco' %}active{% endif %}" 
+              id="step5" 
+              onclick="navegarParaEtapa('endereco')" 
+              tabindex="0">
+            <div class="step-number">5</div>
+            <div class="step-label">Entrega</div>
+          </div>
+
+          <div class="step {% if etapa == 'revisao' %}active{% endif %}" 
+              id="step6" 
+              onclick="navegarParaEtapa('revisao')" 
+              tabindex="0">
+            <div class="step-number">6</div>
+            <div class="step-label">Finalização</div>
+          </div>
         </div>
+
         
       <!-- Mensagens de alerta -->
       {% if erro %}
@@ -74,7 +97,7 @@
       <!-- Seção 2: Sabores para Calzone -->
       {% if etapa == "sabores" %}
       <section class="secao-formulario" id="main-content">
-        <h2><i class="fas fa-utensils"></i> Escolha o sabor do Calzone</h2>
+        <h2><i class="fas fa-utensils"></i> Escolha seus sabores</h2>
 
         <!-- Filtros de sabores -->
         <div class="filtro-sabores">
@@ -90,7 +113,7 @@
             </span>
           </div>
           <div class="contador-sabores">
-            <span id="contador">0</span> de 1 sabor selecionado
+            <span id="contador">0</span> de <span id="max-sabores">1</span> <span id="sabor-text">sabor selecionado</span>
           </div>
         </div>
 
@@ -98,7 +121,7 @@
           {% csrf_token %}
           <div class="grade-sabores">
             <!-- Sabores específicos para calzone -->
-            <div class="cartao-sabor">
+            <div class="cartao-sabor" tabindex="0">
               <input type="checkbox" id="casa_das_pizzas" name="sabores" value="Casa das Pizzas" {% if 'Casa das Pizzas' in pedido.sabores %}checked{% endif %} />
               <label for="casa_das_pizzas">
                 <div class="info-sabor">
@@ -161,7 +184,7 @@
                 </div>
               </label>
             </div>
-            <div class="cartao-sabor">
+            <div class="cartao-sabor" >
               <input type="checkbox" id="vegetariana" name="sabores" value="Vegetariana" {% if 'Vegetariana' in pedido.sabores %}checked{% endif %} />
               <label for="vegetariana">
                 <div class="info-sabor">
@@ -202,20 +225,45 @@
     </div>
 
     <script>
-      // Variáveis para controle de sabores
-      const maxSabores = 1; // Calzone permite apenas 1 sabor
+      // URLs de navegação (iguais ao sabores.html)
+      const tamanhoUrl = "{% url 'pedido:selecionar_tamanho' %}";
+      const confirmarAdicionarUrl = "{% url 'pedido:confirmar_adicionar' %}";
+      const pagamentoUrl = "{% url 'pedido:selecionar_pagamento' %}";
+      const enderecoUrl = "{% url 'pedido:selecionar_endereco' %}";
+      const revisaoUrl = "{% url 'pedido:revisar_pedido' %}";
+
+      function navegarParaEtapa(etapa) {
+        const urls = {
+          'tamanho': tamanhoUrl,
+          'confirmar_adicionar': confirmarAdicionarUrl,
+          'pagamento': pagamentoUrl,
+          'endereco': enderecoUrl,
+          'revisao': revisaoUrl
+        };
+        if (urls[etapa]) {
+          window.location.href = urls[etapa];
+        }
+      }
+
+      // Configuração de sabores
+      const maxSabores = {% if pedido.tamanho == 'Calzone' %}1{% else %}3{% endif %};
       const checkboxes = document.querySelectorAll('.cartao-sabor input[type="checkbox"]');
       const contador = document.getElementById('contador');
+      const maxSaboresSpan = document.getElementById('max-sabores');
       const form = document.getElementById('form-sabores');
 
-      // Função para atualizar contador e estado dos checkboxes
       function atualizarContador() {
         const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
         const quantidade = selecionados.length;
-
         contador.textContent = quantidade;
+        if (maxSaboresSpan) maxSaboresSpan.textContent = maxSabores;
 
-        // Atualizar estado dos checkboxes não selecionados
+        // Atualizar texto baseado na quantidade máxima
+        const saborText = document.getElementById('sabor-text');
+        if (saborText) {
+          saborText.textContent = maxSabores === 1 ? 'sabor selecionado' : 'sabores selecionados';
+        }
+
         checkboxes.forEach(checkbox => {
           if (!checkbox.checked && quantidade >= maxSabores) {
             checkbox.disabled = true;
@@ -236,16 +284,12 @@
           contador.classList.add('parcial');
         }
 
-        // Mostrar ou ocultar botão flutuante
         const botaoFlutuante = document.getElementById('botao-flutuante');
-        if (quantidade > 0) {
-          botaoFlutuante.style.display = 'flex';
-        } else {
-          botaoFlutuante.style.display = 'none';
+        if (botaoFlutuante) {
+          botaoFlutuante.style.display = quantidade > 0 ? 'flex' : 'none';
         }
       }
 
-      // Função para atualizar seleção visual
       function atualizarSelecaoSabores() {
         checkboxes.forEach(input => {
           if (input.checked) {
@@ -256,104 +300,19 @@
         });
       }
 
-      // Adicionar event listeners
       checkboxes.forEach(input => {
-        input.addEventListener('change', function() {
-          if (this.checked) {
-            this.parentElement.classList.add('selecionado');
-          } else {
-            this.parentElement.classList.remove('selecionado');
-          }
+        input.addEventListener('change', () => {
+          atualizarSelecaoSabores();
           atualizarContador();
         });
       });
 
-      // Inicializar contador e seleção visual
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', () => {
         atualizarSelecaoSabores();
         atualizarContador();
       });
+  </script>
 
-      // Validação no submit do formulário
-      form.addEventListener('submit', function(e) {
-        const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
-        if (selecionados.length === 0) {
-          e.preventDefault();
-          alert('Por favor, selecione um sabor.');
-          return false;
-        }
-
-        if (selecionados.length > maxSabores) {
-          e.preventDefault();
-          alert('Erro: Calzone permite no máximo 1 sabor.');
-          return false;
-        }
-      });
-    </script>
-    <script>
-      // Toggle high contrast mode and save preference in localStorage
-      const toggleButton = document.getElementById('toggle-contrast');
-      const body = document.body;
-
-      function setContrastMode(enabled) {
-        if (enabled) {
-          body.classList.add('high-contrast');
-          localStorage.setItem('highContrast', 'true');
-        } else {
-          body.classList.remove('high-contrast');
-          localStorage.setItem('highContrast', 'false');
-        }
-      }
-
-      toggleButton.addEventListener('click', () => {
-        const isEnabled = body.classList.contains('high-contrast');
-        setContrastMode(!isEnabled);
-      });
-
-      // On page load, check saved preference
-      document.addEventListener('DOMContentLoaded', () => {
-        const saved = localStorage.getItem('highContrast');
-        if (saved === 'true') {
-          setContrastMode(true);
-        } else {
-          setContrastMode(false);
-        }
-      });
-
-      // Função para navegar entre etapas
-      function navegarParaEtapa(etapa) {
-        const urls = {
-          'tamanho': '/tamanho/',
-          'confirmar_adicionar': '/confirmar_adicionar/',
-          'pagamento': '/pagamento/',
-          'endereco': '/endereco/',
-          'revisao': '/revisao/'
-        };
-
-        if (urls[etapa]) {
-          window.location.href = urls[etapa];
-        }
-      }
-
-      // Filtros de sabores
-      const cartoesSabor = document.querySelectorAll('.cartao-sabor');
-      const searchInput = document.getElementById('search-flavors');
-
-      function applyFilters() {
-        const searchTerm = searchInput.value.toLowerCase();
-        cartoesSabor.forEach(cartao => {
-          const name = cartao.querySelector('h3').textContent.toLowerCase();
-          const matchesSearch = name.includes(searchTerm);
-          if (matchesSearch) {
-            cartao.style.display = 'flex';
-          } else {
-            cartao.style.display = 'none';
-          }
-        });
-      }
-
-      searchInput.addEventListener('input', applyFilters);
-    </script>
   </body>
       <footer class="rodape">
       <div class="redes-sociais">
