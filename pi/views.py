@@ -132,8 +132,9 @@ def cadastrar(request):
         )
         usuario.save()
 
-        messages.success(request, "Cadastro realizado com sucesso. Faça login.")
-        return redirect('pedido:login')
+        # Log in the user automatically after successful registration
+        auth_login(request, usuario)
+        return redirect("pedido:selecionar_tamanho")
 
     return render(request, "cadastro.html")
 

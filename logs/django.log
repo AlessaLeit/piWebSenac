@@ -2234,3 +2234,7 @@ INFO 2025-11-10 16:35:28,764 basehttp 14088 26184 "GET /login/ HTTP/1.1" 200 500
 INFO 2025-11-10 16:35:30,014 basehttp 14088 26184 "GET /cadastro/ HTTP/1.1" 200 7300
 INFO 2025-11-10 16:35:36,766 basehttp 14088 26184 "POST /cadastro/ HTTP/1.1" 200 7680
 INFO 2025-11-10 16:35:41,350 basehttp 14088 26184 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:37:09,873 autoreload 736 22424 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:37:10,024 autoreload 14088 2276 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:37:10,423 autoreload 9064 18484 Watching for file changes with StatReloader
+INFO 2025-11-10 16:37:10,573 autoreload 20800 19788 Watching for file changes with StatReloader
