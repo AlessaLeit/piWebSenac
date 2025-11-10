@@ -41,7 +41,7 @@ AUTH_USER_MODEL = 'pi.Usuario'
 
 # Adiciona o backend de autenticação customizado
 AUTHENTICATION_BACKENDS = [
-    'pi.backends.CPFOrEmailOrTelefoneBackend',  # Nosso backend customizado
+    'pi.backends.CPFBackend',  # Nosso backend customizado
     'django.contrib.auth.backends.ModelBackend', # O backend padrão do Django
 ]
 

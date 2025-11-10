@@ -2185,3 +2185,8 @@ INFO 2025-11-10 15:37:02,058 basehttp 22032 21272 "GET /cadastro/ HTTP/1.1" 200 
 INFO 2025-11-10 15:37:04,857 basehttp 22032 21272 "GET /tamanho HTTP/1.1" 301 0
 INFO 2025-11-10 15:37:04,864 basehttp 22032 2816 "GET /tamanho/ HTTP/1.1" 200 7397
 INFO 2025-11-10 15:37:06,062 basehttp 22032 2816 "GET /login/ HTTP/1.1" 200 4442
+INFO 2025-11-10 16:13:37,521 autoreload 22032 25752 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\backends.py changed, reloading.
+INFO 2025-11-10 16:13:38,140 autoreload 15208 20932 Watching for file changes with StatReloader
+INFO 2025-11-10 16:13:48,657 autoreload 15208 20932 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-11-10 16:13:49,176 autoreload 11560 19688 Watching for file changes with StatReloader
+INFO 2025-11-10 16:14:30,289 autoreload 11528 22640 Watching for file changes with StatReloader
