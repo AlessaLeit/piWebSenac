@@ -2238,3 +2238,4 @@ INFO 2025-11-10 16:37:09,873 autoreload 736 22424 C:\Users\alessandra.leite\Down
 INFO 2025-11-10 16:37:10,024 autoreload 14088 2276 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
 INFO 2025-11-10 16:37:10,423 autoreload 9064 18484 Watching for file changes with StatReloader
 INFO 2025-11-10 16:37:10,573 autoreload 20800 19788 Watching for file changes with StatReloader
+INFO 2025-11-10 16:37:23,560 basehttp 9064 9428 "GET /tamanho/ HTTP/1.1" 200 7397
