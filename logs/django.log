@@ -1994,3 +1994,161 @@ INFO 2025-11-05 16:41:56,374 basehttp 16076 16648 "GET /static/css/estilo.css HT
 INFO 2025-11-05 16:42:02,060 basehttp 16076 16648 "GET /tamanho/ HTTP/1.1" 200 7503
 INFO 2025-11-05 16:42:02,846 basehttp 16076 16648 "GET /login/ HTTP/1.1" 200 4543
 INFO 2025-11-05 16:42:03,813 basehttp 16076 16648 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-05 16:44:11,196 basehttp 16076 16648 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-05 16:44:11,207 basehttp 16076 16648 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-05 16:44:50,833 basehttp 16076 16648 "GET /login/ HTTP/1.1" 200 4543
+INFO 2025-11-05 16:44:51,730 basehttp 16076 16648 "GET /cadastro/ HTTP/1.1" 200 7416
+INFO 2025-11-10 15:06:42,775 autoreload 15044 18644 Watching for file changes with StatReloader
+INFO 2025-11-10 15:07:53,184 basehttp 15044 3256 "GET / HTTP/1.1" 302 0
+INFO 2025-11-10 15:07:53,231 basehttp 15044 3256 "GET /tamanho/ HTTP/1.1" 200 7384
+INFO 2025-11-10 15:07:53,331 basehttp 15044 3256 "GET /static/css/estilo.css HTTP/1.1" 200 21597
+INFO 2025-11-10 15:07:53,340 basehttp 15044 20368 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-10 15:07:53,345 basehttp 15044 21800 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-10 15:07:53,348 basehttp 15044 7208 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-10 15:07:59,421 basehttp 15044 7208 "GET /confirmar_adicionar/ HTTP/1.1" 200 6284
+INFO 2025-11-10 15:08:00,379 basehttp 15044 7208 "GET /tamanho/ HTTP/1.1" 200 7384
+INFO 2025-11-10 15:08:01,019 basehttp 15044 7208 "GET /pagamento/ HTTP/1.1" 200 6919
+INFO 2025-11-10 15:08:01,398 basehttp 15044 7208 "GET /endereco/ HTTP/1.1" 200 8085
+INFO 2025-11-10 15:08:01,942 basehttp 15044 7208 "GET /revisao/ HTTP/1.1" 200 6497
+INFO 2025-11-10 15:08:02,893 basehttp 15044 7208 "GET /tamanho/ HTTP/1.1" 200 7384
+INFO 2025-11-10 15:08:04,581 basehttp 15044 7208 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:08:04,590 basehttp 15044 7208 "GET /sabores_calzone/ HTTP/1.1" 200 12134
+INFO 2025-11-10 15:08:08,750 basehttp 15044 7208 "POST /sabores_calzone/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:08:08,757 basehttp 15044 7208 "GET /confirmar_adicionar/ HTTP/1.1" 200 7299
+INFO 2025-11-10 15:08:12,298 basehttp 15044 7208 "GET /revisao/ HTTP/1.1" 200 6497
+INFO 2025-11-10 15:08:15,269 basehttp 15044 7208 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-11-10 15:08:18,262 basehttp 15044 7208 "GET /tamanho/ HTTP/1.1" 200 7391
+INFO 2025-11-10 15:08:54,757 basehttp 15044 7208 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-11-10 15:08:55,671 basehttp 15044 7208 "GET /cadastro HTTP/1.1" 301 0
+INFO 2025-11-10 15:08:55,675 basehttp 15044 21800 "GET /cadastro/ HTTP/1.1" 200 7300
+INFO 2025-11-10 15:12:46,384 autoreload 15044 18644 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 15:12:46,957 autoreload 19988 7716 Watching for file changes with StatReloader
+INFO 2025-11-10 15:13:02,667 autoreload 19988 7716 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 15:13:03,401 autoreload 21824 18364 Watching for file changes with StatReloader
+INFO 2025-11-10 15:13:04,722 autoreload 21824 18364 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 15:13:05,251 autoreload 23260 5812 Watching for file changes with StatReloader
+INFO 2025-11-10 15:13:11,714 autoreload 23260 5812 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\urls.py changed, reloading.
+INFO 2025-11-10 15:13:12,313 autoreload 12344 11880 Watching for file changes with StatReloader
+INFO 2025-11-10 15:14:09,499 autoreload 1180 7368 Watching for file changes with StatReloader
+INFO 2025-11-10 15:14:23,954 basehttp 12344 11512 "GET / HTTP/1.1" 302 0
+INFO 2025-11-10 15:14:23,991 basehttp 12344 11512 "GET /tamanho/ HTTP/1.1" 200 7391
+INFO 2025-11-10 15:14:40,489 basehttp 12344 11512 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-11-10 15:21:11,416 autoreload 20784 4304 Watching for file changes with StatReloader
+INFO 2025-11-10 15:21:12,973 basehttp 20784 22520 "GET / HTTP/1.1" 302 0
+INFO 2025-11-10 15:21:13,040 basehttp 20784 22520 "GET /tamanho/ HTTP/1.1" 200 7391
+INFO 2025-11-10 15:21:14,379 basehttp 20784 22520 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-11-10 15:21:31,338 basehttp 20784 22520 "POST /login/ HTTP/1.1" 200 4522
+INFO 2025-11-10 15:21:52,609 basehttp 20784 22520 "POST /login/ HTTP/1.1" 200 4522
+INFO 2025-11-10 15:21:56,334 basehttp 20784 22520 "GET /cadastro/ HTTP/1.1" 200 7676
+INFO 2025-11-10 15:22:29,998 basehttp 20784 22520 "POST /cadastro/ HTTP/1.1" 200 7638
+INFO 2025-11-10 15:22:35,327 basehttp 20784 22520 "GET /tamanho HTTP/1.1" 301 0
+INFO 2025-11-10 15:22:35,335 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7391
+INFO 2025-11-10 15:22:36,206 basehttp 20784 13220 "GET /login/ HTTP/1.1" 200 4427
+INFO 2025-11-10 15:22:44,062 basehttp 20784 13220 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:22:44,073 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-10 15:22:49,959 basehttp 20784 13220 "GET /login/ HTTP/1.1" 200 4638
+INFO 2025-11-10 15:22:51,896 basehttp 20784 13220 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:22:58,227 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-10 15:23:00,236 basehttp 20784 13220 "GET /login/ HTTP/1.1" 200 4638
+INFO 2025-11-10 15:23:02,023 basehttp 20784 13220 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:23:15,784 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-10 15:25:26,942 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-10 15:25:28,714 basehttp 20784 13220 "GET /login/ HTTP/1.1" 200 4544
+INFO 2025-11-10 15:25:29,722 basehttp 20784 13220 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:25:31,793 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7503
+INFO 2025-11-10 15:25:45,211 basehttp 20784 13220 "GET /tamanho/ HTTP/1.1" 200 7384
+INFO 2025-11-10 15:25:45,278 basehttp 20784 13220 "GET /static/css/estilo.css HTTP/1.1" 200 21597
+INFO 2025-11-10 15:25:45,294 basehttp 20784 7276 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-10 15:25:45,296 basehttp 20784 21452 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-10 15:25:45,297 basehttp 20784 5668 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-10 15:25:47,012 basehttp 20784 5668 "GET /login/ HTTP/1.1" 200 4442
+INFO 2025-11-10 15:25:55,676 basehttp 20784 5668 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:25:55,683 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7496
+INFO 2025-11-10 15:26:15,266 basehttp 20784 5668 "GET /login/ HTTP/1.1" 200 4544
+INFO 2025-11-10 15:26:16,310 basehttp 20784 5668 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:26:17,507 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7496
+INFO 2025-11-10 15:26:56,389 basehttp 20784 5668 "GET /revisao/ HTTP/1.1" 200 6609
+INFO 2025-11-10 15:26:57,363 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7496
+INFO 2025-11-10 15:27:16,898 basehttp 20784 5668 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:16,914 basehttp 20784 5668 "GET /sabores/ HTTP/1.1" 200 44227
+INFO 2025-11-10 15:27:20,665 basehttp 20784 5668 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:20,676 basehttp 20784 5668 "GET /confirmar_adicionar/ HTTP/1.1" 200 9591
+INFO 2025-11-10 15:27:25,110 basehttp 20784 5668 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:25,133 basehttp 20784 5668 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7496
+INFO 2025-11-10 15:27:26,950 basehttp 20784 5668 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:26,965 basehttp 20784 5668 "GET /sabores_calzone/?adicionando=true HTTP/1.1" 200 12246
+INFO 2025-11-10 15:27:28,433 basehttp 20784 5668 "POST /sabores_calzone/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:28,443 basehttp 20784 5668 "GET /confirmar_adicionar/ HTTP/1.1" 200 10603
+INFO 2025-11-10 15:27:32,117 basehttp 20784 5668 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:32,129 basehttp 20784 5668 "GET /pagamento/ HTTP/1.1" 200 7195
+INFO 2025-11-10 15:27:37,658 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:27:39,271 basehttp 20784 5668 "GET /pagamento/ HTTP/1.1" 200 7195
+INFO 2025-11-10 15:27:41,796 basehttp 20784 5668 "POST /pagamento/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:41,806 basehttp 20784 5668 "GET /endereco/ HTTP/1.1" 200 8277
+INFO 2025-11-10 15:27:50,419 basehttp 20784 5668 "POST /endereco/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:27:50,433 basehttp 20784 5668 "GET /revisao/ HTTP/1.1" 200 8640
+INFO 2025-11-10 15:27:57,948 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:17,054 basehttp 20784 5668 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:28:21,965 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:24,527 basehttp 20784 5668 "GET /confirmar_adicionar/ HTTP/1.1" 200 10603
+INFO 2025-11-10 15:28:25,967 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:26,574 basehttp 20784 5668 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:28:29,921 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:32,583 basehttp 20784 5668 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:28:43,800 basehttp 20784 5668 "POST /perfil/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:28:43,810 basehttp 20784 5668 "GET /perfil/ HTTP/1.1" 200 5255
+INFO 2025-11-10 15:28:46,860 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:48,754 basehttp 20784 5668 "GET /endereco/ HTTP/1.1" 200 8273
+INFO 2025-11-10 15:28:50,684 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:52,555 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:28:53,745 basehttp 20784 5668 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:28:53,810 basehttp 20784 5668 "GET /sabores/ HTTP/1.1" 200 44223
+INFO 2025-11-10 15:28:55,615 basehttp 20784 5668 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:28:55,659 basehttp 20784 5668 "GET /confirmar_adicionar/ HTTP/1.1" 200 13773
+INFO 2025-11-10 15:28:56,327 basehttp 20784 5668 "GET /pagamento/ HTTP/1.1" 200 7191
+INFO 2025-11-10 15:28:57,492 basehttp 20784 5668 "GET /endereco/ HTTP/1.1" 200 8273
+INFO 2025-11-10 15:29:00,995 basehttp 20784 5668 "GET /perfil/ HTTP/1.1" 200 5117
+INFO 2025-11-10 15:29:02,802 basehttp 20784 5668 "GET /tamanho/ HTTP/1.1" 200 7499
+INFO 2025-11-10 15:29:04,093 basehttp 20784 5668 "GET /pagamento/ HTTP/1.1" 200 7191
+INFO 2025-11-10 15:29:05,096 basehttp 20784 5668 "GET /endereco/ HTTP/1.1" 200 8273
+INFO 2025-11-10 15:29:06,851 basehttp 20784 5668 "GET /revisao/ HTTP/1.1" 200 8636
+INFO 2025-11-10 15:29:09,984 basehttp 20784 5668 "GET /endereco/ HTTP/1.1" 200 8273
+INFO 2025-11-10 15:30:15,643 autoreload 20784 4304 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 15:30:16,707 autoreload 25496 15368 Watching for file changes with StatReloader
+INFO 2025-11-10 15:32:14,684 basehttp 25496 26500 "GET /endereco/ HTTP/1.1" 200 8273
+INFO 2025-11-10 15:32:16,073 basehttp 25496 26500 "GET /perfil/ HTTP/1.1" 200 5117
+INFO 2025-11-10 15:32:22,196 basehttp 25496 26500 "POST /perfil/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:22,204 basehttp 25496 26500 "GET /perfil/ HTTP/1.1" 200 5249
+INFO 2025-11-10 15:32:24,705 basehttp 25496 26500 "GET /tamanho/ HTTP/1.1" 200 7499
+INFO 2025-11-10 15:32:26,736 basehttp 25496 26500 "GET /endereco/ HTTP/1.1" 200 8273
+INFO 2025-11-10 15:32:28,520 basehttp 25496 26500 "GET /tamanho/ HTTP/1.1" 200 7499
+INFO 2025-11-10 15:32:29,274 basehttp 25496 26500 "GET /perfil/ HTTP/1.1" 200 5111
+INFO 2025-11-10 15:32:35,674 basehttp 25496 26500 "POST /perfil/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:35,680 basehttp 25496 26500 "GET /perfil/ HTTP/1.1" 200 5255
+INFO 2025-11-10 15:32:36,998 basehttp 25496 26500 "GET /tamanho/ HTTP/1.1" 200 7499
+INFO 2025-11-10 15:32:38,789 basehttp 25496 26500 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:38,804 basehttp 25496 26500 "GET /sabores/ HTTP/1.1" 200 44230
+INFO 2025-11-10 15:32:40,033 basehttp 25496 26500 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:40,053 basehttp 25496 26500 "GET /confirmar_adicionar/ HTTP/1.1" 200 13773
+INFO 2025-11-10 15:32:41,145 basehttp 25496 26500 "GET /endereco/ HTTP/1.1" 200 8279
+INFO 2025-11-10 15:32:42,814 basehttp 25496 26500 "GET /confirmar_adicionar/ HTTP/1.1" 200 13773
+INFO 2025-11-10 15:32:46,938 basehttp 25496 26500 "GET /confirmar_adicionar/?excluir=2 HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:46,954 basehttp 25496 26500 "GET /confirmar_adicionar/ HTTP/1.1" 200 10599
+INFO 2025-11-10 15:32:50,572 basehttp 25496 26500 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:50,581 basehttp 25496 26500 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7492
+INFO 2025-11-10 15:32:52,421 basehttp 25496 26500 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:52,432 basehttp 25496 26500 "GET /sabores/?adicionando=true HTTP/1.1" 200 44223
+INFO 2025-11-10 15:32:53,939 basehttp 25496 26500 "POST /sabores/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:53,948 basehttp 25496 26500 "GET /confirmar_adicionar/ HTTP/1.1" 200 13773
+INFO 2025-11-10 15:32:56,720 basehttp 25496 26500 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:32:56,734 basehttp 25496 26500 "GET /pagamento/ HTTP/1.1" 200 7286
+INFO 2025-11-10 15:33:04,929 basehttp 25496 26500 "POST /pagamento/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:33:04,948 basehttp 25496 26500 "GET /endereco/ HTTP/1.1" 200 8279
+INFO 2025-11-10 15:34:16,670 autoreload 25496 15368 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 15:34:17,365 autoreload 23624 25192 Watching for file changes with StatReloader
+INFO 2025-11-10 15:34:40,514 basehttp 23624 25200 "GET /endereco/ HTTP/1.1" 200 8279
+INFO 2025-11-10 15:34:46,058 basehttp 23624 25200 "POST /endereco/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:34:46,084 basehttp 23624 25200 "GET /revisao/ HTTP/1.1" 200 9603
+INFO 2025-11-10 15:34:48,624 basehttp 23624 25200 "GET /endereco/ HTTP/1.1" 200 8249
+INFO 2025-11-10 15:35:53,035 autoreload 23624 25192 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 15:35:53,661 autoreload 22032 25752 Watching for file changes with StatReloader

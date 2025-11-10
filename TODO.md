@@ -1,0 +1,4 @@
+- [ ] Adicionar view editar_perfil em pi/views.py com @login_required
+- [ ] Criar template pi/templates/perfil.html
+- [ ] Adicionar URL para perfil em pi/urls.py
+- [ ] Modificar header em templates para adicionar link ao perfil quando logado

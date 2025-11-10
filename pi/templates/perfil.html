@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Casa das Pizzas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <p>Canoinhas - SC</p>
+            <h1>
+                <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
+                Casa das Pizzas
+            </h1>
+            <p>Editar Perfil</p>
+
+            <div class="botoes-container">
+                <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+                <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
+                {% endif %}
+            </div>
+        </header>
+
+        <section class="secao-formulario">
+            <h2><i class="fas fa-user-edit"></i> Editar Perfil</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="erro">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                <div class="campo-endereco">
+                    <label for="id_nome">Nome:</label>
+                    <input type="text" id="id_nome" name="nome" value="{{ form_data.nome }}" required>
+                </div>
+                <div class="campo-endereco">
+                    <label for="id_cpf">CPF:</label>
+                    <input type="text" id="id_cpf" name="cpf" value="{{ form_data.cpf }}" readonly style="background-color: #f0f0f0;">
+                </div>
+                <div class="campo-endereco">
+                    <label for="id_telefone">Telefone:</label>
+                    <input type="text" id="id_telefone" name="telefone" value="{{ form_data.telefone }}" required oninput="formatTelefone(this)">
+                </div>
+                <div class="campo-endereco">
+                    <label for="id_endereco">Endereço:</label>
+                    <input type="text" id="id_endereco" name="endereco" value="{{ form_data.endereco }}">
+                </div>
+                <div class="campo-endereco">
+                    <label for="id_email">Email:</label>
+                    <input type="email" id="id_email" name="email" value="{{ form_data.email }}" required>
+                </div>
+                <button type="submit" class="botao">Salvar Alterações</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // Toggle high contrast mode and save preference in localStorage
+        const toggleButton = document.getElementById('toggle-contrast');
+        const body = document.body;
+
+        function setContrastMode(enabled) {
+            if (enabled) {
+                body.classList.add('high-contrast');
+                localStorage.setItem('highContrast', 'true');
+            } else {
+                body.classList.remove('high-contrast');
+                localStorage.setItem('highContrast', 'false');
+            }
+        }
+
+        toggleButton.addEventListener('click', () => {
+            const isEnabled = body.classList.contains('high-contrast');
+            setContrastMode(!isEnabled);
+        });
+
+        // On page load, check saved preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('highContrast');
+            if (saved === 'true') {
+                setContrastMode(true);
+            } else {
+                setContrastMode(false);
+            }
+        });
+
+        // Format telefone
+        function formatTelefone(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                if (value.length <= 2) {
+                    value = value;
+                } else if (value.length <= 6) {
+                    value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+                } else if (value.length <= 10) {
+                    value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+                } else {
+                    value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+                }
+            }
+            input.value = value;
+        }
+    </script>
+</body>
+<footer class="rodape">
+    <div class="redes-sociais">
+        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
+    </div>
+    <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+</footer>
+</html>

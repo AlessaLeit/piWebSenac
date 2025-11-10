@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.urls import reverse
 from django.core.validators import EmailValidator, ValidationError
+from django.contrib.auth.decorators import login_required
 from .models import Usuario
 
 def validar_cpf(cpf):
@@ -531,7 +532,8 @@ def selecionar_endereco(request):
             order['nome'] = request.user.first_name
         if not order.get('telefone'):
             order['telefone'] = request.user.telefone
-        if not order.get('endereco') and request.user.endereco:
+        # Pull endereco from DB when delivery is selected (retirada not active)
+        if not order.get('retirada', False) and request.user.endereco:
             order['endereco'] = request.user.endereco
 
     if request.method == "POST":
@@ -563,7 +565,8 @@ def selecionar_endereco(request):
 
     response = render(request, 'pedido/endereco.html', {
         'etapa': 'endereco',
-        'pedido': order
+        'pedido': order,
+        'user_endereco': request.user.endereco if request.user.is_authenticated else ''
     })
     response.set_cookie('order', json.dumps(order))
     return response
@@ -755,6 +758,66 @@ def logout(request):
     response.delete_cookie('observacoes')
     response.delete_cookie('order')
     return response
+
+@login_required
+def editar_perfil(request):
+    user = request.user
+
+    if request.method == "POST":
+        nome = request.POST.get("nome")
+        telefone = request.POST.get("telefone")
+        endereco = request.POST.get("endereco")
+        email = request.POST.get("email")
+
+        # Validações
+        if not nome or len(nome) < 3:
+            messages.error(request, "Nome deve ter pelo menos 3 caracteres.")
+            return render(request, "perfil.html", {"form_data": request.POST})
+
+        if not validar_telefone(telefone):
+            messages.error(request, "Telefone inválido. Use o formato (XX) XXXXX-XXXX.")
+            return render(request, "perfil.html", {"form_data": request.POST})
+
+        if not validar_email(email):
+            messages.error(request, "Email inválido.")
+            return render(request, "perfil.html", {"form_data": request.POST})
+
+        # Verificar se email já existe em outro usuário
+        if Usuario.objects.filter(email=email).exclude(pk=user.pk).exists():
+            messages.error(request, "Email já cadastrado por outro usuário.")
+            return render(request, "perfil.html", {"form_data": request.POST})
+
+        # Atualizar dados
+        user.first_name = nome
+        user.telefone = telefone
+        user.endereco = endereco
+        user.email = email
+        user.save()
+
+        # Atualizar dados de entrega no pedido atual se existir
+        order = json.loads(request.COOKIES.get('order', '{}'))
+        if order:
+            order['nome'] = user.first_name
+            order['telefone'] = user.telefone
+            if user.endereco:
+                order['endereco'] = user.endereco
+
+        messages.success(request, "Perfil atualizado com sucesso.")
+        response = redirect('pedido:editar_perfil')
+        if order:
+            response.set_cookie('order', json.dumps(order))
+        return response
+
+    # Preencher formulário com dados atuais
+    form_data = {
+        'nome': user.first_name,
+        'telefone': user.telefone,
+        'endereco': user.endereco,
+        'email': user.email,
+        'cpf': user.cpf  # CPF não editável
+    }
+
+    return render(request, "perfil.html", {"form_data": form_data})
 
 def confirmar_reset_senha(request, uidb64, token):
     from django.contrib.auth.tokens import PasswordResetTokenGenerator

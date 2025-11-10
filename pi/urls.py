@@ -18,4 +18,5 @@ urlpatterns = [
     path('resetar_senha/', views.resetar_senha, name='resetar_senha'),
     path('confirmar_reset_senha/<uidb64>/<token>/', views.confirmar_reset_senha, name='confirmar_reset_senha'),
     path('logout/', views.logout, name='logout'),
+    path('perfil/', views.editar_perfil, name='editar_perfil'),
 ]
