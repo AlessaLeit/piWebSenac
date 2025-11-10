@@ -2239,3 +2239,36 @@ INFO 2025-11-10 16:37:10,024 autoreload 14088 2276 C:\Users\alessandra.leite\Dow
 INFO 2025-11-10 16:37:10,423 autoreload 9064 18484 Watching for file changes with StatReloader
 INFO 2025-11-10 16:37:10,573 autoreload 20800 19788 Watching for file changes with StatReloader
 INFO 2025-11-10 16:37:23,560 basehttp 9064 9428 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:44:02,499 basehttp 9064 4056 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-10 16:44:03,648 basehttp 9064 4056 "GET /cadastro/ HTTP/1.1" 200 7300
+INFO 2025-11-10 16:44:15,411 basehttp 9064 4056 "POST /cadastro/ HTTP/1.1" 200 7665
+ERROR 2025-11-10 16:44:25,998 log 9064 4056 Internal Server Error: /cadastro/
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\__init__.py", line 57, in _get_backend_from_user
+    backend = backend or user.backend
+                         ^^^^^^^^^^^^
+AttributeError: 'Usuario' object has no attribute 'backend'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py", line 136, in cadastrar
+    auth_login(request, usuario)
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\__init__.py", line 189, in login
+    backend = _get_backend_from_user(user=user, backend=backend)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alessandra.leite\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\__init__.py", line 63, in _get_backend_from_user
+    raise ValueError(
+ValueError: You have multiple authentication backends configured and therefore must provide the `backend` argument or set the `backend` attribute on the user.
+ERROR 2025-11-10 16:44:26,000 basehttp 9064 4056 "POST /cadastro/ HTTP/1.1" 500 86715
+INFO 2025-11-10 16:45:14,855 autoreload 20800 19788 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:45:15,039 autoreload 9064 18484 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:45:15,526 autoreload 16172 20504 Watching for file changes with StatReloader
+INFO 2025-11-10 16:45:15,598 autoreload 4932 900 Watching for file changes with StatReloader
+INFO 2025-11-10 16:46:01,816 autoreload 13924 12640 Watching for file changes with StatReloader

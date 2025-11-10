@@ -133,7 +133,8 @@ def cadastrar(request):
         usuario.save()
 
         # Log in the user automatically after successful registration
-        auth_login(request, usuario)
+        from pi.backends import CPFBackend
+        auth_login(request, usuario, backend='pi.backends.CPFBackend')
         return redirect("pedido:selecionar_tamanho")
 
     return render(request, "cadastro.html")
