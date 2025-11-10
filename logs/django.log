@@ -2190,3 +2190,12 @@ INFO 2025-11-10 16:13:38,140 autoreload 15208 20932 Watching for file changes wi
 INFO 2025-11-10 16:13:48,657 autoreload 15208 20932 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
 INFO 2025-11-10 16:13:49,176 autoreload 11560 19688 Watching for file changes with StatReloader
 INFO 2025-11-10 16:14:30,289 autoreload 11528 22640 Watching for file changes with StatReloader
+INFO 2025-11-10 16:14:45,902 basehttp 11528 17044 "GET / HTTP/1.1" 302 0
+INFO 2025-11-10 16:14:45,959 basehttp 11528 17044 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:14:47,375 basehttp 11528 17044 "GET /login/ HTTP/1.1" 200 4423
+INFO 2025-11-10 16:15:00,567 basehttp 11528 17044 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:15:00,579 basehttp 11528 17044 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 16:15:03,362 basehttp 11528 17044 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:15:03,370 basehttp 11528 17044 "GET /login/ HTTP/1.1" 200 4423
+INFO 2025-11-10 16:15:15,220 basehttp 11528 17044 "POST /login/ HTTP/1.1" 200 4518
+INFO 2025-11-10 16:15:16,649 basehttp 11528 17044 "GET /tamanho/ HTTP/1.1" 200 7397
