@@ -2152,3 +2152,36 @@ INFO 2025-11-10 15:34:46,084 basehttp 23624 25200 "GET /revisao/ HTTP/1.1" 200 9
 INFO 2025-11-10 15:34:48,624 basehttp 23624 25200 "GET /endereco/ HTTP/1.1" 200 8249
 INFO 2025-11-10 15:35:53,035 autoreload 23624 25192 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
 INFO 2025-11-10 15:35:53,661 autoreload 22032 25752 Watching for file changes with StatReloader
+INFO 2025-11-10 15:36:20,888 basehttp 22032 18604 "GET /endereco/ HTTP/1.1" 200 8337
+INFO 2025-11-10 15:36:28,349 basehttp 22032 18604 "POST /endereco/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:28,362 basehttp 22032 18604 "GET /revisao/ HTTP/1.1" 200 9640
+INFO 2025-11-10 15:36:30,712 basehttp 22032 18604 "GET /endereco/ HTTP/1.1" 200 8367
+INFO 2025-11-10 15:36:34,091 basehttp 22032 18604 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:36:35,546 basehttp 22032 18604 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:35,562 basehttp 22032 18604 "GET /sabores/ HTTP/1.1" 200 44223
+INFO 2025-11-10 15:36:37,813 basehttp 22032 18604 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:37,825 basehttp 22032 18604 "GET /confirmar_adicionar/ HTTP/1.1" 200 16959
+INFO 2025-11-10 15:36:41,440 basehttp 22032 18604 "GET /confirmar_adicionar/?excluir=3 HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:41,450 basehttp 22032 18604 "GET /confirmar_adicionar/ HTTP/1.1" 200 13773
+INFO 2025-11-10 15:36:43,057 basehttp 22032 18604 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:43,065 basehttp 22032 18604 "GET /confirmar_adicionar/ HTTP/1.1" 200 10578
+INFO 2025-11-10 15:36:44,285 basehttp 22032 18604 "GET /confirmar_adicionar/?editar=0 HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:44,307 basehttp 22032 18604 "GET /tamanho/?editando=true&from=confirmar_adicionar HTTP/1.1" 200 7499
+INFO 2025-11-10 15:36:45,031 basehttp 22032 18604 "POST /tamanho/?editando=true&from=confirmar_adicionar HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:45,077 basehttp 22032 18604 "GET /sabores_calzone/?editando=true&from=confirmar_adicionar HTTP/1.1" 200 12249
+INFO 2025-11-10 15:36:48,112 basehttp 22032 18604 "POST /sabores_calzone/?editando=true&from=confirmar_adicionar HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:48,122 basehttp 22032 18604 "GET /confirmar_adicionar/ HTTP/1.1" 200 10602
+INFO 2025-11-10 15:36:49,398 basehttp 22032 18604 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:49,408 basehttp 22032 18604 "GET /confirmar_adicionar/ HTTP/1.1" 200 7428
+INFO 2025-11-10 15:36:50,480 basehttp 22032 18604 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:50,493 basehttp 22032 18604 "GET /confirmar_adicionar/ HTTP/1.1" 200 6392
+INFO 2025-11-10 15:36:51,673 basehttp 22032 18604 "GET /revisao/ HTTP/1.1" 200 6690
+INFO 2025-11-10 15:36:55,036 basehttp 22032 18604 "GET /perfil/ HTTP/1.1" 200 5117
+INFO 2025-11-10 15:36:58,563 basehttp 22032 18604 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 15:36:59,137 basehttp 22032 18604 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-10 15:36:59,144 basehttp 22032 18604 "GET /login/ HTTP/1.1" 200 4442
+INFO 2025-11-10 15:37:02,052 basehttp 22032 18604 "GET /cadastro HTTP/1.1" 301 0
+INFO 2025-11-10 15:37:02,058 basehttp 22032 21272 "GET /cadastro/ HTTP/1.1" 200 7300
+INFO 2025-11-10 15:37:04,857 basehttp 22032 21272 "GET /tamanho HTTP/1.1" 301 0
+INFO 2025-11-10 15:37:04,864 basehttp 22032 2816 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 15:37:06,062 basehttp 22032 2816 "GET /login/ HTTP/1.1" 200 4442
