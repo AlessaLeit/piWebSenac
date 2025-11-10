@@ -37,11 +37,14 @@
               <form method="post">
                   {% csrf_token %}
                   {% if erro %}
-                      <div class="erro">{{ erro }}</div>
+                      <div class="alerta alerta-erro">
+                          <i class="fas fa-exclamation-triangle"></i>
+                          {{ erro }}
+                      </div>
                   {% endif %}
                   <div class="campo-endereco">
                       <label for="id">CPF:</label>
-                      <input type="text" id="id" name="id" required oninput="formatCPF(this)">
+                      <input type="text" id="id" name="id" required oninput="formatCPF(this)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido no formato XXX.XXX.XXX-XX">
                   </div>
                   <div class="campo-endereco">
                       <label for="senha">Senha:</label>
@@ -100,6 +103,17 @@
             togglePasswordButton.classList.remove('visible');
           }
         });
+
+        // Função para formatar CPF
+        function formatCPF(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+                value = value.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+            }
+            input.value = value;
+        }
 
       </script>
   </body>

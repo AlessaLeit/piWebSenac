@@ -7,8 +7,10 @@ class CPFBackend(ModelBackend):
     """
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
-            # Tenta encontrar um usuário que corresponda ao CPF
-            user = Usuario.objects.get(cpf=username)
+            # Limpar CPF para autenticação (remover pontos e traço)
+            cpf_limpo = ''.join(filter(str.isdigit, username))
+            # Tenta encontrar um usuário que corresponda ao CPF limpo
+            user = Usuario.objects.get(cpf=cpf_limpo)
         except Usuario.DoesNotExist:
             return None
 

@@ -2199,3 +2199,34 @@ INFO 2025-11-10 16:15:03,362 basehttp 11528 17044 "GET /logout/ HTTP/1.1" 302 0
 INFO 2025-11-10 16:15:03,370 basehttp 11528 17044 "GET /login/ HTTP/1.1" 200 4423
 INFO 2025-11-10 16:15:15,220 basehttp 11528 17044 "POST /login/ HTTP/1.1" 200 4518
 INFO 2025-11-10 16:15:16,649 basehttp 11528 17044 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:31:41,298 autoreload 11528 22640 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:31:42,036 autoreload 19256 18552 Watching for file changes with StatReloader
+INFO 2025-11-10 16:32:39,591 autoreload 18296 11512 Watching for file changes with StatReloader
+INFO 2025-11-10 16:32:51,003 basehttp 19256 6228 "GET / HTTP/1.1" 302 0
+INFO 2025-11-10 16:32:51,038 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:32:53,829 basehttp 19256 6228 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-10 16:33:12,063 basehttp 19256 6228 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:33:12,072 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 16:33:15,259 basehttp 19256 6228 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:33:15,264 basehttp 19256 6228 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-10 16:33:28,905 basehttp 19256 6228 "POST /login/ HTTP/1.1" 200 5230
+INFO 2025-11-10 16:33:41,324 basehttp 19256 6228 "POST /login/ HTTP/1.1" 200 5230
+INFO 2025-11-10 16:33:52,068 basehttp 19256 6228 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:33:52,078 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 16:33:53,543 basehttp 19256 6228 "GET /perfil/ HTTP/1.1" 200 5452
+INFO 2025-11-10 16:33:54,222 basehttp 19256 6228 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:33:54,227 basehttp 19256 6228 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-10 16:33:55,374 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:33:56,134 basehttp 19256 6228 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-10 16:34:01,286 basehttp 19256 6228 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:34:01,296 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 16:34:03,757 basehttp 19256 6228 "GET /perfil/ HTTP/1.1" 200 5117
+INFO 2025-11-10 16:34:07,385 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7492
+INFO 2025-11-10 16:34:08,421 basehttp 19256 6228 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-10 16:34:08,427 basehttp 19256 6228 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-10 16:34:09,810 basehttp 19256 6228 "GET /cadastro/ HTTP/1.1" 200 7300
+INFO 2025-11-10 16:34:17,606 basehttp 19256 6228 "POST /cadastro/ HTTP/1.1" 200 7728
+INFO 2025-11-10 16:34:55,194 basehttp 19256 6228 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-10 16:35:12,373 autoreload 18296 11512 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:35:12,384 autoreload 19256 18552 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-10 16:35:12,976 autoreload 14088 2276 Watching for file changes with StatReloader

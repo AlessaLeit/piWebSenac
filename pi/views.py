@@ -54,9 +54,12 @@ def login(request):
         id = request.POST.get("id")
         senha = request.POST.get("senha")
 
+        # Limpar CPF para autenticação (remover pontos e traço)
+        cpf_limpo = ''.join(filter(str.isdigit, id))
+
         # A função authenticate agora usará nosso backend customizado.
-        # O primeiro argumento para authenticate é sempre 'username', por isso passamos 'id' como 'username'.
-        user = authenticate(request, username=id, password=senha)
+        # O primeiro argumento para authenticate é sempre 'username', por isso passamos 'cpf_limpo' como 'username'.
+        user = authenticate(request, username=cpf_limpo, password=senha)
 
         if user is not None:
             # Se já há um usuário logado, fazer logout e limpar cookies
@@ -86,47 +89,37 @@ def cadastrar(request):
         senha = request.POST.get("senha")
         confirmarsenha = request.POST.get("confirmarsenha")
 
-        # Validações
+        # Validações - mostrar apenas o primeiro erro encontrado
         if not nome or len(nome) < 3:
-            messages.error(request, "Nome deve ter pelo menos 3 caracteres.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "Nome deve ter pelo menos 3 caracteres."})
 
         if not validar_cpf(cpf):
-            messages.error(request, "CPF inválido.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "CPF inválido."})
 
         if not validar_telefone(telefone):
-            messages.error(request, "Telefone inválido. Use o formato (XX) XXXXX-XXXX.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "Telefone inválido. Use o formato (XX) XXXXX-XXXX."})
 
         if not validar_email(email):
-            messages.error(request, "Email inválido.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "Email inválido."})
 
         if not validar_senha(senha):
-            messages.error(request, "Senha deve ter pelo menos 8 caracteres, incluindo maiúscula, minúscula e número.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "Senha deve ter pelo menos 8 caracteres, incluindo maiúscula, minúscula e número."})
 
         if senha != confirmarsenha:
-            messages.error(request, "As senhas não coincidem.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "As senhas não coincidem."})
 
         if not cpf or not telefone or not senha or not email:
-            messages.error(request, "CPF, telefone, email e senha são obrigatórios.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "CPF, telefone, email e senha são obrigatórios."})
 
         from .models import Usuario
         if Usuario.objects.filter(cpf=cpf).exists():
-            messages.error(request, "CPF já cadastrado.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "CPF já cadastrado."})
 
         if Usuario.objects.filter(telefone=telefone).exists():
-            messages.error(request, "Telefone já cadastrado.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "Telefone já cadastrado."})
 
         if Usuario.objects.filter(email=email).exists():
-            messages.error(request, "Email já cadastrado.")
-            return render(request, "cadastro.html", {"form_data": request.POST})
+            return render(request, "cadastro.html", {"form_data": request.POST, "erro": "Email já cadastrado."})
 
         usuario = Usuario.objects.create_user(
             # O username não é mais necessário, pois o USERNAME_FIELD é 'cpf'
