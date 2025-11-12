@@ -5,33 +5,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de pedidos online da Casa das Pizzas em Canoinhas - SC. Monte seu pedido e receba em casa.">
     <title>Login - Casa das Pizzas</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="{% static 'css/estilo.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'css/estilo.css' %}"></noscript>
 </head>
   <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
       <div class="container">
         <!-- Cabeçalho -->
         <header class="header">
           <p>Canoinhas - SC</p>
           <h1>
-            <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo">
+            <img src="{% static 'logo.jpg' %}" alt="Logo da Casa das Pizzas" class="logo" width="50" height="50">
             Casa das Pizzas
           </h1>
           <p>Entre na sua conta</p>
 
           <div class="botoes-container">
-            <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+            <button id="toggle-contrast" class="botao" aria-label="Alto-Contraste"><i class="fas fa-adjust"></i></button>
             {% if user.is_authenticated %}
-              <a href="{% url 'pedido:editar_perfil' %}" class="botao" id="btn-perfil"><i class="fas fa-user"></i></a>
-              <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
+              <a href="{% url 'pedido:editar_perfil' %}" class="botao" id="btn-perfil" aria-label="Editar perfil"><i class="fas fa-user"></i></a>
+              <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout" aria-label="Sair da conta"><i class="fas fa-sign-out-alt"></i></a>
             {% else %}
-              <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
+              <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao" id="btn-entrar" aria-label="Ir para página inicial"><i class="fas fa-home"></i></a>
             {% endif %}
           </div>
         </header>
 
+        <main id="main-content">
           <section class="secao-formulario">
               <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
               <form method="post">
@@ -50,7 +55,7 @@
                       <label for="senha">Senha:</label>
                       <div class="password-container">
                           <input type="password" id="senha" name="senha" required>
-                          <button type="button" id="toggle-password" class="eye-button"><i class="fas fa-eye"></i></button>
+                          <button type="button" id="toggle-password" class="eye-button" aria-label="Mostrar/ocultar senha"><i class="fas fa-eye"></i></button>
                       </div>
                       <a href="{% url 'pedido:resetar_senha' %}" class="link-reset">Esqueci minha senha</a>
                   </div>
@@ -58,7 +63,16 @@
                    <a href="/cadastro" class="botao" id="btn-cadastro">Cadastrar</a>
               </form>
           </section>
+        </main>
       </div>
+
+      <footer class="rodape">
+        <div class="redes-sociais">
+          <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank" aria-label="Visitar Instagram da Casa das Pizzas"><img src="{% static 'instagram.png' %}" alt="Instagram" width="24" height="24"></a>
+          <a href="https://www.facebook.com/Casadaspizza1/" target="_blank" aria-label="Visitar Facebook da Casa das Pizzas"><img src="{% static 'facebook.png'%}" alt="Facebook" width="24" height="24"></a>
+        </div>
+        <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+      </footer>
 
       <script>
         // Toggle high contrast mode and save preference in localStorage
@@ -117,11 +131,4 @@
 
       </script>
   </body>
-    <footer class="rodape">
-      <div class="redes-sociais">
-        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
-        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
-      </div>
-      <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
-    </footer>
 </html>

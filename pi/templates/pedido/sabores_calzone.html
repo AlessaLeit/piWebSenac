@@ -5,6 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Escolha o sabor do seu calzone na Casa das Pizzas. Opções deliciosas para todos os gostos." />
     <title>Casa das Pizzas - Canoinhas (SC)</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
@@ -30,7 +31,7 @@
 
         <div class="botoes-container">
           <button id="btn-back" class="botao" onclick="window.history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</button>
-          <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+          <button id="toggle-contrast" class="botao" aria-label="Alto-Contraste"><i class="fas fa-adjust"></i></button>
           {% if user.is_authenticated %}
             <a href="{% url 'pedido:editar_perfil' %}" class="botao" id="btn-perfil"><i class="fas fa-user"></i></a>
             <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
@@ -226,101 +227,101 @@
       </button>
     </div>
 
-    <script>
-      // URLs de navegação (iguais ao sabores.html)
-      const tamanhoUrl = "{% url 'pedido:selecionar_tamanho' %}";
-      const confirmarAdicionarUrl = "{% url 'pedido:confirmar_adicionar' %}";
-      const pagamentoUrl = "{% url 'pedido:selecionar_pagamento' %}";
-      const enderecoUrl = "{% url 'pedido:selecionar_endereco' %}";
-      const revisaoUrl = "{% url 'pedido:revisar_pedido' %}";
+      <script>
+        // URLs de navegação (iguais ao sabores.html)
+        const tamanhoUrl = "{% url 'pedido:selecionar_tamanho' %}";
+        const confirmarAdicionarUrl = "{% url 'pedido:confirmar_adicionar' %}";
+        const pagamentoUrl = "{% url 'pedido:selecionar_pagamento' %}";
+        const enderecoUrl = "{% url 'pedido:selecionar_endereco' %}";
+        const revisaoUrl = "{% url 'pedido:revisar_pedido' %}";
 
-      function navegarParaEtapa(etapa) {
-        const urls = {
-          'tamanho': tamanhoUrl,
-          'confirmar_adicionar': confirmarAdicionarUrl,
-          'pagamento': pagamentoUrl,
-          'endereco': enderecoUrl,
-          'revisao': revisaoUrl
-        };
-        if (urls[etapa]) {
-          window.location.href = urls[etapa];
-        }
-      }
-
-      // Configuração de sabores
-      const maxSabores = {% if pedido.tamanho == 'Calzone' %}1{% else %}3{% endif %};
-      const checkboxes = document.querySelectorAll('.cartao-sabor input[type="checkbox"]');
-      const contador = document.getElementById('contador');
-      const maxSaboresSpan = document.getElementById('max-sabores');
-      const form = document.getElementById('form-sabores');
-
-      function atualizarContador() {
-        const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
-        const quantidade = selecionados.length;
-        contador.textContent = quantidade;
-        if (maxSaboresSpan) maxSaboresSpan.textContent = maxSabores;
-
-        // Atualizar texto baseado na quantidade máxima
-        const saborText = document.getElementById('sabor-text');
-        if (saborText) {
-          saborText.textContent = maxSabores === 1 ? 'sabor selecionado' : 'sabores selecionados';
-        }
-
-        checkboxes.forEach(checkbox => {
-          if (!checkbox.checked && quantidade >= maxSabores) {
-            checkbox.disabled = true;
-            checkbox.parentElement.classList.add('desabilitado');
-          } else {
-            checkbox.disabled = false;
-            checkbox.parentElement.classList.remove('desabilitado');
+        function navegarParaEtapa(etapa) {
+          const urls = {
+            'tamanho': tamanhoUrl,
+            'confirmar_adicionar': confirmarAdicionarUrl,
+            'pagamento': pagamentoUrl,
+            'endereco': enderecoUrl,
+            'revisao': revisaoUrl
+          };
+          if (urls[etapa]) {
+            window.location.href = urls[etapa];
           }
-        });
-
-        // Atualizar classe do contador baseado na quantidade
-        contador.className = '';
-        if (quantidade === 0) {
-          contador.classList.add('zero');
-        } else if (quantidade === maxSabores) {
-          contador.classList.add('maximo');
-        } else {
-          contador.classList.add('parcial');
         }
 
-        const botaoFlutuante = document.getElementById('botao-flutuante');
-        if (botaoFlutuante) {
-          botaoFlutuante.style.display = quantidade > 0 ? 'flex' : 'none';
-        }
-      }
+        // Configuração de sabores
+        const maxSabores = {% if pedido.tamanho == 'Calzone' %}1{% else %}3{% endif %};
+        const checkboxes = document.querySelectorAll('.cartao-sabor input[type="checkbox"]');
+        const contador = document.getElementById('contador');
+        const maxSaboresSpan = document.getElementById('max-sabores');
+        const form = document.getElementById('form-sabores');
 
-      function atualizarSelecaoSabores() {
+        function atualizarContador() {
+          const selecionados = document.querySelectorAll('.cartao-sabor input[type="checkbox"]:checked');
+          const quantidade = selecionados.length;
+          contador.textContent = quantidade;
+          if (maxSaboresSpan) maxSaboresSpan.textContent = maxSabores;
+
+          // Atualizar texto baseado na quantidade máxima
+          const saborText = document.getElementById('sabor-text');
+          if (saborText) {
+            saborText.textContent = maxSabores === 1 ? 'sabor selecionado' : 'sabores selecionados';
+          }
+
+          checkboxes.forEach(checkbox => {
+            if (!checkbox.checked && quantidade >= maxSabores) {
+              checkbox.disabled = true;
+              checkbox.parentElement.classList.add('desabilitado');
+            } else {
+              checkbox.disabled = false;
+              checkbox.parentElement.classList.remove('desabilitado');
+            }
+          });
+
+          // Atualizar classe do contador baseado na quantidade
+          contador.className = '';
+          if (quantidade === 0) {
+            contador.classList.add('zero');
+          } else if (quantidade === maxSabores) {
+            contador.classList.add('maximo');
+          } else {
+            contador.classList.add('parcial');
+          }
+
+          const botaoFlutuante = document.getElementById('botao-flutuante');
+          if (botaoFlutuante) {
+            botaoFlutuante.style.display = quantidade > 0 ? 'flex' : 'none';
+          }
+        }
+
+        function atualizarSelecaoSabores() {
+          checkboxes.forEach(input => {
+            if (input.checked) {
+              input.parentElement.classList.add('selecionado');
+            } else {
+              input.parentElement.classList.remove('selecionado');
+            }
+          });
+        }
+
         checkboxes.forEach(input => {
-          if (input.checked) {
-            input.parentElement.classList.add('selecionado');
-          } else {
-            input.parentElement.classList.remove('selecionado');
-          }
+          input.addEventListener('change', () => {
+            atualizarSelecaoSabores();
+            atualizarContador();
+          });
         });
-      }
 
-      checkboxes.forEach(input => {
-        input.addEventListener('change', () => {
+        document.addEventListener('DOMContentLoaded', () => {
           atualizarSelecaoSabores();
           atualizarContador();
         });
-      });
+    </script>
 
-      document.addEventListener('DOMContentLoaded', () => {
-        atualizarSelecaoSabores();
-        atualizarContador();
-      });
-  </script>
-
-  </body>
-      <footer class="rodape">
+    <footer class="rodape">
       <div class="redes-sociais">
         <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
         <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
       </div>
       <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
     </footer>
-</html>
+  </body>
+  </html>

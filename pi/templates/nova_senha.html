@@ -18,7 +18,7 @@
           </h1>
           <p>Recupere sua senha</p>
           <div class="botoes-container">
-            <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+            <button id="toggle-contrast" class="botao" aria-label="Alto-Contraste"><i class="fas fa-adjust"></i></button>
                         <a href="{% url 'pedido:selecionar_tamanho' %}" class="botao" id="btn-entrar"><i class="fas fa-home"></i></a>
             <a href="/login" class="botao" id="btn-login"><i class="fas fa-user"></i> Entrar</a>
           </div>
@@ -112,12 +112,12 @@
         }
 
       </script>
-  </body>
-    <footer class="rodape">
-      <div class="redes-sociais">
-        <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
-        <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
-      </div>
-      <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
-    </footer>
-</html>
+      <footer class="rodape">
+        <div class="redes-sociais">
+          <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
+          <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
+        </div>
+        <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
+      </footer>
+    </body>
+  </html>

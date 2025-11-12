@@ -5,6 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Escolha a forma de pagamento para o seu pedido na Casa das Pizzas. Aceitamos Pix, cartão e dinheiro." />
     <title>Casa das Pizzas - Canoinhas </title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -23,7 +24,7 @@
         <p>Monte seu pedido e receba em casa!</p>
 
         <div class="botoes-container">
-          <button id="toggle-contrast" class="botao"><i class="fas fa-adjust"></i></button>
+          <button id="toggle-contrast" class="botao" aria-label="Alto-Contraste"><i class="fas fa-adjust"></i></button>
           {% if user.is_authenticated %}
             <a href="{% url 'pedido:editar_perfil' %}" class="botao" id="btn-perfil"><i class="fas fa-user"></i></a>
             <a href="{% url 'pedido:logout' %}" class="botao" id="btn-logout"><i class="fas fa-sign-out-alt"></i></a>
@@ -179,12 +180,12 @@
         }
       });
     </script>
-  </body>
-      <footer class="rodape">
+    <footer class="rodape">
       <div class="redes-sociais">
         <a href="https://www.instagram.com/casadaspizzas_oficial?igsh=MTRzdzRmeGwzZTQ0ZA==" target="_blank"><img src="{% static 'instagram.png' %}" alt="Instagram"></a>
         <a href="https://www.facebook.com/Casadaspizza1/" target="_blank"><img src="{% static 'facebook.png'%}" alt="Facebook"></a>
       </div>
       <p class="direitos">TODOS OS DIREITOS RESERVADOS © 2025 CASA DAS PIZZAS</p>
     </footer>
+  </body>
 </html>

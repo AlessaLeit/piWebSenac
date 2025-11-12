@@ -54,7 +54,8 @@ ul {
 
 .header p {
     font-size: 1rem;
-    opacity: 0.9;
+    color: #ffffff; 
+    font-weight: bold; 
 }
 
 .botoes-container {
@@ -1094,6 +1095,7 @@ ul {
 
 .campo-endereco input:focus,
 .campo-endereco textarea:focus {
-    outline: 2px solid #d62828;
+    border-color: #d62828;
+    outline: 2px solid rgba(214, 40, 40, 0.5);
     outline-offset: 2px;
 }

@@ -2287,3 +2287,200 @@ INFO 2025-11-10 16:47:46,823 basehttp 16172 23124 "GET /tamanho/ HTTP/1.1" 200 7
 INFO 2025-11-10 16:47:53,055 basehttp 16172 23124 "GET /perfil/ HTTP/1.1" 200 5105
 INFO 2025-11-10 16:47:56,607 basehttp 16172 23124 "GET /logout/ HTTP/1.1" 302 0
 INFO 2025-11-10 16:47:56,613 basehttp 16172 23124 "GET /login/ HTTP/1.1" 200 5001
+INFO 2025-11-12 14:26:30,483 autoreload 4796 17456 Watching for file changes with StatReloader
+INFO 2025-11-12 14:29:55,545 basehttp 4796 2152 "GET / HTTP/1.1" 302 0
+INFO 2025-11-12 14:29:55,578 basehttp 4796 2152 "GET /tamanho/ HTTP/1.1" 200 7397
+INFO 2025-11-12 14:29:55,707 basehttp 4796 2152 "GET /static/css/estilo.css HTTP/1.1" 200 21597
+INFO 2025-11-12 14:29:55,718 basehttp 4796 23176 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-12 14:29:55,721 basehttp 4796 5332 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 14:29:55,721 basehttp 4796 16364 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-11-12 14:29:56,094 log 4796 16364 Not Found: /favicon.ico
+WARNING 2025-11-12 14:29:56,094 basehttp 4796 16364 "GET /favicon.ico HTTP/1.1" 404 5870
+INFO 2025-11-12 14:29:58,213 basehttp 4796 16364 "GET /tamanho/ HTTP/1.1" 200 7397
+WARNING 2025-11-12 14:30:02,578 log 4796 16364 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 14:30:02,578 basehttp 4796 16364 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 14:33:55,028 autoreload 9036 11624 Watching for file changes with StatReloader
+INFO 2025-11-12 14:35:07,893 basehttp 4796 14144 "GET /login HTTP/1.1" 301 0
+INFO 2025-11-12 14:35:07,899 basehttp 4796 23984 "GET /login/ HTTP/1.1" 200 5574
+INFO 2025-11-12 14:35:27,830 basehttp 4796 6556 "GET /cadastro HTTP/1.1" 301 0
+INFO 2025-11-12 14:35:27,833 basehttp 4796 20744 "GET /cadastro/ HTTP/1.1" 200 7943
+INFO 2025-11-12 14:37:37,290 basehttp 4796 23856 "GET /login HTTP/1.1" 301 0
+INFO 2025-11-12 14:37:37,293 basehttp 4796 23668 "GET /login/ HTTP/1.1" 200 5574
+INFO 2025-11-12 14:44:07,993 autoreload 25988 10508 Watching for file changes with StatReloader
+INFO 2025-11-12 14:44:09,071 basehttp 4796 24688 "GET / HTTP/1.1" 302 0
+INFO 2025-11-12 14:44:09,122 basehttp 4796 24688 "GET /tamanho/ HTTP/1.1" 200 7397
+WARNING 2025-11-12 14:44:16,057 log 4796 24688 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 14:44:16,058 basehttp 4796 24688 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:03:34,071 autoreload 1552 3804 Watching for file changes with StatReloader
+INFO 2025-11-12 15:03:35,707 basehttp 1552 9484 "GET / HTTP/1.1" 302 0
+INFO 2025-11-12 15:03:35,789 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7439
+WARNING 2025-11-12 15:03:45,434 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:03:45,435 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:03:56,118 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:03:56,118 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:04:09,428 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7439
+WARNING 2025-11-12 15:04:09,485 log 1552 9536 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:04:09,488 basehttp 1552 9536 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:04:09,581 basehttp 1552 25912 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-12 15:04:09,587 basehttp 1552 19552 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 15:04:09,591 basehttp 1552 20216 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-12 15:04:09,593 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 200 21427
+WARNING 2025-11-12 15:04:14,180 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:04:14,181 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:04:14,193 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:04:14,194 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:04:14,779 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7439
+INFO 2025-11-12 15:04:14,801 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:04:14,918 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:04:14,919 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:04:27,366 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:04:27,386 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:04:27,386 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:04:48,008 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7439
+INFO 2025-11-12 15:04:48,030 basehttp 1552 19552 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 15:04:48,031 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 200 21427
+INFO 2025-11-12 15:04:48,033 basehttp 1552 20216 "GET /static/logo.jpg HTTP/1.1" 200 97426
+WARNING 2025-11-12 15:04:48,049 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-11-12 15:04:48,049 basehttp 1552 20216 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-11-12 15:04:48,050 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:04:51,528 log 1552 9484 Not Found: /robots.txt
+WARNING 2025-11-12 15:04:51,528 basehttp 1552 9484 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 15:05:10,519 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:05:10,520 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:05:10,547 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:05:10,549 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:05:11,401 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7439
+INFO 2025-11-12 15:05:11,418 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:05:11,537 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:05:11,538 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:07:11,348 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:07:11,359 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:07:11,370 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:07:11,370 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:07:18,052 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:07:18,052 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:07:24,417 basehttp 1552 9484 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:07:24,438 basehttp 1552 19552 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 15:07:24,438 basehttp 1552 9484 "GET /static/css/estilo.css HTTP/1.1" 200 21427
+INFO 2025-11-12 15:07:24,439 basehttp 1552 20216 "GET /static/logo.jpg HTTP/1.1" 200 97426
+WARNING 2025-11-12 15:07:24,450 log 1552 9484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:07:24,451 basehttp 1552 9484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:07:24,452 basehttp 1552 19552 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-11-12 15:07:29,538 log 1552 20216 Not Found: /robots.txt
+WARNING 2025-11-12 15:07:29,538 basehttp 1552 20216 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 15:07:38,502 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:07:38,502 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:07:38,516 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:07:38,517 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:07:39,187 basehttp 1552 20216 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 15:07:39,324 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:07:39,324 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:09:25,661 basehttp 1552 20216 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:09:25,713 basehttp 1552 20216 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-12 15:09:37,174 basehttp 1552 20216 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:09:37,201 basehttp 1552 20216 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:09:37,213 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:09:37,213 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:09:42,533 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:09:42,533 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:09:48,522 basehttp 1552 20216 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 15:09:48,561 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:09:48,565 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:09:48,566 basehttp 1552 19552 "GET /static/css/estilo.css HTTP/1.1" 200 21427
+INFO 2025-11-12 15:09:48,567 basehttp 1552 20840 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 15:09:48,568 basehttp 1552 20216 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-12 15:09:48,569 basehttp 1552 9484 "GET /static/logo.jpg HTTP/1.1" 200 97426
+WARNING 2025-11-12 15:09:53,556 log 1552 20216 Not Found: /robots.txt
+WARNING 2025-11-12 15:09:53,556 basehttp 1552 20216 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 15:10:02,159 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:10:02,163 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:10:02,190 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:10:02,190 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:10:02,823 basehttp 1552 20216 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 15:10:02,968 log 1552 20216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:10:02,968 basehttp 1552 20216 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:15:51,328 basehttp 1552 9876 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:15:51,336 basehttp 1552 9876 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:15:53,295 log 1552 9876 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:15:53,296 basehttp 1552 9876 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:15:58,313 basehttp 1552 9876 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:15:58,346 basehttp 1552 9876 "GET /static/css/estilo.css HTTP/1.1" 200 21427
+INFO 2025-11-12 15:15:58,348 basehttp 1552 7012 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-12 15:15:58,350 basehttp 1552 9876 "GET /static/instagram.png HTTP/1.1" 200 801
+WARNING 2025-11-12 15:15:58,357 log 1552 3140 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:15:58,359 basehttp 1552 3140 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:15:58,362 basehttp 1552 9876 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-11-12 15:16:01,597 log 1552 9876 Not Found: /robots.txt
+WARNING 2025-11-12 15:16:01,597 basehttp 1552 9876 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 15:16:03,242 log 1552 9876 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:16:03,243 basehttp 1552 9876 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:16:03,254 log 1552 9876 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:16:03,254 basehttp 1552 9876 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:16:03,863 basehttp 1552 9876 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 15:16:03,988 log 1552 9876 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:16:03,989 basehttp 1552 9876 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:57:26,350 autoreload 1552 3804 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-11-12 15:57:27,052 autoreload 26336 2624 Watching for file changes with StatReloader
+INFO 2025-11-12 15:58:25,467 basehttp 26336 24624 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 15:58:25,480 basehttp 26336 24624 "GET /static/css/estilo.css HTTP/1.1" 304 0
+WARNING 2025-11-12 15:58:25,525 log 26336 24624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:58:25,525 basehttp 26336 24624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:58:29,590 log 26336 24624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:58:29,590 basehttp 26336 24624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:58:34,449 basehttp 26336 24624 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 15:58:34,492 log 26336 14412 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:58:34,494 basehttp 26336 14412 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:58:34,572 basehttp 26336 18560 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-12 15:58:34,577 basehttp 26336 13372 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 15:58:34,581 basehttp 26336 21924 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-12 15:58:34,588 basehttp 26336 24624 "GET /static/css/estilo.css HTTP/1.1" 200 20045
+WARNING 2025-11-12 15:58:37,670 log 26336 24624 Not Found: /robots.txt
+WARNING 2025-11-12 15:58:37,671 basehttp 26336 24624 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 15:58:39,327 log 26336 24624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:58:39,327 basehttp 26336 24624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 15:58:39,345 log 26336 24624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:58:39,346 basehttp 26336 24624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 15:58:39,961 basehttp 26336 24624 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 15:58:40,087 log 26336 24624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 15:58:40,088 basehttp 26336 24624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:00:20,168 autoreload 25576 7428 Watching for file changes with StatReloader
+INFO 2025-11-12 16:00:21,320 basehttp 25576 3420 "GET / HTTP/1.1" 302 0
+INFO 2025-11-12 16:00:21,354 basehttp 25576 3420 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 16:00:26,868 log 25576 3420 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:00:26,868 basehttp 25576 3420 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:00:31,886 basehttp 25576 3420 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 16:00:31,931 log 25576 11732 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:00:31,933 basehttp 25576 11732 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:00:32,021 basehttp 25576 21436 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 16:00:32,021 basehttp 25576 3420 "GET /static/css/estilo.css HTTP/1.1" 200 20045
+INFO 2025-11-12 16:00:32,027 basehttp 25576 16068 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-12 16:00:32,029 basehttp 25576 25004 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-11-12 16:00:35,025 log 25576 25004 Not Found: /robots.txt
+WARNING 2025-11-12 16:00:35,026 basehttp 25576 25004 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 16:00:36,639 log 25576 25004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:00:36,640 basehttp 25576 25004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 16:00:36,651 log 25576 25004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:00:36,652 basehttp 25576 25004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:00:37,257 basehttp 25576 25004 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 16:00:37,378 log 25576 25004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:00:37,378 basehttp 25576 25004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 16:04:49,772 log 25576 25004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:04:49,774 basehttp 25576 25004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:04:55,448 basehttp 25576 25004 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-12 16:04:55,474 basehttp 25576 3420 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-12 16:04:55,475 basehttp 25576 25004 "GET /static/css/estilo.css HTTP/1.1" 200 20045
+INFO 2025-11-12 16:04:55,475 basehttp 25576 16068 "GET /static/logo.jpg HTTP/1.1" 200 97426
+WARNING 2025-11-12 16:04:55,492 log 25576 25004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:04:55,493 basehttp 25576 25004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:04:55,494 basehttp 25576 16068 "GET /static/facebook.png HTTP/1.1" 200 455
+WARNING 2025-11-12 16:04:58,631 log 25576 16068 Not Found: /robots.txt
+WARNING 2025-11-12 16:04:58,631 basehttp 25576 16068 "GET /robots.txt HTTP/1.1" 404 5867
+WARNING 2025-11-12 16:05:00,353 log 25576 16068 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:05:00,353 basehttp 25576 16068 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+WARNING 2025-11-12 16:05:00,369 log 25576 16068 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:05:00,370 basehttp 25576 16068 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:05:01,008 basehttp 25576 16068 "GET /tamanho/ HTTP/1.1" 200 7604
+WARNING 2025-11-12 16:05:01,111 log 25576 16068 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-12 16:05:01,112 basehttp 25576 16068 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-12 16:06:56,728 autoreload 25576 7428 C:\Users\alessandra.leite\Downloads\web\servidorWeb\piWebSenac\PiWeb\settings.py changed, reloading.
+INFO 2025-11-12 16:06:57,506 autoreload 8768 21164 Watching for file changes with StatReloader
