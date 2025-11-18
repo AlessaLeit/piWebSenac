@@ -2545,3 +2545,76 @@ WARNING 2025-11-12 16:11:00,962 basehttp 8768 2912 "GET /.well-known/appspecific
 INFO 2025-11-12 16:11:01,598 basehttp 8768 2912 "GET /tamanho/ HTTP/1.1" 200 7604
 WARNING 2025-11-12 16:11:01,733 log 8768 2912 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2025-11-12 16:11:01,735 basehttp 8768 2912 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5981
+INFO 2025-11-18 15:54:25,786 autoreload 3888 4684 Watching for file changes with StatReloader
+INFO 2025-11-18 15:54:27,773 basehttp 3888 16856 "GET / HTTP/1.1" 302 0
+INFO 2025-11-18 15:54:27,866 basehttp 3888 16856 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-18 15:54:27,976 basehttp 3888 18728 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-18 15:54:27,980 basehttp 3888 16856 "GET /static/css/estilo.css HTTP/1.1" 200 21668
+INFO 2025-11-18 15:54:27,981 basehttp 3888 8376 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-18 15:54:27,981 basehttp 3888 11208 "GET /static/logo.jpg HTTP/1.1" 200 97426
+WARNING 2025-11-18 15:54:28,435 log 3888 8376 Not Found: /favicon.ico
+WARNING 2025-11-18 15:54:28,435 basehttp 3888 8376 "GET /favicon.ico HTTP/1.1" 404 5870
+INFO 2025-11-18 15:54:40,933 basehttp 3888 8376 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-18 15:54:40,943 basehttp 3888 8376 "GET /static/css/estilo.css HTTP/1.1" 200 21668
+INFO 2025-11-18 15:54:40,943 basehttp 3888 16856 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-18 15:54:40,944 basehttp 3888 18728 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-18 15:54:40,944 basehttp 3888 11208 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-18 15:54:54,248 basehttp 3888 18728 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-18 15:55:19,147 basehttp 3888 18728 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:19,156 basehttp 3888 18728 "GET /sabores_calzone/ HTTP/1.1" 200 12466
+INFO 2025-11-18 15:55:19,183 basehttp 3888 18728 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:19,183 basehttp 3888 11208 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:19,183 basehttp 3888 16856 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:19,183 basehttp 3888 8376 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:20,835 basehttp 3888 8376 "POST /sabores_calzone/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:20,858 basehttp 3888 8376 "GET /confirmar_adicionar/ HTTP/1.1" 200 7894
+INFO 2025-11-18 15:55:23,594 basehttp 3888 8376 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:23,604 basehttp 3888 8376 "GET /pagamento/ HTTP/1.1" 200 7158
+INFO 2025-11-18 15:55:24,809 autoreload 3888 4684 C:\Users\alessandra.leite\Downloads\web\Nova pasta\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-18 15:55:25,590 autoreload 15696 15228 Watching for file changes with StatReloader
+INFO 2025-11-18 15:55:27,808 basehttp 15696 2284 "GET /confirmar_adicionar/?excluir=0 HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:27,820 basehttp 15696 2284 "GET /confirmar_adicionar/ HTTP/1.1" 200 6882
+INFO 2025-11-18 15:55:28,576 basehttp 15696 2284 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:28,619 basehttp 15696 2284 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7604
+INFO 2025-11-18 15:55:44,855 autoreload 9764 18308 Watching for file changes with StatReloader
+INFO 2025-11-18 15:55:47,408 basehttp 15696 2284 "GET /tamanho/?adicionando=true HTTP/1.1" 200 7604
+INFO 2025-11-18 15:55:49,194 basehttp 15696 2284 "POST /tamanho/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:49,208 basehttp 15696 2284 "GET /sabores/?adicionando=true HTTP/1.1" 200 44126
+INFO 2025-11-18 15:55:50,910 basehttp 15696 2284 "POST /sabores/?adicionando=true HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:50,921 basehttp 15696 2284 "GET /confirmar_adicionar/ HTTP/1.1" 200 10053
+INFO 2025-11-18 15:55:54,737 basehttp 15696 2284 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:54,752 basehttp 15696 2284 "GET /pagamento/ HTTP/1.1" 200 7186
+INFO 2025-11-18 15:55:54,764 basehttp 15696 14528 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:54,764 basehttp 15696 2284 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:54,764 basehttp 15696 19492 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:54,764 basehttp 15696 7144 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:55:59,899 basehttp 15696 7144 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:55:59,905 basehttp 15696 7144 "GET /pagamento/ HTTP/1.1" 200 7193
+INFO 2025-11-18 15:56:25,207 basehttp 15696 7144 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:56:25,214 basehttp 15696 7144 "GET /pagamento/ HTTP/1.1" 200 7193
+INFO 2025-11-18 15:56:38,174 basehttp 15696 7144 "POST /pagamento/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:56:38,179 basehttp 15696 7144 "GET /endereco/ HTTP/1.1" 200 8386
+INFO 2025-11-18 15:56:38,190 basehttp 15696 7144 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-18 15:56:38,190 basehttp 15696 19492 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 15:56:38,191 basehttp 15696 2284 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:56:38,191 basehttp 15696 14528 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:56:40,368 autoreload 9764 18308 C:\Users\alessandra.leite\Downloads\web\Nova pasta\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-18 15:56:40,835 autoreload 15696 15228 C:\Users\alessandra.leite\Downloads\web\Nova pasta\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-18 15:56:41,310 autoreload 2472 14804 Watching for file changes with StatReloader
+INFO 2025-11-18 15:56:41,641 autoreload 20708 13496 Watching for file changes with StatReloader
+INFO 2025-11-18 15:56:45,052 basehttp 2472 20444 "POST /endereco/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:56:45,067 basehttp 2472 20444 "GET /revisao/ HTTP/1.1" 200 7671
+INFO 2025-11-18 15:57:05,332 basehttp 2472 20444 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-18 15:57:07,393 basehttp 2472 20444 "GET /revisao/ HTTP/1.1" 200 7671
+INFO 2025-11-18 15:57:34,050 autoreload 2472 14804 C:\Users\alessandra.leite\Downloads\web\Nova pasta\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-18 15:57:34,184 autoreload 20708 13496 C:\Users\alessandra.leite\Downloads\web\Nova pasta\piWebSenac\pi\views.py changed, reloading.
+INFO 2025-11-18 15:57:34,620 autoreload 2744 20628 Watching for file changes with StatReloader
+INFO 2025-11-18 15:57:34,721 autoreload 6204 9480 Watching for file changes with StatReloader
+INFO 2025-11-18 15:57:49,135 basehttp 2744 20380 "GET /revisao/ HTTP/1.1" 200 7671
+INFO 2025-11-18 15:57:49,145 basehttp 2744 14968 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 15:57:49,145 basehttp 2744 20380 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-18 15:57:49,146 basehttp 2744 20072 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:57:49,147 basehttp 2744 8124 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-11-18 15:57:55,541 basehttp 2744 8124 "GET /pagamento/ HTTP/1.1" 200 7193
+INFO 2025-11-18 15:57:57,621 basehttp 2744 8124 "GET /confirmar_adicionar/ HTTP/1.1" 200 10053
+INFO 2025-11-18 15:58:10,937 autoreload 19736 10028 Watching for file changes with StatReloader

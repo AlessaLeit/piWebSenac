@@ -345,15 +345,19 @@ def confirmar_adicionar(request):
     for p in all_pizzas:
         tamanho = p.get('tamanho')
         if tamanho == "Média":
-            total += 50
+            total += 55
         elif tamanho == "Grande":
-            total += 60
+            total += 65
         elif tamanho == "Big":
-            total += 70
-        elif tamanho == "Calzone":
             total += 75
+        elif tamanho == "Calzone":
+            total += 85
 
-        # Não adicionar custo da borda aqui, apenas baseado no tamanho
+        # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
+        if tamanho in ['Média', 'Grande', 'Big']:
+            borda = p.get('borda', 'Sem Borda')
+            if borda and borda != 'Sem Borda':
+                total += 15
 
     # Excluir pizza pelo índice
     excluir_index = request.GET.get('excluir')
@@ -465,19 +469,19 @@ def selecionar_pagamento(request):
     for p in pedidos:
         tamanho = p.get('tamanho')
         if tamanho == "Média":
-            total += 50
+            total += 55
         elif tamanho == "Grande":
-            total += 60
+            total += 65
         elif tamanho == "Big":
-            total += 70
-        elif tamanho == "Calzone":
             total += 75
+        elif tamanho == "Calzone":
+            total += 85
 
         # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
         if tamanho in ['Média', 'Grande', 'Big']:
             borda = p.get('borda', 'Sem Borda')
             if borda and borda != 'Sem Borda':
-                total += 9
+                total += 15
 
     pagamento_selecionado = order.get('pagamento')
 
@@ -617,19 +621,19 @@ def revisar_pedido(request):
     total = 0
     for p in pedidos:
         if p['tamanho'] == "Média":
-            total += 50.00
+            total += 55.00
         elif p['tamanho'] == "Grande":
-            total += 60.00
+            total += 65.00
         elif p['tamanho'] == "Big":
-            total += 70.00
-        elif p['tamanho'] == "Calzone":
             total += 75.00
+        elif p['tamanho'] == "Calzone":
+            total += 85.00
 
         # Adicionar custo da borda se não for "Sem Borda" e for pizza (não Calzone)
         if p['tamanho'] in ['Média', 'Grande', 'Big']:
             borda = p.get('borda', 'Sem Borda')
             if borda and borda != 'Sem Borda':
-                total += 9
+                total += 15
 
     if request.method == "POST":
         # Update observacoes from POST data
