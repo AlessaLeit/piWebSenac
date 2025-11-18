@@ -2618,3 +2618,26 @@ INFO 2025-11-18 15:57:49,147 basehttp 2744 8124 "GET /static/facebook.png HTTP/1
 INFO 2025-11-18 15:57:55,541 basehttp 2744 8124 "GET /pagamento/ HTTP/1.1" 200 7193
 INFO 2025-11-18 15:57:57,621 basehttp 2744 8124 "GET /confirmar_adicionar/ HTTP/1.1" 200 10053
 INFO 2025-11-18 15:58:10,937 autoreload 19736 10028 Watching for file changes with StatReloader
+INFO 2025-11-18 15:58:12,000 basehttp 6204 8312 "GET / HTTP/1.1" 302 0
+INFO 2025-11-18 15:58:12,033 basehttp 6204 8312 "GET /tamanho/ HTTP/1.1" 200 7604
+INFO 2025-11-18 15:58:12,148 basehttp 6204 3604 "GET /static/instagram.png HTTP/1.1" 200 801
+INFO 2025-11-18 15:58:12,161 basehttp 6204 8312 "GET /static/css/estilo.css HTTP/1.1" 200 21668
+INFO 2025-11-18 15:58:12,161 basehttp 6204 1256 "GET /static/facebook.png HTTP/1.1" 200 455
+INFO 2025-11-18 15:58:12,162 basehttp 6204 1292 "GET /static/logo.jpg HTTP/1.1" 200 97426
+INFO 2025-11-18 15:58:17,273 basehttp 6204 1292 "POST /tamanho/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:58:17,285 basehttp 6204 1292 "GET /sabores/ HTTP/1.1" 200 44126
+INFO 2025-11-18 15:58:18,739 basehttp 6204 1292 "POST /sabores/ HTTP/1.1" 302 0
+INFO 2025-11-18 15:58:18,750 basehttp 6204 1292 "GET /confirmar_adicionar/ HTTP/1.1" 200 10053
+INFO 2025-11-18 16:00:44,810 basehttp 6204 1292 "GET /confirmar_adicionar/ HTTP/1.1" 200 10054
+INFO 2025-11-18 16:00:44,819 basehttp 6204 1292 "GET /static/css/estilo.css HTTP/1.1" 304 0
+INFO 2025-11-18 16:00:44,819 basehttp 6204 8312 "GET /static/instagram.png HTTP/1.1" 304 0
+INFO 2025-11-18 16:00:44,819 basehttp 6204 1256 "GET /static/logo.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 16:00:44,819 basehttp 6204 3604 "GET /static/facebook.png HTTP/1.1" 304 0
+INFO 2025-11-18 16:00:48,784 basehttp 6204 3604 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:00:48,829 basehttp 6204 3604 "GET /pagamento/ HTTP/1.1" 200 7186
+INFO 2025-11-18 16:00:55,732 basehttp 6204 3604 "POST /confirmar_adicionar/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:00:55,738 basehttp 6204 3604 "GET /pagamento/ HTTP/1.1" 200 7194
+INFO 2025-11-18 16:00:59,268 basehttp 6204 3604 "POST /pagamento/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:00:59,275 basehttp 6204 3604 "GET /endereco/ HTTP/1.1" 200 8386
+INFO 2025-11-18 16:01:01,880 basehttp 6204 3604 "GET /revisao/ HTTP/1.1" 200 7626
+INFO 2025-11-18 16:01:10,247 basehttp 6204 3604 "GET /tamanho/ HTTP/1.1" 200 7604
